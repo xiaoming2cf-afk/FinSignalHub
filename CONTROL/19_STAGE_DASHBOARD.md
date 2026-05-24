@@ -32,8 +32,8 @@ Update when a stage changes status, branch, PR, CI, Codex review, GPT Pro review
 
 | Stage | Status | Branch | PR | CI | Codex Review | GPT Pro Review | Blockers | Next Stage Source |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 00 | PASS / complete | `stage/00-control-system` pushed to `xiaoming2cf-afk/FinSignalHub` | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1 | PASS | PASS, no major issues on `ed0ba1d` | PASS, final confirmation saved | persistent `gh` auth missing for future sessions; Docker daemon unavailable for Stage 01 | GPT Pro authorized Stage 01 planning |
-| 01 | planned | not created | none | none | none | none | waiting Stage 01 plan approval; Docker daemon unavailable for final Stage 01 validation | GPT Pro Stage 00 final confirmation |
+| 00 | PASS / complete | `stage/00-control-system` merged; follow-up `stage/00-capability-resolution` open | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1; follow-up https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2 | PASS | PASS on PR #1; PR #2 P2 identity finding fixed and Codex follow-up found no major issues | PASS, final confirmation saved | none for Stage 00; `gh` and Docker restored after acceptance | GPT Pro authorized Stage 01 planning |
+| 01 | planned | not created | none | none | none | none | waiting Stage 01 plan approval and Stage 01-specific Docker validation | GPT Pro Stage 00 final confirmation |
 | 02 | planned | not created | none | none | none | none | waiting Stage 01 | GPT Pro required |
 | 03 | planned | not created | none | none | none | none | waiting Stage 02 | GPT Pro required |
 | 04 | planned | not created | none | none | none | none | waiting Stage 03 | GPT Pro required |
