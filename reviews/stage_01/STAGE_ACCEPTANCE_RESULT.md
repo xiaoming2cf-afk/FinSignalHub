@@ -2,15 +2,15 @@
 
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
-| Scope | `PLANS/STAGE_01_PLAN.md` | PENDING | Planning only; implementation not started |
+| Scope | `PLANS/STAGE_01_PLAN.md`; `reviews/stage_01/GPT_PRO_PLAN_REVIEW_RESPONSE.md` | PASS for planning | GPT Pro approved the plan; implementation scope remains gated |
 | Functionality | scaffold runtime files | BLOCKED | Docker and plan approval required before implementation |
-| Tests | planning and scaffold checks | PENDING | Planning checks only until implementation starts |
+| Tests | `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 01`; no-runtime check; secret scan; `git diff --check` | PASS for planning | Runtime tests are blocked until implementation is authorized |
 | Docs | Stage 01 docs | PENDING | Runtime docs deferred until implementation approval |
-| Logs | `CONTROL/04`, `RUNLOG/` | PENDING | Planning logs started |
-| GitHub | Stage 01 PR | BLOCKED | PR #7 is open and CI passed, but Codex found P1/P2 plan issues; fixes local |
+| Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/24`, `CONTROL/27`, `RUNLOG/` | PASS for planning | Planning logs and registries are populated; final implementation logs remain blocked |
+| GitHub | PR #7, CI checks, `reviews/stage_01/CODEX_REVIEW_SUMMARY.md` | BLOCKED/PENDING | PR #7 is open and CI passed; all known Codex findings through CR-01-011 are fixed, but current-head Codex follow-up/no-major evidence is still pending |
 | GPT Pro | Stage 01 plan review response | PASS | GPT Pro approved the Stage 01 plan; implementation remains blocked by Docker, user approval, and baseline conditions |
 | Product governance | `AGENTS.md`, product governor | PASS | Plan forbids product behavior and business logic |
-| Security | secret scan, no secrets | PENDING | Must run before PR |
+| Security | secret scan; sanitized GPT Pro capture | PASS for planning | No secrets were added; unrelated browser/account context was removed from committed GPT evidence |
 | Next stage | GPT Pro Stage 02 instruction | BLOCKED | Only after Stage 01 implementation PASS |
 
-Final result: BLOCKED before implementation. Stage 01 plan is approved by GPT Pro, but implementation must not start until Codex plan findings are fixed, Docker is revalidated, user approval is explicit, and PR #6 baseline is handled.
+Final result: BLOCKED before implementation. Stage 01 planning has GPT Pro PASS and local planning checks, but implementation must not start until current-head Codex follow-up clears or is explicitly recorded as blocked, Docker is revalidated, user approval is explicit, and PR #6 baseline is handled.
