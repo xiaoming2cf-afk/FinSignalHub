@@ -33,3 +33,4 @@ Update after every plan, goal start, subagent result, test run, commit, PR creat
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CP-0001 | 2026-05-24T11:41:00-05:00 | 00.1 | RunLog-driven plan execution started | none yet | read approved plan; `git switch -c stage/00-1-governance-cleanup` | branch active | create RunLog files and helper artifacts |
 | CP-0002 | 2026-05-24T11:45:52-05:00 | 00.1 | Local governance checks passed | RunLog controls, helper scripts, review artifacts, logs | control heading check; phase_check.py; py_compile; artifact existence; skill check; forbidden path check; secret scan; git diff check | pass | commit, push, create PR |
+| CP-0003 | 2026-05-24T11:47:22-05:00 | 00.1 | PR opened and Codex review requested | deployments/stage_00_1/GITHUB_PR.md pending update | git commit; git push; gh pr create; gh pr comment | PR #6 open; review requested | wait for CI and Codex |

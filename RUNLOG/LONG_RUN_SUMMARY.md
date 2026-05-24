@@ -8,7 +8,7 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks have passed. GitHub PR, Codex review, and GPT Pro review are still pending.
+Local Stage 00.1 governance checks have passed. PR #6 is open and `@codex review` has been requested. CI, Codex result, and GPT Pro review are still pending.
 
 Next expected milestones:
 

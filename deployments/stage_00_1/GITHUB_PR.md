@@ -2,7 +2,7 @@
 
 ## Status
 
-Pending.
+Open.
 
 ## Branch
 
@@ -10,15 +10,19 @@ Pending.
 
 ## PR URL
 
-Pending PR creation.
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-Pending.
+Pending GitHub Actions result.
 
 ## Codex Review
 
-Pending required comment:
+Requested at:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529382689
+
+Required comment:
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
 
