@@ -41,13 +41,14 @@ Current status:
 
 Gate 6 GitHub is PASS: branch, PR, CI, and Codex no-major-issues evidence are saved. Gate 7 GPT Pro is PASS: packet, response, action items, final result, and next-stage instruction are saved. Stage 00 is governance-only complete; Stage 01 must still start with a separate approved plan and goal.
 
-## Post-acceptance capability update
+## Post-acceptance capability and completion update
 
-This PR records that two deferred local-environment blockers have been resolved after Stage 00 acceptance:
+This PR records the final Stage 00 evidence state after acceptance:
 
 - GitHub CLI persistent login is available.
 - Docker Desktop daemon is available.
 - Codex review on PR #2 found one provenance clarity issue about account identity; this branch reconciled the active CLI account evidence and Codex follow-up reported no major issues.
 - GPT Pro post-acceptance review confirmed PASS for the restored GitHub CLI and Docker capability evidence and allowed Stage 01 planning only.
+- Prompt-by-prompt completion audit found stale early-blocker wording in several governance current-state sections; this branch updates those sections to reflect the final Stage 00 PASS state.
 
 No product runtime, backend, database, connector, frontend, or MCP business tool is introduced.

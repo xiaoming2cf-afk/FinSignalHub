@@ -2,20 +2,18 @@
 
 ## Status
 
-OPEN.
+PASS for PR #1, PR #2, PR #3, and PR #4. Prompt-completion confirmation PR #4 is open with CI passed and Codex no-major-issues evidence.
 
 ## Reason
 
-`D:\new work` is a local Git repository on branch `stage/00-control-system`. Remote repository exists at `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
+`D:\new work` is a local Git repository. Remote repository exists at `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 
 Branches pushed:
 
 - `main`
 - `stage/00-control-system`
 
-GitHub CLI is still not persistently authenticated, so PR creation and owner-side comment were completed with a temporary Git Credential Manager token.
-
-GitHub CLI web login was attempted, but the process timed out without creating a local GitHub auth session.
+GitHub CLI is now persistently authenticated as active account `xiaoming2cf-afk`.
 
 The GitHub plugin is connected as `lhy18613775`. It can read and comment on the public PR, but it is not the repository owner account for `xiaoming2cf-afk/FinSignalHub`.
 
@@ -164,3 +162,40 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/3#issuecomment-4528988041
 Current status:
 
 PASS. PR #3 records GPT Pro post-acceptance PASS evidence and Codex found no major issues.
+
+Merge status:
+
+PR #3 was merged at commit `6927b3b029e4dc904f71463031ca99d36031774b`.
+
+## Prompt Completion Confirmation PR
+
+Status:
+
+Open; CI passed; Codex review passed.
+
+PR:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4
+
+CI evidence:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26364207648/job/77605052473
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26364208386/job/77605054272
+
+Codex review request:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529044817
+
+Codex response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529048666
+
+Current status:
+
+PASS. Codex found no major issues.
+
+Purpose:
+
+- Confirm each user prompt in the Stage 00 governance sequence against saved evidence.
+- Correct stale current-state wording left from earlier blocker resolution steps.
+- Preserve the Stage 00 boundary: no business runtime, backend, database, connector, frontend, or MCP tool implementation.

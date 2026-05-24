@@ -27,7 +27,9 @@ Update at the start and end of every stage, whenever a control file is added, or
 
 ## Current state
 
-Stage 00 is active. FinSignalHub is locked to Research Mode-first, MCP-first, evidence-stream oriented governance. Business implementation is forbidden until Stage 00 gates are resolved and Stage 01 is planned from GPT Pro instructions.
+Stage 00 is PASS / COMPLETE. FinSignalHub remains locked to Research Mode-first, MCP-first, evidence-stream oriented governance. Stage 00 established the control system, capability audit, local skills, local plugin draft, GitHub/Codex review loop, GPT Pro review loop, stage task/checklist system, and acceptance evidence without implementing business runtime, backend, database, connectors, frontend, or MCP tools.
+
+Stage 01 planning is allowed only because GPT Pro authorized it after Stage 00 PASS. Stage 01 implementation is still forbidden until a Stage 01 plan is written, the user approves it, and a formal Stage 01 goal is started.
 
 Required read order for future stages:
 

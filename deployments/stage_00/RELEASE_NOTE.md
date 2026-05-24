@@ -18,14 +18,14 @@ Stage 00 released the FinSignalHub project control system only. It did not creat
 
 ## Deferred Items
 
-- Persistent `gh` authentication is not saved. Future stages should complete `gh auth login` or continue the documented manual/Git Credential Manager path with explicit logs.
-- Docker daemon is unavailable and blocks Stage 01 final acceptance until resolved.
 - GitHub Actions Node.js runtime changes should be watched before later stages.
 - Standalone Computer Use automation remains unconfirmed, but Stage 00 browser/GitHub workflow evidence is complete.
 
 ## Post-Acceptance Capability Update
 
 After Stage 00 acceptance, the user completed local GitHub CLI authentication and Docker Desktop startup. `gh auth status` now reports active account `xiaoming2cf-afk`, and Docker Server 29.3.1 is reachable on context `docker-desktop`.
+
+GPT Pro later reviewed this post-acceptance capability update and returned PASS. The saved response is `reviews/stage_00/GPT_PRO_POST_ACCEPTANCE_RESPONSE.md`.
 
 ## Stage 01 Boundary
 

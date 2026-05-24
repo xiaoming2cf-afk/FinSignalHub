@@ -100,6 +100,10 @@ For PR #2, Codex reviewed `4d38feec64`, identified one P2 account-identity prove
 
 For PR #3, Codex reviewed the GPT Pro post-acceptance confirmation evidence and replied that it did not find any major issues.
 
+For PR #4, Codex reviewed the prompt-completion confirmation evidence and replied that it did not find any major issues:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529048666
+
 ## Findings
 
 | ID | Severity | File | Finding | Resolution |
@@ -113,4 +117,4 @@ For PR #3, Codex reviewed the GPT Pro post-acceptance confirmation evidence and 
 
 ## Required follow-up
 
-No critical Codex findings remain for Stage 00 PR #1, PR #2, or PR #3. Latest PR #3 Codex evidence is `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/3#issuecomment-4528988041`. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process after the user approves the Stage 01 plan.
+No critical Codex findings remain for Stage 00 PR #1, PR #2, PR #3, or PR #4. Latest PR #4 Codex evidence is `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529048666`. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process after the user approves the Stage 01 plan.
