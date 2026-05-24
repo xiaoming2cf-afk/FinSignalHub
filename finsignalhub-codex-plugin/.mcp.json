@@ -1,0 +1,4 @@
+{
+  "mcpServers": {},
+  "notes": "Stage 00 intentionally defines no FinSignalHub MCP runtime servers. MCP tool implementation is reserved for Stage 06 after approved domain, connector, extraction, and claim graph stages."
+}

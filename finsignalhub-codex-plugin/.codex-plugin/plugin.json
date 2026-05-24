@@ -1,0 +1,30 @@
+{
+  "name": "finsignalhub-codex-plugin",
+  "version": "0.0.1-stage-00",
+  "description": "Local-only Codex plugin draft for FinSignalHub governance, phase gates, review packets, and evidence-stream project control.",
+  "skills": [
+    "finsignal-product-governor",
+    "phase-gate-auditor",
+    "gpt-pro-review-preparer",
+    "browser-gpt-pro-reviewer",
+    "github-stage-deployer",
+    "codex-log-keeper",
+    "mcp-tool-builder",
+    "connector-builder",
+    "evidence-graph-architect",
+    "repro-pack-builder",
+    "ai-capability-radar",
+    "subagent-coordinator",
+    "github-review-resolver",
+    "acceptance-evidence-collector",
+    "stage-next-goal-synthesizer"
+  ],
+  "intended_workflow": [
+    "Read AGENTS.md and CONTROL before each stage.",
+    "Generate a stage plan before implementation.",
+    "Run capability audit and product governance checks.",
+    "Create review packet, PR body, and phase acceptance result.",
+    "Require GitHub PR, Codex review, and GPT Pro review before next stage."
+  ],
+  "publish_status": "local-only"
+}
