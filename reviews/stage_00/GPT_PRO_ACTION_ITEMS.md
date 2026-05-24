@@ -14,7 +14,7 @@ CONDITIONAL PASS.
 6. Create `stage/00-control-system` branch. Status: done.
 7. Commit and push Stage 00 files. Status: done.
 8. Open PR with `reviews/stage_00/PR_BODY.md`. Status: done, PR #1.
-9. Request `@codex review`. Status: done; Codex returned one P1 and two P2 findings.
+9. Request `@codex review`. Status: done; Codex returned findings, fixes were pushed, and final follow-up reported no major issues.
 10. Save PR URL to `deployments/stage_00/GITHUB_PR.md`. Status: done.
 11. Keep Stage 00 as CONDITIONAL PASS / BLOCKED until GitHub review findings are resolved. Status: done.
 12. Prepare Stage 01 plan only after Stage 00 GitHub blockers are resolved. Status: recorded.
@@ -24,4 +24,4 @@ CONDITIONAL PASS.
 - Docker daemon unavailable: defer to Stage 01 readiness, but Stage 01 cannot pass without Docker validation.
 - Computer Use automation not fully verified: Browser/Chrome extension workflow was used for GPT Pro, but standalone Computer Use remains unconfirmed.
 - Business runtime not created: correct for Stage 00.
-- GitHub Actions ran and passed. Codex review ran and produced governance findings that must be fixed and re-reviewed.
+- GitHub Actions ran and passed. Codex review findings were fixed and final follow-up reported no major issues.

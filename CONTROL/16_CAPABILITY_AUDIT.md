@@ -41,7 +41,7 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | GitHub connection | partial | repo, PR, review | repo exists and PR is open, but GitHub plugin user differs from repo owner | connector can comment/read, but cannot fully administer repo | use repo owner browser/GCM session for owner actions; plugin for audit/comment | yes for owner-only actions |
 | GitHub CLI | requires user action | branch, push, PR | `gh` not persistently authenticated; temporary Git Credential Manager token worked for PR actions | future CLI actions may fail after credential expiry | user completes `gh auth login`; keep manual steps | yes |
 | GitHub Actions | available | CI gate | none for Stage 00 | governance CI passed on PR | none | no |
-| PR `@codex review` | available | Codex review gate | initial review returned one P1 and two P2 findings | Gate 6 remains blocked until findings are fixed and rechecked | push fixes and rerun `@codex review` | no |
+| PR `@codex review` | available | Codex review gate | initial and follow-up findings were fixed; final response found no major issues | Gate 6 satisfied for Stage 00 | none | no |
 | Subagents | available | independent Stage 00 completeness audit | must be spawned explicitly | improves verification | local self-check if unavailable | no |
 | MCP | available as concept/tool ecosystem | primary future product entrypoint | no FinSignalHub MCP server in Stage 00 | runtime not implemented by design | Stage 06 plan | no |
 | Local shell | available | checks and audits | none | supports verification | none | no |

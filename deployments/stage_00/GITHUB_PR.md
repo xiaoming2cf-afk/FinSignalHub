@@ -72,7 +72,17 @@ Findings:
 - P2: `reviews/stage_00/GPT_PRO_REVIEW_PACKET.md` still contained stale Git blocker evidence.
 - P2 follow-up: `.env.example` contained a concrete GPT Pro session URL instead of a placeholder.
 
-Resolution status: workflow and packet fixes were pushed in `ceb6eda`; `.env.example` placeholder fix is being pushed next, then `@codex review` must be rerun.
+Resolution status: workflow and packet fixes were pushed in `ceb6eda`; `.env.example` placeholder fix was pushed in `6ef3045`.
+
+Final owner-side follow-up request:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527955746
+
+Final Codex response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299
+
+Final Codex status: no major issues found.
 
 Browser follow-up on 2026-05-24:
 
