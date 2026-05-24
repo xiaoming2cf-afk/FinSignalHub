@@ -32,7 +32,7 @@ Update when a stage changes status, branch, PR, CI, Codex review, GPT Pro review
 
 | Stage | Status | Branch | PR | CI | Codex Review | GPT Pro Review | Blockers | Next Stage Source |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 00 | conditional pass / blocked | local `main` base and `stage/00-control-system` branch exist | none | none | blocked: no PR | CONDITIONAL PASS | no remote; gh unauthenticated after login attempt timeout; Docker daemon unavailable; full pass blocked by missing PR/CI/`@codex review` | GPT Pro Stage 01 instructions saved |
+| 00 | conditional pass / GitHub in progress | `stage/00-control-system` pushed to `xiaoming2cf-afk/FinSignalHub` | pending | pending | pending | CONDITIONAL PASS | `gh` unauthenticated; connector/browser account mismatch; Docker daemon unavailable | GPT Pro Stage 01 instructions saved |
 | 01 | planned | not created | none | none | none | none | waiting Stage 00 | GPT Pro required |
 | 02 | planned | not created | none | none | none | none | waiting Stage 01 | GPT Pro required |
 | 03 | planned | not created | none | none | none | none | waiting Stage 02 | GPT Pro required |

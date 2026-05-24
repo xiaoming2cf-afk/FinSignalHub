@@ -25,14 +25,15 @@ Local file-structure checks must verify required files, control headings, skill 
 
 ## Capability audit status
 
-Known blockers:
+Current status:
 
-- No Git repository or remote in `D:\new work`.
-- `gh` is installed but unauthenticated.
-- GitHub PR, Actions, and `@codex review` are blocked.
-- GPT Pro page review not submitted.
+- Local Git repository exists.
+- Remote repository exists: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
+- Branches pushed: `main` and `stage/00-control-system`.
+- GPT Pro review completed with CONDITIONAL PASS and saved in `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`.
+- `gh` remains unauthenticated, so PR creation and `@codex review` comment are being completed through the GitHub web session.
 - Docker daemon unavailable or permission required.
 
 ## Acceptance checklist
 
-Gate 6 GitHub and Gate 7 GPT Pro are blocked until external actions complete. Stage 00 must not be marked complete before those gates pass or are explicitly accepted as blocked.
+Gate 6 GitHub is in progress until PR URL, CI result, and `@codex review` evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before GitHub evidence is complete.

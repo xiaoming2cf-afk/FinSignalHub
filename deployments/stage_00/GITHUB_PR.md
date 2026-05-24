@@ -2,13 +2,18 @@
 
 ## Status
 
-BLOCKED.
+IN PROGRESS.
 
 ## Reason
 
-`D:\new work` is now a local Git repository on branch `stage/00-control-system`, but it has no GitHub remote. GitHub CLI is installed but not authenticated.
+`D:\new work` is a local Git repository on branch `stage/00-control-system`. Remote repository exists at `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 
-Local commit exists and must be confirmed with `git log --oneline -1` before push.
+Branches pushed:
+
+- `main`
+- `stage/00-control-system`
+
+GitHub CLI is still not authenticated, so PR creation and comment are being completed through GitHub web UI.
 
 GitHub CLI web login was attempted, but the process timed out without creating a local GitHub auth session.
 
@@ -22,4 +27,4 @@ GitHub CLI web login was attempted, but the process timed out without creating a
 
 ## PR URL
 
-Not available until user provides or creates a GitHub repository remote and authenticates `gh`.
+Pending creation through GitHub web UI.
