@@ -21,6 +21,7 @@ CONTROL_HEADINGS = (
     "## Example format",
     "## Current state",
 )
+KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
 
 
 def require_file(path: Path) -> None:
@@ -37,8 +38,16 @@ def check_control_headings() -> None:
             raise SystemExit(f"{path.relative_to(ROOT)} missing headings: {joined}")
 
 
+def normalize_stage(raw_stage: str) -> str:
+    stage = raw_stage.strip().replace(".", "_")
+    if stage not in KNOWN_STAGES:
+        known = ", ".join(sorted(KNOWN_STAGES))
+        raise SystemExit(f"unknown stage id: {raw_stage}; expected one of: {known}")
+    return stage
+
+
 def check_no_forbidden_stage00_runtime() -> None:
-    forbidden = [
+    forbidden_paths = [
         "apps",
         "backend",
         "frontend",
@@ -50,8 +59,16 @@ def check_no_forbidden_stage00_runtime() -> None:
         "fastapi",
         "next",
         "src",
+        "docker-compose.yml",
+        "compose.yaml",
+        "compose.yml",
+        "pyproject.toml",
+        "package.json",
+        "package-lock.json",
+        "pnpm-lock.yaml",
+        "yarn.lock",
     ]
-    present = [name for name in forbidden if (ROOT / name).exists()]
+    present = [name for name in forbidden_paths if (ROOT / name).exists()]
     if present:
         raise SystemExit(f"forbidden Stage 00/00.1 runtime paths exist: {', '.join(present)}")
 
@@ -67,7 +84,11 @@ def main() -> int:
     require_file(ROOT / "CONTROL" / "16_CAPABILITY_AUDIT.md")
     check_control_headings()
 
-    stage = args.stage
+    stage = normalize_stage(args.stage)
+    if stage == "00":
+        require_file(ROOT / "CHECKLISTS" / "STAGE_00_CHECKLIST.md")
+        require_file(ROOT / "reviews" / "stage_00" / "STAGE_ACCEPTANCE_RESULT.md")
+
     if stage in {"00", "00_1"}:
         check_no_forbidden_stage00_runtime()
 
@@ -86,6 +107,9 @@ def main() -> int:
             "deployments/stage_00_1/GITHUB_PR.md",
         ):
             require_file(ROOT / rel)
+    elif stage not in {"00"}:
+        require_file(ROOT / "CHECKLISTS" / f"STAGE_{stage}_CHECKLIST.md")
+        require_file(ROOT / "reviews" / f"stage_{stage}" / "STAGE_ACCEPTANCE_RESULT.md")
 
     print(f"phase-check-ok stage={stage}")
     return 0
