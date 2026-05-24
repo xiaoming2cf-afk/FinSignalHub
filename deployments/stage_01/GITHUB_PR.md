@@ -42,5 +42,8 @@ Current findings:
 - CR-01-006 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after latest Stage 01 checks.
 - CR-01-007 P2: mark Stage 01 plan artifacts as reviewed in `CONTROL/18_ARTIFACT_REGISTRY.md`.
 - CR-01-008 P2: refresh `CONTROL/24_CURRENT_STAGE_STATE.md` after latest check-pass checkpoint so it points to commit/push/follow-up, not stale checks.
+- CR-01-009 P2: mark Stage 01 checklist scope gate as passed for plan review.
+- CR-01-010 P2: refresh `CONTROL/07_CODEX_GOAL_REGISTRY.md` G-0002 to latest follow-up state.
+- CR-01-011 P3: remove duplicated milestone in `RUNLOG/LONG_RUN_SUMMARY.md`.
 
 Fixes are local and require push, CI, and follow-up Codex review.

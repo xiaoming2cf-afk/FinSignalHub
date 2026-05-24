@@ -2,7 +2,7 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pending plan review |
+| Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pass for planning; implementation scope still gated |
 | Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until plan approval and Docker validation |
 | Tests | Planning checks now; scaffold checks after implementation approval | pending |
 | Docs | Scaffold boundaries and command docs | pending |
