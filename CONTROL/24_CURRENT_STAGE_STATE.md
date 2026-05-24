@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 00.1 governance cleanup |
-| Current phase status | BLOCKED/PENDING final Codex follow-up after latest P1/P2 fixes |
-| Active branch | `stage/00-1-governance-cleanup` |
-| Latest PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
-| Latest CI status | PASS on `f1421eefa0`; new P1/P2 fixes pending push and CI |
-| Latest Codex review status | BLOCKED/PENDING: final evidence commit `f1421eefa0` produced CR-00.1-022 P1 and CR-00.1-023 P2; fixes are local |
-| Latest GPT Pro review status | PASS: Stage 00.1 accepted; Stage 01 planning only authorized |
-| Active goal id | G-0001 |
-| Next required action | run checks, commit and push CR-00.1-022/023 fixes, then request final Codex follow-up |
-| Blocker status | Docker daemon unavailable for later Stage 01 implementation; PR #6 must be merged or Stage 01 must branch from it before implementation |
-| Last updated time | 2026-05-24T15:05:30-05:00 |
+| Current stage | Stage 01 repo scaffold planning |
+| Current phase status | planning active; implementation not authorized |
+| Active branch | `stage/01-repo-scaffold` |
+| Latest PR | Stage 01 PR not opened; Stage 00.1 PR #6 remains open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
+| Latest CI status | Stage 00.1 PR #6 CI PASS on `897759b`; Stage 01 CI pending |
+| Latest Codex review status | Stage 00.1 PR #6 final no-major response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529839137; Stage 01 review pending |
+| Latest GPT Pro review status | Stage 00.1 PASS; Stage 01 plan review pending |
+| Active goal id | G-0002 |
+| Next required action | run Stage 01 planning checks and submit `reviews/stage_01/GPT_PRO_REVIEW_PACKET.md` to GPT Pro |
+| Blocker status | Docker daemon unavailable; Stage 01 implementation not authorized; PR #6 merge/base decision required before implementation |
+| Last updated time | 2026-05-24T15:15:16-05:00 |
 
-Current detected stage is: Stage 00.1 governance cleanup.
+Current detected stage is: Stage 01 repo scaffold planning.
 
-Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation. Stage 00.1 GPT Pro passed, but final PR #6 Codex follow-up is blocked until CR-00.1-022 and CR-00.1-023 fixes are pushed and reviewed.
+Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation. Stage 01 planning can continue.
 
-Next valid action is: run checks, commit and push CR-00.1-022/023 fixes, then request final Codex follow-up.
+Next valid action is: run Stage 01 planning checks and submit the plan packet to GPT Pro.

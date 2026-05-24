@@ -8,12 +8,14 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blockers for implementation: Docker daemon is not reachable, and PR #6 must be merged or Stage 01 must explicitly branch from `stage/00-1-governance-cleanup`. These do not block Stage 00.1 acceptance or Stage 01 planning.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Commit `43c570a1291b262faba32f288b29b0dfbf396029` passed CI and Codex follow-up found no major issues. GPT Pro returned Stage 00.1 PASS and authorized Stage 01 planning only. Final evidence commit `f1421eefa0` produced CR-00.1-022 P1 and CR-00.1-023 P2; fixes are local and require push, CI, and Codex follow-up.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Commit `897759b74cecff6c461bc5a7f3ee0f71d4071e18` passed CI and received final Codex no-major response. GPT Pro returned Stage 00.1 PASS and authorized Stage 01 planning only.
+
+Stage 01 planning is active on branch `stage/01-repo-scaffold`, created from Stage 00.1 head because PR #6 is not merged yet. Stage 01 implementation is not authorized.
 
 Next expected milestones:
 
-1. Run final checks after CR-00.1-022/023 fixes.
-2. Commit and push the P1/P2 fixes.
-3. Request final `@codex review` on PR #6.
-4. After final PR evidence is clean, begin Stage 01 planning only.
+1. Run Stage 01 planning checks.
+2. Submit `reviews/stage_01/GPT_PRO_REVIEW_PACKET.md` to GPT Pro.
+3. Save Stage 01 plan response and action items.
+4. Stop before implementation if Docker remains unavailable or GPT Pro/user approval is missing.
 5. Do not implement Stage 01 until the Stage 01 plan is approved by GPT Pro and the user, Docker is revalidated, and PR #6 is merged or the branch-base dependency is logged.

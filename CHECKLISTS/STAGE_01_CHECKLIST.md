@@ -2,13 +2,13 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | Scaffold only | planned |
-| Functionality | Monorepo, backend skeleton, MCP skeleton, admin skeleton, compose, health check | planned |
-| Tests | Scaffold and health checks | planned |
-| Docs | Scaffold boundaries | planned |
-| Logs | Stage logs current | planned |
-| GitHub | Branch, PR, CI, Codex review | planned |
-| GPT Pro | Packet, response, next-stage instruction | planned |
-| Product governance | No product behavior | planned |
-| Security | No secrets | planned |
-| Next stage | GPT Pro Stage 02 instruction | planned |
+| Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pending plan review |
+| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until plan approval and Docker validation |
+| Tests | Planning checks now; scaffold checks after implementation approval | pending |
+| Docs | Scaffold boundaries and command docs | pending |
+| Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/19`, `RUNLOG/` current | in progress |
+| GitHub | Branch, PR, CI, Codex review | branch created; PR pending |
+| GPT Pro | Plan packet, plan response, action items, final implementation review later | plan packet created; response pending |
+| Product governance | No product behavior, no Stage 02+ entities | pass for plan |
+| Security | No secrets; stop on login/payment/permission prompts | pending scan |
+| Next stage | GPT Pro Stage 02 instruction after Stage 01 final PASS | blocked |
