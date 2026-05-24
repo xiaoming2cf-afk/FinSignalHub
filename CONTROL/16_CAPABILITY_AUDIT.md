@@ -38,14 +38,14 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | In-app Browser | available | public/local web checks | none observed | can inspect non-login pages | Chrome extension for login pages | no for public pages |
 | Chrome extension | available | GPT Pro page and Codex settings pages with login state | none for GPT Pro after successful final confirmation | GPT Pro review and final confirmation completed | use only with user approval and stop on permission/account prompts | yes |
 | Computer Use | unknown | last-resort UI operation | standalone availability not confirmed | cannot rely on it | Browser or manual user action | yes |
-| GitHub connection | partial | repo, PR, review | repo exists and PR is open, but GitHub plugin user differs from repo owner | connector can comment/read, but cannot fully administer repo | use repo owner browser/GCM session for owner actions; plugin for audit/comment | yes for owner-only actions |
-| GitHub CLI | requires user action | branch, push, PR | `gh` not persistently authenticated; temporary Git Credential Manager token worked for PR actions | future CLI actions may fail after credential expiry | user completes `gh auth login`; keep manual steps | yes |
+| GitHub connection | available | repo, PR, review | repo exists and PR is open; GitHub plugin user differs from repo owner but PR workflow is functional | connector can comment/read and `gh` can perform authenticated CLI operations | record owner/account assumptions in stage PR logs | yes for owner-only browser actions |
+| GitHub CLI | available | branch, push, PR | none after persistent login | `gh auth status` reports account `lhy18613775` with `repo,workflow` scopes | none | no |
 | GitHub Actions | available | CI gate | none for Stage 00 | governance CI passed on PR | none | no |
 | PR `@codex review` | available | Codex review gate | initial and follow-up findings were fixed; final response found no major issues | Gate 6 satisfied for Stage 00 | none | no |
 | Subagents | available | independent Stage 00 completeness audit | must be spawned explicitly | improves verification | local self-check if unavailable | no |
 | MCP | available as concept/tool ecosystem | primary future product entrypoint | no FinSignalHub MCP server in Stage 00 | runtime not implemented by design | Stage 06 plan | no |
 | Local shell | available | checks and audits | none | supports verification | none | no |
-| Docker | requires user action | future Stage 01 compose | daemon unavailable | cannot verify Docker runtime | record blocker; retry after Docker starts | yes |
+| Docker | available | future Stage 01 compose | none after Docker Desktop startup | Docker Server 29.3.1 reachable on context `docker-desktop` | rerun Docker-specific tests in Stage 01 | no |
 | Python | available | future scripts/checks | none | can run verification scripts later | shell checks | no |
 | Node.js | available | future admin/tooling | none | available for later stages | none | no |
 | Package managers | partial | future JS tooling | `npm.ps1` blocked; `npm.cmd` works; pnpm/yarn unavailable | use `npm.cmd` on Windows | document command form | no |
