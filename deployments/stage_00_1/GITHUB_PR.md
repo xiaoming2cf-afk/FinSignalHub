@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on P1-fix commit `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`. The current evidence-sync and subagent-proof changes require push, CI, and follow-up Codex review before Gate 6 can pass.
+PASS on evidence-sync commit `266b8108904158415dd283b1a987d098a36b441c`. The latest two P2 script fixes require push, CI, and follow-up Codex review before Gate 6 can pass.
 
 Evidence:
 
@@ -36,6 +36,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369633973/job/77619419561
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369899386/job/77620115542
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369900324/job/77620117626
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370373982/job/77621392054
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370374954/job/77621394645
 
 ## Codex Review
 
@@ -64,3 +66,10 @@ Latest reviewed commit `50f9d1852d` produced one P1 finding:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295138487
 
 The finding is fixed in pushed commit `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`. CI passed on that commit. The evidence-sync and subagent-proof changes in this branch must also be pushed, pass CI, and receive follow-up `@codex review` before Gate 6 can return PASS.
+
+Latest follow-up on commit `266b8108904158415dd283b1a987d098a36b441c` produced two P2 findings:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295180243
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295180241
+
+Both are fixed locally. Push, CI, and follow-up `@codex review` are required before Gate 6 can return PASS.

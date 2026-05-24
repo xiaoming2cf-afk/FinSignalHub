@@ -119,6 +119,11 @@ def check_no_forbidden_stage00_runtime() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", required=True, help="Stage id such as 00, 00_1, or 01")
+    parser.add_argument(
+        "--final",
+        action="store_true",
+        help="Require final acceptance artifacts for future runtime stages.",
+    )
     args = parser.parse_args()
 
     require_file(ROOT / "AGENTS.md")
@@ -169,7 +174,8 @@ def main() -> int:
         check_plan_test_categories(stage_plan)
         require_file(ROOT / "TASKS" / f"STAGE_{stage}_TASKS.md")
         require_file(ROOT / "CHECKLISTS" / f"STAGE_{stage}_CHECKLIST.md")
-        require_file(ROOT / "reviews" / f"stage_{stage}" / "STAGE_ACCEPTANCE_RESULT.md")
+        if args.final:
+            require_file(ROOT / "reviews" / f"stage_{stage}" / "STAGE_ACCEPTANCE_RESULT.md")
 
     print(f"phase-check-ok stage={stage}")
     return 0

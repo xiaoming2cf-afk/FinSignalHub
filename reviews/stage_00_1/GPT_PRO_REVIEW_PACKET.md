@@ -44,9 +44,9 @@ Clean up and synchronize governance artifacts so long-running Codex sessions can
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 - Branch: `stage/00-1-governance-cleanup`
-- Latest pushed P1-fix commit with CI PASS at the time this packet was updated: `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`
-- CI evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369899386/job/77620115542 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369900324/job/77620117626
-- Codex review status: latest P1 finding was fixed and pushed; evidence-sync and subagent-proof changes must be pushed, pass CI, and receive follow-up `@codex review` before this packet is submitted to GPT Pro as final Stage 00.1 review.
+- Latest reviewed commit with CI PASS at the time this packet was updated: `266b8108904158415dd283b1a987d098a36b441c`
+- CI evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370373982/job/77621392054 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370374954/job/77621394645
+- Codex review status: latest review on `266b8108904158415dd283b1a987d098a36b441c` found two P2 script issues. Local fixes restrict review packet exports to new `artifacts/` files and add `phase_check.py --final`; those fixes must be pushed, pass CI, and receive follow-up `@codex review` before this packet is submitted to GPT Pro as final Stage 00.1 review.
 - Codex review summary: `reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md`
 - Deployment evidence: `deployments/stage_00_1/GITHUB_PR.md`
 

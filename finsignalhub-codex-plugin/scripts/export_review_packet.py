@@ -10,9 +10,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
+EXPORT_ROOT = ROOT / "artifacts"
 
 
-def repo_relative_path(raw_path: str) -> Path:
+def safe_export_output_path(raw_path: str) -> Path:
     candidate = Path(raw_path)
     if candidate.is_absolute():
         raise SystemExit("--output must be repository-relative")
@@ -24,6 +25,12 @@ def repo_relative_path(raw_path: str) -> Path:
         resolved.relative_to(root)
     except ValueError as exc:
         raise SystemExit("--output must stay inside the repository") from exc
+    try:
+        resolved.relative_to(EXPORT_ROOT.resolve())
+    except ValueError as exc:
+        raise SystemExit("--output must be under artifacts/") from exc
+    if resolved.exists():
+        raise SystemExit("--output must not overwrite an existing file")
     return resolved
 
 
@@ -74,7 +81,7 @@ def main() -> int:
         "\n## Blockers\n\n",
         read_required("CONTROL/20_BLOCKER_LOG.md"),
     ]
-    output = repo_relative_path(args.output)
+    output = safe_export_output_path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text("".join(parts), encoding="utf-8", newline="\n")
     print(output)
