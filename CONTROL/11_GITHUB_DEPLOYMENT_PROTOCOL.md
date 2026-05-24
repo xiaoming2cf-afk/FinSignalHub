@@ -53,4 +53,6 @@ Required PR comment:
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
 
-Stage 00 GitHub status is PASS. Branch `stage/00-control-system` is pushed, PR #1 exists, governance CI passed, and latest Codex follow-up on commit `f0c1d70` found no major issues. Persistent `gh` authentication is still not configured and remains a future-operations risk, so later stages must either complete `gh auth login` or use the documented manual/Git Credential Manager path with explicit logging.
+Stage 00 GitHub status is PASS. Branch `stage/00-control-system` was pushed and merged through PR #1. Post-acceptance capability evidence was merged through PR #2, and GPT Pro post-acceptance evidence was merged through PR #3. Governance CI passed on the latest Stage 00 evidence PRs, and Codex follow-up reviews found no major issues.
+
+Persistent GitHub CLI authentication is now available for active account `xiaoming2cf-afk`; `lhy18613775` remains only a non-active secondary login / connector account. Future stages must still record branch, PR, CI, `@codex review`, PR URL, and any account or permission blocker in their own deployment evidence.

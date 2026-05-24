@@ -45,4 +45,11 @@ Protocol:
 8. If PASS or accepted conditional resolution, request next-stage instructions.
 9. Save next-stage instruction in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`.
 
-Stage 00 GPT Pro status is BLOCKED until user-approved browser review is performed.
+Stage 00 GPT Pro status is PASS. The initial review, final Stage 00 confirmation, and post-acceptance capability confirmation are saved in:
+
+- `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_00/GPT_PRO_ACTION_ITEMS.md`
+- `reviews/stage_00/GPT_PRO_POST_ACCEPTANCE_RESPONSE.md`
+- `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
+
+GPT Pro authorized Stage 01 planning only. Stage 01 implementation still requires an approved Stage 01 plan and formal goal.
