@@ -6,9 +6,9 @@ PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
 
-Latest reviewed commit: `6c88721aee0be62c589722d3ab397e0576c086a5`
+Latest reviewed commit: `2fed8cf94d7a248e823d5e1ae899bba0154590b6`
 
-Latest status: traversal-segment P2 findings fixed locally; follow-up Codex review pending after push.
+Latest status: recursive forbidden-runtime P2 finding fixed locally; follow-up Codex review pending after push.
 
 ## Review request
 
@@ -40,6 +40,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 | CR-00.1-014 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` accepted absolute or traversal paths, allowing governance exports outside the repository. | Fixed locally by rejecting absolute paths and paths that resolve outside the repository. |
 | CR-00.1-015 | P2 | `finsignalhub-codex-plugin/scripts/log_append.py` | `--log-path` still accepted raw `..` traversal segments that normalized inside the repository, including paths that could target non-RunLog control files. | Fixed locally by rejecting any `..` segment and restricting log append destinations to `RUNLOG/`. |
 | CR-00.1-016 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` still accepted raw `..` traversal segments that normalized inside the repository. | Fixed locally by rejecting any `..` segment in the raw output path. |
+| CR-00.1-017 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Stage 00/00.1 runtime guard only checked top-level forbidden paths, allowing nested runtime scaffold paths such as `docs/backend/` or `tools/package.json` to evade the governance gate. | Fixed locally by recursively scanning repository paths outside `.git`, rejecting forbidden directory names in any path segment and forbidden scaffold file names anywhere in the repository. |
 
 ## Required follow-up
 
@@ -47,4 +48,4 @@ The previous no-major-issues response remains recorded:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Stage 00.1 must receive another follow-up Codex review after the CR-00.1-015 and CR-00.1-016 fixes are pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.
+Stage 00.1 must receive another follow-up Codex review after the CR-00.1-017 fix is pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.

@@ -47,7 +47,7 @@ def normalize_stage(raw_stage: str) -> str:
 
 
 def check_no_forbidden_stage00_runtime() -> None:
-    forbidden_paths = [
+    forbidden_dir_names = {
         "apps",
         "backend",
         "frontend",
@@ -59,6 +59,8 @@ def check_no_forbidden_stage00_runtime() -> None:
         "fastapi",
         "next",
         "src",
+    }
+    forbidden_file_names = {
         "docker-compose.yml",
         "compose.yaml",
         "compose.yml",
@@ -67,10 +69,22 @@ def check_no_forbidden_stage00_runtime() -> None:
         "package-lock.json",
         "pnpm-lock.yaml",
         "yarn.lock",
-    ]
-    present = [name for name in forbidden_paths if (ROOT / name).exists()]
+    }
+    present: list[str] = []
+    for path in ROOT.rglob("*"):
+        try:
+            rel = path.relative_to(ROOT)
+        except ValueError:
+            continue
+        if ".git" in rel.parts:
+            continue
+        if path.is_dir() and path.name.lower() in forbidden_dir_names:
+            present.append(rel.as_posix())
+        if path.is_file() and path.name.lower() in forbidden_file_names:
+            present.append(rel.as_posix())
     if present:
-        raise SystemExit(f"forbidden Stage 00/00.1 runtime paths exist: {', '.join(present)}")
+        joined = ", ".join(sorted(present))
+        raise SystemExit(f"forbidden Stage 00/00.1 runtime paths exist: {joined}")
 
 
 def main() -> int:

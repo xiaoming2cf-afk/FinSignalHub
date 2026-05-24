@@ -8,11 +8,11 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `6c88721aee`, but latest Codex review found two P2 issues: traversal segments inside repository-relative `log_append.py` and `export_review_packet.py` paths still needed to be rejected. The fixes are local and require checks, push, CI, and follow-up `@codex review`.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `2fed8cf94d`, but latest Codex review found one P2 issue: Stage 00/00.1 forbidden runtime scaffold detection needed to recurse through nested paths. The fix is local, local checks passed, and it still requires push, CI, and follow-up `@codex review`.
 
 Next expected milestones:
 
-1. Run local checks for the latest P2 fixes.
-2. Push fixes to PR #6 and request follow-up `@codex review`.
+1. Push the latest recursive runtime-guard fix to PR #6 and request follow-up `@codex review`.
+2. Wait for CI and Codex review to clear or resolve any further critical findings.
 3. Submit Stage 00.1 GPT Pro review packet only after Codex findings clear.
 4. If Stage 00.1 passes, create Stage 01 plan and submit it to GPT Pro.

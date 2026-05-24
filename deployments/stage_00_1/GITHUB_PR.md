@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on commit `6c88721aee`; follow-up CI pending after the latest traversal-segment fixes are pushed.
+PASS on commit `2fed8cf94d`; follow-up CI pending after the latest recursive runtime-guard fix is pushed.
 
 Evidence:
 
@@ -28,6 +28,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368676587/job/77616797380
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368924137/job/77617445474
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368925395/job/77617448293
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369132145/job/77618004380
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369132907/job/77618006982
 
 ## Codex Review
 
@@ -51,9 +53,8 @@ Previous Codex no-major-issues response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Latest reviewed commit `6c88721aee` produced two P2 findings:
+Latest reviewed commit `2fed8cf94d` produced one P2 finding:
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295100569
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295100573
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295113966
 
-The findings are fixed locally in `log_append.py` and `export_review_packet.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
+The finding is fixed locally in `phase_check.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
