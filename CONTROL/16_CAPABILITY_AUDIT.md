@@ -36,7 +36,7 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | Plugins | available | Browser, Chrome, GitHub, OpenAI Developers, Codex Security, Render audit context | Render deployment not in Stage 00 scope | external deployment not used | record as not applicable | no |
 | Local plugin install/share | unknown | package local skills | no install performed | local-only draft cannot be assumed shared | document manual local use | yes if sharing |
 | In-app Browser | available | public/local web checks | none observed | can inspect non-login pages | Chrome extension for login pages | no for public pages |
-| Chrome extension | available | GPT Pro page and Codex settings pages with login state | none for GPT Pro after successful submission; Codex settings showed no environment creation action safe for automation | GPT Pro review completed; Codex environment remains user-action blocker | use only with user approval and stop on permission/account prompts | yes |
+| Chrome extension | available | GPT Pro page and Codex settings pages with login state | none for GPT Pro after successful final confirmation | GPT Pro review and final confirmation completed | use only with user approval and stop on permission/account prompts | yes |
 | Computer Use | unknown | last-resort UI operation | standalone availability not confirmed | cannot rely on it | Browser or manual user action | yes |
 | GitHub connection | partial | repo, PR, review | repo exists and PR is open, but GitHub plugin user differs from repo owner | connector can comment/read, but cannot fully administer repo | use repo owner browser/GCM session for owner actions; plugin for audit/comment | yes for owner-only actions |
 | GitHub CLI | requires user action | branch, push, PR | `gh` not persistently authenticated; temporary Git Credential Manager token worked for PR actions | future CLI actions may fail after credential expiry | user completes `gh auth login`; keep manual steps | yes |
@@ -49,4 +49,4 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | Python | available | future scripts/checks | none | can run verification scripts later | shell checks | no |
 | Node.js | available | future admin/tooling | none | available for later stages | none | no |
 | Package managers | partial | future JS tooling | `npm.ps1` blocked; `npm.cmd` works; pnpm/yarn unavailable | use `npm.cmd` on Windows | document command form | no |
-| GPT Pro page accessibility | available after user instruction | blocking review gate | GitHub still blocks full stage pass | GPT Pro returned CONDITIONAL PASS | saved response and action items | yes |
+| GPT Pro page accessibility | available after user instruction | blocking review gate | none for Stage 00 after final confirmation | GPT Pro returned final PASS for Stage 00 / prompt 1 | saved response, action items, and final acceptance | yes |

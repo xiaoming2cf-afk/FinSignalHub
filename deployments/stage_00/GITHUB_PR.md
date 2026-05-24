@@ -39,6 +39,8 @@ Evidence:
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356648275/job/77584485757
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356647424/job/77584483797
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26357750484/job/77587485895
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26357749887/job/77587484391
 
 ## Codex Review
 
@@ -59,7 +61,7 @@ Codex connector responses:
 1. `To use Codex here, create a Codex account and connect to github.`
 2. `To use Codex here, create an environment for this repo.`
 
-Current Codex review status: REVIEWED WITH FINDINGS.
+Current Codex review status: PASS AFTER FOLLOW-UP.
 
 Review URL:
 
@@ -82,7 +84,11 @@ Final Codex response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299
 
-Latest Codex status: final status-recording commit `e4bf1d5` produced one P1 finding because GPT Pro was marked PASS while final confirmation was pending. The acceptance result has been corrected to keep GitHub, GPT Pro, and Next stage gates BLOCKED until final GPT Pro confirmation is saved.
+Latest Codex status: final gate-status fix was pushed in `f0c1d70`, follow-up was requested, and Codex replied that it did not find any major issues.
+
+Latest Codex response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527990187
 
 Browser follow-up on 2026-05-24:
 

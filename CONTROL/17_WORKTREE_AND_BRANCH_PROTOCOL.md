@@ -37,4 +37,4 @@ Rules:
 - Merge conflicts must record files, resolution, risk, and tests.
 - Do not merge without GitHub and GPT Pro gates.
 
-Stage 00 branch is blocked because this directory is not a Git repository.
+Stage 00 branch `stage/00-control-system` exists locally and on `origin`. The workspace is now a Git repository with `main` as the PR base. Stage 01 must use `stage/01-repo-scaffold` or an isolated worktree and may not modify Stage 00 acceptance evidence except for append-only references required by the Stage 01 plan.

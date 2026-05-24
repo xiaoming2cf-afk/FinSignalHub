@@ -53,4 +53,4 @@ Required PR comment:
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
 
-Stage 00 GitHub status is BLOCKED because the workspace is not a Git repository and GitHub CLI is not authenticated.
+Stage 00 GitHub status is PASS. Branch `stage/00-control-system` is pushed, PR #1 exists, governance CI passed, and latest Codex follow-up on commit `f0c1d70` found no major issues. Persistent `gh` authentication is still not configured and remains a future-operations risk, so later stages must either complete `gh auth login` or use the documented manual/Git Credential Manager path with explicit logging.

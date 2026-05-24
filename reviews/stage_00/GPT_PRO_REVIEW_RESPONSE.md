@@ -713,3 +713,57 @@ Stage 01 may begin only after:
 - logs are updated
 - this GPT Pro response is saved into reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md
 ```
+
+---
+
+# Final Stage 00 Confirmation
+
+Source: GPT Pro page at `https://chatgpt.com/g/g-p-6a035355560081918d4a66ef7c70a14e-guo-chuang/c/6a12cb05-f178-83ea-b2fe-f6dfbb0465eb`.
+
+Captured: 2026-05-24T05:02:58-05:00.
+
+## Result
+
+PASS for Stage 00 / prompt 1.
+
+Stage 00 is complete enough to pass as a governance-only stage. The PR exists, the branch contains the Stage 00 control-system artifacts, the file tree is governance/documentation/skills/plugin/workflow oriented, and GPT Pro did not see business runtime scope creep in the PR file list. The PR shows the latest Stage 00 commit `f0c1d70` present in PR history.
+
+## Must-Fix Items
+
+None for Stage 00.
+
+The previous blocking issue was that the GPT Pro gate had been marked PASS before final confirmation. That was corrected at commit `f0c1d70`, and the final Codex follow-up on that commit states: `Codex Review: Didn't find any major issues.`
+
+The remaining action was administrative: save the final GPT Pro confirmation into the Stage 00 review record and update `reviews/stage_00/STAGE_ACCEPTANCE_RESULT.md` from `CONDITIONAL PASS / GPT PRO FINAL CONFIRMATION PENDING` to final PASS.
+
+## Deferred Items
+
+- Persistent `gh` authentication is deferred. PR actions were completed through a temporary/manual Git credential path, so this does not block Stage 00, but it should be stabilized before repeated Stage 01 GitHub operations.
+- Docker daemon availability is deferred to Stage 01 readiness. Stage 01 may be planned, but Stage 01 cannot pass without Docker Compose validation.
+- GitHub Actions Node.js runtime deprecation should be watched. Current governance CI jobs succeeded; GitHub warns that Node.js 20 actions will be forced to Node.js 24 by default starting June 2, 2026 and Node.js 20 will be removed from runners on September 16, 2026.
+- Standalone Computer Use automation remains unconfirmed, but the browser/GitHub workflow was sufficient for Stage 00.
+
+## Stage 00 Completion
+
+Stage 00 may be marked complete after saving this answer as final GPT Pro confirmation and updating the acceptance result/log files.
+
+## Stage 01 Planning
+
+Stage 01 planning may begin. Stage 01 implementation may proceed only within the stated file/scope boundaries. Stage 01 may not be marked complete unless Docker, tests, CI, PR, Codex review, GPT Pro review, and Stage 02 instruction evidence are complete.
+
+Stage 01 goal: create the initial FinSignalHub monorepo runtime scaffold only. The stage should establish infrastructure skeletons without product/business behavior. The intended scaffold is FastAPI backend skeleton, MCP server skeleton, Next.js admin skeleton, Docker Compose with PostgreSQL, optional Redis placeholder only if justified, health checks, test framework, CI workflow, environment configuration, and architecture/command documentation. The saved next-stage file defines this as `Stage 01: Repo Scaffold` and explicitly prohibits implementation of research-domain logic.
+
+Stage 01 must not implement ResearchProject, EvidenceItem, ResearchClaim, Document, or similar domain models; product migrations; connectors; evidence extraction workers; LLM adapters; claim graph logic; research delta logic; literature matrix logic; Repro Pack export logic; Risk Mode; Replay Engine; financial prediction; investment advice; generic chatbot UI; production auth; billing; or business MCP tools beyond health/ping/server-info skeletons.
+
+Required Stage 01 checks:
+
+```text
+pytest apps/api/tests
+pytest apps/mcp_server/tests
+npm --prefix apps/web_admin run build
+docker compose config
+docker compose up --build
+curl http://localhost:8000/health
+```
+
+Stage 01 stop conditions include unavailable Git branch state, unavailable GitHub PR path, Docker daemon unavailable for final validation, tests unable to run, CI unable to execute or be recorded, business logic about to be implemented, secrets required or added, `AGENTS.md` conflicting with latest instructions, or GPT Pro review unavailable for Stage 01 acceptance.

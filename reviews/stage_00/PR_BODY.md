@@ -30,13 +30,13 @@ Current status:
 - Local Git repository exists.
 - Remote repository exists: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 - Branches pushed: `main` and `stage/00-control-system`.
-- GPT Pro review completed with CONDITIONAL PASS and saved in `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`.
+- GPT Pro initial review completed with CONDITIONAL PASS and final confirmation returned PASS for Stage 00 / prompt 1.
 - `gh` remains unauthenticated persistently, but PR creation and owner-side `@codex review` comment were completed with a temporary Git Credential Manager token.
 - The GitHub plugin also posted the required `@codex review` comment as `lhy18613775`.
-- Codex review executed and returned one P1 and two P2 governance findings.
-- Codex review fixes update `phase-deploy.yml`, `ci.yml`, and the Stage 00 GPT Pro review packet.
+- Codex review executed, findings were fixed, and latest follow-up on commit `f0c1d70` found no major issues.
+- Stage 00 final acceptance is PASS after GPT Pro final confirmation was saved.
 - Docker daemon unavailable or permission required.
 
 ## Acceptance checklist
 
-Gate 6 GitHub remains BLOCKED until Codex follow-up review confirms the findings are resolved or only explicitly deferred non-critical items remain. PR URL, CI pass, and Codex review evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before Codex review resolution evidence is complete.
+Gate 6 GitHub is PASS: branch, PR, CI, and Codex no-major-issues evidence are saved. Gate 7 GPT Pro is PASS: packet, response, action items, final result, and next-stage instruction are saved. Stage 00 is governance-only complete; Stage 01 must still start with a separate approved plan and goal.
