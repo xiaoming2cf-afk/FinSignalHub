@@ -31,12 +31,21 @@ Current status:
 - Remote repository exists: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 - Branches pushed: `main` and `stage/00-control-system`.
 - GPT Pro initial review completed with CONDITIONAL PASS and final confirmation returned PASS for Stage 00 / prompt 1.
-- `gh` remains unauthenticated persistently, but PR creation and owner-side `@codex review` comment were completed with a temporary Git Credential Manager token.
+- `gh` persistent authentication is now available for `xiaoming2cf-afk` with `repo,workflow` scopes.
 - The GitHub plugin also posted the required `@codex review` comment as `lhy18613775`.
 - Codex review executed, findings were fixed, and latest follow-up on commit `f0c1d70` found no major issues.
 - Stage 00 final acceptance is PASS after GPT Pro final confirmation was saved.
-- Docker daemon unavailable or permission required.
+- Docker daemon is now available: Docker Server 29.3.1 on context `docker-desktop`.
 
 ## Acceptance checklist
 
 Gate 6 GitHub is PASS: branch, PR, CI, and Codex no-major-issues evidence are saved. Gate 7 GPT Pro is PASS: packet, response, action items, final result, and next-stage instruction are saved. Stage 00 is governance-only complete; Stage 01 must still start with a separate approved plan and goal.
+
+## Post-acceptance capability update
+
+This PR records that two deferred local-environment blockers have been resolved after Stage 00 acceptance:
+
+- GitHub CLI persistent login is available.
+- Docker Desktop daemon is available.
+
+No product runtime, backend, database, connector, frontend, or MCP business tool is introduced.

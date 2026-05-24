@@ -23,6 +23,10 @@ Stage 00 released the FinSignalHub project control system only. It did not creat
 - GitHub Actions Node.js runtime changes should be watched before later stages.
 - Standalone Computer Use automation remains unconfirmed, but Stage 00 browser/GitHub workflow evidence is complete.
 
+## Post-Acceptance Capability Update
+
+After Stage 00 acceptance, the user completed local GitHub CLI authentication and Docker Desktop startup. `gh auth status` now reports active account `xiaoming2cf-afk`, and Docker Server 29.3.1 is reachable on context `docker-desktop`.
+
 ## Stage 01 Boundary
 
 Stage 01 planning may begin from GPT Pro instructions. Stage 01 implementation must wait for an approved Stage 01 plan and formal goal, and must remain limited to repo scaffold infrastructure.
