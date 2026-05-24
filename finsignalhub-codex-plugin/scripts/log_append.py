@@ -21,12 +21,16 @@ def repo_relative_path(raw_path: str) -> Path:
     candidate = Path(raw_path)
     if candidate.is_absolute():
         raise SystemExit("--log-path must be repository-relative")
+    if any(part == ".." for part in candidate.parts):
+        raise SystemExit("--log-path must not contain traversal segments")
     resolved = (ROOT / candidate).resolve()
     root = ROOT.resolve()
     try:
-        resolved.relative_to(root)
+        rel = resolved.relative_to(root)
     except ValueError as exc:
         raise SystemExit("--log-path must stay inside the repository") from exc
+    if not rel.parts or rel.parts[0] != "RUNLOG":
+        raise SystemExit("--log-path must stay under RUNLOG/")
     return resolved
 
 

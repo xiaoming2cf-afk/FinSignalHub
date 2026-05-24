@@ -38,16 +38,16 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Current phase status | active |
 | Active branch | `stage/00-1-governance-cleanup` |
 | Latest PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
-| Latest CI status | PASS on `b1ebe5c66c` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368675636/job/77616795324 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368676587/job/77616797380; follow-up CI pending after latest local P2 fixes |
-| Latest Codex review status | BLOCKED/PENDING: latest review found P2s at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295087893, https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295087894, and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295087896; local fixes prepared |
+| Latest CI status | PASS on `6c88721aee` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368924137/job/77617445474 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368925395/job/77617448293; follow-up CI pending after latest local P2 fixes |
+| Latest Codex review status | BLOCKED/PENDING: latest review found P2s at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295100569 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295100573; local fixes prepared |
 | Latest GPT Pro review status | pending |
 | Active goal id | G-0001 |
-| Next required action | commit and push latest helper-boundary fixes after passing local checks, then request follow-up `@codex review` |
+| Next required action | commit and push latest traversal-segment fixes with passing local checks, then request follow-up `@codex review` |
 | Blocker status | Docker daemon unavailable for later Stage 01 implementation; not blocking Stage 00.1 |
-| Last updated time | 2026-05-24T13:09:42-05:00 |
+| Last updated time | 2026-05-24T13:19:15-05:00 |
 
 Current detected stage is: Stage 00.1 governance cleanup.
 
 Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation, but Stage 00.1 can proceed.
 
-Next valid action is: commit and push latest helper-boundary fixes after passing local checks, then request follow-up `@codex review`.
+Next valid action is: commit and push latest traversal-segment fixes with passing local checks, then request follow-up `@codex review`.

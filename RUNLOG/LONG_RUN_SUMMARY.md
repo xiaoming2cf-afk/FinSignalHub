@@ -8,7 +8,7 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `b1ebe5c66c`, but latest Codex review found three P2 issues: future-stage phase checks need plans, `log_append.py` must keep paths repository-relative, and `export_review_packet.py` must keep outputs repository-relative. The fixes are local and require checks, push, CI, and follow-up `@codex review`.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `6c88721aee`, but latest Codex review found two P2 issues: traversal segments inside repository-relative `log_append.py` and `export_review_packet.py` paths still needed to be rejected. The fixes are local and require checks, push, CI, and follow-up `@codex review`.
 
 Next expected milestones:
 

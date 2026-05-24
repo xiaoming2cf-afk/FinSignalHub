@@ -16,6 +16,8 @@ def repo_relative_path(raw_path: str) -> Path:
     candidate = Path(raw_path)
     if candidate.is_absolute():
         raise SystemExit("--output must be repository-relative")
+    if any(part == ".." for part in candidate.parts):
+        raise SystemExit("--output must not contain traversal segments")
     resolved = (ROOT / candidate).resolve()
     root = ROOT.resolve()
     try:

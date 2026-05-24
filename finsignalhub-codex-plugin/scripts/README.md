@@ -5,8 +5,8 @@ Stage 00.1 adds local-only governance helper scripts for FinSignalHub. These scr
 ## Current helpers
 
 - `phase_check.py`: validates required governance artifacts, rejects unknown stage ids, and blocks forbidden Stage 00/00.1 runtime scaffold paths.
-- `log_append.py`: appends monotonic `## Cycle NNNN` entries to a repository-relative RunLog path so autonomous resume logic can trust the latest cycle.
-- `export_review_packet.py`: exports a concise governance review packet to a repository-relative output path and fails non-zero when required packet artifacts are missing.
+- `log_append.py`: appends monotonic `## Cycle NNNN` entries to a repository-relative path under `RUNLOG/` so autonomous resume logic can trust the latest cycle.
+- `export_review_packet.py`: exports a concise governance review packet to a repository-relative output path without traversal segments and fails non-zero when required packet artifacts are missing.
 
 ## Maintenance rule
 
