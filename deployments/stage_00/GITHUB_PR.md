@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS for PR #1, PR #2, and PR #3. Prompt-completion confirmation PR #4 is open for final evidence-only review.
+PASS for PR #1, PR #2, PR #3, and PR #4. Prompt-completion confirmation PR #4 is open with CI passed and Codex no-major-issues evidence.
 
 ## Reason
 
@@ -171,11 +171,28 @@ PR #3 was merged at commit `6927b3b029e4dc904f71463031ca99d36031774b`.
 
 Status:
 
-Open.
+Open; CI passed; Codex review passed.
 
 PR:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4
+
+CI evidence:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26364207648/job/77605052473
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26364208386/job/77605054272
+
+Codex review request:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529044817
+
+Codex response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529048666
+
+Current status:
+
+PASS. Codex found no major issues.
 
 Purpose:
 
