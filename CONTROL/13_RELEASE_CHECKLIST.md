@@ -28,4 +28,6 @@ Update when release evidence, tag policy, PR flow, or stage acceptance changes.
 
 ## Current state
 
-Stage 00 has passed local governance checks, GitHub PR/CI/Codex review, and GPT Pro final confirmation. Stage 00 release evidence is recorded in `deployments/stage_00/RELEASE_NOTE.md`; a Git tag should point at the final Stage 00 acceptance commit after the final acceptance commit is pushed.
+Stage 00 has passed local governance checks, GitHub PR/CI/Codex review, and GPT Pro final confirmation. Stage 00 release evidence is recorded in `deployments/stage_00/RELEASE_NOTE.md`.
+
+Current tag state: `stage-00-control-system` exists. Stage 00.1 tag is pending until Stage 00.1 PR, CI, Codex review, GPT Pro review, and phase-gate-auditor result pass.

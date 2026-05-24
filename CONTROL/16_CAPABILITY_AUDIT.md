@@ -45,7 +45,7 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | Subagents | available | independent Stage 00 completeness audit | must be spawned explicitly | improves verification | local self-check if unavailable | no |
 | MCP | available as concept/tool ecosystem | primary future product entrypoint | no FinSignalHub MCP server in Stage 00 | runtime not implemented by design | Stage 06 plan | no |
 | Local shell | available | checks and audits | none | supports verification | none | no |
-| Docker | available | future Stage 01 compose | none after Docker Desktop startup | Docker Server 29.3.1 reachable on context `docker-desktop` | rerun Docker-specific tests in Stage 01 | no |
+| Docker | requires user action | future Stage 01 compose | Docker CLI exists, but daemon is not reachable at `npipe:////./pipe/dockerDesktopLinuxEngine` | Stage 01 implementation is blocked until Docker Desktop is running and revalidated; Stage 00.1 is not blocked | rerun Docker-specific tests before Stage 01 implementation | yes |
 | Python | available | future scripts/checks | none | can run verification scripts later | shell checks | no |
 | Node.js | available | future admin/tooling | none | available for later stages | none | no |
 | Package managers | partial | future JS tooling | `npm.ps1` blocked; `npm.cmd` works; pnpm/yarn unavailable | use `npm.cmd` on Windows | document command form | no |

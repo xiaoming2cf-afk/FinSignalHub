@@ -34,3 +34,10 @@ Stage 00 verification subagent `Hypatia` completed a read-only completeness audi
 - Findings passed: final GPT Pro PASS saved, latest Codex no-major-issues evidence recorded, registries internally consistent, and no business/runtime scope creep detected.
 - Closure blocker identified: final PASS artifacts were not yet committed, pushed, or covered by CI at audit time.
 - Required integration action: commit and push final PASS artifacts, wait for CI, and record final evidence.
+
+## Stage 00.1 Carry-forward
+
+- Stage 00 final stale-status cleanup was completed through PR #5.
+- Stage 00.1 begins with no unresolved Stage 00 acceptance blocker.
+- Docker daemon unavailability is carried forward only as a Stage 01 implementation blocker; it does not block Stage 00.1 governance cleanup.
+- Any Stage 00.1 subagent must remain read-only unless a later approved plan assigns a bounded write scope.
