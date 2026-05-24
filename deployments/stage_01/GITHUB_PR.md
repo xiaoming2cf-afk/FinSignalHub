@@ -45,5 +45,6 @@ Current findings:
 - CR-01-009 P2: mark Stage 01 checklist scope gate as passed for plan review.
 - CR-01-010 P2: refresh `CONTROL/07_CODEX_GOAL_REGISTRY.md` G-0002 to latest follow-up state.
 - CR-01-011 P3: remove duplicated milestone in `RUNLOG/LONG_RUN_SUMMARY.md`.
+- CR-01-012 P2: align `CONTROL/19_STAGE_DASHBOARD.md` with the latest Stage 01 finding set.
 
-All known findings through CR-01-011 have been addressed in the Stage 01 planning artifacts. The GitHub gate remains blocked/pending until current-head Codex follow-up returns no-major-issues evidence or a new finding set is resolved.
+All known findings through CR-01-012 have been addressed in the Stage 01 planning artifacts. The GitHub gate remains blocked/pending until current-head Codex follow-up returns no-major-issues evidence or a new finding set is resolved.

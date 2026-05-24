@@ -26,10 +26,10 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 | CR-01-009 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301747 | Stage 01 checklist Scope gate still said pending plan review after GPT Pro PASS. | Marked planning scope as passed while implementation remains blocked. | fixed |
 | CR-01-010 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301748 | Goal G-0002 was stale and did not reflect latest PR #7 follow-up. | Refreshed G-0002 status to cover CR-01-001 through CR-01-011 and current blockers. | fixed |
 | CR-01-011 | P3 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301750 | RunLog summary had a duplicated follow-up milestone. | Removed duplicate and clarified the remaining implementation blockers. | fixed |
+| CR-01-012 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295312100 | Stage dashboard still referenced only CR-01-001/002 instead of the latest finding set. | Updated `CONTROL/19_STAGE_DASHBOARD.md` to reflect all known findings through CR-01-012 and current-head follow-up gating. | fixed |
 
 ## Current state
 
-All known Codex findings through CR-01-011 have been addressed in Stage 01 planning artifacts. The current GitHub gate remains BLOCKED/PENDING until Codex returns a no-major-issues response or a new review on the current PR head.
+All known Codex findings through CR-01-012 have been addressed in Stage 01 planning artifacts. The current GitHub gate remains BLOCKED/PENDING until Codex returns a no-major-issues response or a new review on the current PR head.
 
 Implementation remains blocked regardless of Codex review status until Docker daemon validation passes, the user explicitly approves Stage 01 implementation, and the PR #6 baseline dependency is handled.
-

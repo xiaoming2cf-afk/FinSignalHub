@@ -7,7 +7,7 @@
 | Tests | `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 01`; no-runtime check; secret scan; `git diff --check` | PASS for planning | Runtime tests are blocked until implementation is authorized |
 | Docs | Stage 01 docs | PENDING | Runtime docs deferred until implementation approval |
 | Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/24`, `CONTROL/27`, `RUNLOG/` | PASS for planning | Planning logs and registries are populated; final implementation logs remain blocked |
-| GitHub | PR #7, CI checks, `reviews/stage_01/CODEX_REVIEW_SUMMARY.md` | BLOCKED/PENDING | PR #7 is open and CI passed; all known Codex findings through CR-01-011 are fixed, but current-head Codex follow-up/no-major evidence is still pending |
+| GitHub | PR #7, CI checks, `reviews/stage_01/CODEX_REVIEW_SUMMARY.md` | BLOCKED/PENDING | PR #7 is open and CI passed; all known Codex findings through CR-01-012 are fixed, but current-head Codex follow-up/no-major evidence is still pending |
 | GPT Pro | Stage 01 plan review response | PASS | GPT Pro approved the Stage 01 plan; implementation remains blocked by Docker, user approval, and baseline conditions |
 | Product governance | `AGENTS.md`, product governor | PASS | Plan forbids product behavior and business logic |
 | Security | secret scan; sanitized GPT Pro capture | PASS for planning | No secrets were added; unrelated browser/account context was removed from committed GPT evidence |
