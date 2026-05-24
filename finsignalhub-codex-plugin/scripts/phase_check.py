@@ -104,6 +104,7 @@ def main() -> int:
             "reviews/stage_00_1/GPT_PRO_REVIEW_PACKET.md",
             "reviews/stage_00_1/PR_BODY.md",
             "reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md",
+            "reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md",
             "deployments/stage_00_1/GITHUB_PR.md",
         ):
             require_file(ROOT / rel)
