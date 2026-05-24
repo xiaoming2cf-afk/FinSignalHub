@@ -1,6 +1,6 @@
 # Manual GitHub Steps For Stage 00
 
-Use these steps after the user provides a GitHub repository and authenticates GitHub CLI.
+These steps are retained as fallback evidence. Stage 00 now has an open PR and passing CI, but persistent `gh` authentication is still not configured.
 
 ```powershell
 cd "D:\new work"
@@ -11,14 +11,18 @@ gh pr create --base main --head stage/00-control-system --title "Stage 00: Contr
 gh pr comment --body "@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems"
 ```
 
-Already completed locally:
+Already completed:
 
 - `git init`
 - `git checkout -B stage/00-control-system`
 - `git add .`
 - `git commit -m "stage-00: establish control system"`
 - Local `main` baseline branch prepared for PR base
+- Remote repository created: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`
+- Branches pushed: `main`, `stage/00-control-system`
+- PR opened: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1`
+- Stage Governance CI passed
 
-If GitHub CLI remains unavailable, create the repository and PR through GitHub web UI, then paste the PR URL into `deployments/stage_00/GITHUB_PR.md`.
+If GitHub CLI remains unavailable in a later session, continue using GitHub web UI or temporary Git Credential Manager authentication, then write evidence into `deployments/stage_XX/GITHUB_PR.md`.
 
-Do not mark Gate 6 passed until the real PR URL, CI result, and Codex review summary are saved.
+Do not mark Gate 6 passed until Codex review actually runs and `reviews/stage_00/CODEX_REVIEW_SUMMARY.md` contains findings or a no-finding review result.

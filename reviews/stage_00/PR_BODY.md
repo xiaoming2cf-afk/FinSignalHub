@@ -31,9 +31,11 @@ Current status:
 - Remote repository exists: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 - Branches pushed: `main` and `stage/00-control-system`.
 - GPT Pro review completed with CONDITIONAL PASS and saved in `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`.
-- `gh` remains unauthenticated, so PR creation and `@codex review` comment are being completed through the GitHub web session.
+- `gh` remains unauthenticated persistently, but PR creation and owner-side `@codex review` comment were completed with a temporary Git Credential Manager token.
+- The GitHub plugin also posted the required `@codex review` comment as `lhy18613775`.
+- Codex connector currently requires a Codex cloud environment for this repo before review can execute.
 - Docker daemon unavailable or permission required.
 
 ## Acceptance checklist
 
-Gate 6 GitHub is in progress until PR URL, CI result, and `@codex review` evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before GitHub evidence is complete.
+Gate 6 GitHub remains BLOCKED until Codex review actually runs and findings are summarized. PR URL, CI pass, and `@codex review` request evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before Codex review evidence is complete.

@@ -13,9 +13,11 @@ Branches pushed:
 - `main`
 - `stage/00-control-system`
 
-GitHub CLI is still not persistently authenticated, so PR creation and comment were completed with a temporary Git Credential Manager token.
+GitHub CLI is still not persistently authenticated, so PR creation and owner-side comment were completed with a temporary Git Credential Manager token.
 
 GitHub CLI web login was attempted, but the process timed out without creating a local GitHub auth session.
+
+The GitHub plugin is connected as `lhy18613775`. It can read and comment on the public PR, but it is not the repository owner account for `xiaoming2cf-afk/FinSignalHub`.
 
 ## Required PR
 
@@ -33,16 +35,35 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1
 
 `Stage Governance CI / governance-check` passed.
 
+Evidence:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356648275/job/77584485757
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356647424/job/77584483797
+
 ## Codex Review
 
-Requested with required PR comment:
+Requested with required PR comments:
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
 
-Comment URL:
+Owner comment URL:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527868832
 
-Codex connector response:
+GitHub plugin comment URL:
 
-`To use Codex here, create a Codex account and connect to github.`
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527882690
+
+Codex connector responses:
+
+1. `To use Codex here, create a Codex account and connect to github.`
+2. `To use Codex here, create an environment for this repo.`
+
+Current Codex review status: BLOCKED until a Codex cloud environment is created for `xiaoming2cf-afk/FinSignalHub`, then `@codex review` must be requested again.
+
+Browser follow-up on 2026-05-24:
+
+- `https://chatgpt.com/codex/cloud/settings/connectors` shows GitHub connected as `lhy18613775`.
+- `https://chatgpt.com/codex/cloud/settings/environments` shows no Codex environment.
+- No safe automatic create action was available in the visible environment settings page.
+- Repository owner/account alignment is required before this blocker can be closed.
