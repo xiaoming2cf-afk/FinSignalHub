@@ -30,11 +30,11 @@ Update only after GPT Pro passes or conditionally passes the current stage and g
 
 ## Current state
 
-Source stage: Stage 00.
+Source stage: Stage 00.1.
 
-GPT Pro result: PASS after final confirmation.
+GPT Pro result: PASS.
 
-Important condition: Stage 01 planning may begin. Stage 01 implementation still requires an approved Stage 01 plan and formal Stage 01 goal. Stage 01 cannot pass without Docker Compose validation, CI, GitHub PR, Codex review, GPT Pro review, and Stage 02 instruction evidence.
+Important condition: Stage 01 planning may begin only. Stage 01 implementation is not authorized until Stage 01 plan exists, GPT Pro approves the Stage 01 plan, Docker daemon is revalidated, PR #6 is merged or Stage 01 branches from `stage/00-1-governance-cleanup`, and no Stage 01 blocker remains.
 
 ## Next Stage ID
 
@@ -42,22 +42,24 @@ Stage 01: Repo Scaffold.
 
 ## Next Stage Goal
 
-Create the initial FinSignalHub monorepo runtime scaffold without implementing business domain logic.
+Create the initial FinSignalHub monorepo scaffold plan without implementing business domain logic.
 
-The scaffold must include:
+The Stage 01 plan must define a minimal scaffold for:
 
 - FastAPI backend skeleton.
 - MCP server skeleton.
 - Next.js admin skeleton.
 - PostgreSQL service via Docker Compose.
 - Redis service placeholder only if justified.
-- Basic health checks.
+- Health checks.
 - Test framework.
 - CI workflow.
 - Environment configuration.
 - Project documentation.
 
-Do not implement ResearchProject models, EvidenceItem models, connectors, evidence extraction, claim graph, MCP business tools, Repro Pack logic, Risk Mode, Replay Engine, financial prediction, investment advice, or chatbot UI in Stage 01.
+Do not implement any Stage 01 runtime files until the Stage 01 plan is approved by GPT Pro and the user.
+
+Do not implement ResearchProject models, EvidenceItem models, ResearchClaim models, ClaimEvidenceEdge, ResearchDelta, LiteratureMatrix, MethodCard, DatasetCard, ReproPackExport, ToolCallLog, connectors, evidence extraction, claim graph, MCP business tools, Repro Pack logic, Risk Mode, Replay Engine, financial prediction, investment advice, or chatbot UI in Stage 01.
 
 ## Allowed Files Or Directories
 
@@ -119,7 +121,8 @@ Do not implement ResearchProject models, EvidenceItem models, connectors, eviden
 
 ## Stage 01 Acceptance Criteria
 
-- Stage 00 GitHub blockers are resolved or explicitly accepted by the user.
+- Stage 00.1 GitHub PR #6 is merged, or Stage 01 branch is explicitly based on `stage/00-1-governance-cleanup` and this dependency is logged.
+- Stage 01 plan exists and is approved by GPT Pro before implementation.
 - Branch `stage/01-repo-scaffold` is created.
 - Docker Compose starts required services.
 - API `/health` returns ok.
@@ -157,24 +160,49 @@ Stop if Git repo is unavailable, GitHub CLI is unauthenticated without approved 
 
 ## Raw GPT Pro Instruction Source
 
-Full initial response and final confirmation are saved at `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`.
+Full Stage 00.1 response is saved at `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`.
 
-## Final GPT Pro Confirmation Summary
+## Stage 00.1 GPT Pro Confirmation Summary
 
-GPT Pro answered `PASS for Stage 00 / prompt 1`, stated that there are no Stage 00 must-fix items, authorized Stage 00 to be marked complete, and authorized Stage 01 planning. A later post-acceptance GPT Pro review confirmed that restored GitHub CLI and Docker capability evidence keeps Stage 00 complete.
+GPT Pro answered `Stage 00.1: PASS`, stated that governance-only scope was satisfied, and authorized Stage 01 planning only.
 
-## Post-Acceptance GPT Pro Confirmation
+## Stage 01 Planning Read List
 
-Captured: 2026-05-24T09:12:30-05:00.
+Before creating `PLANS/STAGE_01_PLAN.md`, read:
 
-Source: `reviews/stage_00/GPT_PRO_POST_ACCEPTANCE_RESPONSE.md`.
+- `AGENTS.md`
+- `PLANS.md`
+- `README.md`
+- `CONTROL/00_MASTER_CONTROL.md`
+- `CONTROL/01_PRODUCT_DEFINITION.md`
+- `CONTROL/02_STAGE_ROADMAP.md`
+- `CONTROL/03_PHASE_ACCEPTANCE.md`
+- `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
+- `CONTROL/16_CAPABILITY_AUDIT.md`
+- `CONTROL/19_STAGE_DASHBOARD.md`
+- `CONTROL/20_BLOCKER_LOG.md`
+- `CONTROL/23_RUNLOG_PROTOCOL.md`
+- `CONTROL/24_CURRENT_STAGE_STATE.md`
+- `CONTROL/25_NEXT_ACTION_QUEUE.md`
+- `CONTROL/27_CHECKPOINT_LOG.md`
+- `RUNLOG/LONG_RUN_CURRENT.md`
+- `RUNLOG/LONG_RUN_SUMMARY.md`
+- `reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md`
+- `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_00_1/GPT_PRO_ACTION_ITEMS.md`
 
-Result:
+## Raw GPT Pro Instruction
 
 ```text
-Stage 00 post-acceptance capability update: PASS
-Stage 01 planning: ALLOWED
-Stage 01 implementation: NOT ALLOWED until user approves Stage 01 plan
-```
+/plan
+Proceed to Stage 01 planning only.
 
-Deferred items now are GitHub Actions Node.js runtime monitoring, browser / Chrome protocol smoke testing for later stages, and Stage 01-specific Docker Compose validation. Persistent `gh` authentication and Docker daemon availability have been restored at the environment-audit level.
+Before planning, read the control files, RunLog files, Stage 00.1 acceptance result, GPT Pro response, and GPT Pro action items.
+
+Create PLANS/STAGE_01_PLAN.md.
+
+Stage 01 is planning only unless GPT Pro approves the plan.
+
+Do not implement Stage 01 yet.
+Do not create runtime files until the plan is approved by GPT Pro.
+```

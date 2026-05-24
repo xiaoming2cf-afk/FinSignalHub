@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on evidence-sync commit `266b8108904158415dd283b1a987d098a36b441c`. The latest two P2 script fixes require push, CI, and follow-up Codex review before Gate 6 can pass.
+PASS on helper-hardening commit `43c570a1291b262faba32f288b29b0dfbf396029`.
 
 Evidence:
 
@@ -38,6 +38,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369900324/job/77620117626
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370373982/job/77621392054
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370374954/job/77621394645
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370601844/job/77622010930
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370602892/job/77622013409
 
 ## Codex Review
 
@@ -55,7 +57,7 @@ Stage 00.1 is governance-only. Docker is not required for this PR, but Docker mu
 
 ## Current Codex Review Status
 
-PENDING after pushed local-environment false-positive fix and local evidence sync.
+PASS on helper-hardening commit `43c570a1291b262faba32f288b29b0dfbf396029`.
 
 Previous Codex no-major-issues response:
 
@@ -72,4 +74,12 @@ Latest follow-up on commit `266b8108904158415dd283b1a987d098a36b441c` produced t
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295180243
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295180241
 
-Both are fixed locally. Push, CI, and follow-up `@codex review` are required before Gate 6 can return PASS.
+Both were fixed in `43c570a1291b262faba32f288b29b0dfbf396029`, CI passed, and Codex follow-up found no major issues:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529747962
+
+## GPT Pro Review Status
+
+PASS. The Stage 00.1 response is saved at `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_00_1/GPT_PRO_ACTION_ITEMS.md`.
+
+GPT Pro authorized Stage 01 planning only. Stage 01 implementation remains blocked until plan approval, GPT Pro plan review, Docker revalidation, and PR #6 merge/base decision.

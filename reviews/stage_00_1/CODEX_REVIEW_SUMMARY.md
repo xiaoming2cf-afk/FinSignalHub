@@ -4,13 +4,13 @@
 
 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
-Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
+Latest reviewed commit with no-major-issues response: `43c570a1291b262faba32f288b29b0dfbf396029`
 
 Latest reviewed commit with actionable finding: `266b8108904158415dd283b1a987d098a36b441c`
 
 Latest P1-fix PR head with CI PASS: `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`
 
-Latest status: two P2 findings from commit `266b8108904158415dd283b1a987d098a36b441c` fixed locally; checks passed; push, CI, and follow-up Codex review are required before GPT Pro review.
+Latest status: Codex follow-up on `43c570a1291b262faba32f288b29b0dfbf396029` found no major issues.
 
 ## Review request
 
@@ -45,13 +45,13 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 | CR-00.1-017 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Stage 00/00.1 runtime guard only checked top-level forbidden paths, allowing nested runtime scaffold paths such as `docs/backend/` or `tools/package.json` to evade the governance gate. | Fixed locally by recursively scanning repository paths outside `.git`, rejecting forbidden directory names in any path segment and forbidden scaffold file names anywhere in the repository. |
 | CR-00.1-018 | P2 | `PLANS/STAGE_00_1_PLAN.md` | The Stage 00.1 plan listed ad-hoc checks but did not explicitly define local checks, unit tests, integration tests, and acceptance checks or a governance-stage deferred rationale. | Fixed locally by adding the four required test categories, documenting why unit/integration product tests are deferred until runtime stages, and requiring those plan categories in `phase_check.py` for Stage 00.1 and later stages. |
 | CR-00.1-019 | P1 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Recursive runtime scan skipped only `.git`, so common untracked local environment directories such as `.venv/src` could fail Stage 00.1 checks even though no tracked product scaffold was introduced. | Fixed and pushed in `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36` by ignoring common local environment, cache, and build directories while still scanning repository governance paths for forbidden runtime scaffold names. |
-| CR-00.1-020 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` could target protected repository files such as `CONTROL/01_PRODUCT_DEFINITION.md`, risking silent overwrite of canonical governance evidence. | Fixed locally by restricting exports to new files under `artifacts/`, rejecting traversal or protected paths, and refusing overwrites. |
-| CR-00.1-021 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Future-stage checks required `reviews/stage_XX/STAGE_ACCEPTANCE_RESULT.md` on every run, making pre-commit or CI checks unusable before final acceptance. | Fixed locally by adding a `--final` mode; future-stage default checks require plan/tasks/checklist while final mode enforces final acceptance artifacts. |
+| CR-00.1-020 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` could target protected repository files such as `CONTROL/01_PRODUCT_DEFINITION.md`, risking silent overwrite of canonical governance evidence. | Fixed in `43c570a1291b262faba32f288b29b0dfbf396029` by restricting exports to new files under `artifacts/`, rejecting traversal or protected paths, and refusing overwrites. |
+| CR-00.1-021 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Future-stage checks required `reviews/stage_XX/STAGE_ACCEPTANCE_RESULT.md` on every run, making pre-commit or CI checks unusable before final acceptance. | Fixed in `43c570a1291b262faba32f288b29b0dfbf396029` by adding a `--final` mode; future-stage default checks require plan/tasks/checklist while final mode enforces final acceptance artifacts. |
 
 ## Required follow-up
 
-The previous no-major-issues response remains recorded:
+Latest no-major-issues response:
 
-https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529747962
 
-Stage 00.1 must receive another follow-up Codex review after CR-00.1-020 and CR-00.1-021 are pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.
+GPT Pro review was submitted after this response, and Stage 00.1 received PASS. The final GPT Pro evidence commit should be pushed to PR #6 and receive a final Codex follow-up before PR merge.

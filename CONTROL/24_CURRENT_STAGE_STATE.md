@@ -35,19 +35,19 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Field | Value |
 | --- | --- |
 | Current stage | Stage 00.1 governance cleanup |
-| Current phase status | active |
+| Current phase status | PASS / complete locally; PR #6 open |
 | Active branch | `stage/00-1-governance-cleanup` |
 | Latest PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
-| Latest CI status | PASS on evidence-sync commit `266b8108904158415dd283b1a987d098a36b441c` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370373982/job/77621392054 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370374954/job/77621394645; latest P2 fixes need push and CI |
-| Latest Codex review status | BLOCKED/PENDING: commit `266b8108904158415dd283b1a987d098a36b441c` produced two P2 findings; fixes are local and need follow-up `@codex review` after push |
-| Latest GPT Pro review status | pending |
+| Latest CI status | PASS on `43c570a1291b262faba32f288b29b0dfbf396029` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370601844/job/77622010930 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26370602892/job/77622013409 |
+| Latest Codex review status | PASS: follow-up found no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529747962 |
+| Latest GPT Pro review status | PASS: Stage 00.1 accepted; Stage 01 planning only authorized |
 | Active goal id | G-0001 |
-| Next required action | commit and push P2 script fixes, then request follow-up `@codex review` |
-| Blocker status | Docker daemon unavailable for later Stage 01 implementation; not blocking Stage 00.1 |
-| Last updated time | 2026-05-24T14:24:23-05:00 |
+| Next required action | commit and push final GPT Pro PASS evidence, update PR #6 body, then request final Codex follow-up |
+| Blocker status | Docker daemon unavailable for later Stage 01 implementation; PR #6 must be merged or Stage 01 must branch from it before implementation |
+| Last updated time | 2026-05-24T14:53:10-05:00 |
 
 Current detected stage is: Stage 00.1 governance cleanup.
 
-Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation, but Stage 00.1 can proceed.
+Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation, but Stage 00.1 is accepted by GPT Pro. PR #6 remains open and must be merged or used as the Stage 01 base before implementation.
 
-Next valid action is: commit and push P2 script fixes, then request follow-up `@codex review`.
+Next valid action is: commit and push final GPT Pro PASS evidence, update PR #6 body, then request final Codex follow-up.

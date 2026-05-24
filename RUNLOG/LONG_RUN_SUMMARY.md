@@ -6,14 +6,15 @@ The long run started from `main` at commit `ef76ddd` after Stage 00 was complete
 
 Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruction file under `运行要求/` is being committed as an auditable input artifact.
 
-Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
+Current blockers for implementation: Docker daemon is not reachable, and PR #6 must be merged or Stage 01 must explicitly branch from `stage/00-1-governance-cleanup`. These do not block Stage 00.1 acceptance or Stage 01 planning.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Commit `266b8108904158415dd283b1a987d098a36b441c` passed CI but Codex review found two P2 script issues: review packet export needed protected-output safeguards, and future-stage phase checks needed a pre-final mode. Both fixes are local and checked; push, CI, and follow-up `@codex review` are required before GPT Pro review.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Latest commit `43c570a1291b262faba32f288b29b0dfbf396029` passed CI and Codex follow-up found no major issues. GPT Pro returned Stage 00.1 PASS and authorized Stage 01 planning only.
 
 Next expected milestones:
 
-1. Commit and push the two local P2 script fixes.
-2. Request follow-up `@codex review`.
-3. Resolve any new critical findings, or proceed to GPT Pro if Codex returns no major issues.
-3. Submit Stage 00.1 GPT Pro review packet only after Codex findings clear.
-4. If Stage 00.1 passes, create Stage 01 plan and submit it to GPT Pro.
+1. Run final local governance checks after GPT Pro evidence updates.
+2. Commit and push Stage 00.1 PASS evidence to PR #6.
+3. Update PR #6 body from `reviews/stage_00_1/PR_BODY.md`.
+4. Request final `@codex review` on PR #6.
+5. After final PR evidence is clean, begin Stage 01 planning only.
+6. Do not implement Stage 01 until the Stage 01 plan is approved by GPT Pro and the user, Docker is revalidated, and PR #6 is merged or the branch-base dependency is logged.
