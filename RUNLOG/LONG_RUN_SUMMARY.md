@@ -8,11 +8,11 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks have passed. PR #6 is open and `@codex review` has been requested. CI, Codex result, and GPT Pro review are still pending.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `2f877f47f6`, but latest Codex review found two P2 issues in RunLog ordering and review packet export failure semantics. Both fixes are local and require checks, push, CI, and follow-up `@codex review`.
 
 Next expected milestones:
 
-1. Complete Stage 00.1 local files and checks.
-2. Open Stage 00.1 PR and request `@codex review`.
-3. Submit Stage 00.1 GPT Pro review packet.
+1. Run local checks for the latest P2 fixes.
+2. Push fixes to PR #6 and request follow-up `@codex review`.
+3. Submit Stage 00.1 GPT Pro review packet only after Codex findings clear.
 4. If Stage 00.1 passes, create Stage 01 plan and submit it to GPT Pro.

@@ -38,16 +38,16 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Current phase status | active |
 | Active branch | `stage/00-1-governance-cleanup` |
 | Latest PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
-| Latest CI status | PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26367209027/job/77612963993 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26367209635/job/77612965762 |
-| Latest Codex review status | PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824 |
+| Latest CI status | PASS on `2f877f47f6` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26367838606/job/77614639104 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26367838252/job/77614638027; follow-up CI pending after local P2 fixes |
+| Latest Codex review status | BLOCKED/PENDING: latest review found P2s at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295036278 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295036279; local fixes prepared |
 | Latest GPT Pro review status | pending |
 | Active goal id | G-0001 |
-| Next required action | synchronize final Codex evidence, then submit Stage 00.1 GPT Pro review |
+| Next required action | commit and push latest P2 fixes, then request follow-up `@codex review` |
 | Blocker status | Docker daemon unavailable for later Stage 01 implementation; not blocking Stage 00.1 |
-| Last updated time | 2026-05-24T12:21:28-05:00 |
+| Last updated time | 2026-05-24T12:35:52-05:00 |
 
 Current detected stage is: Stage 00.1 governance cleanup.
 
 Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation, but Stage 00.1 can proceed.
 
-Next valid action is: synchronize final Codex evidence, then submit Stage 00.1 GPT Pro review.
+Next valid action is: commit and push latest P2 fixes, then request follow-up `@codex review`.

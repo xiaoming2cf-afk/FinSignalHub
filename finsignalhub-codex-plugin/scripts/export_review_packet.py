@@ -4,16 +4,22 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
 
 
-def read_optional(rel: str) -> str:
+def normalize_stage(value: str) -> str:
+    return value.strip().replace(".", "_")
+
+
+def read_required(rel: str) -> str:
     path = ROOT / rel
     if not path.exists():
-        return f"Missing: {rel}\n"
+        raise FileNotFoundError(rel)
     return path.read_text(encoding="utf-8")
 
 
@@ -23,17 +29,35 @@ def main() -> int:
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 
-    stage_dir = f"stage_{args.stage}"
+    stage = normalize_stage(args.stage)
+    if stage not in KNOWN_STAGES:
+        print(f"unknown stage id: {args.stage}", file=sys.stderr)
+        return 2
+
+    stage_dir = f"stage_{stage}"
+    required = [
+        "CONTROL/01_PRODUCT_DEFINITION.md",
+        "CONTROL/19_STAGE_DASHBOARD.md",
+        f"reviews/{stage_dir}/STAGE_ACCEPTANCE_RESULT.md",
+        "CONTROL/20_BLOCKER_LOG.md",
+    ]
+    missing = [rel for rel in required if not (ROOT / rel).exists()]
+    if missing:
+        print("missing required review packet artifact(s):", file=sys.stderr)
+        for rel in missing:
+            print(f"- {rel}", file=sys.stderr)
+        return 1
+
     parts = [
         "# FinSignalHub Review Packet Export\n\n",
         "## Product Definition\n\n",
-        read_optional("CONTROL/01_PRODUCT_DEFINITION.md"),
+        read_required("CONTROL/01_PRODUCT_DEFINITION.md"),
         "\n## Stage Dashboard\n\n",
-        read_optional("CONTROL/19_STAGE_DASHBOARD.md"),
+        read_required("CONTROL/19_STAGE_DASHBOARD.md"),
         "\n## Acceptance Result\n\n",
-        read_optional(f"reviews/{stage_dir}/STAGE_ACCEPTANCE_RESULT.md"),
+        read_required(f"reviews/{stage_dir}/STAGE_ACCEPTANCE_RESULT.md"),
         "\n## Blockers\n\n",
-        read_optional("CONTROL/20_BLOCKER_LOG.md"),
+        read_required("CONTROL/20_BLOCKER_LOG.md"),
     ]
     output = ROOT / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
