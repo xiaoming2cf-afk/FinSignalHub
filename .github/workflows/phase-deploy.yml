@@ -1,0 +1,28 @@
+name: Phase Deploy Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Stage id such as 00"
+        required: true
+        default: "00"
+
+jobs:
+  phase-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run or reserve phase check
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/phase_check.py ]; then
+            python scripts/phase_check.py --stage "${{ github.event.inputs.stage }}"
+          else
+            echo "TODO Stage 01: implement scripts/phase_check.py after GPT Pro approves Stage 01."
+            test -s "CONTROL/03_PHASE_ACCEPTANCE.md"
+            test -s "reviews/stage_00/STAGE_ACCEPTANCE_RESULT.md"
+          fi
