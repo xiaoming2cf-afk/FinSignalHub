@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on commit `50f9d1852d`; follow-up CI pending after the latest local-environment false-positive P1 fix is pushed.
+PASS on P1-fix commit `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`. The current evidence-sync and subagent-proof changes require push, CI, and follow-up Codex review before Gate 6 can pass.
 
 Evidence:
 
@@ -34,6 +34,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369395938/job/77618738268
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369633104/job/77619417470
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369633973/job/77619419561
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369899386/job/77620115542
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369900324/job/77620117626
 
 ## Codex Review
 
@@ -51,7 +53,7 @@ Stage 00.1 is governance-only. Docker is not required for this PR, but Docker mu
 
 ## Current Codex Review Status
 
-PENDING after local fixes.
+PENDING after pushed local-environment false-positive fix and local evidence sync.
 
 Previous Codex no-major-issues response:
 
@@ -61,4 +63,4 @@ Latest reviewed commit `50f9d1852d` produced one P1 finding:
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295138487
 
-The finding is fixed locally in `phase_check.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
+The finding is fixed in pushed commit `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`. CI passed on that commit. The evidence-sync and subagent-proof changes in this branch must also be pushed, pass CI, and receive follow-up `@codex review` before Gate 6 can return PASS.

@@ -289,3 +289,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: local-environment false-positive P1 resolution evidence in progress.
 - Blockers: Docker daemon unavailable for later Stage 01 implementation.
 - Next action: commit, push, and request follow-up Codex review.
+
+## Cycle 0017
+
+- Timestamp: 2026-05-24T14:05:20-05:00
+- Files read: PR #6 issue comments, PR #6 review comments, PR #6 CI checks, Stage 00.1 evidence files.
+- Current detected stage is: Stage 00.1 governance cleanup.
+- Current detected blocker status is: Docker daemon unavailable for Stage 01 implementation only.
+- Next valid action is: run local checks, commit evidence-sync and subagent-proof files, push, and request follow-up `@codex review`.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, subagent-coordinator.
+- Subagents used: Lorentz read-only evidence recorded; Newton read-only verification completed and integrated.
+- Commands run: `gh pr view`, `gh pr checks`, `gh api repos/xiaoming2cf-afk/FinSignalHub/issues/6/comments --paginate`, `gh api repos/xiaoming2cf-afk/FinSignalHub/pulls/6/comments --paginate`.
+- Files changed: deployment record, Codex review summary, acceptance result, subagent summary, subagent log, phase_check.py, goal registry, artifact registry, release checklist, stage dashboard, current stage state, action queue, checkpoint log, execution log, long-run summary.
+- Tests run: passed before Newton integration: phase_check `00_1`, phase_check `00.1`, phase_check `01` missing-plan rejection, helper syntax check, RunLog order check, secret-pattern scan, and `git diff --check`; final checks will be rerun before commit.
+- GitHub status: PR #6 open; P1-fix commit `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36` CI passed; evidence-sync changes local.
+- GPT Pro status: Stage 00.1 review pending until current PR head clears Codex review.
+- Artifacts created: Lorentz and Newton subagent proof files plus evidence-sync updates.
+- Blockers: Docker daemon unavailable for later Stage 01 implementation.
+- Next action: run checks, commit, push, and request follow-up Codex review.
+
+## Cycle 0018
+
+- Timestamp: 2026-05-24T14:11:00-05:00
+- Files read: Newton read-only verification result, Stage 00.1 subagent evidence, execution log, artifact registry, GPT Pro review packet.
+- Current detected stage is: Stage 00.1 governance cleanup.
+- Current detected blocker status is: Docker daemon unavailable for Stage 01 implementation only.
+- Next valid action is: rerun local checks, commit evidence-sync and subagent-proof files, push, and request follow-up `@codex review`.
+- Skills used: subagent-coordinator, codex-log-keeper, phase-gate-auditor, github-review-resolver.
+- Subagents used: Lorentz and Newton read-only verification completed.
+- Commands run: multi-agent wait result; local evidence inspection.
+- Files changed: Newton subagent log, subagent summary, artifact registry, execution log, goal registry, RunLog current, phase_check requirement.
+- Tests run: passed: phase_check `00_1`, phase_check `00.1`, phase_check `01` missing-plan rejection, helper syntax check, RunLog order check, execution log order check, secret-pattern scan, and `git diff --check`.
+- GitHub status: PR #6 open; current evidence-sync changes local and require push, CI, and Codex follow-up.
+- GPT Pro status: Stage 00.1 review pending until current PR head clears Codex review.
+- Artifacts created: Newton verification evidence and integrated cleanup notes.
+- Blockers: Docker daemon unavailable for later Stage 01 implementation.
+- Next action: commit, push, and request follow-up Codex review.

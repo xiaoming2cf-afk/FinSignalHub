@@ -157,7 +157,10 @@ def main() -> int:
             "reviews/stage_00_1/PR_BODY.md",
             "reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md",
             "reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md",
+            "reviews/stage_00_1/SUBAGENT_SUMMARY.md",
             "deployments/stage_00_1/GITHUB_PR.md",
+            "logs/subagents/stage_00_1/lorentz-readonly-verification.md",
+            "logs/subagents/stage_00_1/newton-readonly-verification.md",
         ):
             require_file(ROOT / rel)
     elif stage not in {"00"}:

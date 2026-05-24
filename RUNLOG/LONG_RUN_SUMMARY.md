@@ -8,11 +8,12 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `50f9d1852d`, but latest Codex review found one P1 issue: recursive runtime-scaffold scanning must ignore local environment, cache, and build directories such as `.venv/src` so acceptance is deterministic across developer machines. The fix is local, local checks passed, and it still requires push, CI, and follow-up `@codex review`.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Latest P1 issue was fixed and pushed in `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`: recursive runtime-scaffold scanning now ignores local environment, cache, and build directories such as `.venv/src` while still rejecting forbidden governance-path scaffolds. CI passed on that commit. Evidence-sync and subagent-proof changes are being prepared for another push and follow-up `@codex review`.
 
 Next expected milestones:
 
-1. Push the latest local-environment false-positive fix to PR #6 and request follow-up `@codex review`.
-2. Wait for CI and Codex review to clear or resolve any further critical findings.
+1. Run local checks for the evidence-sync and subagent-proof changes.
+2. Commit and push those changes, then request follow-up `@codex review`.
+3. Resolve any new critical findings, or proceed if Codex returns no major issues.
 3. Submit Stage 00.1 GPT Pro review packet only after Codex findings clear.
 4. If Stage 00.1 passes, create Stage 01 plan and submit it to GPT Pro.

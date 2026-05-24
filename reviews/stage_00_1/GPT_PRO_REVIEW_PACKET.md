@@ -18,7 +18,7 @@ Clean up and synchronize governance artifacts so long-running Codex sessions can
 
 `PLANS/STAGE_00_1_PLAN.md`
 
-## Implemented or intended Stage 00.1 files
+## Stage 00.1 files
 
 - `CONTROL/23_RUNLOG_PROTOCOL.md`
 - `CONTROL/24_CURRENT_STAGE_STATE.md`
@@ -33,8 +33,28 @@ Clean up and synchronize governance artifacts so long-running Codex sessions can
 - `finsignalhub-codex-plugin/scripts/export_review_packet.py`
 - `reviews/stage_00_1/PR_BODY.md`
 - `reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md`
+- `reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md`
+- `reviews/stage_00_1/SUBAGENT_SUMMARY.md`
 - `deployments/stage_00_1/GITHUB_PR.md`
+- `logs/subagents/stage_00_1/lorentz-readonly-verification.md`
+- `logs/subagents/stage_00_1/newton-readonly-verification.md`
 - `运行要求/FinSignalHub_Codex_RunLog_Autonomous_Prompt.md`
+
+## GitHub and Codex review state
+
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
+- Branch: `stage/00-1-governance-cleanup`
+- Latest pushed P1-fix commit with CI PASS at the time this packet was updated: `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`
+- CI evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369899386/job/77620115542 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369900324/job/77620117626
+- Codex review status: latest P1 finding was fixed and pushed; evidence-sync and subagent-proof changes must be pushed, pass CI, and receive follow-up `@codex review` before this packet is submitted to GPT Pro as final Stage 00.1 review.
+- Codex review summary: `reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md`
+- Deployment evidence: `deployments/stage_00_1/GITHUB_PR.md`
+
+## Subagent evidence
+
+- Lorentz read-only verification checked governance-only boundary, RunLog ordering, exporter failure behavior, and GPT Pro block status.
+- Newton read-only verification found no business/runtime scaffold and identified stale evidence rows plus GPT packet context that were integrated before submission.
+- Subagent summary: `reviews/stage_00_1/SUBAGENT_SUMMARY.md`
 
 ## Checks required before final PASS
 
