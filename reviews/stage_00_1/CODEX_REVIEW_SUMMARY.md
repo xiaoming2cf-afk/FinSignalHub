@@ -4,7 +4,7 @@
 
 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
-Latest reviewed commit: `f1bf12e2256b362bf3560531ea6ca29780107811`
+Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
 
 ## Review request
 
@@ -30,4 +30,8 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 
 ## Required follow-up
 
-Run local checks, commit fixes, push, request follow-up `@codex review`, and wait for a no-major-issues response before Stage 00.1 GitHub gate can pass.
+No critical Codex findings remain. Latest no-major-issues response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
+
+Stage 00.1 can proceed to GPT Pro review after this evidence is synchronized.

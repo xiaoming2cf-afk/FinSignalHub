@@ -72,3 +72,4 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0040 | 00.1 | Stage 00.1 review packet | reviews/stage_00_1/GPT_PRO_REVIEW_PACKET.md | created pending GPT Pro submission | gpt-pro-review-preparer | GPT Pro gate |
 | A-0041 | 00.1 | plugin helper scripts | finsignalhub-codex-plugin/scripts/phase_check.py; finsignalhub-codex-plugin/scripts/log_append.py; finsignalhub-codex-plugin/scripts/export_review_packet.py | created pending checks | github-stage-deployer | deterministic governance helpers |
 | A-0042 | 00.1 | Stage 00.1 Codex review summary | reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md | P2 findings fixed locally; follow-up pending | github-review-resolver | Codex review gate |
+| A-0043 | 00.1 | PR #6 Codex no-major-issues response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824 | no major issues | github-review-resolver | Stage 00.1 GitHub/Codex gate |

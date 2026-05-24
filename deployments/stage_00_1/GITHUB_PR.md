@@ -37,4 +37,10 @@ Stage 00.1 is governance-only. Docker is not required for this PR, but Docker mu
 
 ## Current Codex Review Status
 
-Two P2 findings from the first review were fixed in `0f6c175`. The second review found two additional status-sync P2 findings; this branch updates `CONTROL/24_CURRENT_STAGE_STATE.md` and this deployment record to keep CI and next-action evidence consistent. Follow-up review is pending.
+PASS.
+
+Codex no-major-issues response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
+
+Earlier P2 findings were fixed across follow-up commits. The latest Codex response found no major issues.
