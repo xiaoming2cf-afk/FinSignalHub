@@ -36,5 +36,7 @@ Current findings:
 
 - CR-01-001 P1: replace Windows-only `npm.cmd` in Stage 01 plan commands with cross-platform `npm`.
 - CR-01-002 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after planning checks passed.
+- CR-01-003 P2: remove remaining Windows-only `npm.cmd` guidance from Stage 01 capability table.
+- CR-01-004 P2: update `CHECKLISTS/STAGE_01_CHECKLIST.md` after GPT Pro plan PASS and PR #7 status changed.
 
 Fixes are local and require push, CI, and follow-up Codex review.

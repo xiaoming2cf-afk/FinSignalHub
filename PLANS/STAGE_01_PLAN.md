@@ -17,7 +17,7 @@ Stage 00.1 GPT Pro result is PASS. It authorizes Stage 01 planning only. Stage 0
 | Chrome/GPT Pro | available after prior successful Stage 00.1 review | required for Stage 01 plan review and final review |
 | Docker | unavailable at planning time: daemon not reachable at `npipe:////./pipe/dockerDesktopLinuxEngine` | blocks implementation until Docker Desktop is running and validation passes |
 | Python | available | required for FastAPI/MCP skeleton tests |
-| Node/npm | available through `npm.cmd` | required for admin skeleton build |
+| Node/npm | available through cross-platform `npm`; do not commit OS-specific npm wrapper commands | required for admin skeleton build |
 
 ## Product alignment check
 
