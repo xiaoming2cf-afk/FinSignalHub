@@ -6,9 +6,9 @@ PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
 
-Latest reviewed commit: `2f877f47f63293d19b55c39c3f25e35931777c82`
+Latest reviewed commit: `878d666240522f6d72764d27cb2127bc83e73e98`
 
-Latest status: P2 findings fixed locally; follow-up Codex review pending after push.
+Latest status: log append helper P2 fixed locally; follow-up Codex review pending after push.
 
 ## Review request
 
@@ -33,6 +33,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 | CR-00.1-007 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Stage 00.1 phase check omitted `reviews/stage_00_1/CODEX_REVIEW_SUMMARY.md`, even though Gate 6 requires Codex review summary evidence. | Fixed by requiring the Stage 00.1 Codex summary file. |
 | CR-00.1-008 | P2 | `RUNLOG/LONG_RUN_CURRENT.md` | RunLog cycle entries were ordered 0007, 0008, 0006, 0005, which could make resume logic pick stale actions. | Fixed locally by restoring monotonic cycle order and appending Cycle 0009 for the latest review-fix work. |
 | CR-00.1-009 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | Review packet exporter returned success while substituting `Missing: ...` text for required stage artifacts. | Fixed locally by normalizing stage ids, rejecting unknown stages, and returning non-zero when required packet artifacts are missing. |
+| CR-00.1-010 | P2 | `finsignalhub-codex-plugin/scripts/log_append.py` | The RunLog append helper wrote `## Checkpoint <timestamp>` headings instead of monotonic `## Cycle NNNN` headings, which could break resume logic and cycle-order checks. | Fixed locally by generating the next numeric cycle heading from the target log and documenting the helper behavior. |
 
 ## Required follow-up
 
@@ -40,4 +41,4 @@ The previous no-major-issues response remains recorded:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Stage 00.1 must receive another follow-up Codex review after the CR-00.1-008 and CR-00.1-009 fixes are pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.
+Stage 00.1 must receive another follow-up Codex review after the CR-00.1-010 fix is pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.

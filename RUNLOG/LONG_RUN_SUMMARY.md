@@ -8,7 +8,7 @@ Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruct
 
 Current blocker: Docker daemon is not reachable. This does not block Stage 00.1 but blocks Stage 01 implementation until revalidated.
 
-Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `2f877f47f6`, but latest Codex review found two P2 issues in RunLog ordering and review packet export failure semantics. Both fixes are local and require checks, push, CI, and follow-up `@codex review`.
+Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. CI passed on commit `878d666240`, but latest Codex review found one P2 issue in the RunLog append helper. The fix is local and requires checks, push, CI, and follow-up `@codex review`.
 
 Next expected milestones:
 
