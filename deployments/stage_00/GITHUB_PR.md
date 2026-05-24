@@ -2,7 +2,7 @@
 
 ## Status
 
-IN PROGRESS.
+OPEN.
 
 ## Reason
 
@@ -13,7 +13,7 @@ Branches pushed:
 - `main`
 - `stage/00-control-system`
 
-GitHub CLI is still not authenticated, so PR creation and comment are being completed through GitHub web UI.
+GitHub CLI is still not persistently authenticated, so PR creation and comment were completed with a temporary Git Credential Manager token.
 
 GitHub CLI web login was attempted, but the process timed out without creating a local GitHub auth session.
 
@@ -27,4 +27,22 @@ GitHub CLI web login was attempted, but the process timed out without creating a
 
 ## PR URL
 
-Pending creation through GitHub web UI.
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1
+
+## CI
+
+`Stage Governance CI / governance-check` passed.
+
+## Codex Review
+
+Requested with required PR comment:
+
+`@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
+
+Comment URL:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527868832
+
+Codex connector response:
+
+`To use Codex here, create a Codex account and connect to github.`

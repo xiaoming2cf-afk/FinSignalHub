@@ -32,7 +32,7 @@ Update when a stage changes status, branch, PR, CI, Codex review, GPT Pro review
 
 | Stage | Status | Branch | PR | CI | Codex Review | GPT Pro Review | Blockers | Next Stage Source |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 00 | conditional pass / GitHub in progress | `stage/00-control-system` pushed to `xiaoming2cf-afk/FinSignalHub` | pending | pending | pending | CONDITIONAL PASS | `gh` unauthenticated; connector/browser account mismatch; Docker daemon unavailable | GPT Pro Stage 01 instructions saved |
+| 00 | conditional pass / Codex review blocked | `stage/00-control-system` pushed to `xiaoming2cf-afk/FinSignalHub` | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1 | PASS | BLOCKED: Codex connector not connected | CONDITIONAL PASS | Codex GitHub connector setup required; Docker daemon unavailable | GPT Pro Stage 01 instructions saved |
 | 01 | planned | not created | none | none | none | none | waiting Stage 00 | GPT Pro required |
 | 02 | planned | not created | none | none | none | none | waiting Stage 01 | GPT Pro required |
 | 03 | planned | not created | none | none | none | none | waiting Stage 02 | GPT Pro required |
