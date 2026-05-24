@@ -38,6 +38,14 @@ Latest Codex response on commit `f0c1d70`:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527990187
 
+Final acceptance follow-up request on commit `ed0ba1d`:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528060069
+
+Final Codex response on commit `ed0ba1d`:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149
+
 Latest review URL:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#pullrequestreview-4352049235
@@ -50,7 +58,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#discussion_r3294183173
 
 PASS AFTER FOLLOW-UP.
 
-The `chatgpt-codex-connector` account first reported setup blockers, then reviewed commit `0d94dffb87`, reviewed `ceb6eda540`, replied on `6ef3045` that it did not find any major issues, identified the final GPT Pro gate-status issue on `e4bf1d5`, and then replied on latest pushed commit `f0c1d70` that it did not find any major issues.
+The `chatgpt-codex-connector` account first reported setup blockers, then reviewed commit `0d94dffb87`, reviewed `ceb6eda540`, replied on `6ef3045` that it did not find any major issues, identified the final GPT Pro gate-status issue on `e4bf1d5`, replied on `f0c1d70` that it did not find any major issues, and replied on `ed0ba1d` after final GPT Pro PASS/subagent/release-note evidence that it did not find any major issues.
 
 ## Findings
 
@@ -64,4 +72,4 @@ The `chatgpt-codex-connector` account first reported setup blockers, then review
 
 ## Required follow-up
 
-No critical Codex findings remain for Stage 00. Latest Codex evidence is `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527990187`. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process and after saving final GPT Pro confirmation.
+No critical Codex findings remain for Stage 00. Latest Codex evidence is `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149`. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process after the user approves the Stage 01 plan.

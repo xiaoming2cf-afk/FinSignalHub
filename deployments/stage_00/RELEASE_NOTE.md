@@ -8,8 +8,11 @@ Stage 00 released the FinSignalHub project control system only. It did not creat
 
 - Branch: `stage/00-control-system`
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1
-- Latest pre-final-acceptance commit reviewed by Codex: `f0c1d70`
-- Codex latest no-major-issues evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527990187
+- Final acceptance commit reviewed by Codex: `ed0ba1d`
+- Codex latest no-major-issues evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149
+- Final acceptance CI evidence:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358482261
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358481283
 - GPT Pro final result: PASS for Stage 00 / prompt 1
 - Acceptance result: `reviews/stage_00/STAGE_ACCEPTANCE_RESULT.md`
 

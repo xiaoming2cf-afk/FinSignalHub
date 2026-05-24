@@ -55,3 +55,6 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0023 | 00 | GPT Pro final confirmation | reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md#final-stage-00-confirmation | PASS for Stage 00 / prompt 1 | browser-gpt-pro-reviewer | GPT Pro gate |
 | A-0024 | 00 | release note | deployments/stage_00/RELEASE_NOTE.md | created | github-stage-deployer | Stage 00 release evidence |
 | A-0025 | 00 | final subagent audit | logs/subagents/stage_00/fermat-final-audit.md | completed with commit/push blocker | subagent-coordinator | final verification evidence |
+| A-0026 | 00 | final acceptance commit | `ed0ba1d` on `stage/00-control-system` | pushed, CI passed, Codex no-major-issues | github-stage-deployer | final PR evidence |
+| A-0027 | 00 | final acceptance CI evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358482261 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358481283 | passed | github-stage-deployer | GitHub gate |
+| A-0028 | 00 | final Codex response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149 | no major issues on `ed0ba1d` | github-review-resolver | GitHub/Codex review gate |

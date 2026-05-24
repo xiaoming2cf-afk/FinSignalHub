@@ -41,6 +41,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356647424/job/77584483797
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26357750484/job/77587485895
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26357749887/job/77587484391
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358482261
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358481283
 
 ## Codex Review
 
@@ -84,11 +86,11 @@ Final Codex response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299
 
-Latest Codex status: final gate-status fix was pushed in `f0c1d70`, follow-up was requested, and Codex replied that it did not find any major issues.
+Latest Codex status: final GPT Pro PASS and subagent audit evidence was pushed in `ed0ba1d`, follow-up was requested, and Codex replied that it did not find any major issues.
 
 Latest Codex response:
 
-https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527990187
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149
 
 Browser follow-up on 2026-05-24:
 
