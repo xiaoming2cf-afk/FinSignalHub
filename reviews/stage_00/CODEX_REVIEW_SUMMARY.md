@@ -6,6 +6,22 @@ Codex PR review was requested on PR #1:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1
 
+Post-acceptance capability blocker resolution was requested on PR #2:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2
+
+PR #2 required request comment after user completed Codex connector authorization:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#issuecomment-4528530542
+
+PR #2 Codex review URL:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#pullrequestreview-4352435372
+
+PR #2 finding evidence:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#discussion_r3294400269
+
 Required request comment:
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
@@ -69,7 +85,8 @@ The `chatgpt-codex-connector` account first reported setup blockers, then review
 | CR-0003 | P2 | `reviews/stage_00/GPT_PRO_REVIEW_PACKET.md` | Review packet still said the workspace was not a Git repository, which became false after Stage 00 Git setup. | Fixed by updating Git, PR, CI, and Codex review status in the packet. |
 | CR-0004 | P2 | `.env.example` | Follow-up review found a concrete GPT Pro session URL in `.env.example`, violating placeholder-only env policy. | Fixed by replacing it with a non-session placeholder URL. |
 | CR-0005 | P1 | `reviews/stage_00/STAGE_ACCEPTANCE_RESULT.md` | Latest review found GPT Pro gate was marked PASS even though final GPT Pro confirmation was pending. | Fixed by marking GitHub, GPT Pro, and Next stage gates BLOCKED until final GPT Pro confirmation is saved. |
+| CR-0006 | P2 | `reviews/stage_00/PR_BODY.md`; `CONTROL/16_CAPABILITY_AUDIT.md`; `CONTROL/20_BLOCKER_LOG.md` | PR #2 review found conflicting identity evidence for the authenticated GitHub CLI account. | Fixed by recording `xiaoming2cf-afk` as the active `gh` account and documenting `lhy18613775` only as a separate non-active connector login. |
 
 ## Required follow-up
 
-No critical Codex findings remain for Stage 00. Latest Codex evidence is `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149`. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process after the user approves the Stage 01 plan.
+No critical Codex findings remain for Stage 00 PR #1. PR #2 has one P2 provenance clarity finding fixed in the current branch and requires follow-up Codex confirmation before merge. Stage 01 may begin only through the required Stage 01 `/plan` and `/goal` process after the user approves the Stage 01 plan.

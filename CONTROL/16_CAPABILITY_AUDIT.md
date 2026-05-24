@@ -39,7 +39,7 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | Chrome extension | available | GPT Pro page and Codex settings pages with login state | none for GPT Pro after successful final confirmation | GPT Pro review and final confirmation completed | use only with user approval and stop on permission/account prompts | yes |
 | Computer Use | unknown | last-resort UI operation | standalone availability not confirmed | cannot rely on it | Browser or manual user action | yes |
 | GitHub connection | available | repo, PR, review | repo exists and PR is open; GitHub plugin user differs from repo owner but PR workflow is functional | connector can comment/read and `gh` can perform authenticated CLI operations | record owner/account assumptions in stage PR logs | yes for owner-only browser actions |
-| GitHub CLI | available | branch, push, PR | none after persistent login | `gh auth status` reports account `lhy18613775` with `repo,workflow` scopes | none | no |
+| GitHub CLI | available | branch, push, PR | none after persistent login | `gh auth status` reports active account `xiaoming2cf-afk` with `repo,workflow` scopes; `lhy18613775` remains a non-active secondary login | none | no |
 | GitHub Actions | available | CI gate | none for Stage 00 | governance CI passed on PR | none | no |
 | PR `@codex review` | available | Codex review gate | initial and follow-up findings were fixed; final response found no major issues | Gate 6 satisfied for Stage 00 | none | no |
 | Subagents | available | independent Stage 00 completeness audit | must be spawned explicitly | improves verification | local self-check if unavailable | no |

@@ -31,8 +31,8 @@ Current status:
 - Remote repository exists: `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
 - Branches pushed: `main` and `stage/00-control-system`.
 - GPT Pro initial review completed with CONDITIONAL PASS and final confirmation returned PASS for Stage 00 / prompt 1.
-- `gh` persistent authentication is now available for `xiaoming2cf-afk` with `repo,workflow` scopes.
-- The GitHub plugin also posted the required `@codex review` comment as `lhy18613775`.
+- `gh` persistent authentication is now available for active account `xiaoming2cf-afk` with `repo,workflow` scopes.
+- A separate GitHub connector/plugin account, `lhy18613775`, posted one retry `@codex review` comment; it is not the active GitHub CLI account.
 - Codex review executed, findings were fixed, and latest follow-up on commit `f0c1d70` found no major issues.
 - Stage 00 final acceptance is PASS after GPT Pro final confirmation was saved.
 - Docker daemon is now available: Docker Server 29.3.1 on context `docker-desktop`.
@@ -47,5 +47,6 @@ This PR records that two deferred local-environment blockers have been resolved 
 
 - GitHub CLI persistent login is available.
 - Docker Desktop daemon is available.
+- Codex review on PR #2 found one provenance clarity issue about account identity; this branch now reconciles the active CLI account evidence.
 
 No product runtime, backend, database, connector, frontend, or MCP business tool is introduced.
