@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on commit `0d13a583a8`; follow-up CI pending after the latest Stage 00.1 plan test-category fix is pushed.
+PASS on commit `50f9d1852d`; follow-up CI pending after the latest local-environment false-positive P1 fix is pushed.
 
 Evidence:
 
@@ -32,6 +32,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369132907/job/77618006982
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369394892/job/77618735957
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369395938/job/77618738268
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369633104/job/77619417470
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369633973/job/77619419561
 
 ## Codex Review
 
@@ -55,8 +57,8 @@ Previous Codex no-major-issues response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Latest reviewed commit `0d13a583a8` produced one P2 finding:
+Latest reviewed commit `50f9d1852d` produced one P1 finding:
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295125966
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295138487
 
-The finding is fixed locally in `PLANS/STAGE_00_1_PLAN.md` and `phase_check.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
+The finding is fixed locally in `phase_check.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.

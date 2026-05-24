@@ -6,9 +6,9 @@ PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
 
-Latest reviewed commit: `0d13a583a8aa1323281dedfb8e7cdbd2e443d3c5`
+Latest reviewed commit: `50f9d1852d77e18e6d48f96649a397993cb0ba7e`
 
-Latest status: Stage 00.1 plan test-category P2 finding fixed locally; follow-up Codex review pending after push.
+Latest status: local-environment false-positive P1 finding fixed locally; follow-up Codex review pending after push.
 
 ## Review request
 
@@ -42,6 +42,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 | CR-00.1-016 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` still accepted raw `..` traversal segments that normalized inside the repository. | Fixed locally by rejecting any `..` segment in the raw output path. |
 | CR-00.1-017 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Stage 00/00.1 runtime guard only checked top-level forbidden paths, allowing nested runtime scaffold paths such as `docs/backend/` or `tools/package.json` to evade the governance gate. | Fixed locally by recursively scanning repository paths outside `.git`, rejecting forbidden directory names in any path segment and forbidden scaffold file names anywhere in the repository. |
 | CR-00.1-018 | P2 | `PLANS/STAGE_00_1_PLAN.md` | The Stage 00.1 plan listed ad-hoc checks but did not explicitly define local checks, unit tests, integration tests, and acceptance checks or a governance-stage deferred rationale. | Fixed locally by adding the four required test categories, documenting why unit/integration product tests are deferred until runtime stages, and requiring those plan categories in `phase_check.py` for Stage 00.1 and later stages. |
+| CR-00.1-019 | P1 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Recursive runtime scan skipped only `.git`, so common untracked local environment directories such as `.venv/src` could fail Stage 00.1 checks even though no tracked product scaffold was introduced. | Fixed locally by ignoring common local environment, cache, and build directories while still scanning repository governance paths for forbidden runtime scaffold names. |
 
 ## Required follow-up
 
@@ -49,4 +50,4 @@ The previous no-major-issues response remains recorded:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Stage 00.1 must receive another follow-up Codex review after the CR-00.1-018 fix is pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.
+Stage 00.1 must receive another follow-up Codex review after the CR-00.1-019 fix is pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.

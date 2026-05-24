@@ -30,4 +30,4 @@ Update when release evidence, tag policy, PR flow, or stage acceptance changes.
 
 Stage 00 has passed local governance checks, GitHub PR/CI/Codex review, and GPT Pro final confirmation. Stage 00 release evidence is recorded in `deployments/stage_00/RELEASE_NOTE.md`.
 
-Current tag state: `stage-00-control-system` exists. Stage 00.1 tag is pending until Stage 00.1 PR, CI, Codex review, GPT Pro review, and phase-gate-auditor result pass. The latest Stage 00.1 local release change adds explicit plan test categories and phase-check enforcement; local checks passed, while GitHub CI and Codex follow-up remain required before release.
+Current tag state: `stage-00-control-system` exists. Stage 00.1 tag is pending until Stage 00.1 PR, CI, Codex review, GPT Pro review, and phase-gate-auditor result pass. The latest Stage 00.1 local release change prevents local environment/cache/build directories from causing false-positive runtime-scaffold failures; local checks passed, while GitHub CI and Codex follow-up remain required before release.

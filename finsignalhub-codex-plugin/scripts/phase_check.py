@@ -28,6 +28,21 @@ PLAN_TEST_CATEGORY_HEADINGS = (
     "### Acceptance checks",
 )
 KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
+LOCAL_TOOLING_DIR_NAMES = {
+    ".git",
+    ".venv",
+    "venv",
+    "env",
+    ".tox",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".next",
+    "node_modules",
+    "__pycache__",
+    "dist",
+    "build",
+}
 
 
 def require_file(path: Path) -> None:
@@ -90,7 +105,7 @@ def check_no_forbidden_stage00_runtime() -> None:
             rel = path.relative_to(ROOT)
         except ValueError:
             continue
-        if ".git" in rel.parts:
+        if any(part in LOCAL_TOOLING_DIR_NAMES for part in rel.parts):
             continue
         if path.is_dir() and path.name.lower() in forbidden_dir_names:
             present.append(rel.as_posix())
