@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS. PR #1, PR #2, and PR #3 are merged. The prompt-completion confirmation branch is preparing a final evidence-only PR.
+PASS for PR #1, PR #2, and PR #3. Prompt-completion confirmation PR #4 is open for final evidence-only review.
 
 ## Reason
 
@@ -171,7 +171,11 @@ PR #3 was merged at commit `6927b3b029e4dc904f71463031ca99d36031774b`.
 
 Status:
 
-Pending PR creation on branch `stage/00-prompt-completion-confirmation`.
+Open.
+
+PR:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4
 
 Purpose:
 
