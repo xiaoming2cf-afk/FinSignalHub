@@ -61,3 +61,4 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0029 | 00 | post-acceptance capability PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2 | open; CI passed; Codex follow-up found no major issues after fix | github-stage-deployer | follow-up capability evidence |
 | A-0030 | 00 | PR #2 Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#discussion_r3294400269 | fixed and verified | github-review-resolver | provenance clarity evidence |
 | A-0031 | 00 | PR #2 Codex follow-up response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#issuecomment-4528561687 | no major issues after `63c428d` | github-review-resolver | follow-up Codex evidence |
+| A-0032 | 00 | GPT Pro post-acceptance capability response | reviews/stage_00/GPT_PRO_POST_ACCEPTANCE_RESPONSE.md | PASS; Stage 01 planning allowed only | browser-gpt-pro-reviewer | post-acceptance GPT Pro evidence |

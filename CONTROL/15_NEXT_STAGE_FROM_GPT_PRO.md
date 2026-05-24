@@ -161,4 +161,20 @@ Full initial response and final confirmation are saved at `reviews/stage_00/GPT_
 
 ## Final GPT Pro Confirmation Summary
 
-GPT Pro answered `PASS for Stage 00 / prompt 1`, stated that there are no Stage 00 must-fix items, authorized Stage 00 to be marked complete, and authorized Stage 01 planning. Deferred items are persistent `gh` authentication, Docker daemon availability for Stage 01, GitHub Actions Node.js runtime changes, and standalone Computer Use automation confirmation.
+GPT Pro answered `PASS for Stage 00 / prompt 1`, stated that there are no Stage 00 must-fix items, authorized Stage 00 to be marked complete, and authorized Stage 01 planning. A later post-acceptance GPT Pro review confirmed that restored GitHub CLI and Docker capability evidence keeps Stage 00 complete.
+
+## Post-Acceptance GPT Pro Confirmation
+
+Captured: 2026-05-24T09:12:30-05:00.
+
+Source: `reviews/stage_00/GPT_PRO_POST_ACCEPTANCE_RESPONSE.md`.
+
+Result:
+
+```text
+Stage 00 post-acceptance capability update: PASS
+Stage 01 planning: ALLOWED
+Stage 01 implementation: NOT ALLOWED until user approves Stage 01 plan
+```
+
+Deferred items now are GitHub Actions Node.js runtime monitoring, browser / Chrome protocol smoke testing for later stages, and Stage 01-specific Docker Compose validation. Persistent `gh` authentication and Docker daemon availability have been restored at the environment-audit level.
