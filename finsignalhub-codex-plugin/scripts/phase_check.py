@@ -86,6 +86,7 @@ def main() -> int:
 
     stage = normalize_stage(args.stage)
     if stage == "00":
+        require_file(ROOT / "PLANS" / "STAGE_00_PLAN.md")
         require_file(ROOT / "CHECKLISTS" / "STAGE_00_CHECKLIST.md")
         require_file(ROOT / "reviews" / "stage_00" / "STAGE_ACCEPTANCE_RESULT.md")
 
@@ -115,6 +116,8 @@ def main() -> int:
         ):
             require_file(ROOT / rel)
     elif stage not in {"00"}:
+        require_file(ROOT / "PLANS" / f"STAGE_{stage}_PLAN.md")
+        require_file(ROOT / "TASKS" / f"STAGE_{stage}_TASKS.md")
         require_file(ROOT / "CHECKLISTS" / f"STAGE_{stage}_CHECKLIST.md")
         require_file(ROOT / "reviews" / f"stage_{stage}" / "STAGE_ACCEPTANCE_RESULT.md")
 

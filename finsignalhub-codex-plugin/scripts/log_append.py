@@ -17,6 +17,19 @@ ROOT = Path(__file__).resolve().parents[2]
 CYCLE_RE = re.compile(r"^## Cycle (\d+)\s*$", re.MULTILINE)
 
 
+def repo_relative_path(raw_path: str) -> Path:
+    candidate = Path(raw_path)
+    if candidate.is_absolute():
+        raise SystemExit("--log-path must be repository-relative")
+    resolved = (ROOT / candidate).resolve()
+    root = ROOT.resolve()
+    try:
+        resolved.relative_to(root)
+    except ValueError as exc:
+        raise SystemExit("--log-path must stay inside the repository") from exc
+    return resolved
+
+
 def next_cycle_number(path: Path) -> int:
     if not path.exists():
         return 1
@@ -38,7 +51,7 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    path = ROOT / args.log_path
+    path = repo_relative_path(args.log_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now(timezone.utc).isoformat()
     cycle = next_cycle_number(path)

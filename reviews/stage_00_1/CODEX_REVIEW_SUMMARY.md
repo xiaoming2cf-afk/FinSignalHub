@@ -6,9 +6,9 @@ PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 Latest reviewed commit with no-major-issues response: `3fba03ffc8be83bd29a27f3e844f04b340940769`
 
-Latest reviewed commit: `1e012c7155a49688f6e34a83ab120f0b69b793a4`
+Latest reviewed commit: `b1ebe5c66c45dd110dd0c35d69ceb6c12c95212e`
 
-Latest status: Stage 00.1 plan artifact phase-check P2 fixed locally; follow-up Codex review pending after push.
+Latest status: future-stage plan enforcement and repository-bound path P2 findings fixed locally; follow-up Codex review pending after push.
 
 ## Review request
 
@@ -35,6 +35,9 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529385503
 | CR-00.1-009 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | Review packet exporter returned success while substituting `Missing: ...` text for required stage artifacts. | Fixed locally by normalizing stage ids, rejecting unknown stages, and returning non-zero when required packet artifacts are missing. |
 | CR-00.1-010 | P2 | `finsignalhub-codex-plugin/scripts/log_append.py` | The RunLog append helper wrote `## Checkpoint <timestamp>` headings instead of monotonic `## Cycle NNNN` headings, which could break resume logic and cycle-order checks. | Fixed locally by generating the next numeric cycle heading from the target log and documenting the helper behavior. |
 | CR-00.1-011 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Stage 00.1 phase check did not require `PLANS/STAGE_00_1_PLAN.md`, allowing a false-positive gate result without the approved plan artifact. | Fixed locally by requiring the Stage 00.1 plan plus the committed run instruction input and helper artifacts. |
+| CR-00.1-012 | P2 | `finsignalhub-codex-plugin/scripts/phase_check.py` | Future-stage phase checks did not require `PLANS/STAGE_XX_PLAN.md`, weakening the no-plan/no-goal rule for Stage 01+. | Fixed locally by requiring future-stage plans and task files before checklist and acceptance evidence. |
+| CR-00.1-013 | P2 | `finsignalhub-codex-plugin/scripts/log_append.py` | `--log-path` accepted absolute or traversal paths despite being documented as repository-relative. | Fixed locally by rejecting absolute paths and paths that resolve outside the repository. |
+| CR-00.1-014 | P2 | `finsignalhub-codex-plugin/scripts/export_review_packet.py` | `--output` accepted absolute or traversal paths, allowing governance exports outside the repository. | Fixed locally by rejecting absolute paths and paths that resolve outside the repository. |
 
 ## Required follow-up
 
@@ -42,4 +45,4 @@ The previous no-major-issues response remains recorded:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Stage 00.1 must receive another follow-up Codex review after the CR-00.1-011 fix is pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.
+Stage 00.1 must receive another follow-up Codex review after the CR-00.1-012 through CR-00.1-014 fixes are pushed. GPT Pro review remains pending until the latest Codex review has no major issues or any remaining findings are resolved or explicitly deferred.

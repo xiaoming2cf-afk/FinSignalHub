@@ -12,6 +12,19 @@ ROOT = Path(__file__).resolve().parents[2]
 KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
 
 
+def repo_relative_path(raw_path: str) -> Path:
+    candidate = Path(raw_path)
+    if candidate.is_absolute():
+        raise SystemExit("--output must be repository-relative")
+    resolved = (ROOT / candidate).resolve()
+    root = ROOT.resolve()
+    try:
+        resolved.relative_to(root)
+    except ValueError as exc:
+        raise SystemExit("--output must stay inside the repository") from exc
+    return resolved
+
+
 def normalize_stage(value: str) -> str:
     return value.strip().replace(".", "_")
 
@@ -59,7 +72,7 @@ def main() -> int:
         "\n## Blockers\n\n",
         read_required("CONTROL/20_BLOCKER_LOG.md"),
     ]
-    output = ROOT / args.output
+    output = repo_relative_path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text("".join(parts), encoding="utf-8", newline="\n")
     print(output)
