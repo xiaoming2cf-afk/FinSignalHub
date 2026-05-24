@@ -94,6 +94,7 @@ def main() -> int:
 
     if stage == "00_1":
         for rel in (
+            "PLANS/STAGE_00_1_PLAN.md",
             "CONTROL/23_RUNLOG_PROTOCOL.md",
             "CONTROL/24_CURRENT_STAGE_STATE.md",
             "CONTROL/25_NEXT_ACTION_QUEUE.md",
@@ -101,6 +102,11 @@ def main() -> int:
             "CONTROL/27_CHECKPOINT_LOG.md",
             "RUNLOG/LONG_RUN_CURRENT.md",
             "RUNLOG/LONG_RUN_SUMMARY.md",
+            "运行要求/FinSignalHub_Codex_RunLog_Autonomous_Prompt.md",
+            "finsignalhub-codex-plugin/templates/pr_body_template.md",
+            "finsignalhub-codex-plugin/scripts/phase_check.py",
+            "finsignalhub-codex-plugin/scripts/log_append.py",
+            "finsignalhub-codex-plugin/scripts/export_review_packet.py",
             "reviews/stage_00_1/GPT_PRO_REVIEW_PACKET.md",
             "reviews/stage_00_1/PR_BODY.md",
             "reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md",

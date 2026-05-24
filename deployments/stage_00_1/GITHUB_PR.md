@@ -14,7 +14,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
 ## CI
 
-PASS on commit `878d666240`; follow-up CI pending after the latest log helper P2 fix is pushed.
+PASS on commit `1e012c7155`; follow-up CI pending after the latest phase-check P2 fix is pushed.
 
 Evidence:
 
@@ -22,6 +22,8 @@ Evidence:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26367838252/job/77614638027
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368175914/job/77615534811
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368176797/job/77615537358
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368413713/job/77616120366
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26368415481/job/77616122512
 
 ## Codex Review
 
@@ -45,8 +47,8 @@ Previous Codex no-major-issues response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529453824
 
-Latest reviewed commit `878d666240` produced one P2 finding:
+Latest reviewed commit `1e012c7155` produced one P2 finding:
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295060654
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295075137
 
-The finding is fixed locally in `finsignalhub-codex-plugin/scripts/log_append.py` and the script README. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
+The finding is fixed locally in `finsignalhub-codex-plugin/scripts/phase_check.py`. Follow-up push, CI, and `@codex review` are required before Gate 6 can return PASS again.
