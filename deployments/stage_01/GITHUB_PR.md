@@ -41,5 +41,6 @@ Current findings:
 - CR-01-005 P1: sanitize `artifacts/chrome_gpt_stage_01_plan_clipboard.txt` to remove unrelated browser sidebar/account context.
 - CR-01-006 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after latest Stage 01 checks.
 - CR-01-007 P2: mark Stage 01 plan artifacts as reviewed in `CONTROL/18_ARTIFACT_REGISTRY.md`.
+- CR-01-008 P2: refresh `CONTROL/24_CURRENT_STAGE_STATE.md` after latest check-pass checkpoint so it points to commit/push/follow-up, not stale checks.
 
 Fixes are local and require push, CI, and follow-up Codex review.
