@@ -34,7 +34,9 @@ jobs:
           test "$skill_count" -ge 15 || { echo "Expected at least 15 local skills, found $skill_count"; exit 1; }
           for f in CONTROL/*.md; do
             grep -q "## Purpose" "$f"
+            grep -q "## Owner" "$f"
             grep -q "## When to update" "$f"
             grep -q "## Required fields" "$f"
+            grep -q "## Example format" "$f"
             grep -q "## Current state" "$f"
           done

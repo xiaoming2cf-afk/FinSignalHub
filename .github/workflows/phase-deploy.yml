@@ -19,10 +19,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          stage="${{ github.event.inputs.stage }}"
+          if [[ ! "$stage" =~ ^[0-9][0-9]$ ]]; then
+            echo "Stage must be a two digit id such as 00 or 01."
+            exit 1
+          fi
           if [ -f scripts/phase_check.py ]; then
-            python scripts/phase_check.py --stage "${{ github.event.inputs.stage }}"
+            python scripts/phase_check.py --stage "$stage"
           else
             echo "TODO Stage 01: implement scripts/phase_check.py after GPT Pro approves Stage 01."
             test -s "CONTROL/03_PHASE_ACCEPTANCE.md"
-            test -s "reviews/stage_00/STAGE_ACCEPTANCE_RESULT.md"
+            test -s "CHECKLISTS/STAGE_${stage}_CHECKLIST.md"
+            test -s "reviews/stage_${stage}/STAGE_ACCEPTANCE_RESULT.md"
           fi

@@ -50,8 +50,11 @@ Local structural checks completed:
 - Stage task/checklist count: PASS, Stage 00 through Stage 09 present.
 - Plugin manifest field check: PASS, 15 skills listed.
 - Business directory check: PASS, no backend, database, MCP runtime, connector, frontend, product model, or scaffold directories created.
-- Git status check: BLOCKED, not a Git repository.
-- GitHub CLI auth check: BLOCKED, not logged in.
+- Git status check: PASS. Local Git repository exists on `stage/00-control-system`; `main` and `stage/00-control-system` were pushed to `https://github.com/xiaoming2cf-afk/FinSignalHub.git`.
+- GitHub PR check: PASS. PR #1 exists at `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1`.
+- GitHub Actions check: PASS. Stage Governance CI passed on the PR branch.
+- Codex review check: IN PROGRESS. `@codex review` executed and produced one P1 and two P2 findings; fixes are being applied in Stage 00 governance files.
+- GitHub CLI auth check: PARTIAL. `gh` is not persistently logged in, but PR actions were completed with a temporary Git Credential Manager token.
 - Docker daemon check: BLOCKED, unavailable or requires user action.
 
 Subagent verification:
@@ -63,9 +66,8 @@ Subagent verification:
 
 Known blockers:
 
-- Current workspace was not a Git repository.
-- GitHub CLI was installed but unauthenticated.
-- GitHub PR, GitHub Actions, and `@codex review` could not be completed locally.
+- Persistent GitHub CLI authentication is still missing and should be completed by the user before later stages rely on `gh`.
+- Codex review findings must be fixed or explicitly deferred before Stage 00 can become full PASS.
 - GPT Pro page access requires Chrome extension and user login-state approval.
 - Docker daemon was unavailable or required user action.
 

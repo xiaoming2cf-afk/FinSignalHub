@@ -47,4 +47,5 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0015 | 00 | local Git commit | `stage-00: establish control system` lineage on `stage/00-control-system`; latest pushed commit `0d94dff` | pushed | github-stage-deployer | GitHub gate partial evidence |
 | A-0016 | 00 | GitHub PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1 | open | github-stage-deployer | GitHub gate |
 | A-0017 | 00 | CI evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356648275/job/77584485757 | passed | github-stage-deployer | GitHub gate |
-| A-0018 | 00 | Codex review request evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527882690 | blocked by Codex environment setup | github-review-resolver | GitHub/Codex review gate |
+| A-0018 | 00 | Codex review request evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527882690 | review executed | github-review-resolver | GitHub/Codex review gate |
+| A-0019 | 00 | Codex review result | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#pullrequestreview-4352049235 | reviewed with findings | github-review-resolver | GitHub/Codex review gate |

@@ -59,11 +59,22 @@ Codex connector responses:
 1. `To use Codex here, create a Codex account and connect to github.`
 2. `To use Codex here, create an environment for this repo.`
 
-Current Codex review status: BLOCKED until a Codex cloud environment is created for `xiaoming2cf-afk/FinSignalHub`, then `@codex review` must be requested again.
+Current Codex review status: REVIEWED WITH FINDINGS.
+
+Review URL:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#pullrequestreview-4352049235
+
+Findings:
+
+- P1: `.github/workflows/phase-deploy.yml` fallback ignored the selected stage.
+- P2: `.github/workflows/ci.yml` did not check all required CONTROL sections.
+- P2: `reviews/stage_00/GPT_PRO_REVIEW_PACKET.md` still contained stale Git blocker evidence.
+
+Resolution status: fixes are applied locally and must be pushed, then `@codex review` must be rerun.
 
 Browser follow-up on 2026-05-24:
 
 - `https://chatgpt.com/codex/cloud/settings/connectors` shows GitHub connected as `lhy18613775`.
-- `https://chatgpt.com/codex/cloud/settings/environments` shows no Codex environment.
-- No safe automatic create action was available in the visible environment settings page.
-- Repository owner/account alignment is required before this blocker can be closed.
+- Codex review nevertheless executed on the PR and produced findings.
+- No secret, password, verification code, or payment action was entered.

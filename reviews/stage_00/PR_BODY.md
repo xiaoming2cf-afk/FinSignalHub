@@ -33,9 +33,10 @@ Current status:
 - GPT Pro review completed with CONDITIONAL PASS and saved in `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`.
 - `gh` remains unauthenticated persistently, but PR creation and owner-side `@codex review` comment were completed with a temporary Git Credential Manager token.
 - The GitHub plugin also posted the required `@codex review` comment as `lhy18613775`.
-- Codex connector currently requires a Codex cloud environment for this repo before review can execute.
+- Codex review executed and returned one P1 and two P2 governance findings.
+- Codex review fixes update `phase-deploy.yml`, `ci.yml`, and the Stage 00 GPT Pro review packet.
 - Docker daemon unavailable or permission required.
 
 ## Acceptance checklist
 
-Gate 6 GitHub remains BLOCKED until Codex review actually runs and findings are summarized. PR URL, CI pass, and `@codex review` request evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before Codex review evidence is complete.
+Gate 6 GitHub remains BLOCKED until Codex follow-up review confirms the findings are resolved or only explicitly deferred non-critical items remain. PR URL, CI pass, and Codex review evidence are saved. Gate 7 GPT Pro has CONDITIONAL PASS. Stage 00 must not be marked full PASS before Codex review resolution evidence is complete.
