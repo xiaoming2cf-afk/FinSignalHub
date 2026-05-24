@@ -2,7 +2,7 @@
 
 ## Status
 
-Not opened.
+Open.
 
 ## Branch
 
@@ -19,12 +19,22 @@ Implementation PR must either:
 
 ## PR URL
 
-Pending.
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7
 
 ## CI
 
-Pending.
+PASS:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26371735579/job/77624973322
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26371739848/job/77624984549
 
 ## Codex Review
 
-Pending.
+Requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4529857254.
+
+Current findings:
+
+- CR-01-001 P1: replace Windows-only `npm.cmd` in Stage 01 plan commands with cross-platform `npm`.
+- CR-01-002 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after planning checks passed.
+
+Fixes are local and require push, CI, and follow-up Codex review.

@@ -158,7 +158,7 @@ docker compose up --build
 curl http://localhost:8000/health
 pytest apps/api/tests
 pytest apps/mcp_server/tests
-npm.cmd --prefix apps/web_admin run build
+npm --prefix apps/web_admin run build
 ```
 
 Browser smoke must verify the admin scaffold page only after local web runtime exists.

@@ -99,3 +99,8 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0067 | 01 | Stage 01 GPT Pro plan packet | reviews/stage_01/GPT_PRO_REVIEW_PACKET.md | created; not submitted yet | gpt-pro-review-preparer | GPT Pro plan gate |
 | A-0068 | 01 | Stage 01 PR body | reviews/stage_01/PR_BODY.md | created | github-stage-deployer | GitHub PR gate |
 | A-0069 | 01 | Stage 01 acceptance placeholder | reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md | created; implementation pending | phase-gate-auditor | phase gate |
+| A-0070 | 01 | Stage 01 PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7 | open; CI passed; Codex findings under local fix | github-stage-deployer | Stage 01 planning PR evidence |
+| A-0071 | 01 | Stage 01 GPT Pro plan response | reviews/stage_01/GPT_PRO_PLAN_REVIEW_RESPONSE.md | PASS; implementation conditional | browser-gpt-pro-reviewer | GPT Pro plan gate |
+| A-0072 | 01 | Stage 01 GPT Pro plan action items | reviews/stage_01/GPT_PRO_PLAN_ACTION_ITEMS.md | created | gpt-pro-review-preparer | implementation blocker evidence |
+| A-0073 | 01 | PR #7 Codex plan findings | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295252557; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295252560 | CR-01-001/002 fixes local; follow-up pending | github-review-resolver | Stage 01 plan Codex gate |
+| A-0074 | 01 | Chrome GPT Pro Stage 01 plan text capture | artifacts/chrome_gpt_stage_01_plan_clipboard.txt | retained as text-only source capture for response extraction | browser-gpt-pro-reviewer | GPT Pro plan source evidence |
