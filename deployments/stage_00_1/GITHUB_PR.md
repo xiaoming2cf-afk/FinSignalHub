@@ -57,7 +57,7 @@ Stage 00.1 is governance-only. Docker is not required for this PR, but Docker mu
 
 ## Current Codex Review Status
 
-PASS on helper-hardening commit `43c570a1291b262faba32f288b29b0dfbf396029`.
+BLOCKED/PENDING after final evidence commit `f1421eefa0`.
 
 Previous Codex no-major-issues response:
 
@@ -83,3 +83,12 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529747962
 PASS. The Stage 00.1 response is saved at `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_00_1/GPT_PRO_ACTION_ITEMS.md`.
 
 GPT Pro authorized Stage 01 planning only. Stage 01 implementation remains blocked until plan approval, GPT Pro plan review, Docker revalidation, and PR #6 merge/base decision.
+
+## Latest Codex Findings
+
+Final evidence commit `f1421eefa0` produced:
+
+- CR-00.1-022 P1: Gate 6 must remain blocked until the current PR head receives CI PASS and Codex no-major evidence.
+- CR-00.1-023 P2: `phase_check.py` must not require specific Lorentz/Newton subagent log file names.
+
+Both fixes are local and must be pushed, pass CI, and receive follow-up Codex review before PR merge.
