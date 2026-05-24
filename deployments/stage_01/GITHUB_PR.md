@@ -47,5 +47,6 @@ Current findings:
 - CR-01-011 P3: remove duplicated milestone in `RUNLOG/LONG_RUN_SUMMARY.md`.
 - CR-01-012 P2: align `CONTROL/19_STAGE_DASHBOARD.md` with the latest Stage 01 finding set.
 - CR-01-013 P2: mark the completed planning security scan as passed in `CHECKLISTS/STAGE_01_CHECKLIST.md`.
+- CR-01-014 P2: include explicit user implementation approval and PR #6 baseline handling in the Stage 01 functionality blocker set.
 
-All known findings through CR-01-013 have been addressed in the Stage 01 planning artifacts. The GitHub gate remains blocked/pending until current-head Codex follow-up returns no-major-issues evidence or a new finding set is resolved.
+All known findings through CR-01-014 have been addressed in the Stage 01 planning artifacts. The GitHub gate remains blocked/pending until current-head Codex follow-up returns no-major-issues evidence or a new finding set is resolved.

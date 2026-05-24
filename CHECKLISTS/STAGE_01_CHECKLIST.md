@@ -3,9 +3,9 @@
 | Gate | Required evidence | Status |
 | --- | --- | --- |
 | Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pass for planning; implementation scope still gated |
-| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until plan approval and Docker validation |
+| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until Docker validation, explicit user implementation approval, and PR #6 baseline handling |
 | Tests | Planning checks now; scaffold checks after implementation approval | pass for planning; runtime tests blocked until implementation approval |
-| Docs | Scaffold boundaries and command docs | pending |
+| Docs | Scaffold boundaries and command docs | pass for planning; runtime docs blocked until implementation approval |
 | Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/19`, `RUNLOG/` current | pass for planning; implementation logs pending future approved implementation |
 | GitHub | Branch, PR, CI, Codex review | PR #7 open; CI passed; current-head Codex follow-up pending |
 | GPT Pro | Plan packet, plan response, action items, final implementation review later | plan PASS saved; implementation review pending future approved implementation |
