@@ -58,5 +58,6 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0026 | 00 | final acceptance commit | `ed0ba1d` on `stage/00-control-system` | pushed, CI passed, Codex no-major-issues | github-stage-deployer | final PR evidence |
 | A-0027 | 00 | final acceptance CI evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358482261 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26358481283 | passed | github-stage-deployer | GitHub gate |
 | A-0028 | 00 | final Codex response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4528067149 | no major issues on `ed0ba1d` | github-review-resolver | GitHub/Codex review gate |
-| A-0029 | 00 | post-acceptance capability PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2 | open; CI passed; Codex finding fixed locally | github-stage-deployer | follow-up capability evidence |
-| A-0030 | 00 | PR #2 Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#discussion_r3294400269 | fixed in current branch; follow-up review pending | github-review-resolver | provenance clarity evidence |
+| A-0029 | 00 | post-acceptance capability PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2 | open; CI passed; Codex follow-up found no major issues after fix | github-stage-deployer | follow-up capability evidence |
+| A-0030 | 00 | PR #2 Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#discussion_r3294400269 | fixed and verified | github-review-resolver | provenance clarity evidence |
+| A-0031 | 00 | PR #2 Codex follow-up response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#issuecomment-4528561687 | no major issues after `63c428d` | github-review-resolver | follow-up Codex evidence |

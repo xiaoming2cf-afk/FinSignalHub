@@ -97,3 +97,31 @@ Browser follow-up on 2026-05-24:
 - `https://chatgpt.com/codex/cloud/settings/connectors` shows GitHub connected as `lhy18613775`.
 - Codex review nevertheless executed on the PR and produced findings.
 - No secret, password, verification code, or payment action was entered.
+
+## Post-Acceptance Capability PR #2
+
+Follow-up PR:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2
+
+Purpose:
+
+- Record that persistent GitHub CLI authentication is now available for active account `xiaoming2cf-afk`.
+- Record that Docker daemon is now available on Docker Server 29.3.1, context `docker-desktop`.
+- Keep Stage 00 governance evidence current without introducing Stage 01 business or runtime code.
+
+CI evidence:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26360783000/job/77595689280
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26360782280/job/77595687485
+
+Codex review evidence:
+
+- Initial PR #2 review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#pullrequestreview-4352435372
+- P2 account-identity finding: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#discussion_r3294400269
+- Follow-up request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#issuecomment-4528554490
+- Follow-up result: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/2#issuecomment-4528561687
+
+Current status:
+
+PASS AFTER FOLLOW-UP. The P2 identity-provenance finding was fixed by reconciling the active GitHub CLI account as `xiaoming2cf-afk` and documenting `lhy18613775` only as a non-active secondary login/connector account.
