@@ -38,16 +38,16 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Current phase status | active |
 | Active branch | `stage/00-1-governance-cleanup` |
 | Latest PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6 |
-| Latest CI status | PASS on `2fed8cf94d` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369132145/job/77618004380 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369132907/job/77618006982; follow-up CI pending after latest recursive runtime-guard P2 fix |
-| Latest Codex review status | BLOCKED/PENDING: latest review found P2 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295113966; local fix prepared and local checks passed |
+| Latest CI status | PASS on `0d13a583a8` at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369394892/job/77618735957 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26369395938/job/77618738268; follow-up CI pending after latest plan test-category P2 fix |
+| Latest Codex review status | BLOCKED/PENDING: latest review found P2 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295125966; local fix prepared and checks passed |
 | Latest GPT Pro review status | pending |
 | Active goal id | G-0001 |
-| Next required action | commit and push latest recursive runtime-guard fix with passing local checks, then request follow-up `@codex review` |
+| Next required action | commit and push latest Stage 00.1 plan test-category fix with passing local checks, then request follow-up `@codex review` |
 | Blocker status | Docker daemon unavailable for later Stage 01 implementation; not blocking Stage 00.1 |
-| Last updated time | 2026-05-24T13:26:36-05:00 |
+| Last updated time | 2026-05-24T13:41:25-05:00 |
 
 Current detected stage is: Stage 00.1 governance cleanup.
 
 Current detected blocker status is: Docker daemon is unavailable for Stage 01 implementation, but Stage 00.1 can proceed.
 
-Next valid action is: commit and push latest recursive runtime-guard fix with passing local checks, then request follow-up `@codex review`.
+Next valid action is: commit and push latest Stage 00.1 plan test-category fix with passing local checks, then request follow-up `@codex review`.

@@ -46,7 +46,21 @@ No write subagents are required for Stage 00.1. A read-only verification subagen
 
 ## Tests
 
-Run control heading checks, skill section checks, Stage 00.1 artifact existence checks, plugin helper syntax checks, `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 00_1`, forbidden business path check, secret-pattern scan, and `git diff --check`.
+### Local checks
+
+Run control heading checks, skill section checks, Stage 00.1 artifact existence checks, plugin helper syntax checks, `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 00_1`, Stage 01 missing-plan rejection, recursive forbidden business/runtime path check, RunLog cycle order check, secret-pattern scan, and `git diff --check`.
+
+### Unit tests
+
+Stage 00.1 has no product runtime units because it is governance-only. The unit-test equivalent is helper-script syntax validation plus targeted helper behavior checks for stage normalization, missing artifact failure, RunLog append cycle numbering, repository-relative path rejection, traversal-segment rejection, and recursive forbidden runtime scaffold detection. Product unit tests begin only after an approved Stage 01 scaffold plan creates testable runtime skeletons.
+
+### Integration tests
+
+Stage 00.1 has no backend, database, frontend, MCP server, connector, or Docker integration surface. Integration testing is therefore deferred by design until Stage 01 and later. The integration-equivalent checks for this stage are GitHub Actions governance CI, PR creation, `@codex review`, and GPT Pro review packet submission.
+
+### Acceptance checks
+
+Acceptance requires the ten gates in `reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md`: scope, functionality, tests, docs, logs, GitHub, GPT Pro, product governance, security, and next stage. Gate 6 requires branch, PR, CI, Codex review, and PR URL. Gate 7 requires GPT Pro packet, response, action items, final result, and next-stage instruction or an explicit blocker.
 
 ## Docs
 

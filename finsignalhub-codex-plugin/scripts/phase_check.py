@@ -21,6 +21,12 @@ CONTROL_HEADINGS = (
     "## Example format",
     "## Current state",
 )
+PLAN_TEST_CATEGORY_HEADINGS = (
+    "### Local checks",
+    "### Unit tests",
+    "### Integration tests",
+    "### Acceptance checks",
+)
 KNOWN_STAGES = {"00_1", *(f"{i:02d}" for i in range(10))}
 
 
@@ -36,6 +42,14 @@ def check_control_headings() -> None:
         if missing:
             joined = ", ".join(missing)
             raise SystemExit(f"{path.relative_to(ROOT)} missing headings: {joined}")
+
+
+def check_plan_test_categories(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    missing = [heading for heading in PLAN_TEST_CATEGORY_HEADINGS if heading not in text]
+    if missing:
+        joined = ", ".join(missing)
+        raise SystemExit(f"{path.relative_to(ROOT)} missing test categories: {joined}")
 
 
 def normalize_stage(raw_stage: str) -> str:
@@ -108,8 +122,10 @@ def main() -> int:
         check_no_forbidden_stage00_runtime()
 
     if stage == "00_1":
+        stage_plan = ROOT / "PLANS" / "STAGE_00_1_PLAN.md"
+        require_file(stage_plan)
+        check_plan_test_categories(stage_plan)
         for rel in (
-            "PLANS/STAGE_00_1_PLAN.md",
             "CONTROL/23_RUNLOG_PROTOCOL.md",
             "CONTROL/24_CURRENT_STAGE_STATE.md",
             "CONTROL/25_NEXT_ACTION_QUEUE.md",
@@ -130,7 +146,9 @@ def main() -> int:
         ):
             require_file(ROOT / rel)
     elif stage not in {"00"}:
-        require_file(ROOT / "PLANS" / f"STAGE_{stage}_PLAN.md")
+        stage_plan = ROOT / "PLANS" / f"STAGE_{stage}_PLAN.md"
+        require_file(stage_plan)
+        check_plan_test_categories(stage_plan)
         require_file(ROOT / "TASKS" / f"STAGE_{stage}_TASKS.md")
         require_file(ROOT / "CHECKLISTS" / f"STAGE_{stage}_CHECKLIST.md")
         require_file(ROOT / "reviews" / f"stage_{stage}" / "STAGE_ACCEPTANCE_RESULT.md")
