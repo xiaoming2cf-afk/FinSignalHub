@@ -149,7 +149,7 @@ If local Docker is unavailable, Codex must not mark Stage 01 complete.
 - Docker unavailable.
 - Frontend scope creep into dashboard or product UI.
 - MCP tool creep into Research Mode business tools before Stage 06.
-- GitHub deployment still blocked.
+- GitHub and Docker availability may regress between stages and must be revalidated inside the approved Stage 01 plan and goal.
 
 ## Stage 01 Stop Conditions
 

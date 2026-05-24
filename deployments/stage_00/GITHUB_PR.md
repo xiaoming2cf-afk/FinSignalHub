@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS for PR #1, PR #2, PR #3, and PR #4. Prompt-completion confirmation PR #4 is open with CI passed and Codex no-major-issues evidence.
+PASS for PR #1, PR #2, PR #3, and PR #4. Prompt-completion confirmation PR #4 is merged with CI passed and Codex no-major-issues evidence.
 
 ## Reason
 
@@ -171,7 +171,7 @@ PR #3 was merged at commit `6927b3b029e4dc904f71463031ca99d36031774b`.
 
 Status:
 
-Open; CI passed; Codex review passed.
+Merged; CI passed; Codex review passed.
 
 PR:
 
@@ -192,7 +192,15 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529048666
 
 Current status:
 
-PASS. Codex found no major issues.
+PASS. Codex found no major issues on the final branch commit.
+
+Final Codex response on the final branch commit:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/4#issuecomment-4529061051
+
+Merge status:
+
+PR #4 was merged at commit `53e7acccc74824258ff358d41e6c84065ffc7675`.
 
 Purpose:
 
