@@ -82,7 +82,7 @@ Final Codex response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299
 
-Final Codex status: no major issues found.
+Latest Codex status: final status-recording commit `e4bf1d5` produced one P1 finding because GPT Pro was marked PASS while final confirmation was pending. The acceptance result has been corrected to keep GitHub, GPT Pro, and Next stage gates BLOCKED until final GPT Pro confirmation is saved.
 
 Browser follow-up on 2026-05-24:
 

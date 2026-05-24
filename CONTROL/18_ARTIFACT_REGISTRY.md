@@ -49,4 +49,5 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0017 | 00 | CI evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26356648275/job/77584485757 | passed | github-stage-deployer | GitHub gate |
 | A-0018 | 00 | Codex review request evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527882690 | review executed | github-review-resolver | GitHub/Codex review gate |
 | A-0019 | 00 | Codex review result | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#pullrequestreview-4352049235 | reviewed with findings | github-review-resolver | GitHub/Codex review gate |
-| A-0020 | 00 | Codex final follow-up | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299 | no major issues | github-review-resolver | GitHub/Codex review gate |
+| A-0020 | 00 | Codex final follow-up | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#issuecomment-4527956299 | no major issues on `6ef3045` | github-review-resolver | GitHub/Codex review gate |
+| A-0021 | 00 | Codex latest finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/1#discussion_r3294183173 | fixed locally, pending re-review | github-review-resolver | GitHub/Codex review gate |
