@@ -14,8 +14,8 @@ Stage 01 planning is active on branch `stage/01-repo-scaffold`, created from Sta
 
 Next expected milestones:
 
-1. Run checks after CR-01-003/004 fixes.
-2. Commit and push Stage 01 plan follow-up fixes.
+1. Run checks after CR-01-005/006/007 fixes.
+2. Commit and push Stage 01 artifact/privacy and state fixes.
 3. Request PR #7 Codex follow-up.
 4. Stop before implementation if Docker remains unavailable or explicit user implementation approval is missing.
 5. Do not implement Stage 01 until Docker is revalidated and PR #6 is merged or the branch-base dependency is logged.

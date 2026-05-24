@@ -38,5 +38,8 @@ Current findings:
 - CR-01-002 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after planning checks passed.
 - CR-01-003 P2: remove remaining Windows-only `npm.cmd` guidance from Stage 01 capability table.
 - CR-01-004 P2: update `CHECKLISTS/STAGE_01_CHECKLIST.md` after GPT Pro plan PASS and PR #7 status changed.
+- CR-01-005 P1: sanitize `artifacts/chrome_gpt_stage_01_plan_clipboard.txt` to remove unrelated browser sidebar/account context.
+- CR-01-006 P2: update `CONTROL/24_CURRENT_STAGE_STATE.md` after latest Stage 01 checks.
+- CR-01-007 P2: mark Stage 01 plan artifacts as reviewed in `CONTROL/18_ARTIFACT_REGISTRY.md`.
 
 Fixes are local and require push, CI, and follow-up Codex review.
