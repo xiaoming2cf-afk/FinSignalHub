@@ -70,8 +70,9 @@ Findings:
 - P1: `.github/workflows/phase-deploy.yml` fallback ignored the selected stage.
 - P2: `.github/workflows/ci.yml` did not check all required CONTROL sections.
 - P2: `reviews/stage_00/GPT_PRO_REVIEW_PACKET.md` still contained stale Git blocker evidence.
+- P2 follow-up: `.env.example` contained a concrete GPT Pro session URL instead of a placeholder.
 
-Resolution status: fixes are applied locally and must be pushed, then `@codex review` must be rerun.
+Resolution status: workflow and packet fixes were pushed in `ceb6eda`; `.env.example` placeholder fix is being pushed next, then `@codex review` must be rerun.
 
 Browser follow-up on 2026-05-24:
 

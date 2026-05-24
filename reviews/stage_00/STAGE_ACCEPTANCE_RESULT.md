@@ -7,7 +7,7 @@
 | Tests | File, heading, skill, manifest, workflow checks | PASS | Required file, control section, skill section, stage file, plugin manifest, directory README, git, and gh checks ran |
 | Docs | Root docs and README files | PASS | Required directories have README or purpose docs |
 | Logs | `CONTROL/04`, `05`, `07`, `18`, `20` | PASS | Logs and registries updated with active blockers |
-| GitHub | `deployments/stage_00/GITHUB_PR.md`, PR #1, CI checks, `reviews/stage_00/CODEX_REVIEW_SUMMARY.md` | BLOCKED | PR exists, CI passed, and Codex review returned one P1 and two P2 findings; fixes must be pushed and reviewed again |
+| GitHub | `deployments/stage_00/GITHUB_PR.md`, PR #1, CI checks, `reviews/stage_00/CODEX_REVIEW_SUMMARY.md` | BLOCKED | PR exists, CI passed, and Codex review returned one P1 and three P2 findings across initial and follow-up reviews; fixes must be pushed and reviewed again |
 | GPT Pro | `reviews/stage_00/GPT_PRO_REVIEW_PACKET.md`, `reviews/stage_00/GPT_PRO_REVIEW_RESPONSE.md`, `reviews/stage_00/GPT_PRO_ACTION_ITEMS.md` | PASS | GPT Pro returned CONDITIONAL PASS and action items were saved |
 | Product governance | `AGENTS.md`, `CONTROL/01`, product governor skill | PASS | Product identity and non-goals are enforced |
 | Security | Browser protocol, `.env.example`, blocker log | PASS | No real secrets added; unsafe browser actions blocked |
