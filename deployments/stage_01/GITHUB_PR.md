@@ -29,6 +29,8 @@ PASS:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26372846543/job/77627952398
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26434920535/job/77815447973
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26434922256/job/77815453096
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26436772796/job/77821288445
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26436774713/job/77821294385
 
 ## Codex Review
 
@@ -61,5 +63,7 @@ Current findings:
 - CR-01-023 P2: mark Stage 01 checklist GitHub gate as current-head CI/Codex pending after each new push.
 - CR-01-024 P2: move GPT Pro plan PASS from active blocker to satisfied planning gate in PR body.
 - CR-01-025 P1: require current-head CI PASS and current-head Codex no-major evidence in Stage acceptance Gate 6.
+- CR-01-026 P2: include current-head CI PASS in the Stage 01 final acceptance summary.
+- CR-01-027 P2: update artifact registry status to the latest Codex finding range.
 
-All known findings through CR-01-025 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
+All known findings through CR-01-027 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.

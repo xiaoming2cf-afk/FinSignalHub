@@ -13,4 +13,4 @@
 | Security | secret scan; sanitized GPT Pro capture | PASS for planning | No secrets were added; unrelated browser/account context was removed from committed GPT evidence |
 | Next stage | GPT Pro Stage 02 instruction | BLOCKED | Only after Stage 01 implementation PASS |
 
-Final result: BLOCKED before implementation. Stage 01 planning has GPT Pro PASS, local planning checks, GitHub CI, prior Codex no-major responses, and Docker daemon validation. Implementation must not start until the current PR head has a fresh Codex no-major response, explicit user approval is recorded, PR #6 baseline is handled, and GPT Pro/user resolves the Docker compose-config ordering conflict.
+Final result: BLOCKED before implementation. Stage 01 planning has GPT Pro PASS, local planning checks, historical GitHub CI, prior Codex no-major responses, and Docker daemon validation. Implementation must not start until the current PR head has CI PASS and a fresh Codex no-major response, explicit user approval is recorded, PR #6 baseline is handled, and GPT Pro/user resolves the Docker compose-config ordering conflict.
