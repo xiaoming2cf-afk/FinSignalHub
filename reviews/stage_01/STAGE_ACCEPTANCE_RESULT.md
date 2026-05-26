@@ -3,7 +3,7 @@
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
 | Scope | `PLANS/STAGE_01_PLAN.md`; `reviews/stage_01/GPT_PRO_PLAN_REVIEW_RESPONSE.md` | PASS for planning | GPT Pro approved the plan; implementation scope remains gated |
-| Functionality | scaffold runtime files | BLOCKED | Docker is now validated; explicit user implementation approval and PR #6 baseline handling are still required before implementation |
+| Functionality | scaffold runtime files | BLOCKED | Docker daemon is validated, but full Docker readiness remains blocked until `docker compose config` passes on an approved `docker-compose.yml`; explicit user implementation approval and PR #6 baseline handling are still required before implementation acceptance |
 | Tests | `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 01`; no-runtime check; secret scan; `git diff --check` | PASS for planning | Runtime tests are blocked until implementation is authorized |
 | Docs | Stage 01 plan, tasks, checklist, review packet, and gate docs | PASS for planning | Runtime docs remain blocked until implementation approval |
 | Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/24`, `CONTROL/27`, `RUNLOG/` | PASS for planning | Planning logs and registries are populated; final implementation logs remain blocked |

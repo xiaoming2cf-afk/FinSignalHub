@@ -43,11 +43,11 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Latest GPT Pro review status | PASS: Stage 01 plan approved; implementation still requires explicit user approval and PR #6 baseline handling |
 | Active goal id | G-0002 |
 | Next required action | request current-head PR #7 Codex follow-up for Docker evidence, then stop before implementation until explicit user approval and PR #6 merge/base decision are complete |
-| Blocker status | Docker resolved; user implementation approval pending; PR #6 merge/base decision required before implementation |
-| Last updated time | 2026-05-26T00:40:29-05:00 |
+| Blocker status | Docker daemon resolved; Docker compose config gate pending until approved `docker-compose.yml` exists; user implementation approval pending; PR #6 merge/base decision required before implementation |
+| Last updated time | 2026-05-26T00:50:18-05:00 |
 
 Current detected stage is: Stage 01 repo scaffold planning.
 
-Current detected blocker status is: Docker daemon is available. Local CR-01-015/016 checks passed; the current PR head still needs CI recheck and Codex follow-up after these status fixes. Stage 01 plan is GPT Pro approved, but implementation cannot start until current-head Codex follow-up, explicit user approval, and PR #6 baseline handling are complete.
+Current detected blocker status is: Docker daemon is available, but Docker readiness remains BLOCKED/PENDING until `docker compose config` passes on an approved `docker-compose.yml`. Local CR-01-015/016/017 checks passed; the current PR head still needs CI recheck and Codex follow-up after these status fixes. Stage 01 plan is GPT Pro approved, but implementation acceptance cannot pass until current-head Codex follow-up, explicit user approval, PR #6 baseline handling, and Docker compose config validation are complete.
 
 Next valid action is: request current-head PR #7 Codex follow-up for Docker evidence, then stop before implementation until explicit user approval and PR #6 baseline handling are complete.
