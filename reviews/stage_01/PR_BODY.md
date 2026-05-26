@@ -10,9 +10,14 @@ Stage 01 is not a business implementation stage. It must not implement Research 
 
 ## Current status
 
-Planning only. Runtime implementation is blocked until:
+Planning only.
 
-- GPT Pro approves the Stage 01 plan.
+Satisfied planning gate:
+
+- GPT Pro approved the Stage 01 plan and the response is saved in `reviews/stage_01/GPT_PRO_PLAN_REVIEW_RESPONSE.md`.
+
+Runtime implementation remains blocked until:
+
 - User approves implementation.
 - Docker daemon and Compose CLI are revalidated with `docker version` and `docker compose version`.
 - Docker readiness remains BLOCKED/PENDING until `docker compose config` passes on an approved `docker-compose.yml`; daemon status alone is not enough to unblock implementation acceptance.

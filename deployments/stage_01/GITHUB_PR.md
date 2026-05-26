@@ -59,5 +59,7 @@ Current findings:
 - CR-01-021 P2: include the compose-ordering blocker in the Stage 01 Codex current-state summary.
 - CR-01-022 P2: include the compose-ordering blocker in `RUNLOG/LONG_RUN_SUMMARY.md`.
 - CR-01-023 P2: mark Stage 01 checklist GitHub gate as current-head CI/Codex pending after each new push.
+- CR-01-024 P2: move GPT Pro plan PASS from active blocker to satisfied planning gate in PR body.
+- CR-01-025 P1: require current-head CI PASS and current-head Codex no-major evidence in Stage acceptance Gate 6.
 
-All known findings through CR-01-023 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
+All known findings through CR-01-025 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
