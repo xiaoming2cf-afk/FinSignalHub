@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 01 repo scaffold acceptance |
-| Current phase status | Stage 01 PASS / accepted; final evidence sync in progress before PR closeout |
-| Active branch | `stage/01-repo-scaffold` |
-| Latest PR | Stage 01 PR #7: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7 |
-| Latest CI status | implementation head `f30a02e7fd891d578e0f6e54f858ed475a6d6881` PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26470335307/job/77941753720 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26470336938/job/77941756597 |
-| Latest Codex review status | PASS: no major issues on implementation head at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547979692 |
-| Latest GPT Pro review status | PASS for Stage 01 plan; CONDITIONAL PASS for Docker ordering; CONDITIONAL PASS for implementation start; PASS for final implementation review |
-| Active goal id | G-0002 |
-| Next required action | finish final evidence sync, commit and push Stage 01 acceptance evidence, then proceed only to Stage 02 planning |
-| Blocker status | B-0012 resolved; B-0015 resolved; B-0016 resolved; no active Stage 01 blocker |
-| Last updated time | 2026-05-26T15:14:49-05:00 |
+| Current stage | Stage 02 Research Mode domain models planning |
+| Current phase status | Stage 02 planning active; implementation blocked |
+| Active branch | `stage/02-domain-models` |
+| Latest PR | pending |
+| Latest CI status | pending for Stage 02 planning PR |
+| Latest Codex review status | pending for Stage 02 planning PR |
+| Latest GPT Pro review status | Stage 01 final PASS authorized Stage 02 planning only; Stage 02 plan review pending |
+| Active goal id | G-0003 |
+| Next required action | finish Stage 02 planning logs/checks, open PR, request Codex review, submit GPT Pro plan review packet, and do not implement until plan PASS plus user `/goal` approval |
+| Blocker status | B-0017 open for Stage 02 implementation authorization |
+| Last updated time | 2026-05-26T15:57:58-05:00 |
 
-Current detected stage is: Stage 01 repo scaffold acceptance.
+Current detected stage is: Stage 02 Research Mode domain models planning.
 
-Current detected blocker status is: local scaffold implementation passed local checks, the pushed implementation head passed CI/Codex, and GPT Pro final review returned PASS. Stage 02 implementation is not authorized.
+Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 implementation is not authorized until GPT Pro plan review and user `/goal` approval pass.
 
-Next valid action is: commit and push Stage 01 final evidence sync, then create Stage 02 planning artifacts only after Stage 01 closeout evidence is stable.
+Next valid action is: run Stage 02 planning checks, open the planning PR, request Codex review, and submit the plan packet to GPT Pro through the approved Chrome route after GitHub evidence is ready.

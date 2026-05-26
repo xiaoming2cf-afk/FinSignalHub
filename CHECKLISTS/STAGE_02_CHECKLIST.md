@@ -2,13 +2,15 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | Domain models only | planned |
-| Functionality | Research Mode entities and CRUD | planned |
-| Tests | Model, migration, schema, CRUD tests | planned |
-| Docs | Domain model docs | planned |
-| Logs | Stage logs current | planned |
-| GitHub | Branch, PR, CI, Codex review | planned |
-| GPT Pro | Packet, response, next-stage instruction | planned |
-| Product governance | Provenance-backed research entities | planned |
-| Security | Data boundary checks | planned |
-| Next stage | GPT Pro Stage 03 instruction | planned |
+| Scope | Stage 02 plan confirms Research Mode domain models only; no implementation during planning | planning active |
+| Functionality | Planned minimum entities, migrations, schemas, model-level CRUD, and routers only after goal approval | pending GPT Pro plan review |
+| Tests | Planning checks now; model, migration, schema, CRUD tests later | pending |
+| Docs | Domain model plan docs and later model boundary docs | pending |
+| Logs | Stage logs current | pending |
+| GitHub | Branch, PR, CI, Codex review | pending |
+| GPT Pro | Plan packet, response, action items, final plan result | pending |
+| Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | pending |
+| Security | Secret scan, data boundary checks, no real API keys | pending |
+| Next stage | GPT Pro Stage 03 instruction only after Stage 02 implementation PASS | blocked until Stage 02 implementation is later approved and completed |
+
+Current Stage 02 status: planning only. Implementation is not authorized.

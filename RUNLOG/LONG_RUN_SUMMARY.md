@@ -8,13 +8,14 @@ Stage 00.1 is complete and merged. PR #6 merged into `main` at `75f215bc8647dac9
 
 Current blockers for final acceptance: none for Stage 01. Docker daemon is resolved as of 2026-05-26, GPT Pro resolved the compose-config ordering as `CONDITIONAL PASS`, B-0012 is resolved because the approved `docker-compose.yml` exists and `docker compose config` passed, B-0015 is resolved because implementation head `f30a02e7fd891d578e0f6e54f858ed475a6d6881` has CI PASS plus Codex no-major evidence, and B-0016 is resolved because GPT Pro final implementation review returned PASS.
 
-Stage 01 planning and local scaffold implementation are complete enough for GitHub review on branch `stage/01-repo-scaffold`. PR #7 now targets `main` after PR #6 merge and is clean. GPT Pro approved the Stage 01 plan, Docker daemon is available, and GPT Pro returned `CONDITIONAL PASS` for Docker ordering and implementation gate.
+Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5c4b9a6cec9b1488883fe20742` passed CI and Codex, tag `stage-01-repo-scaffold` was pushed, and PR #7 merged into `main` at `6b71850a1a59603fe169cd5a5ddf8d40adfaf8f4`.
 
-Current PR #7 status: implementation head `f30a02e7fd891d578e0f6e54f858ed475a6d6881` has CI PASS, Codex no-major response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547979692, and GPT Pro final implementation PASS saved under `reviews/stage_01/`.
+Current stage: Stage 02 planning on branch `stage/02-domain-models`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`.
 
 ## Next expected milestones
 
-1. Commit and push final Stage 01 acceptance evidence.
-2. Verify CI and Codex if the final evidence commit changes the PR head.
-3. Begin Stage 02 planning only from GPT Pro's Stage 02 requirements.
-4. Do not start Stage 02 implementation until Stage 02 plan review and user goal approval pass.
+1. Finish Stage 02 planning checks and subagent verification.
+2. Commit and push `stage/02-domain-models`.
+3. Open Stage 02 planning PR and request `@codex review`.
+4. Submit the Stage 02 plan packet to GPT Pro after GitHub evidence is ready.
+5. Do not start Stage 02 implementation until Stage 02 plan review and user goal approval pass.
