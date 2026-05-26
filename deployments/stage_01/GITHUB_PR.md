@@ -12,10 +12,11 @@ Open.
 
 This branch was created from `stage/00-1-governance-cleanup` because PR #6 had not been merged when GPT Pro authorized Stage 01 planning only.
 
-Implementation PR must either:
+Resolved on 2026-05-26:
 
-- wait for PR #6 to merge into `main`, or
-- use `stage/00-1-governance-cleanup` as the base and record the dependency.
+- PR #6 merged into `main` at `75f215bc8647dac9c5e4e55b68b3b84100f064b4`.
+- PR #7 was retargeted from `stage/00-1-governance-cleanup` to `main`.
+- PR #7 merge state after retarget: clean.
 
 ## PR URL
 
@@ -31,6 +32,12 @@ PASS:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26434922256/job/77815453096
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26436772796/job/77821288445
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26436774713/job/77821294385
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26441082577/job/77835425465
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26441084971/job/77835432221
+
+Pending after this baseline evidence update:
+
+- Current-head CI after push.
 
 ## Codex Review
 
@@ -79,3 +86,7 @@ Current findings:
 - CR-01-039 P2: require PR #6 baseline handling before any implementation artifact, including `docker-compose.yml`.
 
 All known findings through CR-01-039 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
+
+Latest no-major evidence before the baseline evidence update:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4542121494

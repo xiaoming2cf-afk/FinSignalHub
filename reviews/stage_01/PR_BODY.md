@@ -22,7 +22,11 @@ Runtime implementation remains blocked until:
 - Docker daemon and Compose CLI are revalidated with `docker info`, `docker version`, and `docker compose version`.
 - GPT Pro Docker ordering response is saved: `docker compose config` is implementation-preflight, not pure pre-implementation validation.
 - After user implementation approval, the first Stage 01 implementation step must create minimal `docker-compose.yml` and immediately run `docker compose config`; if it fails, implementation stops before further scaffold.
-- PR #6 is merged or this branch remains explicitly based on `stage/00-1-governance-cleanup`.
+
+Baseline status:
+
+- PR #6 is merged into `main` at `75f215bc8647dac9c5e4e55b68b3b84100f064b4`.
+- PR #7 now targets `main`.
 
 ## Checks
 
