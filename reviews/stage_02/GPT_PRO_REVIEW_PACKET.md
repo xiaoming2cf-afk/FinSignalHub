@@ -24,6 +24,17 @@ Forbidden directions remain chatbot, generic RAG, stock prediction, investment a
 
 Plan path: `PLANS/STAGE_02_PLAN.md`
 
+Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
+
+Stage 02 planning head: `af35b2253524641701d0a00ca6ebf6cee02ef897`
+
+CI status: PASS.
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475050339/job/77958288414
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475039759/job/77958248972
+
+Codex status: PENDING/BLOCKED. The required `@codex review` was requested through the standard CLI comment, a minimal CLI retry, GitHub plugin comment, and PR review event route. No Codex response was visible at packet preparation time, so this packet does not claim Codex review passed.
+
 Stage 02 target: Research Mode Domain Models.
 
 The Stage 02 plan proposes a later approved implementation for:
@@ -120,5 +131,6 @@ Please answer clearly:
 6. Required tests and CI checks.
 7. Required stop conditions.
 8. Any product-alignment risks before implementation.
+9. Whether the plan itself is acceptable while the Codex gate remains pending, and whether implementation must stay blocked until Codex returns a no-major response.
 
 If PASS or accepted CONDITIONAL PASS, provide the exact Stage 02 `/goal` requirements. Do not authorize Stage 03.

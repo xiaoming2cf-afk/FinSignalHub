@@ -7,7 +7,7 @@
 | Tests | Planning checks now; model, migration, schema, CRUD tests later | pending |
 | Docs | Domain model plan docs and later model boundary docs | pending |
 | Logs | Stage logs current | pending |
-| GitHub | Branch, PR, CI, Codex review | pending |
+| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open and CI passing; Codex has not responded |
 | GPT Pro | Plan packet, response, action items, final plan result | pending |
 | Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | pending |
 | Security | Secret scan, data boundary checks, no real API keys | pending |

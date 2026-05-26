@@ -10,12 +10,11 @@ Current blockers for final acceptance: none for Stage 01. Docker daemon is resol
 
 Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5c4b9a6cec9b1488883fe20742` passed CI and Codex, tag `stage-01-repo-scaffold` was pushed, and PR #7 merged into `main` at `6b71850a1a59603fe169cd5a5ddf8d40adfaf8f4`.
 
-Current stage: Stage 02 planning on branch `stage/02-domain-models`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`.
+Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 and CI is passing on head `af35b2253524641701d0a00ca6ebf6cee02ef897`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`. Codex review is blocked by B-0018 because no response appeared after standard CLI comment, minimal retry, GitHub plugin comment, and PR review event route.
 
 ## Next expected milestones
 
-1. Finish Stage 02 planning checks and subagent verification.
-2. Commit and push `stage/02-domain-models`.
-3. Open Stage 02 planning PR and request `@codex review`.
-4. Submit the Stage 02 plan packet to GPT Pro after GitHub evidence is ready.
-5. Do not start Stage 02 implementation until Stage 02 plan review and user goal approval pass.
+1. Submit the Stage 02 plan packet to GPT Pro with PR/CI evidence and the Codex blocker disclosed.
+2. Save GPT Pro response, action items, and plan result under `reviews/stage_02/`.
+3. Keep checking for actual Codex response before any implementation gate.
+4. Do not start Stage 02 implementation until Stage 02 plan review, Codex no-major evidence, and user goal approval pass.

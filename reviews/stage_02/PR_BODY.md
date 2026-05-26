@@ -41,6 +41,13 @@ Required planning checks:
 
 Pending plan review.
 
+## GitHub Status
+
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
+- Head: `af35b2253524641701d0a00ca6ebf6cee02ef897`
+- CI: PASS
+- Codex: pending; no response after standard comment, minimal retry, GitHub plugin comment, and PR review event route.
+
 ## Codex Review Request
 
 `@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
