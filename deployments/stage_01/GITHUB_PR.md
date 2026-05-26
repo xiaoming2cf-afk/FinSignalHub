@@ -56,5 +56,7 @@ Current findings:
 - CR-01-018 P2: update this PR evidence file to include CR-01-015 through CR-01-017.
 - CR-01-019 P2: add the Docker compose-config gate to the PR body unblock criteria.
 - CR-01-020 P1: enforce GPT Pro's pre-implementation `docker compose config` condition by blocking implementation until GPT Pro/user resolves the ordering conflict.
+- CR-01-021 P2: include the compose-ordering blocker in the Stage 01 Codex current-state summary.
+- CR-01-022 P2: include the compose-ordering blocker in `RUNLOG/LONG_RUN_SUMMARY.md`.
 
-All known findings through CR-01-020 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
+All known findings through CR-01-022 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
