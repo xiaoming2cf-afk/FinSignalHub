@@ -51,13 +51,14 @@ Planning tasks:
 
 Implementation tasks after approval:
 
-1. Revalidate Docker environment with `docker info`, `docker version`, and `docker compose version`.
-2. Create minimal `docker-compose.yml` as the first approved implementation-preflight artifact.
-3. Immediately run `docker compose config`; if it fails, stop and record a blocker before creating further scaffold.
-4. Create remaining scaffold files only after compose config passes.
-5. Run scaffold tests.
-5. Update docs/logs/review artifacts.
-6. Open PR, request Codex review, submit final GPT Pro review.
+1. Confirm PR #6 is merged, or explicitly log that Stage 01 remains based on `stage/00-1-governance-cleanup` before creating any implementation artifact.
+2. Revalidate Docker environment with `docker info`, `docker version`, and `docker compose version`.
+3. Create minimal `docker-compose.yml` as the first approved implementation-preflight artifact only after the baseline condition is handled.
+4. Immediately run `docker compose config`; if it fails, stop and record a blocker before creating further scaffold.
+5. Create remaining scaffold files only after compose config passes.
+6. Run scaffold tests.
+7. Update docs/logs/review artifacts.
+8. Open PR, request Codex review, submit final GPT Pro review.
 
 ## Test tasks
 
