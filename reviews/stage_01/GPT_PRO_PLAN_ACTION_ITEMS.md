@@ -5,8 +5,8 @@
 | ID | Action | Owner | Status |
 | --- | --- | --- | --- |
 | GPT-01-001 | Obtain explicit user approval for Stage 01 implementation | user/Codex | pending |
-| GPT-01-002 | Start Docker daemon and revalidate Docker | user/Codex | blocked: daemon unavailable |
-| GPT-01-003 | Run `docker version`, `docker compose version`, and `docker compose config` | ai-capability-radar | pending Docker |
+| GPT-01-002 | Start Docker daemon and revalidate Docker | user/Codex | done: Docker daemon available; validated on 2026-05-26 |
+| GPT-01-003 | Run `docker version`, `docker compose version`, and `docker compose config` | ai-capability-radar | partial: `docker version` and `docker compose version` passed; `docker compose config` deferred until an approved Stage 01 implementation creates `docker-compose.yml` |
 | GPT-01-004 | Resolve PR #6 baseline by merge or documented stacked-branch dependency | github-stage-deployer | pending |
 | GPT-01-005 | Update current state and action queue before any implementation | codex-log-keeper | in progress |
 
@@ -21,4 +21,4 @@
 
 ## Stop Condition
 
-If Docker remains unavailable, stop after logging the blocker. Do not create runtime scaffold files.
+If Docker becomes unavailable again during pre-implementation revalidation, stop after logging the blocker. Do not create runtime scaffold files. Run `docker compose config` only after an approved Stage 01 implementation creates `docker-compose.yml`.
