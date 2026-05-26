@@ -24,16 +24,19 @@ GPT Pro explicitly prohibited Stage 01 from implementing ResearchProject, Eviden
 
 ## Implementation Conditions
 
-Stage 01 implementation may begin only after:
+Stage 01 implementation may begin only after these pre-start gates:
 
 1. The user explicitly approves implementation.
 2. Docker daemon is running and revalidated.
 3. `docker info`, `docker version`, and `docker compose version` pass as the pre-implementation Docker environment gate.
-4. After explicit user approval and minimal `docker-compose.yml` creation, `docker compose config` passes as the first implementation-preflight step; if it fails, implementation stops before further scaffold.
-5. PR #6 is merged or the Stage 01 dependency on `stage/00-1-governance-cleanup` is logged.
-6. `PLANS/STAGE_01_PLAN.md` remains the governing plan.
-7. This plan PASS response is saved.
-8. `CONTROL/24_CURRENT_STAGE_STATE.md` and `CONTROL/25_NEXT_ACTION_QUEUE.md` are updated.
+4. PR #6 is merged or the Stage 01 dependency on `stage/00-1-governance-cleanup` is logged.
+5. `PLANS/STAGE_01_PLAN.md` remains the governing plan.
+6. This plan PASS response is saved.
+7. `CONTROL/24_CURRENT_STAGE_STATE.md` and `CONTROL/25_NEXT_ACTION_QUEUE.md` are updated.
+
+## First Implementation-Preflight Step
+
+After all pre-start gates pass and the user approves Stage 01 implementation, the first implementation step is to create the minimal approved `docker-compose.yml` and immediately run `docker compose config`. If `docker compose config` fails, implementation stops before further scaffold.
 
 This condition list reflects the later GPT Pro Docker ordering clarification saved in `reviews/stage_01/GPT_PRO_DOCKER_ORDERING_RESPONSE.md`: `docker compose config` is not a pure pre-implementation check because it requires the approved compose file.
 
