@@ -16,6 +16,7 @@ Planning only. Runtime implementation is blocked until:
 - User approves implementation.
 - Docker daemon and Compose CLI are revalidated with `docker version` and `docker compose version`.
 - Docker readiness remains BLOCKED/PENDING until `docker compose config` passes on an approved `docker-compose.yml`; daemon status alone is not enough to unblock implementation acceptance.
+- GPT Pro/user resolves the Docker ordering conflict: GPT Pro requires `docker compose config` before implementation, but no `docker-compose.yml` may be created before an approved implementation or explicit compose-only validation amendment.
 - PR #6 is merged or this branch remains explicitly based on `stage/00-1-governance-cleanup`.
 
 ## Checks

@@ -47,15 +47,16 @@ Planning tasks:
 2. Create Stage 01 GPT Pro plan review packet.
 3. Submit plan packet to GPT Pro.
 4. Save response and action items.
-5. Stop before implementation if Docker is unavailable or approval is missing.
+5. Stop before implementation if Docker is unavailable, Docker compose-config ordering is unresolved, or approval is missing.
 
 Implementation tasks after approval:
 
-1. Revalidate Docker.
-2. Create scaffold files only.
-3. Run scaffold tests.
-4. Update docs/logs/review artifacts.
-5. Open PR, request Codex review, submit final GPT Pro review.
+1. Revalidate Docker daemon and Compose CLI.
+2. Resolve GPT Pro/user ordering for `docker compose config` before runtime files are created.
+3. Create scaffold files only under the approved ordering.
+4. Run scaffold tests.
+5. Update docs/logs/review artifacts.
+6. Open PR, request Codex review, submit final GPT Pro review.
 
 ## Test tasks
 
@@ -77,4 +78,4 @@ Submit Stage 01 plan packet before implementation. Submit final Stage 01 impleme
 
 ## Stop conditions
 
-Stop if scaffold adds product behavior, Docker remains unavailable before implementation, GPT Pro plan approval is missing, user approval is missing, PR #6 baseline is unresolved, secrets are requested, or Stage 00.1 gates are bypassed.
+Stop if scaffold adds product behavior, Docker remains unavailable before implementation, Docker compose-config ordering remains unresolved, GPT Pro plan approval is missing, user approval is missing, PR #6 baseline is unresolved, secrets are requested, or Stage 00.1 gates are bypassed.

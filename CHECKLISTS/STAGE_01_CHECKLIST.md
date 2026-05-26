@@ -3,7 +3,7 @@
 | Gate | Required evidence | Status |
 | --- | --- | --- |
 | Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pass for planning; implementation scope still gated |
-| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until Docker validation, explicit user implementation approval, and PR #6 baseline handling |
+| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | blocked until GPT Pro/user resolves Docker compose-config ordering, Docker validation passes under that ordering, explicit user implementation approval is recorded, and PR #6 baseline handling is complete |
 | Tests | Planning checks now; scaffold checks after implementation approval | pass for planning; runtime tests blocked until implementation approval |
 | Docs | Scaffold boundaries and command docs | pass for planning; runtime docs blocked until implementation approval |
 | Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/19`, `RUNLOG/` current | pass for planning; implementation logs pending future approved implementation |
