@@ -10,3 +10,4 @@
 - Captured GPT Pro post-acceptance PASS confirmation for restored GitHub CLI and Docker capability evidence.
 - Added Stage 01 scaffold acceptance evidence: local scaffold checks, PR #7 CI/Codex evidence, GPT Pro final PASS, and Stage 02 planning-only instructions.
 - Added Stage 02 planning artifacts for Research Mode domain models, with implementation explicitly blocked until GPT Pro plan review and user `/goal` approval.
+- Recorded Stage 02 Codex CR-02-001 remediation for stale subagent gate status before GPT Pro plan review.

@@ -19,7 +19,7 @@ Planning-only subagent verification completed.
 
 ## Remaining Gates
 
-- GitHub PR and CI are pending.
-- Codex review is pending.
+- GitHub PR #8 is open and current-head CI is passing.
+- Codex review returned a P2 stale-status finding on this file; the summary now aligns with current PR/CI evidence and requires a follow-up current-head Codex response after push.
 - GPT Pro plan review is pending.
 - Stage 02 implementation remains blocked by B-0017.

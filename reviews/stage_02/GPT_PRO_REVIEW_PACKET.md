@@ -26,14 +26,27 @@ Plan path: `PLANS/STAGE_02_PLAN.md`
 
 Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
-Stage 02 planning head: `af35b2253524641701d0a00ca6ebf6cee02ef897`
+Stage 02 planning head: `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa`
 
 CI status: PASS.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475050339/job/77958288414
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475039759/job/77958248972
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475537339/job/77960003550
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475538983/job/77960008299
 
-Codex status: PENDING/BLOCKED. The required `@codex review` was requested through the standard CLI comment, a minimal CLI retry, GitHub plugin comment, and PR review event route. No Codex response was visible at packet preparation time, so this packet does not claim Codex review passed.
+Codex status: BLOCKED/PENDING for current head `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa` until CR-02-001 follow-up completes.
+
+Important nuance:
+
+- Codex returned no-major for the prior head `af35b2253524641701d0a00ca6ebf6cee02ef897`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4548899623
+- The current head then changed to `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa` to record PR/CI/Codex-attempt evidence.
+- Current-head Codex requests were made through:
+  - standard CLI comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4548936864
+  - minimal CLI retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4548979169
+  - GitHub plugin comment: comment id `4548999413`
+  - PR review event route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4367584333
+- Codex returned CR-02-001 P2 for the current head: `reviews/stage_02/SUBAGENT_SUMMARY.md` still said GitHub PR and CI were pending even though PR #8 was open and CI had passed.
+- The local fix updates the subagent summary, Codex review summary, deployment evidence, gate result, blocker log, and status logs.
+- This packet does not claim Codex review passed until that fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
 
