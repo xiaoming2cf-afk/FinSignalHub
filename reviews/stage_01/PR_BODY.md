@@ -42,8 +42,8 @@ curl.exe --fail --silent --show-error http://localhost:3000
 ## Review status
 
 - Previous planning/current-head evidence: PR head `5bc977b398aaad007f06df3d895289249713830d` had CI PASS and Codex no-major response.
-- This implementation update requires new current-head CI and Codex review.
-- GPT Pro final implementation review is pending until current-head CI/Codex pass.
+- Implementation-head evidence: PR head `f30a02e7fd891d578e0f6e54f858ed475a6d6881` has CI PASS and Codex no-major response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547979692.
+- GPT Pro final implementation review returned PASS and authorized Stage 02 planning only.
 
 Required review comment:
 
@@ -51,5 +51,5 @@ Required review comment:
 
 ## Blockers
 
-- B-0015: current-head GitHub/Codex gate pending after push.
-- B-0016: GPT Pro final implementation review pending after current-head GitHub/Codex pass.
+- B-0015: resolved; current-head GitHub/Codex gate passed for implementation head.
+- B-0016: resolved by GPT Pro final implementation PASS. Stage 02 implementation remains unauthorized until Stage 02 plan review and user goal approval pass.

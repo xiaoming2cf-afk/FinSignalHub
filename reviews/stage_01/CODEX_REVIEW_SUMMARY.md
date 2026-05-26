@@ -9,7 +9,7 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7
 - Branch: `stage/01-repo-scaffold`
 - Base: `main`
-- Scope: planning artifacts only; no runtime scaffold, backend, database, connector, frontend, or MCP business tools.
+- Scope: scaffold-only implementation; health API, MCP health/server-info, inspect-only web admin, Docker Compose, docs, CI, and logs. No Stage 02+ business objects, connectors, extraction, claim graph, research delta, Repro Pack, chatbot, generic RAG, dashboard product behavior, stock prediction, or investment advice.
 
 ## Findings
 
@@ -58,10 +58,18 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 
 ## Current state
 
-All known Codex findings through CR-01-040 have been addressed in Stage 01 planning artifacts, Docker-readiness status records, PR evidence registries, or this review summary. Current head `5bc977b398aaad007f06df3d895289249713830d` has CI PASS and current-head no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547093831 after the plugin-route trigger at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547079269.
+All known Codex findings through CR-01-040 have been addressed in Stage 01 planning artifacts, Docker-readiness status records, PR evidence registries, or this review summary. Pre-implementation head `5bc977b398aaad007f06df3d895289249713830d` has CI PASS and current-head no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547093831 after the plugin-route trigger at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547079269.
 
 The Docker-resolution and GPT Pro Docker-ordering updates are governance-only. GPT Pro clarified that `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The current PR head now has CI PASS and fresh Codex no-major evidence, so the GitHub/Codex gate is no longer blocked.
 
-GitHub/Codex gate for the previous head `5bc977b398aaad007f06df3d895289249713830d` is PASS. User implementation approval is recorded, PR #6 baseline is handled, and GPT Pro returned implementation-gate CONDITIONAL PASS.
+GitHub/Codex gate for the implementation head `f30a02e7fd891d578e0f6e54f858ed475a6d6881` is PASS:
 
-Stage 01 implementation has now been created locally. Final Stage 01 acceptance requires a new current-head CI PASS and Codex no-major review after the implementation commit is pushed. The previous no-major response must not be reused as final implementation evidence.
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26470335307/job/77941753720
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26470336938/job/77941756597
+- Required review trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547907630
+- Minimal retry trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547921845
+- GitHub plugin route trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#pullrequestreview-4366891943
+- Codex no-major result: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547979692
+
+Final Stage 01 acceptance is no longer blocked by GPT Pro. GPT Pro final implementation review returned PASS, accepted Stage 01, and authorized Stage 02 planning only. If the PR head changes after committing final evidence files, run CI and request/record a current-head Codex follow-up before merge or tag.

@@ -30,179 +30,208 @@ Update only after GPT Pro passes or conditionally passes the current stage and g
 
 ## Current state
 
-Source stage: Stage 00.1.
+Source stage: Stage 01.
 
 GPT Pro result: PASS.
 
-Important condition: Stage 01 planning may begin only. Stage 01 implementation is not authorized until Stage 01 plan exists, GPT Pro approves the Stage 01 plan, Docker daemon is revalidated, PR #6 is merged or Stage 01 branches from `stage/00-1-governance-cleanup`, and no Stage 01 blocker remains.
+Important condition: Stage 01 is accepted. Stage 02 may begin as planning only. Stage 02 implementation is not authorized until the Stage 02 plan exists, GPT Pro plan review passes, user goal approval is recorded, and the Stage 02 GitHub/CI/Codex gates are ready.
 
 ## Next Stage ID
 
-Stage 01: Repo Scaffold.
+Stage 02: Research Mode Domain Models.
 
 ## Next Stage Goal
 
-Create the initial FinSignalHub monorepo scaffold plan without implementing business domain logic.
+Create the Stage 02 plan for minimum Research Mode domain models and basic CRUD. The plan must define database models, migrations, Pydantic schemas, model-level CRUD services, basic API routers, tests, docs, logs, PR evidence, and GPT Pro plan review.
 
-The Stage 01 plan must define a minimal scaffold for:
+Do not implement Stage 02 until the Stage 02 plan is reviewed by GPT Pro and the user approves the Stage 02 goal.
 
-- FastAPI backend skeleton.
-- MCP server skeleton.
-- Next.js admin skeleton.
-- PostgreSQL service via Docker Compose.
-- Redis service placeholder only if justified.
-- Health checks.
-- Test framework.
-- CI workflow.
-- Environment configuration.
-- Project documentation.
+## Allowed Planning Files
 
-Do not implement any Stage 01 runtime files until the Stage 01 plan is approved by GPT Pro and the user.
-
-Do not implement ResearchProject models, EvidenceItem models, ResearchClaim models, ClaimEvidenceEdge, ResearchDelta, LiteratureMatrix, MethodCard, DatasetCard, ReproPackExport, ToolCallLog, connectors, evidence extraction, claim graph, MCP business tools, Repro Pack logic, Risk Mode, Replay Engine, financial prediction, investment advice, or chatbot UI in Stage 01.
-
-## Allowed Files Or Directories
-
-- `README.md`
-- `AGENTS.md`
-- `CHANGELOG.md`
-- `.env.example`
+- `PLANS/STAGE_02_PLAN.md`
+- `TASKS/STAGE_02_TASKS.md`
+- `CHECKLISTS/STAGE_02_CHECKLIST.md`
+- `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_02/PR_BODY.md`
+- `reviews/stage_02/STAGE_ACCEPTANCE_RESULT.md`
+- `deployments/stage_02/GITHUB_PR.md`
 - `CONTROL/04_EXECUTION_LOG.md`
-- `CONTROL/05_DECISION_LOG.md`
 - `CONTROL/07_CODEX_GOAL_REGISTRY.md`
 - `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
 - `CONTROL/18_ARTIFACT_REGISTRY.md`
 - `CONTROL/19_STAGE_DASHBOARD.md`
 - `CONTROL/20_BLOCKER_LOG.md`
-- `PLANS/STAGE_01_PLAN.md`
-- `TASKS/STAGE_01_TASKS.md`
-- `CHECKLISTS/STAGE_01_CHECKLIST.md`
-- `reviews/stage_01/GPT_PRO_REVIEW_PACKET.md`
-- `reviews/stage_01/PR_BODY.md`
-- `reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md`
-- `deployments/stage_01/`
-- `.github/workflows/ci.yml`
-- `.github/workflows/phase-deploy.yml`
-- `pyproject.toml`
-- `package.json`
-- `docker-compose.yml`
-- `apps/api/`
-- `apps/mcp_server/`
-- `apps/web_admin/`
-- `docs/architecture/stage_01_repo_scaffold.md`
-- `docs/codex/stage_01_commands.md`
-
-## Files Or Areas Not To Touch
-
-- Domain models for ResearchProject, EvidenceItem, ResearchClaim, Document, or similar product entities.
-- Alembic migrations for product tables.
-- OpenAlex, Crossref, Semantic Scholar, or arXiv connectors.
-- Evidence extraction workers.
-- LLM adapters.
-- Claim graph logic.
-- Research delta logic.
-- Literature matrix logic.
-- Repro Pack export logic.
-- Risk Mode.
-- Replay Engine.
-- Financial prediction logic.
-- Investment advice logic.
-- Generic chatbot UI.
-- Production auth system.
-- Billing system.
-
-## Stage 01 Functional Requirements
-
-- FastAPI backend exposes `GET /health` returning status ok and service identity.
-- MCP server skeleton starts without business tools. It may expose only health, ping, or server info.
-- Next.js admin skeleton shows only a placeholder identifying FinSignalHub as a Research Mode-first evidence-stream plugin and Stage 01 scaffold.
-- Docker Compose includes postgres, api, mcp_server, and web_admin.
-- Tests cover API health, MCP health/server info, web build, and Docker Compose config.
-
-## Stage 01 Acceptance Criteria
-
-- Stage 00.1 GitHub PR #6 is merged, or Stage 01 branch is explicitly based on `stage/00-1-governance-cleanup` and this dependency is logged.
-- Stage 01 plan exists and is approved by GPT Pro before implementation.
-- Branch `stage/01-repo-scaffold` is created.
-- Docker Compose starts required services.
-- API `/health` returns ok.
-- MCP server starts and returns server info or health.
-- Web admin opens locally.
-- Tests pass.
-- CI passes or CI blockers are recorded.
-- No business domain logic is implemented.
-- Docs, logs, PR, `@codex review`, GPT Pro packet, GPT Pro review, and Stage 02 instruction are complete.
-
-## Stage 01 Required Tests
-
-```text
-pytest apps/api/tests
-pytest apps/mcp_server/tests
-npm --prefix apps/web_admin run build
-docker compose config
-docker compose up --build
-curl http://localhost:8000/health
-```
-
-If local Docker is unavailable, Codex must not mark Stage 01 complete.
-
-## Stage 01 Risks
-
-- Over-scaffolding into domain models or business logic.
-- Docker unavailable.
-- Frontend scope creep into dashboard or product UI.
-- MCP tool creep into Research Mode business tools before Stage 06.
-- GitHub and Docker availability may regress between stages and must be revalidated inside the approved Stage 01 plan and goal.
-
-## Stage 01 Stop Conditions
-
-Stop if Git repo is unavailable, GitHub CLI is unauthenticated without approved manual path, Docker daemon is unavailable, branch/PR/tests cannot be completed, business logic is about to be implemented, GPT Pro cannot be reviewed, secrets are required, or `AGENTS.md` conflicts with latest user instructions.
-
-## Raw GPT Pro Instruction Source
-
-Full Stage 00.1 response is saved at `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`.
-
-## Stage 00.1 GPT Pro Confirmation Summary
-
-GPT Pro answered `Stage 00.1: PASS`, stated that governance-only scope was satisfied, and authorized Stage 01 planning only.
-
-## Stage 01 Planning Read List
-
-Before creating `PLANS/STAGE_01_PLAN.md`, read:
-
-- `AGENTS.md`
-- `PLANS.md`
-- `README.md`
-- `CONTROL/00_MASTER_CONTROL.md`
-- `CONTROL/01_PRODUCT_DEFINITION.md`
-- `CONTROL/02_STAGE_ROADMAP.md`
-- `CONTROL/03_PHASE_ACCEPTANCE.md`
-- `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
-- `CONTROL/16_CAPABILITY_AUDIT.md`
-- `CONTROL/19_STAGE_DASHBOARD.md`
-- `CONTROL/20_BLOCKER_LOG.md`
-- `CONTROL/23_RUNLOG_PROTOCOL.md`
 - `CONTROL/24_CURRENT_STAGE_STATE.md`
 - `CONTROL/25_NEXT_ACTION_QUEUE.md`
 - `CONTROL/27_CHECKPOINT_LOG.md`
 - `RUNLOG/LONG_RUN_CURRENT.md`
 - `RUNLOG/LONG_RUN_SUMMARY.md`
-- `reviews/stage_00_1/STAGE_ACCEPTANCE_RESULT.md`
-- `reviews/stage_00_1/GPT_PRO_REVIEW_RESPONSE.md`
-- `reviews/stage_00_1/GPT_PRO_ACTION_ITEMS.md`
+
+## Stage 02 Implementation File Boundary From GPT Pro
+
+Implementation is not yet authorized. When authorized by GPT Pro and user goal approval, Stage 02 may create or modify only the bounded model-layer areas below:
+
+- `apps/api/app/db/`
+- `apps/api/app/models/`
+- `apps/api/app/schemas/`
+- `apps/api/app/services/`
+- `apps/api/app/routers/`
+- `apps/api/app/core/`
+- `apps/api/tests/`
+- `apps/api/alembic/`
+- `apps/api/alembic.ini`
+- `apps/api/alembic/versions/`
+- `docs/architecture/stage_02_domain_models.md`
+- `docs/codex/stage_02_commands.md`
+- `pyproject.toml`
+- `docker-compose.yml`
+- `.github/workflows/ci.yml`
+- `.github/workflows/phase-deploy.yml`
+- `.env.example`
+- `README.md`
+- `AGENTS.md` only if stage rules need clarification
+
+## Required Stage 02 Model Scope From GPT Pro
+
+The Stage 02 plan must cover these model primitives:
+
+- `ResearchProject`
+- `Source`
+- `Document`
+- `EvidenceItem`
+- `ResearchClaim`
+- `ClaimEvidenceEdge`
+- `ResearchDelta`
+- `LiteratureMatrixRow`
+- `MethodCard`
+- `DatasetCard`
+- `ReproPackExport`
+- `ToolCallLog`
+
+Stage 02 may create model tables, schemas, migration, and primitive CRUD. It must not implement business workflows.
+
+## Files Or Areas Not To Touch In Stage 02
+
+- OpenAlex connector.
+- Crossref connector.
+- Semantic Scholar connector.
+- arXiv connector.
+- User upload ingestion.
+- External API calls.
+- LLM adapters.
+- LLM extraction.
+- Evidence extraction pipeline.
+- Quote-span extraction logic beyond a schema field.
+- Dedup pipeline.
+- Claim graph computation.
+- Research delta computation beyond model/table fields.
+- Literature matrix generation logic.
+- Repro Pack export logic.
+- MCP business tools.
+- ChatGPT App implementation.
+- Claude Connector, Copilot Connector, or other external connector implementation.
+- Risk Mode.
+- Replay Engine.
+- Stock prediction.
+- Investment advice.
+- Chatbot UI.
+- Generic RAG.
+- Dashboard product behavior.
+- Auth or billing.
+
+## Stage 02 Required Subagents
+
+- `schema-agent`: SQLAlchemy/SQLModel models and relationships.
+- `migration-agent`: Alembic setup and migration checks.
+- `api-schema-agent`: Pydantic schemas, CRUD routers, and services without business workflow logic.
+- `test-agent`: model, migration, CRUD, and forbidden-scope tests.
+- `docs-log-agent`: docs, logs, review packet, artifact registry, dashboard, and deployment evidence.
+
+## Stage 02 Required Tests From GPT Pro
+
+The Stage 02 plan must include:
+
+```text
+pytest apps/api/tests
+alembic upgrade head
+alembic downgrade -1 or documented if not supported
+alembic upgrade head again
+python -m compileall apps/api/app
+python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02
+secret scan
+forbidden runtime/scope scan
+git diff --check
+```
+
+If Postgres is used through Docker, the plan must include `docker compose up -d postgres`, migration pass, and `docker compose down`.
+
+## Stage 02 Acceptance Criteria From GPT Pro
+
+- Stage 02 plan exists and GPT Pro plan review passes.
+- SQLAlchemy/SQLModel models exist after implementation is authorized.
+- Alembic migration exists and runs after implementation is authorized.
+- Pydantic schemas exist after implementation is authorized.
+- CRUD routers/services exist for model primitives after implementation is authorized.
+- Tests pass.
+- No external connectors exist.
+- No LLM extraction exists.
+- No MCP business tools exist.
+- No claim graph or research delta computation exists beyond tables/schemas.
+- No Risk Mode, Replay Engine, stock prediction, or investment advice exists.
+- Docs, logs, artifact registry, PR, CI, Codex review, GPT Pro final implementation review, and Stage 03 assignment are complete.
+
+## Stage 02 Risks From GPT Pro
+
+- Implementing connectors early is blocking drift.
+- Turning `ResearchDelta` into a computation engine is blocking drift.
+- Turning `EvidenceItem` into an extraction pipeline is blocking drift.
+- Implementing MCP business tools early is blocking drift.
+- Over-complex model relationships should be controlled; Stage 02 should stay minimal and relational.
+- Irreproducible migrations are blocking.
+
+## Stage 02 Stop Conditions From GPT Pro
+
+Stop and request user or GPT Pro judgment if:
+
+- External data APIs are required.
+- A real LLM API key is required.
+- Model design exceeds Research Mode P0.
+- Alembic migration cannot run and the cause is unclear.
+- Auth or billing is required.
+- Stage 01 scaffold structure needs a destructive change.
+- Investment advice, stock prediction, Risk Mode, or Replay Engine implementation appears.
+- Docker/Postgres remains unavailable and migration tests depend on it.
+
+## Raw GPT Pro Instruction Source
+
+Full Stage 01 final implementation response is saved at `reviews/stage_01/GPT_PRO_REVIEW_RESPONSE.md` and duplicated at `reviews/stage_01/GPT_PRO_FINAL_REVIEW_RESPONSE.md`.
 
 ## Raw GPT Pro Instruction
 
 ```text
-/plan
-Proceed to Stage 01 planning only.
+GPT Pro Stage 01 final implementation review result: PASS.
 
-Before planning, read the control files, RunLog files, Stage 00.1 acceptance result, GPT Pro response, and GPT Pro action items.
+Stage 01 is accepted.
 
-Create PLANS/STAGE_01_PLAN.md.
+Next action:
+Begin Stage 02 planning only.
 
-Stage 01 is planning only unless GPT Pro approves the plan.
+Do not implement Stage 02 yet.
 
-Do not implement Stage 01 yet.
-Do not create runtime files until the plan is approved by GPT Pro.
+Create PLANS/STAGE_02_PLAN.md.
+
+Stage 02 plan must cover:
+- Research Mode domain model scope
+- file boundaries
+- forbidden scope
+- subagents
+- migrations
+- tests
+- CI
+- docs
+- GitHub PR
+- GPT Pro plan review
+- stop conditions
+
+After Stage 02 plan is created, prepare reviews/stage_02/GPT_PRO_REVIEW_PACKET.md and submit to GPT Pro for plan review.
 ```

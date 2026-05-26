@@ -6,6 +6,8 @@ The primary users are researchers, PhD students, labs, research project teams, i
 
 Stage 00 status: governance/control system complete after GitHub PR, CI, Codex review, and GPT Pro final PASS confirmation.
 
-Stage 01 status: scaffold-only local implementation checks have passed. Final acceptance is still blocked until PR #7 current-head CI/Codex and GPT Pro final implementation review pass. The repository now contains health-only API and MCP server scaffolds, an inspect-only web admin shell, and Docker Compose wiring. It still does not implement product runtime behavior, domain models, connectors, evidence extraction, claim graph, research delta, MCP business tools, dashboard behavior, report generation, stock recommendation, investment advice, or RAG features.
+Stage 01 status: scaffold-only implementation is accepted by GPT Pro after PR #7 current-head CI/Codex evidence. The repository now contains health-only API and MCP server scaffolds, an inspect-only web admin shell, and Docker Compose wiring. It still does not implement product runtime behavior, domain models, connectors, evidence extraction, claim graph, research delta, MCP business tools, dashboard behavior, report generation, stock recommendation, investment advice, or RAG features.
+
+Stage 02 status: planning only is authorized. Stage 02 implementation is not authorized until a Stage 02 plan exists, GPT Pro plan review passes, and the user approves the Stage 02 goal.
 
 See `AGENTS.md` before any future change.
