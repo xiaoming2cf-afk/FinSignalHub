@@ -24,7 +24,7 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 
 ## Example format
 
-`A-0001 | Stage 00 | review packet | reviews/stage_00/GPT_PRO_REVIEW_PACKET.md | created | GPT Pro gate`
+`A-XXXX | Stage XX | review packet | reviews/stage_XX/GPT_PRO_REVIEW_PACKET.md | created | GPT Pro gate`
 
 ## Current state
 
@@ -96,7 +96,7 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0064 | 00.1 | PR #6 final evidence Codex findings | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295227866; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#discussion_r3295227867 | fixed in `897759b74cecff6c461bc5a7f3ee0f71d4071e18`; Codex follow-up found no major issues | github-review-resolver | final GitHub/Codex gate |
 | A-0065 | 00.1 | PR #6 final Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529839137 | no major issues on `897759b74cecff6c461bc5a7f3ee0f71d4071e18` | github-review-resolver | Stage 00.1 final GitHub/Codex gate |
 | A-0066 | 01 | Stage 01 plan | PLANS/STAGE_01_PLAN.md | created; GPT Pro plan review PASS; all known Codex plan findings through CR-01-011 addressed | gpt-pro-review-preparer | Stage 01 plan gate |
-| A-0067 | 01 | Stage 01 GPT Pro plan packet | reviews/stage_01/GPT_PRO_REVIEW_PACKET.md | submitted; GPT Pro plan PASS saved | gpt-pro-review-preparer | GPT Pro plan gate |
+| A-0067 | 01 | Stage 01 GPT Pro review packet | reviews/stage_01/GPT_PRO_REVIEW_PACKET.md | updated from planning packet to implementation-gate packet; pending Chrome submission after CI/Codex pass | gpt-pro-review-preparer | GPT Pro implementation gate |
 | A-0068 | 01 | Stage 01 PR body | reviews/stage_01/PR_BODY.md | created | github-stage-deployer | GitHub PR gate |
 | A-0069 | 01 | Stage 01 acceptance placeholder | reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md | created; implementation pending | phase-gate-auditor | phase gate |
 | A-0070 | 01 | Stage 01 PR | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7 | open; base retargeted to `main` after PR #6 merge; CI and Codex review must be rechecked after each push; latest baseline evidence update pending push and follow-up | github-stage-deployer | Stage 01 planning PR evidence |
@@ -108,7 +108,7 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0075 | 01 | PR #7 Codex follow-up findings | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295260288; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295260290 | CR-01-003/004 fixed; superseded by current-head follow-up gate | github-review-resolver | Stage 01 plan Codex gate |
 | A-0077 | 01 | PR #7 current-state follow-up finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295289004 | CR-01-008 fixed; superseded by current-head follow-up gate | github-review-resolver | Stage 01 plan Codex gate |
 | A-0078 | 01 | PR #7 status-sync follow-up findings | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301747; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301748; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295301750 | CR-01-009/010/011 fixed; current-head Codex follow-up pending | github-review-resolver | Stage 01 plan Codex gate |
-| A-0079 | 01 | Stage 01 Codex review summary | reviews/stage_01/CODEX_REVIEW_SUMMARY.md | updated through CR-01-039; current-head follow-up pending after push | github-review-resolver | Stage 01 plan Codex gate |
+| A-0079 | 01 | Stage 01 Codex review summary | reviews/stage_01/CODEX_REVIEW_SUMMARY.md | updated through CR-01-040; current-head follow-up pending after push | github-review-resolver | Stage 01 plan Codex gate |
 | A-0080 | 01 | PR #7 dashboard status Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295312100 | CR-01-012 fixed locally; current-head Codex follow-up pending | github-review-resolver | Stage 01 dashboard/GitHub gate |
 | A-0081 | 01 | PR #7 checklist security Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295320209 | CR-01-013 fixed locally; current-head Codex follow-up pending | github-review-resolver | Stage 01 checklist/GitHub gate |
 | A-0082 | 01 | PR #7 functionality blocker Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3295327617 | CR-01-014 fixed locally; current-head Codex follow-up pending | github-review-resolver | Stage 01 checklist/GitHub gate |
@@ -143,3 +143,6 @@ Update whenever an artifact is created, changed, submitted, reviewed, or superse
 | A-0111 | 01 | PR #7 baseline-before-compose task finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3302268748 | CR-01-039 fixed locally by requiring PR #6 baseline handling before any approved implementation artifact, including `docker-compose.yml`; checks passed; pending push and Codex follow-up | github-review-resolver | Stage 01 task ordering gate |
 | A-0112 | 00.1 | PR #6 merge evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6; merge commit `75f215bc8647dac9c5e4e55b68b3b84100f064b4` | merged into `main` on 2026-05-26; Stage 00.1 baseline no longer blocks Stage 01 implementation | github-stage-deployer | Stage 00.1 closeout and Stage 01 baseline gate |
 | A-0113 | 01 | PR #7 base retarget evidence | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7 | base changed from `stage/00-1-governance-cleanup` to `main`; merge state clean; evidence update pending push and follow-up CI/Codex | github-stage-deployer | Stage 01 GitHub baseline gate |
+| A-0114 | 01 | PR #7 base summary Codex finding | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3305600915 | CR-01-040 fixed locally by changing Codex summary base to `main`; checks passed; pending push and Codex follow-up | github-review-resolver | Stage 01 Codex summary gate |
+| A-0115 | 01 | User implementation approval evidence | conversation confirmation on 2026-05-26 | user approved Stage 01 implementation after CI/Codex/GPT Pro gates; B-0011 resolved; scaffold still blocked pending GPT Pro implementation gate and compose preflight | codex-log-keeper | Stage 01 implementation gate |
+| A-0116 | 01 | Artifact registry example ID hygiene | CONTROL/18_ARTIFACT_REGISTRY.md | example artifact ID changed from `A-0001` to `A-XXXX` so uniqueness checks only see real artifact IDs | acceptance-evidence-collector | artifact registry integrity gate |

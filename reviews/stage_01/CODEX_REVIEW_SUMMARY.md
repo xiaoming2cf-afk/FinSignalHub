@@ -8,7 +8,7 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7
 - Branch: `stage/01-repo-scaffold`
-- Base: `stage/00-1-governance-cleanup`
+- Base: `main`
 - Scope: planning artifacts only; no runtime scaffold, backend, database, connector, frontend, or MCP business tools.
 
 ## Findings
@@ -54,10 +54,11 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 | CR-01-037 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3302205682 | GPT Pro plan response summary still placed `docker compose config` inside the pre-start "may begin only after" list. | Split the response summary into pre-start gates and a separate first implementation-preflight step for `docker compose config`. | fixed locally; checks passed; pending push and current-head follow-up |
 | CR-01-038 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3302268739 | Docker validation evidence row did not list `docker info` even though the Stage 01 environment gate requires it. | Added `docker info` to the artifact registry Docker validation evidence row and clarified that daemon reachability was validated. | fixed locally; checks passed; pending push and current-head follow-up |
 | CR-01-039 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3302268748 | Stage 01 task list could create `docker-compose.yml` before PR #6 baseline handling was explicitly checked. | Reordered implementation tasks so PR #6 merge/dependency handling is confirmed before any implementation artifact, including the compose file. | fixed locally; checks passed; pending push and current-head follow-up |
+| CR-01-040 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#discussion_r3305600915 | Codex review summary still recorded PR #7 base as `stage/00-1-governance-cleanup` after PR #6 merged and PR #7 was retargeted to `main`. | Updated the current PR base evidence to `main`. | fixed locally; checks passed; pending push and current-head follow-up |
 
 ## Current state
 
-All known Codex findings through CR-01-039 have been addressed locally in Stage 01 planning artifacts, Docker-readiness status records, PR evidence registries, or this review summary. Codex returned no-major responses on earlier reviewed planning commits at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530022246 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530029725.
+All known Codex findings through CR-01-040 have been addressed locally in Stage 01 planning artifacts, Docker-readiness status records, PR evidence registries, or this review summary. Codex returned no-major responses on earlier reviewed planning commits at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530022246 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530029725.
 
 The Docker-resolution and GPT Pro Docker-ordering updates are governance-only. GPT Pro clarified that `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate stays BLOCKED/PENDING until the current PR head has CI PASS and a fresh Codex no-major response after these status fixes.
 

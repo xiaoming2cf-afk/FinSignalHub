@@ -84,8 +84,9 @@ Current findings:
 - CR-01-037 P2: separate pre-start implementation gates from first implementation-preflight `docker compose config`.
 - CR-01-038 P2: add `docker info` to Docker validation evidence row.
 - CR-01-039 P2: require PR #6 baseline handling before any implementation artifact, including `docker-compose.yml`.
+- CR-01-040 P2: correct Stage 01 PR base branch in Codex review summary to `main`.
 
-All known findings through CR-01-039 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
+All known findings through CR-01-040 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
 
 Latest no-major evidence before the baseline evidence update:
 

@@ -1,69 +1,68 @@
-# FinSignalHub Stage 01 GPT Pro Plan Review Packet
+# FinSignalHub Stage 01 GPT Pro Implementation-Gate Review Packet
 
 ## Request
 
-Please review this Stage 01 plan only. Do not review implementation code because Stage 01 implementation has not started.
+Please review the current Stage 01 readiness state, not runtime implementation. Stage 01 scaffold implementation has not started.
 
 Required answer:
 
-1. PASS, CONDITIONAL PASS, or FAIL for the Stage 01 plan.
-2. Must-fix items before Stage 01 implementation.
-3. Items that may be deferred.
-4. Whether Stage 01 implementation may start after user approval.
-5. Whether Docker unavailability blocks implementation.
-6. Whether PR #6 must be merged or whether Stage 01 may remain based on `stage/00-1-governance-cleanup`.
+1. PASS, CONDITIONAL PASS, or FAIL for starting Stage 01 scaffold implementation.
+2. Must-fix items before creating any runtime/scaffold files.
+3. Whether PR #7 GitHub/Codex/CI evidence is sufficient after current-head follow-up.
+4. Whether Stage 01 implementation may start now that user approval, Docker environment validation, and PR #6 baseline handling are recorded.
+5. If PASS or accepted CONDITIONAL PASS, provide exact next implementation requirements, steps, tests, and stop conditions for Stage 01 scaffold.
 
-## Product identity
+## Product Identity
 
-FinSignalHub is Research Mode-first, MCP-first, and evidence-stream oriented. Its users are researchers, PhD students, research groups, research product teams, and innovation teams. Its future outputs are research delta, claim graph, evidence card, literature matrix, method card, dataset card, and repro pack. Stage 01 must remain scaffold-only.
+FinSignalHub is Research Mode-first, MCP-first, and evidence-stream oriented. Its users are researchers, PhD students, research groups, research product teams, and innovation teams. Stage 01 must remain scaffold-only and must not implement research domain behavior.
 
-## Stage 00.1 result
+## Current GitHub Evidence
 
-- GPT Pro result: PASS.
-- Codex result: PR #6 current head received no-major issues response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529839137.
-- PR #6: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6.
-- Stage 01 branch was created from Stage 00.1 head because PR #6 is not merged yet.
+- Repository: https://github.com/xiaoming2cf-afk/FinSignalHub
+- Stage 00.1 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
+- Stage 00.1 result: merged into `main` at `75f215bc8647dac9c5e4e55b68b3b84100f064b4`
+- Stage 01 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7
+- Stage 01 branch: `stage/01-repo-scaffold`
+- Stage 01 base: `main`
+- Stage 01 status: planning/governance only; no runtime scaffold files created yet
 
-## Stage 01 plan path
+## Current Gate Evidence
 
-`PLANS/STAGE_01_PLAN.md`
+- Stage 01 plan: `PLANS/STAGE_01_PLAN.md`
+- Stage 01 plan GPT Pro response: `reviews/stage_01/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
+- Docker ordering clarification: `reviews/stage_01/GPT_PRO_DOCKER_ORDERING_RESPONSE.md`
+- Codex review summary: `reviews/stage_01/CODEX_REVIEW_SUMMARY.md`
+- Acceptance result: `reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md`
+- Deployment evidence: `deployments/stage_01/GITHUB_PR.md`
 
-## Planning-only files created
+## Satisfied Conditions
 
-- `PLANS/STAGE_01_PLAN.md`
-- `reviews/stage_01/GPT_PRO_REVIEW_PACKET.md`
-- `reviews/stage_01/PR_BODY.md`
-- `reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md`
-- `deployments/stage_01/GITHUB_PR.md`
+- User implementation approval is recorded from the 2026-05-26 continuation-plan confirmation.
+- Docker daemon and Compose CLI are available: `docker info`, `docker version`, and `docker compose version` passed.
+- PR #6 baseline is handled: PR #6 merged into `main`, and PR #7 targets `main`.
+- GPT Pro previously approved the Stage 01 plan.
+- GPT Pro clarified that `docker compose config` is the first implementation-preflight step after approved compose-file creation, not a pure pre-implementation check.
 
-## Implementation scope, if approved later
+## Current Pending Conditions
 
-- FastAPI `/health` skeleton only.
-- MCP health/server-info skeleton only.
-- Next.js scaffold status page only.
-- Docker Compose with Postgres, API, MCP server, and web admin.
-- Basic tests and CI for scaffold health/build.
-- Docs and logs.
+- PR #7 current head must have CI PASS.
+- PR #7 current head must receive Codex no-major review after the latest governance evidence update.
+- GPT Pro must permit implementation from this packet before any scaffold file is created.
 
-## Forbidden scope
+## First Implementation Step If GPT Pro Permits
 
-No ResearchProject, EvidenceItem, ResearchClaim, ClaimEvidenceEdge, ResearchDelta, LiteratureMatrix, MethodCard, DatasetCard, ReproPackExport, ToolCallLog, connectors, LLM adapters, extraction pipeline, claim graph, research delta, Repro Pack logic, Risk Mode, Replay Engine, stock prediction, investment advice, chatbot UI, generic RAG, or dashboard product behavior.
+1. Create the minimal approved `docker-compose.yml` only.
+2. Immediately run `docker compose config`.
+3. If `docker compose config` fails, stop and record a blocker before creating any further scaffold.
+4. If it passes, continue with scaffold-only files approved in `PLANS/STAGE_01_PLAN.md`.
 
-## Current blockers
+## Forbidden Scope
 
-Docker daemon is unavailable:
+Do not implement ResearchProject, EvidenceItem, ResearchClaim, ClaimEvidenceEdge, ResearchDelta, LiteratureMatrix, MethodCard, DatasetCard, ReproPackExport, ToolCallLog, connectors, LLM adapters, evidence extraction, claim graph, research delta, Repro Pack logic, Risk Mode, Replay Engine, stock prediction, investment advice, chatbot UI, generic RAG, or dashboard product behavior.
 
-```text
-failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine
-```
+## Questions For GPT Pro
 
-This should block Stage 01 implementation until Docker is running and revalidated. It should not block the plan review.
-
-## Questions for GPT Pro
-
-1. Does `PLANS/STAGE_01_PLAN.md` sufficiently constrain Stage 01 to scaffold-only work?
-2. Are the allowed and forbidden files correct?
-3. Are the subagent boundaries clear enough?
-4. Are the tests sufficient for a scaffold-only stage?
-5. May Codex proceed to Stage 01 implementation after user approval if Docker becomes available?
-6. If Docker remains unavailable, should Codex stop after saving this plan review response?
+1. Does the current Stage 01 gate evidence allow scaffold implementation to start after current-head CI/Codex pass?
+2. Are there any must-fix governance, product, security, or provenance issues before creating `docker-compose.yml`?
+3. Do you approve the first implementation step as minimal `docker-compose.yml` followed immediately by `docker compose config`?
+4. If approved, provide a complete Stage 01 implementation checklist, test commands, acceptance criteria, and stop conditions.

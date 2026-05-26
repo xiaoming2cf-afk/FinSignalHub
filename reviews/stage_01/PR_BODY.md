@@ -18,10 +18,14 @@ Satisfied planning gate:
 
 Runtime implementation remains blocked until:
 
-- User approves implementation.
+- GPT Pro permits implementation from the current implementation-gate packet.
 - Docker daemon and Compose CLI are revalidated with `docker info`, `docker version`, and `docker compose version`.
 - GPT Pro Docker ordering response is saved: `docker compose config` is implementation-preflight, not pure pre-implementation validation.
 - After user implementation approval, the first Stage 01 implementation step must create minimal `docker-compose.yml` and immediately run `docker compose config`; if it fails, implementation stops before further scaffold.
+
+User approval status:
+
+- User implementation approval is recorded from the 2026-05-26 continuation-plan confirmation.
 
 Baseline status:
 
