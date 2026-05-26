@@ -41,12 +41,12 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | GitHub connection | available | repo, PR, review | repo exists and PR is open; GitHub plugin user differs from repo owner but PR workflow is functional | connector can comment/read and `gh` can perform authenticated CLI operations | record owner/account assumptions in stage PR logs | yes for owner-only browser actions |
 | GitHub CLI | available | branch, push, PR | none after persistent login | `gh auth status` reports active account `xiaoming2cf-afk` with `repo,workflow` scopes; `lhy18613775` remains a non-active secondary login | none | no |
 | GitHub Actions | available | CI gate | none for Stage 00 | governance CI passed on PR | none | no |
-| PR `@codex review` | available | Codex review gate | initial and follow-up findings were fixed; final response found no major issues | Gate 6 satisfied for Stage 00 | none | no |
+| PR `@codex review` | available | Codex review gate | Stage 00 and Stage 00.1 findings were fixed; latest PR #6 follow-up found no major issues | Gate 6 satisfied for Stage 00.1 on commit `43c570a1291b262faba32f288b29b0dfbf396029` | none | no |
 | Subagents | available | independent Stage 00 completeness audit | must be spawned explicitly | improves verification | local self-check if unavailable | no |
 | MCP | available as concept/tool ecosystem | primary future product entrypoint | no FinSignalHub MCP server in Stage 00 | runtime not implemented by design | Stage 06 plan | no |
 | Local shell | available | checks and audits | none | supports verification | none | no |
-| Docker | available | future Stage 01 compose | none after Docker Desktop startup | Docker Server 29.3.1 reachable on context `docker-desktop` | rerun Docker-specific tests in Stage 01 | no |
+| Docker | requires user action | future Stage 01 compose | Docker CLI exists, but daemon is not reachable at `npipe:////./pipe/dockerDesktopLinuxEngine` | Stage 01 implementation is blocked until Docker Desktop is running and revalidated; Stage 00.1 is not blocked | rerun Docker-specific tests before Stage 01 implementation | yes |
 | Python | available | future scripts/checks | none | can run verification scripts later | shell checks | no |
 | Node.js | available | future admin/tooling | none | available for later stages | none | no |
 | Package managers | partial | future JS tooling | `npm.ps1` blocked; `npm.cmd` works; pnpm/yarn unavailable | use `npm.cmd` on Windows | document command form | no |
-| GPT Pro page accessibility | available after user instruction | blocking review gate | none for Stage 00 after final confirmation | GPT Pro returned final PASS for Stage 00 / prompt 1 | saved response, action items, and final acceptance | yes |
+| GPT Pro page accessibility | available after user instruction | blocking review gate | none for Stage 00.1 after Chrome submission | GPT Pro returned Stage 00.1 PASS and authorized Stage 01 planning only | saved response, action items, final acceptance, and next-stage instruction | yes |

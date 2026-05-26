@@ -41,3 +41,5 @@ Update when a risk appears, changes severity, is mitigated, or becomes a blocker
 | R-009 | Connector lacks mock tests | high | Stage 03 connector without fixtures | connector-builder gate | test lead | planned |
 | R-010 | Evidence lacks provenance | high | claim edge without source metadata | evidence-graph gate | architecture lead | planned |
 | R-011 | Logs incomplete | high | missing execution/artifact/goal entries | codex-log-keeper gate | phase lead | open |
+| R-012 | Stage 01 baseline mismatch | high | Stage 01 implementation starts from `main` before PR #6 is merged | merge PR #6 or branch Stage 01 from `stage/00-1-governance-cleanup` and log the decision | GitHub stage deployer | open |
+| R-013 | GitHub Actions Node.js runtime warning | medium | CI warns about Node.js 20 action runtime deprecation | handle during Stage 01 or Stage 02 CI hardening | CI owner | deferred |

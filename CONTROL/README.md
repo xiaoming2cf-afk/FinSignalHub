@@ -26,4 +26,4 @@ Update directory guidance when a new control file is added, a governance rule ch
 
 ## Current state
 
-Numbered control files `00` through `22` are present for Stage 00. Each numbered control file must include Purpose, Owner, When to update, Required fields, Example format, and Current state. Future control records must follow the same structure.
+Numbered control files `00` through `27` are present after Stage 00.1 RunLog setup. Each numbered control file must include Purpose, Owner, When to update, Required fields, Example format, and Current state. Future control records must follow the same structure.
