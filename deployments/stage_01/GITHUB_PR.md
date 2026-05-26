@@ -27,6 +27,8 @@ PASS:
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26372845227/job/77627949148
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26372846543/job/77627952398
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26434920535/job/77815447973
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26434922256/job/77815453096
 
 ## Codex Review
 
@@ -48,5 +50,10 @@ Current findings:
 - CR-01-012 P2: align `CONTROL/19_STAGE_DASHBOARD.md` with the latest Stage 01 finding set.
 - CR-01-013 P2: mark the completed planning security scan as passed in `CHECKLISTS/STAGE_01_CHECKLIST.md`.
 - CR-01-014 P2: include explicit user implementation approval and PR #6 baseline handling in the Stage 01 functionality blocker set.
+- CR-01-015 P1: remove stale hardcoded current-head wording from Stage 01 gate/status records.
+- CR-01-016 P2: update GPT Pro action items after Docker daemon validation and defer only `docker compose config` until the approved compose file exists.
+- CR-01-017 P2: keep Docker readiness BLOCKED/PENDING until `docker compose config` passes on an approved `docker-compose.yml`.
+- CR-01-018 P2: update this PR evidence file to include CR-01-015 through CR-01-017.
+- CR-01-019 P2: add the Docker compose-config gate to the PR body unblock criteria.
 
-All known findings through CR-01-014 have been addressed in the Stage 01 planning artifacts. The GitHub gate remains blocked/pending until current-head Codex follow-up returns no-major-issues evidence or a new finding set is resolved.
+All known findings through CR-01-019 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until current-head CI and Codex follow-up return no-major-issues evidence after this update.
