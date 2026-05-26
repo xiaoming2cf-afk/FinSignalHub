@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 01 repo scaffold planning |
-| Current phase status | planning active; implementation authorized by user but blocked by GitHub/Codex/GPT Pro implementation gates |
+| Current stage | Stage 01 repo scaffold implementation |
+| Current phase status | local scaffold checks passed; final acceptance blocked by current-head GitHub/Codex and GPT Pro gates |
 | Active branch | `stage/01-repo-scaffold` |
-| Latest PR | Stage 01 PR #7: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7; base retargeted to `main` after PR #6 merge |
-| Latest CI status | Stage 01 PR #7 CI passed on commit `640a4d2`; this baseline evidence update requires CI after push |
-| Latest Codex review status | CR-01-040 fixed locally; requires push, CI, and current-head Codex follow-up |
-| Latest GPT Pro review status | PASS for Stage 01 plan; CONDITIONAL PASS for Docker ordering: `docker compose config` moves to first implementation-preflight step after approval |
+| Latest PR | Stage 01 PR #7: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7 |
+| Latest CI status | previous head `5bc977b398aaad007f06df3d895289249713830d` passed; implementation head not pushed yet |
+| Latest Codex review status | previous head received no-major response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547093831; implementation head requires a new review |
+| Latest GPT Pro review status | PASS for Stage 01 plan; CONDITIONAL PASS for Docker ordering; CONDITIONAL PASS for implementation start; final implementation review pending |
 | Active goal id | G-0002 |
-| Next required action | commit and push CR-01-040 plus user-approval evidence, request current-head PR #7 Codex follow-up, then submit current gate packet to GPT Pro through Chrome |
-| Blocker status | Docker environment gate resolved; Docker ordering clarified; PR #6 baseline handled by merge commit `75f215b`; user implementation approval recorded; GPT Pro implementation gate pending; implementation-preflight `docker compose config` pending after GPT Pro permits implementation |
-| Last updated time | 2026-05-26T12:33:42-05:00 |
+| Next required action | commit scaffold implementation, push PR #7 update, wait for CI, request current-head Codex review |
+| Blocker status | B-0012 resolved; B-0015 current-head GitHub/Codex gate open; B-0016 GPT Pro final review gate open |
+| Last updated time | 2026-05-26T13:39:47-05:00 |
 
-Current detected stage is: Stage 01 repo scaffold planning.
+Current detected stage is: Stage 01 repo scaffold implementation.
 
-Current detected blocker status is: Docker daemon and Compose CLI are available. GPT Pro resolved the ordering conflict by moving `docker compose config` to the first Stage 01 implementation-preflight step after implementation approval. PR #6 baseline is handled: PR #6 merged into `main` at `75f215b`, and PR #7 now targets `main`. User implementation approval is recorded. Stage 01 implementation still cannot start until current-head CI/Codex pass and GPT Pro permits implementation from the updated gate packet.
+Current detected blocker status is: local scaffold implementation passed local checks, including compose config, compose up/build, API/MCP/web smoke, pytest, web build, and web audit. Final acceptance cannot proceed until the implementation commit is pushed and current-head CI/Codex and GPT Pro final review pass.
 
-Next valid action is: commit and push CR-01-040 plus user-approval evidence, request current-head PR #7 Codex follow-up, then submit the implementation-gate packet to GPT Pro through Chrome after GitHub/Codex pass.
+Next valid action is: commit and push the Stage 01 scaffold implementation, then run the bounded CI/Codex/GPT Pro gate loop.

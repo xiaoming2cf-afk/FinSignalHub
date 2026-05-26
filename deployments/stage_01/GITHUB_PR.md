@@ -1,4 +1,4 @@
-# Stage 01 GitHub PR
+﻿# Stage 01 GitHub PR
 
 ## Status
 
@@ -34,10 +34,10 @@ PASS:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26436774713/job/77821294385
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26441082577/job/77835425465
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26441084971/job/77835432221
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26465038472/job/77922906223
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26465041111/job/77922914912
 
-Pending after this baseline evidence update:
-
-- Current-head CI after push.
+Current-head CI for `5bc977b398aaad007f06df3d895289249713830d` is PASS.
 
 ## Codex Review
 
@@ -86,8 +86,21 @@ Current findings:
 - CR-01-039 P2: require PR #6 baseline handling before any implementation artifact, including `docker-compose.yml`.
 - CR-01-040 P2: correct Stage 01 PR base branch in Codex review summary to `main`.
 
-All known findings through CR-01-040 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
+All known findings through CR-01-040 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The current PR head `5bc977b398aaad007f06df3d895289249713830d` has CI PASS and Codex no-major evidence.
 
-Latest no-major evidence before the baseline evidence update:
+Previous current-head no-major evidence:
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4542121494
+- Trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547079269
+- Result: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4547093831
+
+## Implementation Update
+
+Stage 01 scaffold implementation is currently local. The previous CI/Codex evidence belongs to pre-implementation head `5bc977b398aaad007f06df3d895289249713830d` and cannot satisfy final Stage 01 acceptance after scaffold files are pushed.
+
+Required after commit/push:
+
+1. Capture implementation commit SHA.
+2. Wait for GitHub Actions on PR #7 current head.
+3. Request the required `@codex review` comment.
+4. Save current-head CI links and Codex no-major response here.
+5. Update `reviews/stage_01/CODEX_REVIEW_SUMMARY.md` before GPT Pro final review.

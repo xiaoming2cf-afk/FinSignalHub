@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Environment and local runtime
+.env
+.env.*
+!.env.example
+artifacts/chrome-headless-profile/
+artifacts/chrome_gpt_state.png
+artifacts/gpt_gate_question_*.png
+artifacts/gpt_gate_question_clipboard.txt
+artifacts/stage_01_web_admin_visible_smoke.png
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

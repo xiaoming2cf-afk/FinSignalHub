@@ -2,13 +2,15 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | `PLANS/STAGE_01_PLAN.md` confirms scaffold-only work | pass for planning; implementation scope still gated |
-| Functionality | Monorepo, backend health skeleton, MCP health/server-info skeleton, admin scaffold page, compose, health checks | user implementation approval recorded; PR #6 baseline handling complete; blocked until GPT Pro permits implementation and first-step `docker compose config` passes after approved `docker-compose.yml` creation |
-| Tests | Planning checks now; scaffold checks after implementation approval | pass for planning; runtime tests blocked until implementation approval |
-| Docs | Scaffold boundaries and command docs | pass for planning; runtime docs blocked until implementation approval |
-| Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/19`, `RUNLOG/` current | pass for planning; implementation logs pending future approved implementation |
-| GitHub | Branch, PR, CI, Codex review | PR #7 open against `main` after PR #6 merge; `640a4d2` had CI PASS and Codex no-major; this baseline evidence update needs CI/Codex after push |
-| GPT Pro | Plan packet, plan response, Docker ordering response/action items, implementation-gate packet, final implementation review later | plan PASS saved; Docker ordering CONDITIONAL PASS saved; implementation-gate review pending before scaffold |
-| Product governance | No product behavior, no Stage 02+ entities | pass for plan |
-| Security | No secrets; stop on login/payment/permission prompts | pass for planning; secret scan passed and GPT evidence was sanitized |
+| Scope | `PLANS/STAGE_01_PLAN.md`; forbidden-scope scan; product-scope subagent audit | pass locally |
+| Functionality | `docker-compose.yml`; API `/health`; MCP `/health` and `/server-info`; web admin inspect-only page | pass locally |
+| Tests | phase check, compose config, Python tests, web install/build/audit, compose up, endpoint smoke, browser/Chrome smoke | pass locally; CI pending after push |
+| Docs | scaffold docs and package READMEs | pass locally |
+| Logs | `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/19`, `CONTROL/20`, `CONTROL/24`, `CONTROL/25`, `CONTROL/27`, `RUNLOG/` | pass locally |
+| GitHub | branch, PR, current-head CI, current-head `@codex review`, PR URL | blocked until implementation commit is pushed and PR #7 current head receives CI PASS and Codex no-major |
+| GPT Pro | final implementation packet, response, action items, final result, next-stage instruction | blocked until GitHub current-head gate passes |
+| Product governance | no product behavior, no Stage 02+ entities, no forbidden product direction | pass locally |
+| Security | no secrets; Chrome/session artifacts removed; `.env.example` placeholders only; `.dockerignore` excludes local generated files | pass locally |
 | Next stage | GPT Pro Stage 02 instruction after Stage 01 final PASS | blocked |
+
+Stage 01 current state: local scaffold implementation checks passed. Final acceptance is blocked by the hard GitHub and GPT Pro gates for the new implementation head.
