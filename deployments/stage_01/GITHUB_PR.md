@@ -72,5 +72,7 @@ Current findings:
 - CR-01-032 P2: update deployment evidence range through CR-01-032.
 - CR-01-033 P2: update this PR evidence file to include CR-01-031/032 coverage.
 - CR-01-034 P2: sync Stage 01 goal registry checkpoint with the latest Codex finding range.
+- CR-01-035 P2: align GPT Pro plan response implementation gate with Docker ordering ruling.
+- CR-01-036 P2: include `docker info` in PR-body Docker environment gate.
 
-All known findings through CR-01-034 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
+All known findings through CR-01-036 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.

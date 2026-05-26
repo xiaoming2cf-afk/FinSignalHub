@@ -28,11 +28,14 @@ Stage 01 implementation may begin only after:
 
 1. The user explicitly approves implementation.
 2. Docker daemon is running and revalidated.
-3. `docker version`, `docker compose version`, and `docker compose config` pass.
-4. PR #6 is merged or the Stage 01 dependency on `stage/00-1-governance-cleanup` is logged.
-5. `PLANS/STAGE_01_PLAN.md` remains the governing plan.
-6. This plan PASS response is saved.
-7. `CONTROL/24_CURRENT_STAGE_STATE.md` and `CONTROL/25_NEXT_ACTION_QUEUE.md` are updated.
+3. `docker info`, `docker version`, and `docker compose version` pass as the pre-implementation Docker environment gate.
+4. After explicit user approval and minimal `docker-compose.yml` creation, `docker compose config` passes as the first implementation-preflight step; if it fails, implementation stops before further scaffold.
+5. PR #6 is merged or the Stage 01 dependency on `stage/00-1-governance-cleanup` is logged.
+6. `PLANS/STAGE_01_PLAN.md` remains the governing plan.
+7. This plan PASS response is saved.
+8. `CONTROL/24_CURRENT_STAGE_STATE.md` and `CONTROL/25_NEXT_ACTION_QUEUE.md` are updated.
+
+This condition list reflects the later GPT Pro Docker ordering clarification saved in `reviews/stage_01/GPT_PRO_DOCKER_ORDERING_RESPONSE.md`: `docker compose config` is not a pure pre-implementation check because it requires the approved compose file.
 
 ## Deferred Items
 
@@ -43,4 +46,4 @@ Stage 01 implementation may begin only after:
 
 ## Final Instruction
 
-Do not start implementation while Docker remains unavailable. If Docker remains unavailable after saving this response and action items, stop after updating blocker logs.
+Do not start implementation while Docker remains unavailable. Current Docker daemon and Compose CLI validation later passed; implementation still remains blocked until explicit user implementation approval, PR #6 baseline handling, and first-step implementation-preflight `docker compose config` after approved compose file creation.
