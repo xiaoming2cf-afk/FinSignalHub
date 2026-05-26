@@ -6,7 +6,7 @@ The long run started from `main` at commit `ef76ddd` after Stage 00 was complete
 
 Stage 00.1 is active on branch `stage/00-1-governance-cleanup`. The run instruction file under `运行要求/` is being committed as an auditable input artifact.
 
-Current blockers for implementation: Docker daemon is resolved as of 2026-05-26, but GPT Pro/user must still resolve the Docker compose-config ordering conflict before any runtime file is created; explicit user implementation approval is still required; and PR #6 must be merged or Stage 01 must explicitly remain based on `stage/00-1-governance-cleanup`. These do not block Stage 00.1 acceptance or Stage 01 planning.
+Current blockers for implementation: Docker daemon is resolved as of 2026-05-26 and GPT Pro resolved the compose-config ordering as `CONDITIONAL PASS`; `docker compose config` is now the first implementation-preflight check after approved `docker-compose.yml` creation. Explicit user implementation approval is still required, and PR #6 must be merged or Stage 01 must explicitly remain based on `stage/00-1-governance-cleanup`. These do not block Stage 00.1 acceptance or Stage 01 planning.
 
 Local Stage 00.1 governance checks passed before PR #6. PR #6 is open. Commit `897759b74cecff6c461bc5a7f3ee0f71d4071e18` passed CI and received final Codex no-major response. GPT Pro returned Stage 00.1 PASS and authorized Stage 01 planning only.
 
