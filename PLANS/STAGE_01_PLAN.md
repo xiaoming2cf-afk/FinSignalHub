@@ -6,7 +6,7 @@ Read `AGENTS.md`, `PLANS.md`, `README.md`, `CONTROL/00_MASTER_CONTROL.md`, `CONT
 
 Stage 00.1 GPT Pro result is PASS. It authorizes Stage 01 planning only. Stage 01 implementation remains blocked until this plan is approved by GPT Pro and the user, Docker daemon is revalidated, PR #6 is merged or Stage 01 remains based on `stage/00-1-governance-cleanup`, and no Stage 01 blocker remains.
 
-Post-review Docker ordering blocker, recorded on 2026-05-26: GPT Pro approved implementation only after `docker version`, `docker compose version`, and `docker compose config` all pass, but `docker compose config` requires `docker-compose.yml`, which Stage 01 may not create before implementation without an explicit plan amendment. Stage 01 implementation must not start until GPT Pro/user clarifies this ordering or approves a pre-implementation compose-only validation amendment.
+Post-review Docker ordering clarification, recorded on 2026-05-26: GPT Pro returned `CONDITIONAL PASS` for the Docker ordering question. `docker info`, `docker version`, and `docker compose version` are the pre-implementation environment gate. `docker compose config` is moved to the first Stage 01 implementation-preflight step because it requires `docker-compose.yml`. Creating `docker-compose.yml` is not allowed before implementation approval; it is the first approved implementation artifact and must be followed immediately by `docker compose config`.
 
 ## Capability check
 
@@ -17,7 +17,7 @@ Post-review Docker ordering blocker, recorded on 2026-05-26: GPT Pro approved im
 | GitHub Actions | available; PR #6 governance CI passed | must run on Stage 01 PR |
 | Codex review | available; PR #6 current head received no-major response | required for Stage 01 PR |
 | Chrome/GPT Pro | available after prior successful Stage 00.1 review | required for Stage 01 plan review and final review |
-| Docker | unavailable at planning time; later daemon validation passed on 2026-05-26 | blocks implementation until GPT Pro/user resolves the compose-config ordering conflict and Docker validation passes under the approved ordering |
+| Docker | unavailable at planning time; later daemon validation passed on 2026-05-26 | environment gate passed for daemon/version/compose binary; implementation remains blocked until user approval and PR #6 baseline handling, then `docker compose config` must pass as the first implementation-preflight check |
 | Python | available | required for FastAPI/MCP skeleton tests |
 | Node/npm | available through cross-platform `npm`; do not commit OS-specific npm wrapper commands | required for admin skeleton build |
 
@@ -117,15 +117,17 @@ Planning steps now:
 1. Create this plan and Stage 01 review packet.
 2. Submit the plan packet to GPT Pro.
 3. Save GPT Pro plan response and action items.
-4. Stop before implementation if GPT Pro does not approve the plan, Docker remains unavailable, or the Docker compose-config ordering conflict remains unresolved.
+4. Stop before implementation if GPT Pro does not approve the plan, Docker environment checks fail, user approval is missing, or PR #6 baseline handling is unresolved.
 
 Implementation steps later, only after approval:
 
-1. Revalidate Docker daemon and record result.
-2. Resolve the Docker compose-config ordering conflict with GPT Pro/user before creating runtime files.
+1. Revalidate Docker environment with `docker info`, `docker version`, and `docker compose version`.
+2. Confirm user implementation approval exists.
 3. Confirm PR #6 is merged or document Stage 01 base dependency.
-4. Create scaffold files only under the approved ordering.
-5. Run local scaffold checks.
+4. Create the minimal `docker-compose.yml` as the first implementation-preflight artifact.
+5. Immediately run `docker compose config`; if it fails, stop, record a blocker, and do not create further scaffold.
+6. Create remaining scaffold files only after compose config passes.
+7. Run local scaffold checks.
 6. Update docs and logs.
 7. Push branch, create PR, request `@codex review`, wait for CI, and fix critical findings.
 8. Submit Stage 01 final review packet to GPT Pro.
@@ -153,7 +155,7 @@ Implementation phase unit tests, only after plan approval:
 
 ### Integration tests
 
-Implementation phase integration tests, only after plan approval and Docker validation:
+Implementation phase integration tests, only after plan approval, user approval, and Docker environment validation:
 
 ```text
 docker compose config
@@ -201,4 +203,4 @@ Submit `reviews/stage_01/GPT_PRO_REVIEW_PACKET.md` as a plan review before imple
 
 ## Stop conditions
 
-Stop before implementation if Docker daemon is unavailable, Docker compose-config ordering remains unresolved, GPT Pro does not approve the plan, user approval is missing, PR #6 baseline is unresolved, secrets are requested, product behavior appears, or any file outside the Stage 01 boundary is needed.
+Stop before implementation if Docker daemon/version/compose environment checks fail, GPT Pro does not approve the plan, user approval is missing, PR #6 baseline is unresolved, secrets are requested, product behavior appears, or any file outside the Stage 01 boundary is needed. After implementation approval, stop immediately if the first implementation-preflight `docker compose config` fails.

@@ -47,14 +47,15 @@ Planning tasks:
 2. Create Stage 01 GPT Pro plan review packet.
 3. Submit plan packet to GPT Pro.
 4. Save response and action items.
-5. Stop before implementation if Docker is unavailable, Docker compose-config ordering is unresolved, or approval is missing.
+5. Stop before implementation if Docker environment checks fail, user approval is missing, or PR #6 baseline handling is unresolved.
 
 Implementation tasks after approval:
 
-1. Revalidate Docker daemon and Compose CLI.
-2. Resolve GPT Pro/user ordering for `docker compose config` before runtime files are created.
-3. Create scaffold files only under the approved ordering.
-4. Run scaffold tests.
+1. Revalidate Docker environment with `docker info`, `docker version`, and `docker compose version`.
+2. Create minimal `docker-compose.yml` as the first approved implementation-preflight artifact.
+3. Immediately run `docker compose config`; if it fails, stop and record a blocker before creating further scaffold.
+4. Create remaining scaffold files only after compose config passes.
+5. Run scaffold tests.
 5. Update docs/logs/review artifacts.
 6. Open PR, request Codex review, submit final GPT Pro review.
 
@@ -62,7 +63,7 @@ Implementation tasks after approval:
 
 Planning: no runtime file check, secret scan, `git diff --check`.
 
-Implementation: `docker compose config`, `docker compose up --build`, API `/health`, MCP health/server-info, web build, API/MCP tests, browser smoke.
+Implementation: first-step `docker compose config`, then `docker compose up --build`, API `/health`, MCP health/server-info, web build, API/MCP tests, browser smoke.
 
 ## Docs tasks
 
@@ -78,4 +79,4 @@ Submit Stage 01 plan packet before implementation. Submit final Stage 01 impleme
 
 ## Stop conditions
 
-Stop if scaffold adds product behavior, Docker remains unavailable before implementation, Docker compose-config ordering remains unresolved, GPT Pro plan approval is missing, user approval is missing, PR #6 baseline is unresolved, secrets are requested, or Stage 00.1 gates are bypassed.
+Stop if scaffold adds product behavior, Docker environment checks fail before implementation, first-step `docker compose config` fails after implementation approval, GPT Pro plan approval is missing, user approval is missing, PR #6 baseline is unresolved, secrets are requested, or Stage 00.1 gates are bypassed.

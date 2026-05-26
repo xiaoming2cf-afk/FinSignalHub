@@ -66,4 +66,4 @@ Current findings:
 - CR-01-026 P2: include current-head CI PASS in the Stage 01 final acceptance summary.
 - CR-01-027 P2: update artifact registry status to the latest Codex finding range.
 
-All known findings through CR-01-027 are addressed locally in the Stage 01 planning and governance artifacts. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.
+All known findings through CR-01-027 are addressed in the Stage 01 planning and governance artifacts. GPT Pro Docker ordering response was saved locally on 2026-05-26 and updates the gate wording: `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate remains blocked/pending until the next pushed PR head has CI PASS and Codex follow-up no-major-issues evidence after this update.

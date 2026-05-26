@@ -47,6 +47,6 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 
 All known Codex findings through CR-01-027 have been addressed locally in Stage 01 planning artifacts, Docker-readiness status records, or PR evidence registries. Codex returned no-major responses on earlier reviewed planning commits at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530022246 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530029725.
 
-The Docker-resolution evidence update is governance-only. The GitHub gate stays BLOCKED/PENDING until the current PR head has CI PASS and a fresh Codex no-major response after these status fixes.
+The Docker-resolution and GPT Pro Docker-ordering updates are governance-only. GPT Pro clarified that `docker compose config` is first-step implementation-preflight after approval, not pre-implementation validation. The GitHub gate stays BLOCKED/PENDING until the current PR head has CI PASS and a fresh Codex no-major response after these status fixes.
 
 Implementation remains blocked regardless of Codex review status until GPT Pro/user resolves the Docker compose-config ordering conflict, Docker is revalidated under the approved ordering, the user explicitly approves Stage 01 implementation, and the PR #6 baseline dependency is handled.
