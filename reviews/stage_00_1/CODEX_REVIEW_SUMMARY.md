@@ -4,13 +4,13 @@
 
 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6
 
-Latest reviewed commit with no-major-issues response: `43c570a1291b262faba32f288b29b0dfbf396029`
+Latest reviewed commit with no-major-issues response: `897759b74cecff6c461bc5a7f3ee0f71d4071e18`
 
 Latest reviewed commit with actionable finding: `f1421eefa0`
 
 Latest P1-fix PR head with CI PASS: `4c59773b6f5f6f7ecf9b5ef8dd423258a0d00f36`
 
-Latest status: final evidence commit `f1421eefa0` produced one P1 and one P2 finding. Fixes are local and require push, CI, and follow-up Codex review.
+Latest status: final follow-up on `897759b74cecff6c461bc5a7f3ee0f71d4071e18` found no major issues.
 
 ## Review request
 
@@ -56,4 +56,6 @@ Latest no-major-issues response:
 
 https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529747962
 
-The final GPT Pro evidence commit received P1/P2 findings. The fixes for CR-00.1-022 and CR-00.1-023 must be pushed, pass CI, and receive follow-up Codex review before PR merge.
+Final no-major-issues response:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529839137

@@ -1,0 +1,10 @@
+{
+  "name": "finsignalhub",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "web:build": "npm --prefix apps/web_admin --workspaces=false run build",
+    "web:audit": "npm --prefix apps/web_admin --workspaces=false audit --audit-level=moderate",
+    "web:lint": "npm --prefix apps/web_admin --workspaces=false run lint"
+  }
+}

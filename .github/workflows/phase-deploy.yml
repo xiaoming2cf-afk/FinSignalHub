@@ -24,8 +24,8 @@ jobs:
             echo "Stage must be a two digit id such as 00 or 01."
             exit 1
           fi
-          if [ -f scripts/phase_check.py ]; then
-            python scripts/phase_check.py --stage "$stage"
+          if [ -f finsignalhub-codex-plugin/scripts/phase_check.py ]; then
+            python finsignalhub-codex-plugin/scripts/phase_check.py --stage "$stage"
           else
             echo "TODO Stage 01: implement scripts/phase_check.py after GPT Pro approves Stage 01."
             test -s "CONTROL/03_PHASE_ACCEPTANCE.md"

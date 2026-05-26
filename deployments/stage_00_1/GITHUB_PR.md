@@ -57,7 +57,7 @@ Stage 00.1 is governance-only. Docker is not required for this PR, but Docker mu
 
 ## Current Codex Review Status
 
-BLOCKED/PENDING after final evidence commit `f1421eefa0`.
+PASS on PR head `897759b74cecff6c461bc5a7f3ee0f71d4071e18`.
 
 Previous Codex no-major-issues response:
 
@@ -91,4 +91,6 @@ Final evidence commit `f1421eefa0` produced:
 - CR-00.1-022 P1: Gate 6 must remain blocked until the current PR head receives CI PASS and Codex no-major evidence.
 - CR-00.1-023 P2: `phase_check.py` must not require specific Lorentz/Newton subagent log file names.
 
-Both fixes are local and must be pushed, pass CI, and receive follow-up Codex review before PR merge.
+Both fixes were pushed in `897759b74cecff6c461bc5a7f3ee0f71d4071e18`, CI passed, and Codex found no major issues:
+
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/6#issuecomment-4529839137

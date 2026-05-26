@@ -41,3 +41,10 @@ The ten gates are mandatory:
 10. Next stage: next-stage source is GPT Pro or a recorded blocker.
 
 Gate 6 and Gate 7 are hard gates. Missing GitHub or GPT Pro evidence means FAIL or BLOCKED.
+
+Stage 01 Docker gate clarification from GPT Pro on 2026-05-26:
+
+- Pre-implementation environment gate: `docker info`, `docker version`, and `docker compose version` must pass before implementation approval can be acted on.
+- Implementation-preflight compose gate: after explicit user implementation approval and PR #6 baseline handling, the first Stage 01 implementation step may create the minimal `docker-compose.yml` and must immediately run `docker compose config`.
+- Failure rule: if `docker compose config` fails, stop Stage 01 implementation, record a blocker, and do not create further scaffold files.
+- Full runtime gate: `docker compose up --build`, API `/health`, MCP health/server-info, and web admin smoke checks are Stage 01 final acceptance evidence, not pre-implementation evidence.
