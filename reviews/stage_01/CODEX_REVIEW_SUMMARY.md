@@ -34,6 +34,6 @@ Track Codex review findings for Stage 01 planning and ensure critical findings a
 
 All known Codex findings through CR-01-014 were addressed in Stage 01 planning artifacts. Codex returned no-major responses on reviewed head `5d57906` at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530022246 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/7#issuecomment-4530029725.
 
-The Docker-resolution evidence update is governance-only. Re-run PR checks and request Codex follow-up after pushing any new evidence commit.
+The Docker-resolution evidence update is governance-only. Current Docker-evidence head `7190df0` has CI PASS but still requires current-head Codex follow-up before the GitHub gate can be marked PASS again.
 
 Implementation remains blocked regardless of Codex review status until Docker daemon validation passes, the user explicitly approves Stage 01 implementation, and the PR #6 baseline dependency is handled.
