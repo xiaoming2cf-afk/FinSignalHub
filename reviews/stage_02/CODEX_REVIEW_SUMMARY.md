@@ -85,7 +85,23 @@ Codex must review the Stage 02 plan for:
 
 ## Current Gate Result
 
-BLOCKED pending follow-up for the remediation of CR-02-018/019. GPT Pro plan review is PASS, but the remediation commit must be pushed, pass CI, and receive current-head Codex no-major evidence before Stage 02 implementation can start. Explicit user Stage 02 implementation `/goal` approval is still required after those GitHub checks.
+Planning gate PASS. CR-02-018/019 was superseded by PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`, which passed CI and received Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
+
+Stage 02 implementation is active locally after user direct-execution approval. A fresh implementation-head Codex review is still required after commit and push.
+
+## Implementation Review Requirement
+
+After the Stage 02 implementation commit is pushed:
+
+1. Wait for GitHub CI on the implementation head.
+2. Comment the required review request:
+
+```text
+@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
+```
+
+3. Save any findings in this file.
+4. Fix critical findings or document accepted deferrals before GPT Pro final implementation review.
 
 ## Current-Head Rule
 

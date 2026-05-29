@@ -17,7 +17,7 @@ Required context for this plan:
 - `reviews/stage_01/STAGE_ACCEPTANCE_RESULT.md`
 - `reviews/stage_01/GPT_PRO_REVIEW_RESPONSE.md`
 
-Stage 01 is accepted. GPT Pro authorized **Stage 02 planning only** and did not authorize Stage 02 implementation.
+Stage 01 is accepted. GPT Pro authorized **Stage 02 planning only** first. GPT Pro then returned PASS for the Stage 02 plan and provided a Stage 02 implementation boundary in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`. The user later approved direct execution without repeated confirmation, so Stage 02 implementation may proceed inside that boundary plus explicitly logged support-file exceptions.
 
 ## Capability Check
 
@@ -82,7 +82,7 @@ Stage 02 plan scope:
 - Define model-level CRUD service/router plan.
 - Define tests, CI checks, docs, logs, GitHub PR, Codex review, and GPT Pro plan review requirements.
 
-Stage 02 implementation scope is **not authorized in this plan commit**. A later `/goal` must be approved after GPT Pro plan review.
+Stage 02 implementation scope was not authorized in the original plan commit. It became active only after GPT Pro plan PASS, current-head PR #8 CI/Codex no-major evidence on `8800022f55d79db951b57a61a1d1c7b3301cea9d`, and the user's direct approval to continue without repeated confirmation.
 
 ## Files To Create Or Modify
 
@@ -119,6 +119,14 @@ Implementation files proposed for a later approved Stage 02 goal:
 - `RUNLOG/`
 
 Root config, CI workflow, Docker, env example, root README, and `AGENTS.md` changes are not authorized for the Stage 02 implementation goal unless GPT Pro explicitly expands the boundary in a later saved instruction and the exception is recorded in `CONTROL/05_DECISION_LOG.md` plus `CONTROL/20_BLOCKER_LOG.md`.
+
+Stage 02 implementation support-file exception:
+
+- `pyproject.toml` may be updated only to declare SQLAlchemy, Alembic, Pydantic, and PostgreSQL driver dependencies required by approved model/migration/schema/CRUD tests.
+- `.env.example` may add placeholder-only database URL names required to document migration execution; no real secrets are allowed.
+- `docker-compose.yml` may add placeholder-only API database environment wiring required to validate PostgreSQL migrations and Stage 01 runtime smoke compatibility.
+- `README.md`, `apps/api/README.md`, `apps/api/finsignalhub_api/README.md`, `apps/api/tests/README.md`, and `CHANGELOG.md` may be updated only to reflect Stage 02 status and constraints.
+- The exception is recorded in `CONTROL/05_DECISION_LOG.md` and must be disclosed in PR/GPT Pro review artifacts.
 
 ## Files Not To Touch
 
@@ -177,7 +185,7 @@ Each subagent must write a log under `logs/subagents/stage_02/<agent_name>.md` w
 
 ## Implementation Steps For Later Goal
 
-These steps are not authorized until GPT Pro plan review and user `/goal` approval pass:
+These steps are authorized for the active implementation goal only after GPT Pro plan PASS, PR #8 current-head CI/Codex no-major evidence, and user direct-execution approval:
 
 1. Revalidate Docker, Python, GitHub, and current branch status.
 2. Create minimum SQLAlchemy/SQLModel domain models.
@@ -206,15 +214,11 @@ Later implementation local checks must rerun after every meaningful code change.
 
 ### Unit tests
 
-Planning branch unit tests are not applicable because no Stage 02 implementation files are authorized.
-
-Later implementation unit tests must cover model constructors or factories, Pydantic schema validation, CRUD service behavior, deterministic error shapes, provenance field validation, and forbidden-null constraints for evidence lineage.
+Implementation unit tests must cover model metadata, explicit provenance fields, Pydantic schema validation, CRUD service behavior, deterministic error shapes, and forbidden-null constraints for evidence lineage.
 
 ### Integration tests
 
-Planning branch integration tests are not applicable because no model runtime, migration, database, connector, MCP tool, or API router implementation is authorized.
-
-Later implementation integration tests must cover Alembic upgrade/downgrade behavior, database persistence for the approved Research Mode entities, and basic API route behavior for model-level CRUD only.
+Implementation integration tests must cover Alembic upgrade/downgrade behavior, database persistence for the approved Research Mode entities, and basic API route behavior for model-level CRUD only.
 
 ### Acceptance checks
 
@@ -295,7 +299,7 @@ Critical Codex findings must be fixed or explicitly deferred with reason before 
 
 This planning branch must submit `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md` to GPT Pro for plan review.
 
-GPT Pro must answer:
+For the plan gate, GPT Pro had to answer:
 
 - PASS / CONDITIONAL PASS / FAIL for the Stage 02 plan.
 - Must-fix plan items.
@@ -303,7 +307,7 @@ GPT Pro must answer:
 - Whether Stage 02 implementation may begin after user `/goal` approval.
 - Required implementation boundaries and stop conditions.
 
-Stage 02 implementation cannot begin without GPT Pro plan PASS or accepted CONDITIONAL PASS and user goal approval.
+Stage 02 implementation cannot be accepted without current-head CI, Codex no-major review, and final GPT Pro implementation review. Stage 03 remains unauthorized until GPT Pro explicitly assigns it after Stage 02 final PASS.
 
 ## Risks
 
@@ -331,11 +335,11 @@ Stop and ask user/GPT Pro if:
 
 ## Done When
 
-This planning step is done when:
+Stage 02 implementation is done when:
 
-- Stage 02 plan, task, checklist, PR body, review packet, acceptance placeholder, and deployment placeholder exist.
-- Logs and artifact registry record the Stage 02 planning artifacts.
-- No Stage 02 runtime/model/migration/CRUD files are created.
-- Local planning checks pass.
-- PR is opened and Codex review is requested.
-- GPT Pro plan review is submitted and saved.
+- The approved model, migration, schema, CRUD, route, and test files exist.
+- Local model/schema/CRUD/migration tests pass.
+- PostgreSQL migration upgrade/downgrade/upgrade is verified or a blocker is recorded.
+- Docs, logs, artifact registry, PR body, GPT Pro packet, deployment evidence, and acceptance result are current.
+- PR #8 current implementation head has CI PASS and Codex no-major evidence.
+- GPT Pro final implementation review returns PASS or accepted CONDITIONAL PASS with critical items resolved.

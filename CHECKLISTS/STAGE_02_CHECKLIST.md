@@ -2,15 +2,15 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | Stage 02 plan confirms Research Mode domain models only; no implementation during planning | planning approved; implementation not started |
-| Functionality | Planned minimum entities, migrations, schemas, model-level CRUD, and routers only after explicit Stage 02 implementation `/goal` approval | GPT Pro plan PASS; implementation pending explicit `/goal` |
-| Tests | Planning checks now; model, migration, schema, CRUD tests later | pending |
-| Docs | Domain model plan docs and later model boundary docs | pending |
-| Logs | Stage logs current | pending |
-| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open; current captured head `69cd91760178881b2ce623d40675052907c1b64a` passed CI, and Codex returned CR-02-018/019 for stale checklist/deployment evidence. This checklist is part of the local remediation and requires push, CI PASS, and current-head Codex no-major evidence before Gate 6 can pass. |
-| GPT Pro | Plan packet, response, action items, final plan result | PASS for Stage 02 plan review; response/action items saved under `reviews/stage_02/`; implementation still requires explicit user `/goal` |
-| Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | pending |
-| Security | Secret scan, data boundary checks, no real API keys | pending |
-| Next stage | GPT Pro Stage 03 instruction only after Stage 02 implementation PASS | blocked until Stage 02 implementation is later approved and completed |
+| Scope | Stage 02 plan confirms Research Mode domain models only; no connectors/extraction/MCP business tools/UI behavior | local implementation in progress; support-file exception logged |
+| Functionality | Minimum entities, migrations, schemas, model-level CRUD, and routers only | local implementation in progress |
+| Tests | Model, migration, schema, CRUD, compile, phase, Docker/PostgreSQL, secret, forbidden-scope, and diff checks | local checks in progress |
+| Docs | Domain model boundary docs, command evidence, PR/GPT packet, and README status updates | local docs in progress |
+| Logs | Stage logs current | local log sync in progress |
+| GitHub | Branch, PR, CI, Codex review | PR #8 open; pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d` had CI PASS and Codex no-major; implementation head pending commit/push/CI/Codex |
+| GPT Pro | Plan packet/response plus final implementation packet/response/action items | plan PASS saved; final implementation GPT Pro review pending after CI/Codex |
+| Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | local product-scope checks in progress |
+| Security | Secret scan, placeholder-only config, no real API keys | local checks in progress |
+| Next stage | GPT Pro Stage 03 instruction only after Stage 02 implementation PASS | blocked until final Stage 02 CI/Codex/GPT Pro PASS |
 
-Current Stage 02 status: GPT Pro accepted the Stage 02 plan, but implementation is not authorized until the CR-02-018/019 remediation is pushed, CI/Codex pass on the new head, and the user gives an explicit Stage 02 implementation `/goal`.
+Current Stage 02 status: GPT Pro accepted the Stage 02 plan, PR #8 head `8800022f55d79db951b57a61a1d1c7b3301cea9d` passed CI and Codex no-major, and the user approved direct execution without repeated confirmation. Stage 02 local implementation is active. Final acceptance remains blocked until implementation is committed, pushed, CI passes, Codex returns no major issues, and GPT Pro final implementation review passes.

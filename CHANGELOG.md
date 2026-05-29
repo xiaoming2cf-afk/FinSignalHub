@@ -12,3 +12,4 @@
 - Added Stage 02 planning artifacts for Research Mode domain models, with implementation explicitly blocked until GPT Pro plan review and user `/goal` approval.
 - Expanded Stage 02 planning governance with explicit provenance scope, live PR/CI/Codex gate evidence rules, subagent evidence, and stage directory purpose docs.
 - Captured Stage 02 plan gate PASS from GPT Pro and recorded the implementation `/goal` boundary for user approval.
+- Started Stage 02 Research Mode domain model implementation after user approval, adding provenance-focused model primitives, migration/schema/CRUD scaffolding, and verification evidence without adding connectors, extraction, MCP business tools, dashboards, reports, or financial advice features.

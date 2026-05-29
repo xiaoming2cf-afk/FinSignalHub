@@ -50,3 +50,12 @@ Update at the start of every stage, after tool discovery, and whenever a fallbac
 | Node.js | available | future admin/tooling | none | available for later stages | none | no |
 | Package managers | partial | future JS tooling | `npm.ps1` blocked; `npm.cmd` works; pnpm/yarn unavailable | use `npm.cmd` on Windows | document command form | no |
 | GPT Pro page accessibility | available after user instruction | blocking review gate | Chrome extension direct tab control degraded on 2026-05-26; visible Chrome and local visual recovery succeeded | GPT Pro returned Stage 01 implementation-gate CONDITIONAL PASS and final implementation PASS; Stage 02 planning only is authorized | save response/action items/final result; avoid committing raw browser screenshots or clipboard captures that may include unrelated session context; stop on login/captcha/payment/permission prompts | yes |
+
+## Stage 02 Implementation Addendum
+
+| Capability | Status | Use in project | Blocker | Impact | Fallback | Requires user authorization |
+| --- | --- | --- | --- | --- | --- | --- |
+| GitHub Actions on PR #8 | available | Stage 02 GitHub gate | none for pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d` | CI passed before implementation; fresh implementation-head CI still required after push | rerun or inspect workflow logs if implementation CI fails | no |
+| PR `@codex review` on PR #8 | available | Stage 02 Codex gate | none for pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d` | Codex no-major before implementation; fresh implementation-head review still required after push | CLI comment, minimal retry, GitHub route, then blocker if no response | no |
+| Docker/PostgreSQL for Stage 02 | available | Alembic/PostgreSQL migration validation | none observed | `docker compose config`, Postgres Alembic upgrade/downgrade/upgrade, and full Compose build/smoke passed locally on 2026-05-29 | rerun if CI or GPT Pro requests fresh DB evidence | no |
+| GPT Pro final implementation page | available but pending use | final Stage 02 hard gate | not yet submitted for implementation | Stage 02 cannot pass until response/action items/final result are saved | Chrome first, visual recovery second, stop on login/captcha/payment/permission/secret prompt | yes |

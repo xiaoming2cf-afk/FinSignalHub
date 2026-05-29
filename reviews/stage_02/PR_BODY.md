@@ -1,82 +1,75 @@
-# Stage 02: Research Mode Domain Models Plan
+# Stage 02: Research Mode Domain Models
 
 ## Goal
 
-Create the Stage 02 plan for Research Mode domain models. This PR is planning-only until GPT Pro plan review and user `/goal` approval authorize implementation.
+Implement FinSignalHub Stage 02 Research Mode domain model primitives after GPT Pro plan PASS, PR #8 pre-implementation CI/Codex no-major evidence, and user direct-execution approval.
 
 ## Scope
 
-The plan covers minimum domain model boundaries, migration plan, Pydantic schema plan, model-level CRUD/router plan, tests, docs, CI, GitHub review, GPT Pro plan review, risks, and stop conditions.
+Included:
 
-## Not Included
+- SQLAlchemy domain models for approved Research Mode entities.
+- Alembic migration for the approved tables only.
+- Pydantic schemas with provenance validation.
+- Generic CRUD services and model-level API routes.
+- Tests for metadata, provenance fields, schemas, CRUD routes, Alembic, and forbidden scope.
+- Docs, logs, review artifacts, and acceptance evidence.
 
-This PR does not implement domain model runtime code, migrations, CRUD routers, connectors, extraction, claim graph computation, research delta computation, Repro Pack export, MCP business tools, admin UI product features, Risk Mode, Replay Engine, stock prediction, investment advice, chatbot UI, generic RAG, or dashboard product behavior.
+Explicitly not included:
 
-## Deliverables
+- Connectors or external API calls.
+- LLM adapters or evidence extraction.
+- Claim graph computation.
+- Research delta computation engines.
+- Literature matrix generation.
+- Repro Pack export logic.
+- MCP business tools.
+- ChatGPT/Claude/Copilot/Gemini connector implementation.
+- Product UI behavior, dashboard behavior, chatbot UI, generic RAG, reports, stock prediction, investment advice, auth, billing, Risk Mode, or Replay Engine.
 
-- `PLANS/STAGE_02_PLAN.md`
-- `TASKS/STAGE_02_TASKS.md`
-- `CHECKLISTS/STAGE_02_CHECKLIST.md`
-- `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md`
-- `reviews/stage_02/STAGE_ACCEPTANCE_RESULT.md`
-- `deployments/stage_02/GITHUB_PR.md`
-- Stage control and RunLog updates
+## Support-File Exception
 
-## Checks
+Stage 02 modifies `pyproject.toml`, `.env.example`, `docker-compose.yml`, README files, and `CHANGELOG.md` only to support approved dependencies, placeholder-only database routing, PostgreSQL migration verification, and current-stage documentation. The exception is recorded in `CONTROL/05_DECISION_LOG.md` ADR-0002.
 
-Required planning checks:
+## Local Checks
 
-- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02`: PASS
-- no Stage 02 implementation file check: PASS
-- secret scan: PASS
-- forbidden scope scan: PASS
-- `git diff --check`: PASS
+Verified local evidence:
 
-## Subagent Evidence
-
-- Read-only plan verifier: `logs/subagents/stage_02/plan-scope-verifier.md`
-- Summary: `reviews/stage_02/SUBAGENT_SUMMARY.md`
-
-## GPT Pro Status
-
-PASS for Stage 02 plan review. Implementation still requires explicit user `/goal` approval.
+- `python -m pytest apps/api/tests`: PASS, 14 tests.
+- `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
+- `python -m compileall apps/api/finsignalhub_api`: PASS.
+- `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02`: PASS.
+- `npm.cmd run web:build`: PASS.
+- `npm.cmd run web:audit`: PASS, 0 vulnerabilities.
+- `docker compose config`: PASS.
+- PostgreSQL Alembic upgrade/downgrade/upgrade: PASS.
+- Full Docker Compose build/smoke for API/MCP/web: PASS.
+- Likely-secret scan: PASS.
+- Runtime forbidden-scope scan: PASS.
+- Artifact ID uniqueness: PASS, 204 IDs.
+- `git diff --check`: PASS.
 
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Last captured live evidence before this CR-02-018/019 remediation: `69cd91760178881b2ce623d40675052907c1b64a`.
-- CI: PASS on that pushed head.
-- Codex: returned CR-02-018/019 on that pushed head. Final evidence commits still require CI/Codex follow-up before implementation starts.
+- Pre-implementation head: `8800022f55d79db951b57a61a1d1c7b3301cea9d`
+- Pre-implementation CI: PASS
+- Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
+- Implementation head: pending commit and push
 
-## Current Codex Findings
+Required review request after implementation push:
 
-- CR-02-001: stale subagent GitHub/CI status; fixed in `a1f4d2fff7b980d21531d80f21038d337d46b7b3`.
-- CR-02-002: stale checklist GitHub gate status; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
-- CR-02-003: missing mandatory provenance detail; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
-- CR-02-004: planned implementation paths used nonexistent `apps/api/app`; fixed by using the existing `apps/api/finsignalhub_api` package.
-- CR-02-005: PR body status was stale; fixed in `d8693f99fbd5f41b8914184de366edb5a3e35352`.
-- CR-02-006: GPT Pro review packet used stale head/CI evidence; fixed in `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
-- CR-02-007: Stage 02 checklist GitHub gate used stale head/finding evidence; fixed in `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`.
-- CR-02-008: Stage 02 subagent summary used stale CR-02-001 gate evidence; fixed in `fc5045e8702cfc66db71d5bf52701c818ab49d57`.
-- CR-02-009: Stage 02 directories lacked purpose docs; fixed in `04b66822be98155a7112f42e7e084552b34b2154`.
-- CR-02-010: Stage 02 subagent summary still described older CR-02-008 state; fixed by this subagent summary refresh.
-- CR-02-011: `CHANGELOG.md` contained internal CR-specific remediation notes; fixed by compressing it to user-visible Stage 02 governance changes only.
-- CR-02-012: checklist still marked GitHub blocked and GPT Pro pending after GPT Pro PASS; fixed in the post-GPT-Pro evidence remediation.
-- CR-02-013: deployment record still described GPT Pro as pending after saved PASS; fixed in the post-GPT-Pro evidence remediation.
-- CR-02-014: subagent summary still listed GPT Pro plan review as pending; fixed in the post-GPT-Pro evidence remediation.
-- CR-02-015: checklist GPT Pro gate still named older `06a6d4b2` pending state; fixed in `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`.
-- CR-02-016: Stage 02 plan listed root config/CI/env files outside GPT Pro's approved implementation boundary; fixed in `69cd91760178881b2ce623d40675052907c1b64a`.
-- CR-02-017: subagent verifier still described GPT Pro plan review as pending; fixed in `69cd91760178881b2ce623d40675052907c1b64a`.
-- CR-02-018: checklist Gate 6 still described older CR-02-012/013/014 blocker state; fixed locally by this remediation.
-- CR-02-019: deployment evidence still described older CR-02-012/013/014 blocker state; fixed locally by this remediation.
+```text
+@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
+```
 
-## Codex Review Request
+## GPT Pro Status
 
-`@codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems`
+- Stage 02 plan review: PASS.
+- Final implementation review: pending after implementation head CI/Codex pass.
+- Stage 03: not authorized.
 
-## GPT Pro Plan Review
+## Acceptance
 
-- Response: `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
-- Action items: `reviews/stage_02/GPT_PRO_PLAN_ACTION_ITEMS.md`
-- Result: PASS for Stage 02 plan; Stage 03 not authorized.
-- Next implementation requirements: `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
+Stage 02 remains blocked until local checks, CI, Codex, GPT Pro final review, and next-stage instruction are all recorded.

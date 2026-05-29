@@ -2,7 +2,7 @@
 
 ## Stage goal
 
-Plan and later create Research Mode domain models only after Stage 01 passes, GPT Pro approves the Stage 02 plan, and the user approves the Stage 02 goal.
+Create Research Mode domain models only after Stage 01 passes, GPT Pro approves the Stage 02 plan, PR #8 current-head CI/Codex evidence is clean, and the user approves direct Stage 02 execution.
 
 ## User needs
 
@@ -33,6 +33,13 @@ Implementation files are allowed only after GPT Pro plan review and user `/goal`
 - `apps/api/alembic.ini`
 - `docs/architecture/stage_02_domain_models.md`
 - `docs/codex/stage_02_commands.md`
+
+Support-file exception allowed for this implementation and logged in `CONTROL/05_DECISION_LOG.md`:
+
+- `pyproject.toml` for approved dependency declarations only.
+- `.env.example` for placeholder-only database URL names.
+- `docker-compose.yml` for placeholder-only API database routing needed by PostgreSQL migration verification.
+- README/changelog files for current stage status only.
 
 ## Files forbidden
 
@@ -72,7 +79,7 @@ Planning tasks:
 6. Open PR and request Codex review.
 7. Submit plan packet to GPT Pro.
 
-Later implementation tasks require GPT Pro plan PASS and user `/goal` approval.
+Implementation tasks are active after GPT Pro plan PASS, head `8800022f55d79db951b57a61a1d1c7b3301cea9d` CI/Codex no-major evidence, and the user's direct-execution approval.
 
 ## Test tasks
 

@@ -10,12 +10,11 @@ Current blockers for final acceptance: none for Stage 01. Docker daemon is resol
 
 Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5c4b9a6cec9b1488883fe20742` passed CI and Codex, tag `stage-01-repo-scaffold` was pushed, and PR #7 merged into `main` at `6b71850a1a59603fe169cd5a5ddf8d40adfaf8f4`.
 
-Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8. Head `857696e19d46446658081ec2ed1236c791099730` passed CI and Codex returned no major issues before GPT Pro submission. GPT Pro returned Stage 02 plan PASS and provided exact Stage 02 implementation `/goal` requirements. Later evidence/remediation heads passed CI, but Codex returned follow-up findings through CR-02-019 for stale gate wording and a Stage 02 implementation boundary mismatch. Local remediation is in progress for CR-02-018/019. Stage 02 implementation remains blocked by B-0017 until the user explicitly approves the Stage 02 `/goal`; Stage 03 is not authorized.
+Current stage: Stage 02 implementation on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8. Head `8800022f55d79db951b57a61a1d1c7b3301cea9d` passed CI and Codex returned no major issues before implementation. GPT Pro returned Stage 02 plan PASS and provided exact Stage 02 implementation requirements. The user then approved direct execution without repeated confirmation, resolving the implementation authorization blocker. Local Stage 02 implementation has passed full local verification and is limited to Research Mode domain model primitives, migration, schemas, CRUD, tests, docs, and logs. Stage 03 is not authorized.
 
 ## Next expected milestones
 
-1. Run checks, commit and push CR-02-018/019 remediation, then wait for CI.
-2. Request one follow-up current-head Codex review for the remediation commit.
-3. Wait for explicit user Stage 02 implementation `/goal` approval.
-4. After approval, implement only the GPT Pro-approved Stage 02 domain model boundary.
-5. Do not start Stage 03 until Stage 02 implementation receives CI, Codex, GPT Pro final PASS, and GPT Pro assigns Stage 03.
+1. Commit and push the implementation head to PR #8.
+2. Wait for CI and request current-head Codex review.
+3. Submit the final Stage 02 implementation packet to GPT Pro through the approved Chrome/GPT Pro route.
+4. Do not start Stage 03 until Stage 02 implementation receives CI, Codex, GPT Pro final PASS, and GPT Pro assigns Stage 03.
