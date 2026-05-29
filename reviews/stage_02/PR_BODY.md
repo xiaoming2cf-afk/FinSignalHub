@@ -52,6 +52,7 @@ Verified local evidence:
 - Artifact ID uniqueness: PASS.
 - `git diff --check`: PASS.
 - CR-02-035 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
+- CR-02-036 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
 
 ## GitHub Status
 
@@ -60,8 +61,8 @@ Verified local evidence:
 - Pre-implementation CI: PASS
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
 - Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
-- Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; CR-02-024/025 returned on head `9984b407acd2e5b75c57847545807cf083c9bc2a`; CR-02-026/027/028/029 returned on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`; CR-02-030/031 returned on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`; CR-02-032/033 returned on head `db89107a855588d534da1eb4d32c151c120ec442`; CR-02-034 returned on head `99b366655c0b2374952740d9ed329e9584a38564`; CR-02-035 returned on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`.
-- Current remediation status: CR-02-035 documentation evidence refresh is the active branch-head remediation after Codex review on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, which passed live CI before that review. The latest pushed head still needs live CI PASS and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
+- Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; CR-02-024/025 returned on head `9984b407acd2e5b75c57847545807cf083c9bc2a`; CR-02-026/027/028/029 returned on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`; CR-02-030/031 returned on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`; CR-02-032/033 returned on head `db89107a855588d534da1eb4d32c151c120ec442`; CR-02-034 returned on head `99b366655c0b2374952740d9ed329e9584a38564`; CR-02-035 returned on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`; CR-02-036 returned on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`.
+- Current remediation status: CR-02-036 documentation evidence refresh is the active branch-head remediation after Codex review on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`, which passed live CI before that review. The latest pushed head still needs live CI PASS and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
 
 Required review request after implementation push:
 
