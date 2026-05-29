@@ -4,12 +4,12 @@ Use these commands for Stage 02 implementation verification.
 
 ## Latest Verified Results
 
-Verified on 2026-05-29 after CR-02-032/033 local remediation.
+Verified on 2026-05-29 after CR-02-043 local remediation.
 
 | Check | Result |
 | --- | --- |
-| `python -m pytest apps/api/tests` | PASS, 44 tests |
-| `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q` | PASS, 30 targeted route tests after CR-02-032/033 |
+| `python -m pytest apps/api/tests` | PASS, 53 tests |
+| `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q` | PASS, 39 targeted route tests after CR-02-043 |
 | `python -m pytest apps/api/tests/test_stage02_models.py -q` | PASS, 5 model tests after CR-02-030 |
 | `python -m pytest apps/mcp_server/tests` | PASS, 2 tests |
 | `python -m compileall apps/api/finsignalhub_api` | PASS |

@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The final implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed CI, Codex returned no major issues, and GPT Pro returned final implementation PASS. Gate 6 is PASS for that reviewed implementation head. Later follow-up heads fixed CR-02-037, CR-02-038, CR-02-039/040, and CR-02-041; Codex then returned CR-02-042 for Docker Compose Postgres user mismatch. CR-02-042 is locally remediated and the next pushed head needs live CI/Codex before GPT Pro delta/final re-review and merge.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The final implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed CI, Codex returned no major issues, and GPT Pro returned final implementation PASS. Gate 6 is PASS for that reviewed implementation head. Later follow-up heads fixed CR-02-037, CR-02-038, CR-02-039/040, CR-02-041, and CR-02-042; Codex then returned CR-02-043 for explicit null PATCH values against non-null fields. CR-02-043 is locally remediated and the next pushed head needs live CI/Codex before GPT Pro delta/final re-review and merge.
 
 ## Branch
 
@@ -125,10 +125,25 @@ CR-02-041 remediation:
 
 CR-02-042 remediation:
 
-- Local remediation updates the API `FINSIGNALHUB_DATABASE_URL` in `docker-compose.yml` to use `${POSTGRES_USER:-finsignalhub}`.
+- Commit: `01d26414d09b53e0c280cbf4839727d283da8053`
+- Remediation updated the API `FINSIGNALHUB_DATABASE_URL` in `docker-compose.yml` to use `${POSTGRES_USER:-finsignalhub}`.
 - Local `docker compose config`: PASS and resolves the default URL to `postgresql+psycopg://finsignalhub:finsignalhub_dev_password_placeholder@postgres:5432/finsignalhub_dev`.
 - Local route tests: PASS, 36 tests.
 - Local API tests: PASS, 50 tests.
+- Local `phase_check.py --stage 02`: PASS.
+- PASS on head `01d26414d09b53e0c280cbf4839727d283da8053`:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26666515029/job/78600936493
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26666517457/job/78600941935
+- Codex review event: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4393393671
+- Finding: CR-02-043 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327354501.
+
+CR-02-043 remediation:
+
+- Local remediation rejects explicit `null` PATCH values for SQLAlchemy non-null columns before CRUD updates reach the database.
+- Local route tests: PASS, 39 tests.
+- Local API tests: PASS, 53 tests.
+- Local API compile: PASS.
+- Local `docker compose config`: PASS.
 - Local `phase_check.py --stage 02`: PASS.
 - Next pushed head needs final scans, live CI/Codex, and GPT Pro delta/final re-review before merge.
 
@@ -157,7 +172,7 @@ Implementation-head Codex review:
 - Current-head review requests for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579409749; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579426105; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796.
 - Current-head review event for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 returned CR-02-036 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560.
 - Current-head no-major response for `09585c58e71eb72b532ea42569d38dce2aa7b648`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862.
-- Follow-up status: CR-02-037 is resolved in pushed head `e3e260178fb23408680f025bfc473c164cee473a`; CR-02-038 is resolved in pushed head `dd58ef23571f3511eb844b131d861813f0aed14e`; CR-02-039/040 is resolved in pushed head `52a99629b5f2cf136e39efc1e4d4b47858abfe47`; CR-02-041 is resolved in pushed head `6bff2191781b02d6e2bb2459a3c1efae05bfedf2`. Codex then returned CR-02-042 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327267601. The local remediation updates compose database URL user interpolation; the next pushed head needs live CI/Codex before merge.
+- Follow-up status: CR-02-037 is resolved in pushed head `e3e260178fb23408680f025bfc473c164cee473a`; CR-02-038 is resolved in pushed head `dd58ef23571f3511eb844b131d861813f0aed14e`; CR-02-039/040 is resolved in pushed head `52a99629b5f2cf136e39efc1e4d4b47858abfe47`; CR-02-041 is resolved in pushed head `6bff2191781b02d6e2bb2459a3c1efae05bfedf2`; CR-02-042 is resolved in pushed head `01d26414d09b53e0c280cbf4839727d283da8053`. Codex then returned CR-02-043 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327354501. The local remediation adds generic non-null PATCH validation; the next pushed head needs live CI/Codex before merge.
 
 Required comment:
 
@@ -172,7 +187,7 @@ Stage 02 plan PASS is saved in:
 - `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
 - `reviews/stage_02/GPT_PRO_PLAN_ACTION_ITEMS.md`
 
-Final implementation review is PASS for implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648`. CR-02-038/039/041 change runtime validation/error handling after that PASS, so the remediation head needs a GPT Pro delta/final re-review after live CI and Codex clear. The earlier final review included:
+Final implementation review is PASS for implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648`. CR-02-038/039/041/043 change runtime validation/error handling and CR-02-042 changes compose configuration after that PASS, so the remediation head needs a GPT Pro delta/final re-review after live CI and Codex clear. The earlier final review included:
 
 - PR URL and implementation commit.
 - CI links for the implementation head.

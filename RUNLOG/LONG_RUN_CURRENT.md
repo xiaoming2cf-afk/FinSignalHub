@@ -2593,3 +2593,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0260 and CP-0165.
 - Blockers: B-0025.
 - Next action: commit and push CR-02-042 remediation.
+
+## Cycle 0145
+
+- Timestamp: 2026-05-29T18:26:48-05:00
+- Files read: PR #8 current-head Codex review event for `01d26414d09b53e0c280cbf4839727d283da8053`, inline comment CR-02-043, CRUD routes, Stage 02 route tests, Stage 02 gate evidence, and local check outputs.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0026 open for explicit null PATCH values against non-null fields, live CI/Codex, and GPT Pro delta/final re-review.
+- Next valid action is: run final scans, commit and push CR-02-043 remediation, wait for live CI, request current-head Codex review, and then use the specified Chrome/GPT Pro page for delta/final review.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, subagent-coordinator, acceptance-evidence-collector.
+- Subagents used: CR-02-043 sidecar audit attempted but the subagent tool returned thread limit reached; main thread completed the narrow remediation locally.
+- Commands/tools run: PR #8 review inspection, targeted route pytest, API compile, full API pytest, `docker compose config`, phase_check 02, and subagent spawn attempt.
+- Files changed: `apps/api/finsignalhub_api/routers/domain.py`, `apps/api/tests/test_stage02_crud_routes.py`, Stage 02 Codex/deployment/acceptance/review evidence, CONTROL logs, and RunLog summary/current.
+- Tests run: PASS for route tests 39, API tests 53, API compile, `docker compose config`, and `phase_check.py --stage 02`.
+- GitHub status: PR #8 open; head `01d26414d09b53e0c280cbf4839727d283da8053` has CI PASS but Codex returned CR-02-043. Local remediation is not accepted until pushed, CI-passed, reviewed by Codex with no major issues, and accepted by GPT Pro delta/final re-review.
+- GPT Pro status: PASS for implementation-reviewed head; CR-02-043 remediation head needs GPT Pro delta/final re-review after CI/Codex clear.
+- Artifacts created: A-0261 through A-0262 and CP-0166.
+- Blockers: B-0026.
+- Next action: run final scans, commit and push CR-02-043 remediation.
+
+## Cycle 0146
+
+- Timestamp: 2026-05-29T18:26:48-05:00
+- Files read: final scan outputs, artifact registry, checkpoint log, execution log, and current run log.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0026 open until the pushed CR-02-043 remediation head passes live CI/Codex and GPT Pro delta/final re-review.
+- Next valid action is: commit and push CR-02-043 remediation, wait for live CI, request current-head Codex review, and then use the specified Chrome/GPT Pro page for delta/final review.
+- Skills used: phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: CR-02-043 sidecar audit attempted but blocked by subagent thread limit.
+- Commands/tools run: phase_check 02, strict token-pattern scan, artifact row ID uniqueness, checkpoint row ID uniqueness, and git diff check.
+- Files changed: `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, `CONTROL/04_EXECUTION_LOG.md`, and `RUNLOG/LONG_RUN_CURRENT.md`.
+- Tests run: PASS for phase_check 02; strict token-pattern scan had no matches; 262 artifact IDs and 166 checkpoint IDs were unique before final rows; `git diff --check` produced only normal Windows line-ending warnings.
+- GitHub status: PR #8 open; CR-02-043 remediation commit pending.
+- GPT Pro status: PASS for implementation-reviewed head; CR-02-043 remediation head needs GPT Pro delta/final re-review after CI/Codex clear.
+- Artifacts created: A-0263 and CP-0167.
+- Blockers: B-0026.
+- Next action: commit and push CR-02-043 remediation.

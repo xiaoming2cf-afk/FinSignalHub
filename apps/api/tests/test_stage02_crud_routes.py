@@ -495,6 +495,62 @@ def test_crud_create_get_list_update_delete_for_stage02_entities(client: TestCli
     assert response.status_code == 204
 
 
+def test_update_rejects_null_for_non_nullable_project_field(client: TestClient) -> None:
+    project = _post(client, "research-projects", {"title": "Null project title boundary"})
+
+    response = client.patch(
+        f"/research-mode/research-projects/{project['id']}",
+        json={"title": None},
+    )
+
+    assert response.status_code == 422
+    detail = response.json()["detail"]
+    assert detail["error"] == "null_not_allowed"
+    assert detail["field_name"] == "title"
+    assert detail["model"] == "ResearchProject"
+
+    project_response = client.get(f"/research-mode/research-projects/{project['id']}")
+    assert project_response.status_code == 200
+    assert project_response.json()["title"] == "Null project title boundary"
+
+
+def test_update_rejects_null_for_non_nullable_source_identity(client: TestClient) -> None:
+    _project, source, _document, _tool_call = _create_project_source_document_tool(
+        client,
+        title="Null source identity boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/sources/{source['id']}",
+        json={"source_identity": None},
+    )
+
+    assert response.status_code == 422
+    detail = response.json()["detail"]
+    assert detail["error"] == "null_not_allowed"
+    assert detail["field_name"] == "source_identity"
+    assert detail["model"] == "Source"
+
+    source_response = client.get(f"/research-mode/sources/{source['id']}")
+    assert source_response.status_code == 200
+    assert source_response.json()["source_identity"] == source["source_identity"]
+
+
+def test_update_allows_null_for_nullable_source_title(client: TestClient) -> None:
+    _project, source, _document, _tool_call = _create_project_source_document_tool(
+        client,
+        title="Nullable source title boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/sources/{source['id']}",
+        json={"title": None},
+    )
+
+    assert response.status_code == 200, response.text
+    assert response.json()["title"] is None
+
+
 def test_delete_referenced_claim_returns_conflict(client: TestClient) -> None:
     _project, tool_call, evidence, claim = _create_project_evidence_claim(
         client,

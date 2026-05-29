@@ -21,6 +21,7 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 | Hegel | Read-only CR-02-030/031 remediation audit | none | PASS with representative-coverage risk noted | `logs/subagents/stage_02/hegel-cr-02-030-031-audit.md` |
 | Volta CR-02-038 audit | Read-only ToolCallLog artifact-scope audit | none | PASS: finding valid; local remediation added route guards and regression tests | `logs/subagents/stage_02/volta-cr-02-038-audit.md` |
 | Volta CR-02-041 audit | Read-only nullable dependent-delete audit | none | requested; result pending while main thread fixes narrow delete-precheck issue locally | pending |
+| CR-02-043 sidecar audit | Read-only explicit-null PATCH audit | none | blocked: subagent tool reported thread limit reached, so main thread completed bounded remediation locally and logged the capability limit | `CONTROL/04_EXECUTION_LOG.md`; `RUNLOG/LONG_RUN_CURRENT.md` |
 
 ## Integrated Findings
 
@@ -39,11 +40,12 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 - Volta confirmed CR-02-038 is valid: ToolCallLog input/output artifact ids must be project-scoped to preserve replay lineage. The main thread added ToolCallLog create/update artifact guards and regression tests for same-project, cross-project, and unknown refs.
 - CR-02-039/040 were fixed and pushed in `52a99629b5f2cf136e39efc1e4d4b47858abfe47`. Dependent-row delete conflicts return 409 `delete_conflict`, and the current remediation head is explicitly BLOCKED until live CI/Codex/GPT Pro delta pass.
 - CR-02-041 was fixed locally after requesting a read-only Volta audit and then pushed in `6bff2191781b02d6e2bb2459a3c1efae05bfedf2`; CI passed, and follow-up Codex returned CR-02-042.
-- CR-02-042 was fixed locally without a new subagent because it is a narrow compose-configuration consistency issue. The main-thread remediation updates the API compose `FINSIGNALHUB_DATABASE_URL` to honor `${POSTGRES_USER:-finsignalhub}` and verifies compose config plus API route tests.
+- CR-02-042 was fixed and pushed in `01d26414d09b53e0c280cbf4839727d283da8053`. CI passed and follow-up Codex returned CR-02-043.
+- CR-02-043 was fixed locally after a subagent sidecar attempt failed with a thread-limit response. The main-thread remediation adds generic non-null PATCH validation before database persistence and regression tests for non-null and nullable update boundaries.
 
 ## Remaining Gates
 
-- CR-02-042 remediation must pass final scans, be committed and pushed to PR #8.
+- CR-02-043 remediation must pass final scans, be committed and pushed to PR #8.
 - GitHub CI must pass for the latest pushed head.
 - Codex must return no major issues for the latest pushed head.
 - GPT Pro final implementation review already returned PASS for the implementation-reviewed head; the latest remediation head needs GPT Pro delta/final re-review after CI/Codex clear.

@@ -50,6 +50,17 @@ def _bad_request(error: str, message: str, **context: Any) -> HTTPException:
     )
 
 
+def _reject_null_non_nullable_update(model: type, data: dict[str, Any]) -> None:
+    for column in model.__table__.columns:
+        if column.name in data and data[column.name] is None and not column.nullable:
+            raise _unprocessable(
+                "null_not_allowed",
+                "Non-null Research Mode fields must not be patched to null.",
+                model=model.__name__,
+                field_name=column.name,
+            )
+
+
 def _conflict(error: str, message: str, **context: Any) -> HTTPException:
     return HTTPException(
         status_code=status.HTTP_409_CONFLICT,
@@ -614,6 +625,7 @@ def register_crud_routes(
     ) -> Any:
         try:
             data = payload.model_dump(exclude_unset=True)
+            _reject_null_non_nullable_update(model, data)
             if before_update:
                 item = service.get(session, item_id)
                 before_update(session, item, data)
