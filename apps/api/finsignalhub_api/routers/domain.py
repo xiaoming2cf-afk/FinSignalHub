@@ -74,6 +74,96 @@ def _require_related_project(
     return related
 
 
+def _require_related_list_project(
+    session: Session,
+    *,
+    model: type,
+    item_ids: list[str],
+    expected_project_id: str,
+    field_name: str,
+    error: str,
+) -> None:
+    for item_id in item_ids:
+        _require_related_project(
+            session,
+            model=model,
+            item_id=item_id,
+            expected_project_id=expected_project_id,
+            field_name=field_name,
+            error=error,
+        )
+
+
+def _require_tool_call_lineage_project(
+    session: Session,
+    project_id: str,
+    data: dict[str, Any],
+    *,
+    error: str,
+) -> None:
+    lineage = data.get("tool_call_lineage")
+    if lineage is None:
+        return
+    _require_related_list_project(
+        session,
+        model=ToolCallLog,
+        item_ids=lineage,
+        expected_project_id=project_id,
+        field_name="tool_call_lineage",
+        error=error,
+    )
+
+
+def _require_source_artifact_refs_project(
+    session: Session,
+    project_id: str,
+    data: dict[str, Any],
+    *,
+    error: str,
+) -> None:
+    refs = data.get("source_artifact_refs")
+    if refs is None:
+        return
+    project_scoped_models = (
+        Source,
+        Document,
+        EvidenceItem,
+        ResearchClaim,
+        ResearchDelta,
+        LiteratureMatrixRow,
+        MethodCard,
+        DatasetCard,
+        ReproPackExport,
+        ToolCallLog,
+    )
+    for artifact_ref in refs:
+        for model in project_scoped_models:
+            related = session.get(model, artifact_ref)
+            if related is None:
+                continue
+            if related.project_id != project_id:
+                raise _bad_request(
+                    error,
+                    "source_artifact_refs must not reference artifacts from another project.",
+                    field_name="source_artifact_refs",
+                    item_id=artifact_ref,
+                    item_project_id=related.project_id,
+                    expected_project_id=project_id,
+                )
+            break
+
+
+def _require_document_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_related_project(
+        session,
+        model=Source,
+        item_id=data["source_id"],
+        expected_project_id=data["project_id"],
+        field_name="source_id",
+        error="cross_project_document_source",
+    )
+
+
 def _require_evidence_item_related_scope(session: Session, project_id: str, data: dict[str, Any]) -> None:
     relation_checks = {
         "source_id": Source,
@@ -90,6 +180,12 @@ def _require_evidence_item_related_scope(session: Session, project_id: str, data
                 field_name=field_name,
                 error="cross_project_evidence_reference",
             )
+    _require_tool_call_lineage_project(
+        session,
+        project_id,
+        data,
+        error="cross_project_evidence_lineage",
+    )
 
 
 def _require_research_claim_related_scope(session: Session, project_id: str, data: dict[str, Any]) -> None:
@@ -107,6 +203,12 @@ def _require_research_claim_related_scope(session: Session, project_id: str, dat
                 field_name=field_name,
                 error="cross_project_claim_reference",
             )
+    _require_tool_call_lineage_project(
+        session,
+        project_id,
+        data,
+        error="cross_project_claim_lineage",
+    )
 
 
 def _require_evidence_item_create_scope(session: Session, data: dict[str, Any]) -> None:
@@ -180,6 +282,12 @@ def _require_same_project_edge(session: Session, data: dict[str, Any]) -> None:
                 tool_call_project_id=tool_call.project_id,
                 claim_project_id=claim.project_id,
             )
+    _require_tool_call_lineage_project(
+        session,
+        claim.project_id,
+        data,
+        error="cross_project_claim_evidence_lineage",
+    )
 
 
 def _require_edge_update_project_scope(
@@ -187,23 +295,148 @@ def _require_edge_update_project_scope(
     item: ClaimEvidenceEdge,
     data: dict[str, Any],
 ) -> None:
-    if "tool_call_id" not in data or data["tool_call_id"] is None:
-        return
     claim = session.get(ResearchClaim, item.claim_id)
     if claim is None:
         raise _not_found(NotFoundError("ResearchClaim", item.claim_id))
-    tool_call_id = data["tool_call_id"]
-    tool_call = session.get(ToolCallLog, tool_call_id)
-    if tool_call is None:
-        raise _not_found(NotFoundError("ToolCallLog", tool_call_id))
-    if tool_call.project_id != claim.project_id:
-        raise _bad_request(
-            "cross_project_claim_evidence_tool_call",
-            "ClaimEvidenceEdge tool_call_id must belong to the same project as the edge.",
-            tool_call_id=tool_call_id,
-            tool_call_project_id=tool_call.project_id,
-            claim_project_id=claim.project_id,
+    if "tool_call_id" in data and data["tool_call_id"] is not None:
+        tool_call_id = data["tool_call_id"]
+        tool_call = session.get(ToolCallLog, tool_call_id)
+        if tool_call is None:
+            raise _not_found(NotFoundError("ToolCallLog", tool_call_id))
+        if tool_call.project_id != claim.project_id:
+            raise _bad_request(
+                "cross_project_claim_evidence_tool_call",
+                "ClaimEvidenceEdge tool_call_id must belong to the same project as the edge.",
+                tool_call_id=tool_call_id,
+                tool_call_project_id=tool_call.project_id,
+                claim_project_id=claim.project_id,
+            )
+    _require_tool_call_lineage_project(
+        session,
+        claim.project_id,
+        data,
+        error="cross_project_claim_evidence_lineage",
+    )
+
+
+def _require_generated_artifact_scope(
+    session: Session,
+    project_id: str,
+    data: dict[str, Any],
+    *,
+    relation_checks: dict[str, type] | None = None,
+    list_relation_checks: dict[str, type] | None = None,
+    error: str,
+) -> None:
+    if "tool_call_id" in data and data["tool_call_id"] is not None:
+        _require_related_project(
+            session,
+            model=ToolCallLog,
+            item_id=data["tool_call_id"],
+            expected_project_id=project_id,
+            field_name="tool_call_id",
+            error=error,
         )
+    for field_name, model in (relation_checks or {}).items():
+        if field_name in data and data[field_name] is not None:
+            _require_related_project(
+                session,
+                model=model,
+                item_id=data[field_name],
+                expected_project_id=project_id,
+                field_name=field_name,
+                error=error,
+            )
+    for field_name, model in (list_relation_checks or {}).items():
+        if field_name in data and data[field_name] is not None:
+            _require_related_list_project(
+                session,
+                model=model,
+                item_ids=data[field_name],
+                expected_project_id=project_id,
+                field_name=field_name,
+                error=error,
+            )
+    _require_tool_call_lineage_project(session, project_id, data, error=error)
+    _require_source_artifact_refs_project(session, project_id, data, error=error)
+
+
+def _create_project_scope_hook(
+    *,
+    relation_checks: dict[str, type] | None = None,
+    list_relation_checks: dict[str, type] | None = None,
+    error: str,
+) -> Any:
+    def before_create(session: Session, data: dict[str, Any]) -> None:
+        _require_generated_artifact_scope(
+            session,
+            data["project_id"],
+            data,
+            relation_checks=relation_checks,
+            list_relation_checks=list_relation_checks,
+            error=error,
+        )
+
+    return before_create
+
+
+def _update_project_scope_hook(
+    *,
+    relation_checks: dict[str, type] | None = None,
+    list_relation_checks: dict[str, type] | None = None,
+    error: str,
+) -> Any:
+    def before_update(session: Session, item: Any, data: dict[str, Any]) -> None:
+        _require_generated_artifact_scope(
+            session,
+            item.project_id,
+            data,
+            relation_checks=relation_checks,
+            list_relation_checks=list_relation_checks,
+            error=error,
+        )
+
+    return before_update
+
+
+_require_research_delta_create_scope = _create_project_scope_hook(
+    list_relation_checks={"changed_claim_ids": ResearchClaim},
+    error="cross_project_research_delta_reference",
+)
+_require_research_delta_update_scope = _update_project_scope_hook(
+    list_relation_checks={"changed_claim_ids": ResearchClaim},
+    error="cross_project_research_delta_reference",
+)
+_require_literature_matrix_row_create_scope = _create_project_scope_hook(
+    relation_checks={"document_id": Document, "claim_id": ResearchClaim},
+    error="cross_project_literature_matrix_reference",
+)
+_require_literature_matrix_row_update_scope = _update_project_scope_hook(
+    relation_checks={"document_id": Document, "claim_id": ResearchClaim},
+    error="cross_project_literature_matrix_reference",
+)
+_require_method_card_create_scope = _create_project_scope_hook(
+    relation_checks={"evidence_item_id": EvidenceItem},
+    error="cross_project_method_card_reference",
+)
+_require_method_card_update_scope = _update_project_scope_hook(
+    relation_checks={"evidence_item_id": EvidenceItem},
+    error="cross_project_method_card_reference",
+)
+_require_dataset_card_create_scope = _create_project_scope_hook(
+    relation_checks={"evidence_item_id": EvidenceItem},
+    error="cross_project_dataset_card_reference",
+)
+_require_dataset_card_update_scope = _update_project_scope_hook(
+    relation_checks={"evidence_item_id": EvidenceItem},
+    error="cross_project_dataset_card_reference",
+)
+_require_repro_pack_export_create_scope = _create_project_scope_hook(
+    error="cross_project_repro_pack_reference",
+)
+_require_repro_pack_export_update_scope = _update_project_scope_hook(
+    error="cross_project_repro_pack_reference",
+)
 
 
 def register_crud_routes(
@@ -285,6 +518,7 @@ register_crud_routes(
     create_schema=schemas.DocumentCreate,
     update_schema=schemas.DocumentUpdate,
     read_schema=schemas.DocumentRead,
+    before_create=_require_document_create_scope,
 )
 register_crud_routes(
     route_name="tool-call-logs",
@@ -326,6 +560,8 @@ register_crud_routes(
     create_schema=schemas.ResearchDeltaCreate,
     update_schema=schemas.ResearchDeltaUpdate,
     read_schema=schemas.ResearchDeltaRead,
+    before_create=_require_research_delta_create_scope,
+    before_update=_require_research_delta_update_scope,
 )
 register_crud_routes(
     route_name="literature-matrix-rows",
@@ -333,6 +569,8 @@ register_crud_routes(
     create_schema=schemas.LiteratureMatrixRowCreate,
     update_schema=schemas.LiteratureMatrixRowUpdate,
     read_schema=schemas.LiteratureMatrixRowRead,
+    before_create=_require_literature_matrix_row_create_scope,
+    before_update=_require_literature_matrix_row_update_scope,
 )
 register_crud_routes(
     route_name="method-cards",
@@ -340,6 +578,8 @@ register_crud_routes(
     create_schema=schemas.MethodCardCreate,
     update_schema=schemas.MethodCardUpdate,
     read_schema=schemas.MethodCardRead,
+    before_create=_require_method_card_create_scope,
+    before_update=_require_method_card_update_scope,
 )
 register_crud_routes(
     route_name="dataset-cards",
@@ -347,6 +587,8 @@ register_crud_routes(
     create_schema=schemas.DatasetCardCreate,
     update_schema=schemas.DatasetCardUpdate,
     read_schema=schemas.DatasetCardRead,
+    before_create=_require_dataset_card_create_scope,
+    before_update=_require_dataset_card_update_scope,
 )
 register_crud_routes(
     route_name="repro-pack-exports",
@@ -354,4 +596,6 @@ register_crud_routes(
     create_schema=schemas.ReproPackExportCreate,
     update_schema=schemas.ReproPackExportUpdate,
     read_schema=schemas.ReproPackExportRead,
+    before_create=_require_repro_pack_export_create_scope,
+    before_update=_require_repro_pack_export_update_scope,
 )

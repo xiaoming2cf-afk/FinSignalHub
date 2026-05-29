@@ -120,6 +120,52 @@ def _create_project_source_document_tool(
     return project, source, document, tool_call
 
 
+def _create_project_domain_fixture(client: TestClient, *, title: str) -> dict[str, dict[str, Any]]:
+    project, source, document, tool_call = _create_project_source_document_tool(
+        client,
+        title=title,
+    )
+    evidence = _post(
+        client,
+        "evidence-items",
+        {
+            "project_id": project["id"],
+            "source_id": source["id"],
+            "document_id": document["id"],
+            "tool_call_id": tool_call["id"],
+            "evidence_text": "Evidence text",
+            "source_identity": source["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "quoted_evidence_span": {"page": 1, "start": 0, "end": 13, "text": "Evidence text"},
+            "transformation_notes": "manual fixture",
+            "confidence": 0.9,
+            "tool_call_lineage": [tool_call["id"]],
+        },
+    )
+    claim = _post(
+        client,
+        "research-claims",
+        {
+            "project_id": project["id"],
+            "originating_evidence_item_id": evidence["id"],
+            "tool_call_id": tool_call["id"],
+            "claim_text": f"{title} contains fixture evidence.",
+            "derivation_notes": "Derived from the fixture evidence item.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call["id"]],
+        },
+    )
+    return {
+        "project": project,
+        "source": source,
+        "document": document,
+        "tool_call": tool_call,
+        "evidence": evidence,
+        "claim": claim,
+    }
+
+
 def test_stage02_crud_routes_are_registered(client: TestClient) -> None:
     routes = {route.path for route in client.app.routes}
 
@@ -411,6 +457,34 @@ def test_evidence_create_rejects_cross_project_source(client: TestClient) -> Non
     assert response.json()["detail"]["field_name"] == "source_id"
 
 
+def test_document_create_rejects_cross_project_source(client: TestClient) -> None:
+    project_a, _source_a, _document_a, _tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A document source boundary",
+    )
+    _project_b, source_b, _document_b, _tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B document source boundary",
+    )
+
+    response = client.post(
+        "/research-mode/documents",
+        json={
+            "project_id": project_a["id"],
+            "source_id": source_b["id"],
+            "title": "Cross-project normalized document",
+            "source_identity": source_b["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "transformation_notes": "manual fixture",
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_document_source"
+    assert response.json()["detail"]["field_name"] == "source_id"
+
+
 def test_evidence_create_rejects_cross_project_document(client: TestClient) -> None:
     project_a, source_a, _document_a, tool_call_a = _create_project_source_document_tool(
         client,
@@ -442,6 +516,39 @@ def test_evidence_create_rejects_cross_project_document(client: TestClient) -> N
     assert response.status_code == 400
     assert response.json()["detail"]["error"] == "cross_project_evidence_reference"
     assert response.json()["detail"]["field_name"] == "document_id"
+
+
+def test_evidence_create_rejects_cross_project_tool_call_lineage(client: TestClient) -> None:
+    project_a, source_a, document_a, tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A evidence lineage boundary",
+    )
+    _project_b, _source_b, _document_b, tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B evidence lineage boundary",
+    )
+
+    response = client.post(
+        "/research-mode/evidence-items",
+        json={
+            "project_id": project_a["id"],
+            "source_id": source_a["id"],
+            "document_id": document_a["id"],
+            "tool_call_id": tool_call_a["id"],
+            "evidence_text": "Evidence text",
+            "source_identity": source_a["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "quoted_evidence_span": {"page": 1, "start": 0, "end": 13, "text": "Evidence text"},
+            "transformation_notes": "manual fixture",
+            "confidence": 0.9,
+            "tool_call_lineage": [tool_call_b["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_evidence_lineage"
+    assert response.json()["detail"]["field_name"] == "tool_call_lineage"
 
 
 def test_evidence_update_rejects_cross_project_tool_call(client: TestClient) -> None:
@@ -540,6 +647,26 @@ def test_research_claim_update_rejects_cross_project_originating_evidence(client
     assert response.json()["detail"]["field_name"] == "originating_evidence_item_id"
 
 
+def test_research_claim_update_rejects_cross_project_tool_call_lineage(client: TestClient) -> None:
+    _project_a, _tool_call_a, _evidence_a, claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A claim lineage boundary",
+    )
+    _project_b, tool_call_b, _evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B claim lineage boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/research-claims/{claim_a['id']}",
+        json={"tool_call_lineage": [tool_call_b["id"]]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_lineage"
+    assert response.json()["detail"]["field_name"] == "tool_call_lineage"
+
+
 def test_claim_evidence_edge_rejects_cross_project_links(client: TestClient) -> None:
     _project_a, tool_call_a, _evidence_a, claim_a = _create_project_evidence_claim(
         client,
@@ -594,6 +721,34 @@ def test_claim_evidence_edge_rejects_cross_project_tool_call(client: TestClient)
     assert response.json()["detail"]["error"] == "cross_project_claim_evidence_tool_call"
 
 
+def test_claim_evidence_edge_rejects_cross_project_tool_call_lineage(client: TestClient) -> None:
+    _project_a, tool_call_a, evidence_a, claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A edge lineage boundary",
+    )
+    _project_b, tool_call_b, _evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B edge lineage boundary",
+    )
+
+    response = client.post(
+        "/research-mode/claim-evidence-edges",
+        json={
+            "claim_id": claim_a["id"],
+            "evidence_item_id": evidence_a["id"],
+            "tool_call_id": tool_call_a["id"],
+            "relation_type": "supports",
+            "rationale": "Cross-project lineage should be rejected.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_b["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_evidence_lineage"
+    assert response.json()["detail"]["field_name"] == "tool_call_lineage"
+
+
 def test_claim_evidence_edge_update_rejects_cross_project_tool_call(client: TestClient) -> None:
     _project_a, tool_call_a, evidence_a, claim_a = _create_project_evidence_claim(
         client,
@@ -624,3 +779,131 @@ def test_claim_evidence_edge_update_rejects_cross_project_tool_call(client: Test
 
     assert response.status_code == 400
     assert response.json()["detail"]["error"] == "cross_project_claim_evidence_tool_call"
+
+
+def test_research_delta_rejects_cross_project_changed_claim(client: TestClient) -> None:
+    fixture_a = _create_project_domain_fixture(client, title="Project A delta boundary")
+    fixture_b = _create_project_domain_fixture(client, title="Project B delta boundary")
+
+    response = client.post(
+        "/research-mode/research-deltas",
+        json={
+            "project_id": fixture_a["project"]["id"],
+            "tool_call_id": fixture_a["tool_call"]["id"],
+            "summary": "Cross-project claim should be rejected.",
+            "changed_claim_ids": [fixture_b["claim"]["id"]],
+            "source_artifact_refs": [fixture_a["evidence"]["id"]],
+            "generation_time": _now(),
+            "transformation_notes": "manual fixture",
+            "confidence": 0.7,
+            "tool_call_lineage": [fixture_a["tool_call"]["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_research_delta_reference"
+    assert response.json()["detail"]["field_name"] == "changed_claim_ids"
+
+
+def test_literature_matrix_rejects_cross_project_document(client: TestClient) -> None:
+    fixture_a = _create_project_domain_fixture(client, title="Project A matrix boundary")
+    fixture_b = _create_project_domain_fixture(client, title="Project B matrix boundary")
+
+    response = client.post(
+        "/research-mode/literature-matrix-rows",
+        json={
+            "project_id": fixture_a["project"]["id"],
+            "tool_call_id": fixture_a["tool_call"]["id"],
+            "document_id": fixture_b["document"]["id"],
+            "claim_id": fixture_a["claim"]["id"],
+            "research_question": "What changed?",
+            "evidence_summary": "Cross-project document should be rejected.",
+            "source_artifact_refs": [fixture_a["evidence"]["id"]],
+            "transformation_notes": "manual fixture",
+            "confidence": 0.7,
+            "tool_call_lineage": [fixture_a["tool_call"]["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_literature_matrix_reference"
+    assert response.json()["detail"]["field_name"] == "document_id"
+
+
+def test_method_card_rejects_cross_project_source_artifact_ref(client: TestClient) -> None:
+    fixture_a = _create_project_domain_fixture(client, title="Project A method boundary")
+    fixture_b = _create_project_domain_fixture(client, title="Project B method boundary")
+
+    response = client.post(
+        "/research-mode/method-cards",
+        json={
+            "project_id": fixture_a["project"]["id"],
+            "tool_call_id": fixture_a["tool_call"]["id"],
+            "evidence_item_id": fixture_a["evidence"]["id"],
+            "method_name": "Fixture method",
+            "method_summary": "Cross-project source artifact should be rejected.",
+            "source_artifact_refs": [fixture_b["evidence"]["id"]],
+            "transformation_notes": "manual fixture",
+            "confidence": 0.7,
+            "tool_call_lineage": [fixture_a["tool_call"]["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_method_card_reference"
+    assert response.json()["detail"]["field_name"] == "source_artifact_refs"
+
+
+def test_dataset_card_rejects_cross_project_evidence_item(client: TestClient) -> None:
+    fixture_a = _create_project_domain_fixture(client, title="Project A dataset boundary")
+    fixture_b = _create_project_domain_fixture(client, title="Project B dataset boundary")
+
+    response = client.post(
+        "/research-mode/dataset-cards",
+        json={
+            "project_id": fixture_a["project"]["id"],
+            "tool_call_id": fixture_a["tool_call"]["id"],
+            "evidence_item_id": fixture_b["evidence"]["id"],
+            "dataset_name": "Fixture dataset",
+            "dataset_summary": "Cross-project evidence should be rejected.",
+            "source_identity": "dataset:fixture",
+            "source_type": "dataset",
+            "retrieval_time": _now(),
+            "source_artifact_refs": [fixture_a["evidence"]["id"]],
+            "transformation_notes": "manual fixture",
+            "confidence": 0.7,
+            "tool_call_lineage": [fixture_a["tool_call"]["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_dataset_card_reference"
+    assert response.json()["detail"]["field_name"] == "evidence_item_id"
+
+
+def test_repro_pack_update_rejects_cross_project_tool_call_lineage(client: TestClient) -> None:
+    fixture_a = _create_project_domain_fixture(client, title="Project A repro boundary")
+    fixture_b = _create_project_domain_fixture(client, title="Project B repro boundary")
+    repro_pack = _post(
+        client,
+        "repro-pack-exports",
+        {
+            "project_id": fixture_a["project"]["id"],
+            "tool_call_id": fixture_a["tool_call"]["id"],
+            "manifest_ref": "manifest-stage02-fixture",
+            "export_format": "jsonl",
+            "source_artifact_refs": [fixture_a["evidence"]["id"]],
+            "generation_time": _now(),
+            "transformation_notes": "manual fixture",
+            "tool_call_lineage": [fixture_a["tool_call"]["id"]],
+        },
+    )
+
+    response = client.patch(
+        f"/research-mode/repro-pack-exports/{repro_pack['id']}",
+        json={"tool_call_lineage": [fixture_b["tool_call"]["id"]]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_repro_pack_reference"
+    assert response.json()["detail"]["field_name"] == "tool_call_lineage"

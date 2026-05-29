@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, and CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`. The local remediation is not accepted until it is committed, pushed, passes live GitHub CI, and receives current-head Codex no-major evidence. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, and CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`. The local remediation is not accepted until it is committed, pushed, passes live GitHub CI, and receives current-head Codex no-major evidence. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
 
 ## Branch
 
@@ -48,7 +48,13 @@ Implementation evidence-sync head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`:
 
 Current PR head CI after CR-02-020/021/022/023/024/025 remediation:
 
-- Pending until this remediation is pushed and live checks complete.
+- PASS on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26652770384/job/78555122876
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26652772684/job/78555129504
+
+Current local CR-02-026/027/028/029 remediation:
+
+- Pending push and live checks.
 
 ## Codex Review
 
@@ -61,9 +67,10 @@ Pre-implementation current-head no-major evidence:
 Implementation-head Codex review:
 
 - Review event: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391300390
-- Findings: CR-02-020 through CR-02-025 in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md`.
+- Findings: CR-02-020 through CR-02-029 in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md`.
 - Follow-up review event for `d631c3fde13f063885da2ae8899235abb9c4cd0b`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391474914
 - Follow-up review event for `9984b407acd2e5b75c57847545807cf083c9bc2a`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391593818
+- Follow-up review events for `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391713965 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391730054
 - Follow-up status: pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new live PR head.
 
 Required comment:

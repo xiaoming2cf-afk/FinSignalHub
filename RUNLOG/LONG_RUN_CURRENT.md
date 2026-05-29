@@ -2161,3 +2161,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0215 and CP-0139.
 - Blockers: B-0020.
 - Next action: commit and push remediation, wait for CI, and request current-head Codex review.
+
+## Cycle 0121
+
+- Timestamp: 2026-05-29T12:57:42-05:00
+- Files read: PR #8 Codex review events on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, inline review comments, domain router, route tests, deployment/Codex/acceptance evidence.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0020 remains open for final implementation CI/Codex/GPT Pro gates.
+- Next valid action is: run full verification, commit and push CR-02-020 through CR-02-029 remediation, wait for CI, request current-head Codex review, then submit final GPT Pro packet.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper.
+- Subagents used: Mendel prior remediation audit context; no new subagent needed because this was a continuation of the same project-boundary remediation family.
+- Commands/tools run: PR #8 review/comment inspection through GitHub CLI and connector; targeted route tests; API compile.
+- Files changed: Document source guard, generated artifact project-scope hooks, source-artifact-ref and tool-call-lineage guards, route regression tests, Codex summary, deployment evidence, acceptance result, current state, dashboard, blocker log, goal registry, artifact registry, checkpoint log, execution log, RunLog current.
+- Tests run: PASS for targeted route tests, 23 tests, and API compile.
+- GitHub status: PR #8 open; Codex returned CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`; remediation is local until pushed.
+- GPT Pro status: Stage 02 plan PASS; final implementation review pending after CI/Codex.
+- Artifacts created: A-0216, A-0217, and CP-0140.
+- Blockers: B-0020.
+- Next action: run full verification, commit and push remediation, wait for CI, and request current-head Codex review.
+
+## Cycle 0122
+
+- Timestamp: 2026-05-29T13:05:50-05:00
+- Files read: Stage 02 remediation worktree, full verification outputs, scan outputs, migration output, compose smoke output, git diff check output.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0020 remains open for final implementation CI/Codex/GPT Pro gates.
+- Next valid action is: commit and push CR-02-020 through CR-02-029 remediation, wait for CI, request current-head Codex review, then submit final GPT Pro packet.
+- Skills used: phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: Mendel prior remediation audit context.
+- Commands/tools run: API pytest; MCP pytest; compileall API/MCP; phase_check 02; npm web build/audit; docker compose config; likely-secret scan; runtime forbidden-scope scan; registry ID uniqueness; git diff check; Postgres Alembic upgrade/downgrade/upgrade; full compose build/smoke; compose down.
+- Files changed: final verification evidence in command docs, acceptance result, artifact registry, checkpoint log, execution log, and RunLog current.
+- Tests run: PASS for API 36 tests, MCP 2 tests, compileall, phase_check, web build/audit, compose config, secret scan, runtime forbidden-scope scan, registry ID uniqueness, diff check, Alembic round trip, and compose smoke.
+- GitHub status: PR #8 open; remediation push pending.
+- GPT Pro status: Stage 02 plan PASS; final implementation review pending after CI/Codex.
+- Artifacts created: A-0218 and CP-0141.
+- Blockers: B-0020.
+- Next action: commit and push remediation, wait for CI, and request current-head Codex review.

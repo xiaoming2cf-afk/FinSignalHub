@@ -93,7 +93,8 @@ The implementation must not include:
 
 Current locally verified:
 
-- `python -m pytest apps/api/tests`: PASS, 27 tests after CR-02-020/021/022/023/024/025 remediation.
+- `python -m pytest apps/api/tests`: PASS, 36 tests after CR-02-020 through CR-02-029 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 23 targeted route tests after CR-02-026/027/028/029 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
 - `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
@@ -114,7 +115,7 @@ Implementation code commit pushed before this evidence sync:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, and CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`. The local remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, and ClaimEvidenceEdge creation/update paths, and deployment evidence sync. This remediation must be pushed, pass live CI, and receive current-head Codex no-major evidence before GPT Pro final acceptance can pass.
+Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, and CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`. The local remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, tool-call lineage, and deployment evidence sync. This remediation must be pushed, pass live CI, and receive current-head Codex no-major evidence before GPT Pro final acceptance can pass.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.
 
