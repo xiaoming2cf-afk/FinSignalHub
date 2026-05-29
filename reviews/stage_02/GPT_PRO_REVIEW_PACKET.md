@@ -26,14 +26,18 @@ Plan path: `PLANS/STAGE_02_PLAN.md`
 
 Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
-Stage 02 planning head: `a1f4d2fff7b980d21531d80f21038d337d46b7b3`
+Stage 02 planning head: **not final in this file until live GitHub evidence is supplied at submission time**.
 
-CI status: PASS.
+Latest verified pushed remediation baseline before this packet refresh: `d8693f99fbd5f41b8914184de366edb5a3e35352`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477432515/job/77966471943
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477434886/job/77966479585
+CI status for that baseline: PASS.
 
-Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; Codex then returned CR-02-004 and CR-02-005. Local remediation is prepared and must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637056138/job/78499952221
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637058503/job/78499960219
+
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`. Codex then returned CR-02-006 for stale packet head evidence. This packet refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+
+Submission rule: before pasting this packet into GPT Pro, the operator must prepend the live PR #8 head commit, CI links, and Codex result from GitHub. If the live head does not have CI PASS and Codex no-major evidence, GPT Pro must treat the GitHub gate as BLOCKED and must not authorize Stage 02 implementation.
 
 Important nuance:
 
@@ -53,8 +57,11 @@ Important nuance:
 - Codex then returned CR-02-004 P2 for using nonexistent `apps/api/app` paths instead of the existing `apps/api/finsignalhub_api` package, and CR-02-005 P2 for stale PR body status:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247315
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247318
-- The local fix updates planned Stage 02 implementation paths to `apps/api/finsignalhub_api/` and refreshes the PR body status.
-- This packet does not claim Codex review passed until that fix is pushed, CI passes, and Codex returns no major issues for the new head.
+- CR-02-004 and CR-02-005 were fixed and pushed as `d8693f99fbd5f41b8914184de366edb5a3e35352`; CI passed.
+- Codex then returned CR-02-006 P2 because this packet still named an older head:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324305755
+- The local fix removes the stale fixed-head claim and requires live PR #8 head, CI, and Codex evidence to be supplied immediately before GPT Pro submission.
+- This packet does not claim Codex review passed until this fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
 

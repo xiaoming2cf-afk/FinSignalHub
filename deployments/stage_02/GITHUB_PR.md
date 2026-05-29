@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. CI is passing on the latest pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`. Codex review returned CR-02-004 P2 and CR-02-005 P2 after the CR-02-002/003 fix; the local remediation is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
+Planning PR open. CI is passing on the latest pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`. Codex review returned CR-02-006 P2 after the CR-02-004/005 fix; the local remediation is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
 
 ## Branch
 
@@ -18,10 +18,10 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-PASS on head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
+PASS on head `d8693f99fbd5f41b8914184de366edb5a3e35352`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26636515334/job/78498102242
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26636517110/job/78498108239
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637056138/job/78499952221
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637058503/job/78499960219
 
 ## Codex Review
 
@@ -51,6 +51,12 @@ CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd
 - CR-02-005: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247318
 
 The local remediation updates `PLANS/STAGE_02_PLAN.md`, `TASKS/STAGE_02_TASKS.md`, `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md`, and `reviews/stage_02/PR_BODY.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
+CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`. Codex then returned:
+
+- CR-02-006: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324305755
+
+The local remediation updates `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md` so the packet no longer claims a stale fixed head and requires live PR #8 head/CI/Codex evidence before GPT Pro submission. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 

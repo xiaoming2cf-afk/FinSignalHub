@@ -13,3 +13,4 @@
 - Recorded Stage 02 Codex CR-02-001 remediation for stale subagent gate status before GPT Pro plan review.
 - Strengthened the Stage 02 plan with explicit mandatory provenance fields and synchronized current Codex gate status after CR-02-002/003.
 - Aligned Stage 02 planned API package paths with the existing `apps/api/finsignalhub_api` scaffold and refreshed the PR body status after CR-02-004/005.
+- Updated the Stage 02 GPT Pro packet to require live PR head, CI, and Codex evidence at submission time after CR-02-006.
