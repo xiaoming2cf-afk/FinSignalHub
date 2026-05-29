@@ -2251,3 +2251,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0222 and CP-0144.
 - Blockers: B-0020.
 - Next action: commit and push remediation, wait for CI, and request current-head Codex review.
+
+## Cycle 0126
+
+- Timestamp: 2026-05-29T14:05:00-05:00
+- Files read: PR #8 current-head Codex review event, inline comments for CR-02-032/033, domain router, route tests, gate evidence files.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0020 remains open for final implementation GitHub/Codex/GPT Pro gates.
+- Next valid action is: run final scans/diff, commit and push CR-02-032/033 remediation, wait for CI, request current-head Codex review, then submit final GPT Pro packet only after GitHub/Codex gate evidence is real.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: Hegel prior remediation audit context; no new subagent needed because this is a narrow null-PATCH validation fix.
+- Commands/tools run: PR #8 review/comment inspection; route pytest; API pytest; MCP pytest; API compile; phase_check 02; docker compose config.
+- Files changed: domain router, route regression tests, Codex summary, deployment evidence, PR/GPT packet, acceptance result, current state, dashboard, blocker log, goal registry, artifact registry, checkpoint log, execution log, RunLog summary/current.
+- Tests run: PASS for route tests 30, API tests 44, MCP tests 2, API compile, phase_check 02, and docker compose config.
+- GitHub status: PR #8 open; head `db89107a855588d534da1eb4d32c151c120ec442` has CI PASS but Codex returned CR-02-032/033; local remediation is not accepted until pushed and reviewed.
+- GPT Pro status: Stage 02 plan PASS; final implementation review pending after CI/Codex and Chrome route recovery.
+- Artifacts created: A-0223, A-0224, and CP-0145.
+- Blockers: B-0020.
+- Next action: run final scans/diff, commit and push remediation, wait for CI, and request current-head Codex review.
+
+## Cycle 0127
+
+- Timestamp: 2026-05-29T14:10:00-05:00
+- Files read: strict secret scan output, runtime forbidden-scope scan output, artifact/checkpoint row ID checks, git diff check.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0020 remains open for final implementation GitHub/Codex/GPT Pro gates.
+- Next valid action is: commit and push CR-02-032/033 remediation, wait for CI, request current-head Codex review, then submit final GPT Pro packet only after GitHub/Codex gate evidence is real.
+- Skills used: phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: Hegel prior remediation audit context.
+- Commands/tools run: strict secret scan; runtime forbidden-scope scan; artifact row ID uniqueness; checkpoint row ID uniqueness; git diff check.
+- Files changed: artifact registry, checkpoint log, execution log, RunLog current.
+- Tests run: PASS for strict secret scan, runtime forbidden-scope scan with guard-test-only matches, artifact/checkpoint row ID uniqueness, and diff check.
+- GitHub status: PR #8 open; remediation push pending.
+- GPT Pro status: Stage 02 plan PASS; final implementation review pending after CI/Codex and Chrome route recovery.
+- Artifacts created: A-0225 and CP-0146.
+- Blockers: B-0020.
+- Next action: commit and push remediation, wait for CI, and request current-head Codex review.

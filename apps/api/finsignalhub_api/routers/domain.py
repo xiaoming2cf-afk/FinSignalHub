@@ -110,9 +110,16 @@ def _require_tool_call_lineage_project(
     *,
     error: str,
 ) -> None:
-    lineage = data.get("tool_call_lineage")
-    if lineage is None:
+    if "tool_call_lineage" not in data:
         return
+    lineage = data["tool_call_lineage"]
+    if lineage is None:
+        raise _bad_request(
+            error,
+            "tool_call_lineage must not be null.",
+            field_name="tool_call_lineage",
+            expected_project_id=project_id,
+        )
     _require_related_list_project(
         session,
         model=ToolCallLog,
@@ -182,9 +189,16 @@ def _require_source_artifact_refs_project(
     *,
     error: str,
 ) -> None:
-    refs = data.get("source_artifact_refs")
-    if refs is None:
+    if "source_artifact_refs" not in data:
         return
+    refs = data["source_artifact_refs"]
+    if refs is None:
+        raise _bad_request(
+            error,
+            "source_artifact_refs must not be null.",
+            field_name="source_artifact_refs",
+            expected_project_id=project_id,
+        )
     for artifact_ref in refs:
         item_project_id = _source_artifact_ref_project_id(session, artifact_ref, error=error)
         if item_project_id is None:

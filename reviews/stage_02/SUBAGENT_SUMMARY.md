@@ -33,10 +33,11 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 - Docs-log-agent found stale "implementation blocked" claims and missing exception logging; those are being synchronized before push.
 - Mendel findings were integrated: CR-02-020/021/022 local remediation passed read-only audit, and the suggested extra regression tests were added before the final verification batch.
 - Hegel findings were integrated: CR-02-030 SQLite FK/project-existence remediation and CR-02-031 ClaimEvidenceEdge/unknown `source_artifact_refs` remediation pass read-only inspection. Hegel noted remaining risk that generated-artifact route tests are representative rather than exhaustive and that the broad `source_artifact_refs` allowlist should remain documented as Stage 02 provenance semantics.
+- CR-02-032/033 were fixed locally without a new subagent because they are narrow PATCH-null validation findings. Explicit null `source_artifact_refs` and `tool_call_lineage` are now rejected while omitted fields keep prior PATCH semantics.
 
 ## Remaining Gates
 
-- CR-02-030/031 local remediation must be committed and pushed to PR #8.
+- CR-02-032/033 local remediation must be committed and pushed to PR #8.
 - GitHub CI must pass for the implementation head.
 - Codex must return no major issues for the implementation head.
 - GPT Pro final implementation review must PASS or accepted CONDITIONAL PASS with critical items resolved.

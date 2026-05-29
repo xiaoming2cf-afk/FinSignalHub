@@ -93,8 +93,8 @@ The implementation must not include:
 
 Current locally verified:
 
-- `python -m pytest apps/api/tests`: PASS, 42 tests after CR-02-030/031 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 28 targeted route tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests`: PASS, 44 tests after CR-02-032/033 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 30 targeted route tests after CR-02-032/033 remediation.
 - `python -m pytest apps/api/tests/test_stage02_models.py -q`: PASS, 5 model tests after CR-02-030 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
@@ -116,7 +116,7 @@ Implementation code commit pushed before this evidence sync:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, and CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`. The remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, tool-call lineage, and deployment evidence sync.
+Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, and CR-02-032/033 on head `db89107a855588d534da1eb4d32c151c120ec442`. The remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, explicit null provenance-erasure rejection on PATCH, tool-call lineage, and deployment evidence sync.
 
 Current live PR head:
 
@@ -129,8 +129,8 @@ Current live PR head:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578418494
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391863335
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578477038
-- Delayed current-head Codex result: CR-02-030/031 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391903098.
-- Current local remediation status: fixed locally and Hegel read-only audit found no blocking issue; pending commit, push, CI, and current-head Codex follow-up.
+- Current-head Codex result: CR-02-032/033 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392117490.
+- Current local remediation status: fixed locally; pending commit, push, CI, and current-head Codex follow-up.
 - Browser/GPT Pro route status: BLOCKED. Chrome extension calls returned `native pipe is closed` after one retry; Chrome is running, extension is installed/enabled, native host manifest is correct, and the recovery-window attempt still failed.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.

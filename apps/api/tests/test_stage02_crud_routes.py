@@ -699,6 +699,22 @@ def test_research_claim_update_rejects_cross_project_tool_call_lineage(client: T
     assert response.json()["detail"]["field_name"] == "tool_call_lineage"
 
 
+def test_research_claim_update_rejects_null_tool_call_lineage(client: TestClient) -> None:
+    _project, _tool_call, _evidence, claim = _create_project_evidence_claim(
+        client,
+        title="Project claim null lineage boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/research-claims/{claim['id']}",
+        json={"tool_call_lineage": None},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_lineage"
+    assert response.json()["detail"]["field_name"] == "tool_call_lineage"
+
+
 def test_claim_evidence_edge_rejects_cross_project_links(client: TestClient) -> None:
     _project_a, tool_call_a, _evidence_a, claim_a = _create_project_evidence_claim(
         client,
@@ -971,6 +987,34 @@ def test_method_card_rejects_unknown_source_artifact_ref(client: TestClient) -> 
             "confidence": 0.7,
             "tool_call_lineage": [fixture["tool_call"]["id"]],
         },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_method_card_reference"
+    assert response.json()["detail"]["field_name"] == "source_artifact_refs"
+
+
+def test_method_card_update_rejects_null_source_artifact_refs(client: TestClient) -> None:
+    fixture = _create_project_domain_fixture(client, title="Project A null ref boundary")
+    method_card = _post(
+        client,
+        "method-cards",
+        {
+            "project_id": fixture["project"]["id"],
+            "tool_call_id": fixture["tool_call"]["id"],
+            "evidence_item_id": fixture["evidence"]["id"],
+            "method_name": "Fixture method",
+            "method_summary": "Source artifact refs must stay present.",
+            "source_artifact_refs": [fixture["evidence"]["id"]],
+            "transformation_notes": "manual fixture",
+            "confidence": 0.7,
+            "tool_call_lineage": [fixture["tool_call"]["id"]],
+        },
+    )
+
+    response = client.patch(
+        f"/research-mode/method-cards/{method_card['id']}",
+        json={"source_artifact_refs": None},
     )
 
     assert response.status_code == 400

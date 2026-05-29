@@ -48,6 +48,8 @@ Stage 02 CRUD routes must not create orphan project-scoped records. The default 
 
 Generated artifact `source_artifact_refs` are Stage 02 provenance references, not generation instructions. They may point to known project-scoped Stage 02 artifacts, including `Source`, `Document`, `EvidenceItem`, `ResearchClaim`, `ResearchDelta`, `LiteratureMatrixRow`, `MethodCard`, `DatasetCard`, `ReproPackExport`, `ToolCallLog`, and `ClaimEvidenceEdge`. Unknown refs are rejected. `ClaimEvidenceEdge` refs derive project scope from their linked claim and evidence item and are rejected if those records are inconsistent or belong to another project.
 
+PATCH validation distinguishes omitted provenance fields from explicit nulls. Omitted `source_artifact_refs` or `tool_call_lineage` leave existing values unchanged; explicit null values are rejected so updates cannot erase required provenance.
+
 ## Migration
 
 The initial Alembic revision is `0001_research_mode_domain_models`. It creates only the approved Stage 02 tables and supports downgrade to the empty schema for this initial migration.
