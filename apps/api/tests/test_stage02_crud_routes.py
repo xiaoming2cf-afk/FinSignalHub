@@ -495,6 +495,32 @@ def test_crud_create_get_list_update_delete_for_stage02_entities(client: TestCli
     assert response.status_code == 204
 
 
+def test_delete_referenced_claim_returns_conflict(client: TestClient) -> None:
+    _project, tool_call, evidence, claim = _create_project_evidence_claim(
+        client,
+        title="Referenced claim delete boundary",
+    )
+    _edge = _post(
+        client,
+        "claim-evidence-edges",
+        {
+            "claim_id": claim["id"],
+            "evidence_item_id": evidence["id"],
+            "tool_call_id": tool_call["id"],
+            "relation_type": "supports",
+            "rationale": "Fixture edge blocks deleting the referenced claim.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call["id"]],
+        },
+    )
+
+    response = client.delete(f"/research-mode/research-claims/{claim['id']}")
+
+    assert response.status_code == 409
+    assert response.json()["detail"]["error"] == "delete_conflict"
+    assert response.json()["detail"]["model"] == "ResearchClaim"
+
+
 def test_evidence_update_cannot_clear_quote_provenance(client: TestClient) -> None:
     _project, _tool_call, evidence, _claim = _create_project_evidence_claim(
         client,

@@ -36,11 +36,12 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 - Hegel findings were integrated: CR-02-030 SQLite FK/project-existence remediation and CR-02-031 ClaimEvidenceEdge/unknown `source_artifact_refs` remediation pass read-only inspection. Hegel noted remaining risk that generated-artifact route tests are representative rather than exhaustive and that the broad `source_artifact_refs` allowlist should remain documented as Stage 02 provenance semantics.
 - CR-02-032/033 were fixed locally without a new subagent because they are narrow PATCH-null validation findings. Explicit null `source_artifact_refs` and `tool_call_lineage` are now rejected while omitted fields keep prior PATCH semantics.
 - Volta confirmed CR-02-038 is valid: ToolCallLog input/output artifact ids must be project-scoped to preserve replay lineage. The main thread added ToolCallLog create/update artifact guards and regression tests for same-project, cross-project, and unknown refs.
+- CR-02-039/040 were fixed locally without a new subagent because they are narrow deterministic CRUD error and gate-wording findings. Dependent-row delete conflicts now return 409 `delete_conflict`, and the current remediation head is explicitly BLOCKED until live CI/Codex/GPT Pro delta pass.
 
 ## Remaining Gates
 
-- CR-02-038 remediation must be committed and pushed to PR #8.
+- CR-02-039/040 remediation must be committed and pushed to PR #8.
 - GitHub CI must pass for the latest pushed head.
 - Codex must return no major issues for the latest pushed head.
-- GPT Pro final implementation review already returned PASS for the implementation-reviewed head; Stage 03 remains planning-only until the final evidence/Codex follow-up is complete.
+- GPT Pro final implementation review already returned PASS for the implementation-reviewed head; the latest remediation head needs GPT Pro delta/final re-review after CI/Codex clear.
 - GPT Pro must assign and pass Stage 03 planning before any Stage 03 implementation begins.

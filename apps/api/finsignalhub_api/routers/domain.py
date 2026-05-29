@@ -19,7 +19,7 @@ from finsignalhub_api.models.domain import (
     ToolCallLog,
 )
 from finsignalhub_api.schemas import domain as schemas
-from finsignalhub_api.services.crud import CrudService, NotFoundError
+from finsignalhub_api.services.crud import CrudService, DeleteBlockedError, NotFoundError
 
 
 router = APIRouter(prefix="/research-mode", tags=["research-mode-domain-models"])
@@ -46,6 +46,13 @@ def _unprocessable(error: str, message: str, **context: Any) -> HTTPException:
 def _bad_request(error: str, message: str, **context: Any) -> HTTPException:
     return HTTPException(
         status_code=status.HTTP_400_BAD_REQUEST,
+        detail={"error": error, "message": message, **context},
+    )
+
+
+def _conflict(error: str, message: str, **context: Any) -> HTTPException:
+    return HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
         detail={"error": error, "message": message, **context},
     )
 
@@ -621,6 +628,13 @@ def register_crud_routes(
             service.delete(session, item_id)
         except NotFoundError as error:
             raise _not_found(error) from error
+        except DeleteBlockedError as error:
+            raise _conflict(
+                "delete_conflict",
+                "Item cannot be deleted while referenced by other Research Mode records.",
+                model=error.model_name,
+                id=error.item_id,
+            ) from error
 
 
 register_crud_routes(

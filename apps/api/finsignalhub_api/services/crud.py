@@ -3,6 +3,7 @@
 from typing import Any, Generic, TypeVar
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from finsignalhub_api.db.base import Base
@@ -14,6 +15,13 @@ ModelT = TypeVar("ModelT", bound=Base)
 class NotFoundError(LookupError):
     def __init__(self, model_name: str, item_id: str) -> None:
         super().__init__(f"{model_name} {item_id} was not found")
+        self.model_name = model_name
+        self.item_id = item_id
+
+
+class DeleteBlockedError(RuntimeError):
+    def __init__(self, model_name: str, item_id: str) -> None:
+        super().__init__(f"{model_name} {item_id} cannot be deleted while referenced")
         self.model_name = model_name
         self.item_id = item_id
 
@@ -53,7 +61,11 @@ class CrudService(Generic[ModelT]):
     def delete(self, session: Session, item_id: str) -> None:
         item = self.get(session, item_id)
         session.delete(item)
-        session.commit()
+        try:
+            session.commit()
+        except IntegrityError as error:
+            session.rollback()
+            raise DeleteBlockedError(self.model.__name__, item_id) from error
 
     def _normalize(self, data: dict[str, Any]) -> dict[str, Any]:
         normalized: dict[str, Any] = {}
