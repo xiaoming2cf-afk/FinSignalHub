@@ -11,16 +11,16 @@ The Stage 02 plan gate is already satisfied:
 - Codex returned no major issues for that head at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 - The user approved direct execution without repeated confirmation.
 
-Final Stage 02 acceptance is still blocked until the CR-02-020/021/022/023 remediation is committed, pushed, passes CI, receives Codex no-major review, and passes GPT Pro final implementation review.
+Final Stage 02 acceptance is still blocked until the CR-02-020/021/022/023/024/025 remediation is committed, pushed, passes CI, receives Codex no-major review, and passes GPT Pro final implementation review.
 
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
 | Scope | `PLANS/STAGE_02_PLAN.md`; `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`; `CONTROL/05_DECISION_LOG.md` ADR-0002 | PASS local | Scope is limited to Research Mode domain model primitives. Support-file exception is explicit and reviewable. |
-| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020/021/023 remediation guards evidence quote provenance and project-scoped claim/evidence edge tool-call provenance on create and update. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
+| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-025 remediation guards evidence, claim, claim-edge, source/document/tool-call, and quote/no-quote provenance boundaries on create and update. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
 | Tests | API tests, MCP tests, compile checks, Docker/PostgreSQL/Alembic checks, phase check, secret scan, forbidden-scope scan, `git diff --check` | PASS local after remediation | Full local verification batch passed after CR-02-020/021/022 remediation. |
 | Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; README files; PR/GPT packets | PASS local | Docs updated for implementation status, commands, and support-file exception. |
 | Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/` | PASS local | Logs synchronized to G-0004 implementation goal. |
-| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Codex returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba` and CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; local remediation must be pushed, pass CI, and receive Codex no-major evidence. |
+| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Codex returned CR-02-020 through CR-02-025 across heads `834c8f0`, `d631c3f`, and `9984b40`; local remediation must be pushed, pass CI, and receive Codex no-major evidence. |
 | GPT Pro | plan response/action items; final implementation packet/response/action items | BLOCKED | Plan PASS exists; final implementation review has not yet been submitted. |
 | Product governance | forbidden-scope tests and runtime scan | PASS local | Runtime forbidden-scope test and scan passed. |
 | Security | placeholder-only env; secret scan | PASS local | Likely-secret scan found no matches. |
@@ -29,6 +29,8 @@ Final Stage 02 acceptance is still blocked until the CR-02-020/021/022/023 remed
 ## Current Local Evidence
 
 - `python -m pytest apps/api/tests`: PASS, 21 tests after CR-02-020/021/022/023 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py apps/api/tests/test_stage02_schemas.py -q`: PASS, 20 tests after CR-02-024/025 remediation.
+- `python -m pytest apps/api/tests`: PASS, 27 tests after CR-02-024/025 remediation.
 - `python -m pytest apps/api/tests/test_stage02_schemas.py apps/api/tests/test_stage02_crud_routes.py`: PASS, 14 tests after CR-02-023 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
@@ -41,7 +43,7 @@ Final Stage 02 acceptance is still blocked until the CR-02-020/021/022/023 remed
 - Full `docker compose up --build -d` plus API/MCP/web smoke: PASS.
 - Likely-secret scan: PASS.
 - Runtime forbidden-scope scan: PASS.
-- Artifact ID uniqueness: PASS, 1152 scanned IDs.
+- Artifact ID uniqueness: PASS, 1191 scanned IDs.
 - `git diff --check`: PASS.
 
 ## Final Result

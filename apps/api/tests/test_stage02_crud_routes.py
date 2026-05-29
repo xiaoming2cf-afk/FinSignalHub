@@ -76,6 +76,50 @@ def _create_project_evidence_claim(
     return project, tool_call, evidence, claim
 
 
+def _create_project_source_document_tool(
+    client: TestClient,
+    *,
+    title: str,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+    project = _post(client, "research-projects", {"title": title})
+    source = _post(
+        client,
+        "sources",
+        {
+            "project_id": project["id"],
+            "source_identity": f"doi:10.0000/source-{project['id']}",
+            "source_type": "literature",
+            "title": f"{title} source",
+            "retrieval_time": _now(),
+        },
+    )
+    tool_call = _post(
+        client,
+        "tool-call-logs",
+        {
+            "project_id": project["id"],
+            "tool_name": "manual.stage02.fixture",
+            "called_at": _now(),
+            "argument_hash": f"hash-{project['id']}",
+            "status": "succeeded",
+        },
+    )
+    document = _post(
+        client,
+        "documents",
+        {
+            "project_id": project["id"],
+            "source_id": source["id"],
+            "title": f"{title} normalized document",
+            "source_identity": source["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "transformation_notes": "manual fixture",
+        },
+    )
+    return project, source, document, tool_call
+
+
 def test_stage02_crud_routes_are_registered(client: TestClient) -> None:
     routes = {route.path for route in client.app.routes}
 
@@ -333,6 +377,167 @@ def test_evidence_update_allows_replacing_quote_with_no_quote_reason(client: Tes
     payload = response.json()
     assert payload["quoted_evidence_span"] is None
     assert payload["no_quote_reason"] == "Evidence source is normalized metadata without a direct quote span."
+
+
+def test_evidence_create_rejects_cross_project_source(client: TestClient) -> None:
+    project_a, _source_a, _document_a, tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A evidence source boundary",
+    )
+    _project_b, source_b, _document_b, _tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B evidence source boundary",
+    )
+
+    response = client.post(
+        "/research-mode/evidence-items",
+        json={
+            "project_id": project_a["id"],
+            "source_id": source_b["id"],
+            "tool_call_id": tool_call_a["id"],
+            "evidence_text": "Evidence text",
+            "source_identity": source_b["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "quoted_evidence_span": {"page": 1, "start": 0, "end": 13, "text": "Evidence text"},
+            "transformation_notes": "manual fixture",
+            "confidence": 0.9,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_evidence_reference"
+    assert response.json()["detail"]["field_name"] == "source_id"
+
+
+def test_evidence_create_rejects_cross_project_document(client: TestClient) -> None:
+    project_a, source_a, _document_a, tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A evidence document boundary",
+    )
+    _project_b, _source_b, document_b, _tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B evidence document boundary",
+    )
+
+    response = client.post(
+        "/research-mode/evidence-items",
+        json={
+            "project_id": project_a["id"],
+            "source_id": source_a["id"],
+            "document_id": document_b["id"],
+            "tool_call_id": tool_call_a["id"],
+            "evidence_text": "Evidence text",
+            "source_identity": source_a["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "quoted_evidence_span": {"page": 1, "start": 0, "end": 13, "text": "Evidence text"},
+            "transformation_notes": "manual fixture",
+            "confidence": 0.9,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_evidence_reference"
+    assert response.json()["detail"]["field_name"] == "document_id"
+
+
+def test_evidence_update_rejects_cross_project_tool_call(client: TestClient) -> None:
+    _project_a, _tool_call_a, evidence_a, _claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A evidence update boundary",
+    )
+    _project_b, tool_call_b, _evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B evidence update boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/evidence-items/{evidence_a['id']}",
+        json={"tool_call_id": tool_call_b["id"]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_evidence_reference"
+    assert response.json()["detail"]["field_name"] == "tool_call_id"
+
+
+def test_research_claim_create_rejects_cross_project_originating_evidence(client: TestClient) -> None:
+    project_a, tool_call_a, _evidence_a, _claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A claim origin boundary",
+    )
+    _project_b, _tool_call_b, evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B claim origin boundary",
+    )
+
+    response = client.post(
+        "/research-mode/research-claims",
+        json={
+            "project_id": project_a["id"],
+            "originating_evidence_item_id": evidence_b["id"],
+            "tool_call_id": tool_call_a["id"],
+            "claim_text": "Cross-project originating evidence should be rejected.",
+            "derivation_notes": "Manual fixture.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_reference"
+    assert response.json()["detail"]["field_name"] == "originating_evidence_item_id"
+
+
+def test_research_claim_create_rejects_cross_project_tool_call(client: TestClient) -> None:
+    _project_a, tool_call_a, _evidence_a, _claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A claim tool boundary",
+    )
+    project_b, _tool_call_b, evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B claim tool boundary",
+    )
+
+    response = client.post(
+        "/research-mode/research-claims",
+        json={
+            "project_id": project_b["id"],
+            "originating_evidence_item_id": evidence_b["id"],
+            "tool_call_id": tool_call_a["id"],
+            "claim_text": "Cross-project tool call should be rejected.",
+            "derivation_notes": "Manual fixture.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_reference"
+    assert response.json()["detail"]["field_name"] == "tool_call_id"
+
+
+def test_research_claim_update_rejects_cross_project_originating_evidence(client: TestClient) -> None:
+    _project_a, _tool_call_a, evidence_a, _claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A claim update boundary",
+    )
+    _project_b, _tool_call_b, _evidence_b, claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B claim update boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/research-claims/{claim_b['id']}",
+        json={"originating_evidence_item_id": evidence_a["id"]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_reference"
+    assert response.json()["detail"]["field_name"] == "originating_evidence_item_id"
 
 
 def test_claim_evidence_edge_rejects_cross_project_links(client: TestClient) -> None:

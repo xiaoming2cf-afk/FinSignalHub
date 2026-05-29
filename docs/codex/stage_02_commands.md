@@ -4,11 +4,11 @@ Use these commands for Stage 02 implementation verification.
 
 ## Latest Verified Results
 
-Verified on 2026-05-29 after CR-02-020/021/022/023 local remediation.
+Verified on 2026-05-29 after CR-02-020/021/022/023/024/025 local remediation.
 
 | Check | Result |
 | --- | --- |
-| `python -m pytest apps/api/tests` | PASS, 21 tests |
+| `python -m pytest apps/api/tests` | PASS, 27 tests |
 | `python -m pytest apps/mcp_server/tests` | PASS, 2 tests |
 | `python -m compileall apps/api/finsignalhub_api` | PASS |
 | `python -m compileall apps/mcp_server/finsignalhub_mcp_server` | PASS |

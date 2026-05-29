@@ -50,6 +50,69 @@ def _bad_request(error: str, message: str, **context: Any) -> HTTPException:
     )
 
 
+def _require_related_project(
+    session: Session,
+    *,
+    model: type,
+    item_id: str,
+    expected_project_id: str,
+    field_name: str,
+    error: str,
+) -> Any:
+    related = session.get(model, item_id)
+    if related is None:
+        raise _not_found(NotFoundError(model.__name__, item_id))
+    if related.project_id != expected_project_id:
+        raise _bad_request(
+            error,
+            f"{field_name} must belong to the same project.",
+            field_name=field_name,
+            item_id=item_id,
+            item_project_id=related.project_id,
+            expected_project_id=expected_project_id,
+        )
+    return related
+
+
+def _require_evidence_item_related_scope(session: Session, project_id: str, data: dict[str, Any]) -> None:
+    relation_checks = {
+        "source_id": Source,
+        "document_id": Document,
+        "tool_call_id": ToolCallLog,
+    }
+    for field_name, model in relation_checks.items():
+        if field_name in data and data[field_name] is not None:
+            _require_related_project(
+                session,
+                model=model,
+                item_id=data[field_name],
+                expected_project_id=project_id,
+                field_name=field_name,
+                error="cross_project_evidence_reference",
+            )
+
+
+def _require_research_claim_related_scope(session: Session, project_id: str, data: dict[str, Any]) -> None:
+    relation_checks = {
+        "originating_evidence_item_id": EvidenceItem,
+        "tool_call_id": ToolCallLog,
+    }
+    for field_name, model in relation_checks.items():
+        if field_name in data and data[field_name] is not None:
+            _require_related_project(
+                session,
+                model=model,
+                item_id=data[field_name],
+                expected_project_id=project_id,
+                field_name=field_name,
+                error="cross_project_claim_reference",
+            )
+
+
+def _require_evidence_item_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_evidence_item_related_scope(session, data["project_id"], data)
+
+
 def _require_evidence_update_provenance(
     _session: Session,
     item: EvidenceItem,
@@ -63,6 +126,27 @@ def _require_evidence_update_provenance(
             "EvidenceItem updates must preserve quoted_evidence_span or no_quote_reason.",
             evidence_item_id=item.id,
         )
+
+
+def _require_evidence_item_update_scope(
+    session: Session,
+    item: EvidenceItem,
+    data: dict[str, Any],
+) -> None:
+    _require_evidence_update_provenance(session, item, data)
+    _require_evidence_item_related_scope(session, item.project_id, data)
+
+
+def _require_research_claim_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_research_claim_related_scope(session, data["project_id"], data)
+
+
+def _require_research_claim_update_scope(
+    session: Session,
+    item: ResearchClaim,
+    data: dict[str, Any],
+) -> None:
+    _require_research_claim_related_scope(session, item.project_id, data)
 
 
 def _require_same_project_edge(session: Session, data: dict[str, Any]) -> None:
@@ -215,7 +299,8 @@ register_crud_routes(
     create_schema=schemas.EvidenceItemCreate,
     update_schema=schemas.EvidenceItemUpdate,
     read_schema=schemas.EvidenceItemRead,
-    before_update=_require_evidence_update_provenance,
+    before_create=_require_evidence_item_create_scope,
+    before_update=_require_evidence_item_update_scope,
 )
 register_crud_routes(
     route_name="research-claims",
@@ -223,6 +308,8 @@ register_crud_routes(
     create_schema=schemas.ResearchClaimCreate,
     update_schema=schemas.ResearchClaimUpdate,
     read_schema=schemas.ResearchClaimRead,
+    before_create=_require_research_claim_create_scope,
+    before_update=_require_research_claim_update_scope,
 )
 register_crud_routes(
     route_name="claim-evidence-edges",
