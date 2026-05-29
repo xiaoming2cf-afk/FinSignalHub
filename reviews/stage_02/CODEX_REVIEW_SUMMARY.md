@@ -2,13 +2,12 @@
 
 ## Current Status
 
-In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `06a6d4b2f848bd0c93b753d7df46c2248b659149`. Codex reviewed that head and returned three new findings:
+In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`. Codex reviewed that head and returned one new finding, while one prior `06a6d4b2f848bd0c93b753d7df46c2248b659149` finding also remained unaddressed:
 
-- CR-02-012 P2: `CHECKLISTS/STAGE_02_CHECKLIST.md` still marked GitHub as blocked and GPT Pro as pending even though GPT Pro PASS artifacts were saved.
-- CR-02-013 P2: `deployments/stage_02/GITHUB_PR.md` still said GPT Pro plan review was pending despite the saved PASS response and action items.
-- CR-02-014 P2: `reviews/stage_02/SUBAGENT_SUMMARY.md` still listed GPT Pro plan review as pending instead of the explicit user `/goal` wait state.
+- CR-02-016 P2: `PLANS/STAGE_02_PLAN.md` still listed root config, CI workflow, Docker, and env files as later Stage 02 implementation targets, conflicting with GPT Pro's narrower implementation boundary in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`.
+- CR-02-017 P2: `logs/subagents/stage_02/plan-scope-verifier.md` still said GPT Pro plan review was pending even though GPT Pro PASS is now saved.
 
-The local remediation updates checklist, deployment, subagent, and review-summary records so GPT Pro plan review is PASS and the remaining blockers are current-head CI/Codex follow-up plus explicit user Stage 02 implementation `/goal`. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+The local remediation updates the Stage 02 plan implementation boundary and the stale subagent verifier log so GPT Pro plan review is PASS and Stage 02 implementation can only touch GPT Pro-approved files after current-head CI/Codex and explicit user Stage 02 implementation `/goal`. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
 
 ## Review Scope
 
@@ -45,6 +44,9 @@ Codex must review the Stage 02 plan for:
 | CR-02-012 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324927689 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still marked GitHub blocked and GPT Pro pending after the GPT Pro PASS artifacts were saved. | Updated the checklist to show GPT Pro plan PASS, implementation pending explicit user `/goal`, and Gate 6 pending only until this remediation gets CI/Codex follow-up. | fixed locally; follow-up required |
 | CR-02-013 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324927691 | `deployments/stage_02/GITHUB_PR.md` still described GPT Pro plan review as pending despite saved response/action items and PASS. | Updated deployment evidence with head `06a6d4b2f848bd0c93b753d7df46c2248b659149`, CI links, CR-02-012/013/014, and GPT Pro PASS evidence files. | fixed locally; follow-up required |
 | CR-02-014 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324927696 | `reviews/stage_02/SUBAGENT_SUMMARY.md` still listed GPT Pro plan review as pending instead of the explicit user `/goal` wait state. | Updated subagent summary to record GPT Pro PASS and leave only current-head CI/Codex follow-up plus explicit user `/goal` as blockers. | fixed locally; follow-up required |
+| CR-02-015 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955838 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded the GPT Pro gate as pending for head `06a6d4b2f848bd0c93b753d7df46c2248b659149`. | Fixed by commit `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`, which recorded GPT Pro plan PASS in the checklist while keeping implementation blocked. | fixed in `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`; follow-up found CR-02-017 |
+| CR-02-016 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955842 | `PLANS/STAGE_02_PLAN.md` listed root config, CI workflow, Docker, and env files as later implementation targets even though GPT Pro narrowed the implementation boundary in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`. | Removed root config, CI workflow, Docker, env, root README, and `AGENTS.md` from the Stage 02 implementation file list unless GPT Pro explicitly expands scope later. | fixed locally; follow-up required |
+| CR-02-017 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325012558 | `logs/subagents/stage_02/plan-scope-verifier.md` still said GPT Pro plan review was pending despite saved PASS evidence. | Updated the subagent verifier log to say GPT Pro plan review PASS is saved and remaining blockers are current-head CI/Codex plus explicit user `/goal`. | fixed locally; follow-up required |
 
 ## Review Requests
 
@@ -76,10 +78,11 @@ Codex must review the Stage 02 plan for:
 | 24 | Current-head Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4575983642 | PASS: Codex did not find major issues on current head `857696e19d46446658081ec2ed1236c791099730` |
 | 25 | Post-GPT-Pro evidence current-head CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576171244 | Codex review event on `06a6d4b2f848bd0c93b753d7df46c2248b659149` returned CR-02-012/013/014 |
 | 26 | Post-GPT-Pro evidence GitHub plugin PR review route | review id `4390309166` | requested after CR-02-012/013/014 had already been returned; no extra duplicate fix required |
+| 27 | Post-CR-02-012/013/014 GitHub plugin PR review route | review id `4390393035` | Codex review event on `929b3e8259eb7b29fe5686b70e8cae9ec79cef88` returned CR-02-017; prior CR-02-016 also remained actionable |
 
 ## Current Gate Result
 
-BLOCKED pending follow-up for the remediation of CR-02-012/013/014. GPT Pro plan review is PASS, but the remediation commit must be pushed, pass CI, and receive current-head Codex no-major evidence before Stage 02 implementation can start. Explicit user Stage 02 implementation `/goal` approval is still required after those GitHub checks.
+BLOCKED pending follow-up for the remediation of CR-02-016/017. GPT Pro plan review is PASS, but the remediation commit must be pushed, pass CI, and receive current-head Codex no-major evidence before Stage 02 implementation can start. Explicit user Stage 02 implementation `/goal` approval is still required after those GitHub checks.
 
 ## Current-Head Rule
 

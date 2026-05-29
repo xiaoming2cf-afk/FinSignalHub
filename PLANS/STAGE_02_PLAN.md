@@ -112,13 +112,13 @@ Implementation files proposed for a later approved Stage 02 goal:
 - `apps/api/alembic/versions/`
 - `docs/architecture/stage_02_domain_models.md`
 - `docs/codex/stage_02_commands.md`
-- `pyproject.toml`
-- `docker-compose.yml`
-- `.github/workflows/ci.yml`
-- `.github/workflows/phase-deploy.yml`
-- `.env.example`
-- `README.md`
-- `AGENTS.md` only if stage rules need clarification.
+- `reviews/stage_02/`
+- `deployments/stage_02/`
+- `logs/subagents/stage_02/`
+- `CONTROL/`
+- `RUNLOG/`
+
+Root config, CI workflow, Docker, env example, root README, and `AGENTS.md` changes are not authorized for the Stage 02 implementation goal unless GPT Pro explicitly expands the boundary in a later saved instruction and the exception is recorded in `CONTROL/05_DECISION_LOG.md` plus `CONTROL/20_BLOCKER_LOG.md`.
 
 ## Files Not To Touch
 

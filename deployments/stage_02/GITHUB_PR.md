@@ -105,6 +105,16 @@ The GPT Pro evidence commit `06a6d4b2f848bd0c93b753d7df46c2248b659149` passed CI
 
 The local remediation updates `CHECKLISTS/STAGE_02_CHECKLIST.md`, this deployment record, and `reviews/stage_02/SUBAGENT_SUMMARY.md` so they no longer say GPT Pro plan review is pending after the saved PASS response. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
+The remediation commit `929b3e8259eb7b29fe5686b70e8cae9ec79cef88` passed CI, and the GitHub plugin PR review route `4390393035` requested Codex review. Codex then returned:
+
+- CR-02-017: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325012558
+
+The earlier review on `06a6d4b2f848bd0c93b753d7df46c2248b659149` also returned CR-02-016, which remained actionable:
+
+- CR-02-016: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955842
+
+The local remediation updates `PLANS/STAGE_02_PLAN.md` and `logs/subagents/stage_02/plan-scope-verifier.md` so the Stage 02 implementation file boundary matches GPT Pro's saved `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` instruction and the subagent verifier no longer claims GPT Pro is pending. Gate 6 remains pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
 Required comment after PR creation:
 
 ```text

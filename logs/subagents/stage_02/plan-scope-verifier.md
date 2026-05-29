@@ -35,12 +35,12 @@ Current integrated result: PASS for planning scope after the main agent added:
 ## Findings
 
 - Product/scope alignment: PASS. The plan stays Research Mode-first, MCP-first, and evidence-stream oriented.
-- Implementation guard: PASS. The plan blocks Stage 02 runtime/model/migration/CRUD creation until GPT Pro plan review and user `/goal` approval.
-- PR/GPT readiness: PASS after integration. Required control logs, G-0003, artifact entries, dashboard, blocker, and Codex summary were added.
+- Implementation guard: PASS. The plan blocks Stage 02 runtime/model/migration/CRUD creation until GPT Pro plan review PASS is saved, current-head CI/Codex follow-up passes, and the user gives explicit Stage 02 implementation `/goal` approval.
+- PR/GPT readiness: PASS after integration. Required control logs, G-0003, artifact entries, dashboard, blocker, Codex summary, GPT Pro response, and GPT Pro action item records were added.
 
 ## Risks
 
-- Stage 02 implementation remains blocked by B-0017 until GPT Pro plan review and user `/goal` approval.
+- Stage 02 implementation remains blocked by B-0017 until explicit user `/goal` approval and by the active Codex follow-up blocker until current-head CI/Codex evidence passes.
 - Any domain model implementation before that gate would violate the stage process.
 
 ## Tests
@@ -55,4 +55,4 @@ Main-agent checks after integration:
 
 ## Unresolved issues
 
-None for planning PR creation. GitHub PR, CI, Codex review, and GPT Pro plan review are still pending external gates.
+None for planning PR creation. GPT Pro plan review returned PASS. GitHub PR #8 remains open; the current remediation must still be pushed, pass CI, and receive current-head Codex no-major evidence before implementation can begin.
