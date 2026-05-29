@@ -93,7 +93,7 @@ The implementation must not include:
 
 Current locally verified:
 
-- `python -m pytest apps/api/tests`: PASS, 20 tests after CR-02-020/021/022 remediation.
+- `python -m pytest apps/api/tests`: PASS, 21 tests after CR-02-020/021/022/023 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
 - `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
@@ -114,7 +114,7 @@ Implementation code commit pushed before this evidence sync:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`. The local remediation adds evidence quote-provenance update guards, project-boundary guards for ClaimEvidenceEdge creation, and deployment evidence sync. This remediation must be pushed, pass live CI, and receive current-head Codex no-major evidence before GPT Pro final acceptance can pass.
+Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba` and CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`. The local remediation adds evidence quote-provenance update guards, project-boundary guards for ClaimEvidenceEdge creation and update, and deployment evidence sync. This remediation must be pushed, pass live CI, and receive current-head Codex no-major evidence before GPT Pro final acceptance can pass.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.
 

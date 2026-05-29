@@ -7,8 +7,9 @@ In remediation. PR #8 is open. The last captured live evidence before this remed
 - CR-02-020 P1: `EvidenceItemUpdate` allowed clearing both `quoted_evidence_span` and `no_quote_reason`.
 - CR-02-021 P1: `ClaimEvidenceEdge` creation allowed cross-project claim/evidence links.
 - CR-02-022 P2: deployment evidence still described current-head CI as pending after live CI had passed.
+- CR-02-023 P1: `ClaimEvidenceEdgeUpdate` could patch `tool_call_id` to a ToolCallLog from another project.
 
-The local remediation adds API-level guards and regression tests for the two P1 provenance/project-boundary findings, and updates deployment evidence to use live PR #8 checks as the Gate 6 source of truth. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+The local remediation adds API-level guards and regression tests for the P1 provenance/project-boundary findings, and updates deployment evidence to use live PR #8 checks as the Gate 6 source of truth. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
 
 ## Review Scope
 
@@ -53,6 +54,7 @@ Codex must review the Stage 02 plan for:
 | CR-02-020 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717746 | `EvidenceItemUpdate` could clear both `quoted_evidence_span` and `no_quote_reason`, violating quote provenance for evidence already used by claim edges. | Added an EvidenceItem update guard that merges the patch with the stored item and rejects updates that leave both fields empty; added schema and route regression tests. | fixed locally; follow-up required |
 | CR-02-021 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717751 | `ClaimEvidenceEdge` creation could link a claim from project A to evidence from project B. | Added a create guard that loads the claim and evidence item, rejects cross-project edges, and validates optional edge tool-call project membership; added route regression test. | fixed locally; follow-up required |
 | CR-02-022 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717754 | `deployments/stage_02/GITHUB_PR.md` said current-head CI was pending even though the review request cited passing CI on head `834c8f0`. | Refreshed deployment evidence to record the live CI PASS links for `834c8f0` and to state that any subsequent push resets Gate 6 until live PR checks and Codex review pass again. | fixed locally; follow-up required |
+| CR-02-023 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325858347 | An existing same-project ClaimEvidenceEdge could be patched to use a `tool_call_id` from another project, bypassing the create-time project guard. | Added a ClaimEvidenceEdge update guard that rejects cross-project tool-call changes and added a regression test for the PATCH path. | fixed locally; follow-up required |
 
 ## Review Requests
 
@@ -90,12 +92,15 @@ Codex must review the Stage 02 plan for:
 | 30 | Implementation-head minimal CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577573272 | bot `eyes` reaction observed |
 | 31 | Implementation-head PR review event | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391270460 | Codex review event on `834c8f03982394a8c7c9a7229ae4b574db21a8ba` returned CR-02-020/021/022 |
 | 32 | Implementation-head GitHub plugin comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577605061 | requested current-head review after bounded retry method switch; later review evidence was inspected through GitHub API |
+| 33 | Post-CR-02-020/021/022 full CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577800477 | bot `eyes` reaction observed |
+| 34 | Post-CR-02-020/021/022 minimal CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577815651 | bot `eyes` reaction observed |
+| 35 | Post-CR-02-020/021/022 GitHub plugin PR review route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391462510 | Codex review event on `d631c3fde13f063885da2ae8899235abb9c4cd0b` returned CR-02-023 |
 
 ## Current Gate Result
 
 Planning gate PASS. CR-02-018/019 was superseded by PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`, which passed CI and received Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 
-Stage 02 implementation is active locally after user direct-execution approval. CR-02-020/021/022 are fixed locally. A fresh implementation-head Codex review is still required after this remediation is committed, pushed, and CI passes.
+Stage 02 implementation is active locally after user direct-execution approval. CR-02-020/021/022/023 are fixed locally. A fresh implementation-head Codex review is still required after this remediation is committed, pushed, and CI passes.
 
 ## Implementation Review Requirement
 

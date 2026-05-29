@@ -35,7 +35,7 @@ Stage 02 modifies `pyproject.toml`, `.env.example`, `docker-compose.yml`, README
 
 Verified local evidence:
 
-- `python -m pytest apps/api/tests`: PASS, 20 tests after CR-02-020/021/022 remediation.
+- `python -m pytest apps/api/tests`: PASS, 21 tests after CR-02-020/021/022/023 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
 - `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
@@ -57,7 +57,7 @@ Verified local evidence:
 - Pre-implementation CI: PASS
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
 - Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
-- Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`.
+- Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`.
 - Current remediation status: fixed locally; push, CI, Codex no-major, and GPT Pro final review are still required.
 
 Required review request after implementation push:

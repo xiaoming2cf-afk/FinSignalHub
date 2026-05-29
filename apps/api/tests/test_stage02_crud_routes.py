@@ -387,3 +387,35 @@ def test_claim_evidence_edge_rejects_cross_project_tool_call(client: TestClient)
 
     assert response.status_code == 400
     assert response.json()["detail"]["error"] == "cross_project_claim_evidence_tool_call"
+
+
+def test_claim_evidence_edge_update_rejects_cross_project_tool_call(client: TestClient) -> None:
+    _project_a, tool_call_a, evidence_a, claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A edge update boundary",
+    )
+    _project_b, tool_call_b, _evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B edge update boundary",
+    )
+    edge = _post(
+        client,
+        "claim-evidence-edges",
+        {
+            "claim_id": claim_a["id"],
+            "evidence_item_id": evidence_a["id"],
+            "tool_call_id": tool_call_a["id"],
+            "relation_type": "supports",
+            "rationale": "Initial same-project edge.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    response = client.patch(
+        f"/research-mode/claim-evidence-edges/{edge['id']}",
+        json={"tool_call_id": tool_call_b["id"]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_evidence_tool_call"

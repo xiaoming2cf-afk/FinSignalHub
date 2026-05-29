@@ -98,6 +98,30 @@ def _require_same_project_edge(session: Session, data: dict[str, Any]) -> None:
             )
 
 
+def _require_edge_update_project_scope(
+    session: Session,
+    item: ClaimEvidenceEdge,
+    data: dict[str, Any],
+) -> None:
+    if "tool_call_id" not in data or data["tool_call_id"] is None:
+        return
+    claim = session.get(ResearchClaim, item.claim_id)
+    if claim is None:
+        raise _not_found(NotFoundError("ResearchClaim", item.claim_id))
+    tool_call_id = data["tool_call_id"]
+    tool_call = session.get(ToolCallLog, tool_call_id)
+    if tool_call is None:
+        raise _not_found(NotFoundError("ToolCallLog", tool_call_id))
+    if tool_call.project_id != claim.project_id:
+        raise _bad_request(
+            "cross_project_claim_evidence_tool_call",
+            "ClaimEvidenceEdge tool_call_id must belong to the same project as the edge.",
+            tool_call_id=tool_call_id,
+            tool_call_project_id=tool_call.project_id,
+            claim_project_id=claim.project_id,
+        )
+
+
 def register_crud_routes(
     *,
     route_name: str,
@@ -207,6 +231,7 @@ register_crud_routes(
     update_schema=schemas.ClaimEvidenceEdgeUpdate,
     read_schema=schemas.ClaimEvidenceEdgeRead,
     before_create=_require_same_project_edge,
+    before_update=_require_edge_update_project_scope,
 )
 register_crud_routes(
     route_name="research-deltas",
