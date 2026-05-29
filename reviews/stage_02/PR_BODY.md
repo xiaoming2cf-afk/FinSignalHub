@@ -44,9 +44,9 @@ Pending plan review.
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Current remediation baseline: `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`
+- Current remediation baseline: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`
 - CI: PASS on the remediation baseline.
-- Codex: CR-02-004 and CR-02-005 are fixed in this PR body refresh and Stage 02 path update. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+- Codex: CR-02-007 is fixed in this checklist gate-status refresh. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 ## Current Codex Findings
 
@@ -54,7 +54,9 @@ Pending plan review.
 - CR-02-002: stale checklist GitHub gate status; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
 - CR-02-003: missing mandatory provenance detail; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
 - CR-02-004: planned implementation paths used nonexistent `apps/api/app`; fixed by using the existing `apps/api/finsignalhub_api` package.
-- CR-02-005: PR body status was stale; fixed by this file.
+- CR-02-005: PR body status was stale; fixed in `d8693f99fbd5f41b8914184de366edb5a3e35352`.
+- CR-02-006: GPT Pro review packet used stale head/CI evidence; fixed in `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
+- CR-02-007: Stage 02 checklist GitHub gate used stale head/finding evidence; fixed by this checklist gate-status refresh.
 
 ## Codex Review Request
 

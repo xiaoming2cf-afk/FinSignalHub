@@ -7,7 +7,7 @@
 | Tests | Planning checks now; model, migration, schema, CRUD tests later | pending |
 | Docs | Domain model plan docs and later model boundary docs | pending |
 | Logs | Stage logs current | pending |
-| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open and CI passing on `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; Codex responded with CR-02-004 and CR-02-005, and local remediation must be pushed, pass CI, and receive follow-up Codex no-major evidence |
+| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open and CI passing on `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; Codex responded with CR-02-007 for this checklist's stale GitHub gate row, and local remediation must be pushed, pass CI, and receive follow-up Codex no-major evidence |
 | GPT Pro | Plan packet, response, action items, final plan result | pending |
 | Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | pending |
 | Security | Secret scan, data boundary checks, no real API keys | pending |

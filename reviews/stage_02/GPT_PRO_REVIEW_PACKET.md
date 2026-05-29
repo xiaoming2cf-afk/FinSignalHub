@@ -28,14 +28,14 @@ Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 Stage 02 planning head: **not final in this file until live GitHub evidence is supplied at submission time**.
 
-Latest verified pushed remediation baseline before this packet refresh: `d8693f99fbd5f41b8914184de366edb5a3e35352`.
+Latest verified pushed remediation baseline before this checklist gate refresh: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
 
 CI status for that baseline: PASS.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637056138/job/78499952221
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637058503/job/78499960219
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637962341/job/78503002273
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637964405/job/78503009027
 
-Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`. Codex then returned CR-02-006 for stale packet head evidence. This packet refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`; CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Codex then returned CR-02-007 for stale checklist GitHub gate evidence. This checklist gate refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
 
 Submission rule: before pasting this packet into GPT Pro, the operator must prepend the live PR #8 head commit, CI links, and Codex result from GitHub. If the live head does not have CI PASS and Codex no-major evidence, GPT Pro must treat the GitHub gate as BLOCKED and must not authorize Stage 02 implementation.
 
@@ -60,7 +60,10 @@ Important nuance:
 - CR-02-004 and CR-02-005 were fixed and pushed as `d8693f99fbd5f41b8914184de366edb5a3e35352`; CI passed.
 - Codex then returned CR-02-006 P2 because this packet still named an older head:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324305755
-- The local fix removes the stale fixed-head claim and requires live PR #8 head, CI, and Codex evidence to be supplied immediately before GPT Pro submission.
+- CR-02-006 was fixed and pushed as `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; CI passed.
+- Codex then returned CR-02-007 P2 because `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded older GitHub gate evidence:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324406953
+- The local fix updates the checklist Gate 6 row to the current pushed head and CR-02-007 state.
 - This packet does not claim Codex review passed until this fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
