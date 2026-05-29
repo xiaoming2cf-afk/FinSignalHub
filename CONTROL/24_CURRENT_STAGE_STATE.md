@@ -35,19 +35,19 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Field | Value |
 | --- | --- |
 | Current stage | Stage 02 Research Mode domain models planning |
-| Current phase status | Stage 02 plan PASS; implementation blocked pending user `/goal` approval |
+| Current phase status | Stage 02 plan PASS; implementation blocked pending CR-02-012/013/014 follow-up CI/Codex and user `/goal` approval |
 | Active branch | `stage/02-domain-models` |
 | Latest PR | Stage 02 PR #8: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 |
-| Latest CI status | PASS before GPT Pro plan submission on head `857696e19d46446658081ec2ed1236c791099730`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26641127042/job/78514186780 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26641129908/job/78514196263. Final evidence commits still need CI follow-up before implementation starts. |
-| Latest Codex review status | PASS/no-major before GPT Pro plan submission: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4575983642. Final evidence commits still need Codex follow-up before implementation starts. |
+| Latest CI status | PASS on GPT Pro evidence head `06a6d4b2f848bd0c93b753d7df46c2248b659149`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26642429143/job/78518834903 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26642432801/job/78518847540. The CR-02-012/013/014 remediation still needs CI follow-up after push. |
+| Latest Codex review status | BLOCKED: Codex returned CR-02-012/013/014 on head `06a6d4b2f848bd0c93b753d7df46c2248b659149`; local remediation is prepared and requires push, CI, and current-head Codex no-major evidence. |
 | Latest GPT Pro review status | PASS for Stage 02 plan; response saved in `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; Stage 03 not authorized |
 | Active goal id | G-0003 |
-| Next required action | commit and push GPT Pro plan PASS evidence, run CI/Codex follow-up, then wait for explicit user Stage 02 `/goal` approval before implementation |
-| Blocker status | B-0017 open for Stage 02 implementation authorization; B-0018 resolved for plan gate |
-| Last updated time | 2026-05-29T09:09:34-05:00 |
+| Next required action | run checks for CR-02-012/013/014 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit user Stage 02 `/goal` approval before implementation |
+| Blocker status | B-0017 open for Stage 02 implementation authorization; B-0019 open for CR-02-012/013/014 current-head Codex follow-up |
+| Last updated time | 2026-05-29T09:26:29-05:00 |
 
 Current detected stage is: Stage 02 Research Mode domain models planning.
 
-Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 plan review passed. Stage 02 implementation is not authorized until explicit user `/goal` approval and final evidence commit CI/Codex follow-up.
+Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 plan review passed. Stage 02 implementation is not authorized until CR-02-012/013/014 remediation gets current-head CI/Codex no-major evidence and explicit user `/goal` approval.
 
-Next valid action is: commit and push GPT Pro plan PASS evidence, run CI/Codex follow-up, then wait for explicit Stage 02 `/goal` approval before implementation.
+Next valid action is: run checks for CR-02-012/013/014 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit Stage 02 `/goal` approval before implementation.
