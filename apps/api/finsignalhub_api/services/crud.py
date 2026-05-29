@@ -2,7 +2,7 @@
 
 from typing import Any, Generic, TypeVar
 
-from sqlalchemy import select
+from sqlalchemy import inspect, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -60,12 +60,36 @@ class CrudService(Generic[ModelT]):
 
     def delete(self, session: Session, item_id: str) -> None:
         item = self.get(session, item_id)
+        if self._has_dependents(session, item):
+            raise DeleteBlockedError(self.model.__name__, item_id)
         session.delete(item)
         try:
             session.commit()
         except IntegrityError as error:
             session.rollback()
             raise DeleteBlockedError(self.model.__name__, item_id) from error
+
+    def _has_dependents(self, session: Session, item: ModelT) -> bool:
+        mapper = inspect(self.model)
+        for relation in mapper.relationships:
+            if relation.direction.name != "ONETOMANY":
+                continue
+
+            criteria = []
+            for local_column, remote_column in relation.local_remote_pairs:
+                value = getattr(item, local_column.key)
+                if value is None:
+                    criteria = []
+                    break
+                criteria.append(remote_column == value)
+            if not criteria:
+                continue
+
+            related_model = relation.mapper.class_
+            statement = select(related_model).where(*criteria).limit(1)
+            if session.scalars(statement).first() is not None:
+                return True
+        return False
 
     def _normalize(self, data: dict[str, Any]) -> dict[str, Any]:
         normalized: dict[str, Any] = {}

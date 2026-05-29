@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The final implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed CI, Codex returned no major issues, and GPT Pro returned final implementation PASS. Gate 6 is PASS for that reviewed implementation head. Later follow-up heads fixed CR-02-037 and CR-02-038; Codex then returned CR-02-039/040 for delete conflict handling and current-head acceptance wording. CR-02-039/040 are locally remediated and the next pushed head needs live CI/Codex before merge.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The final implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed CI, Codex returned no major issues, and GPT Pro returned final implementation PASS. Gate 6 is PASS for that reviewed implementation head. Later follow-up heads fixed CR-02-037, CR-02-038, and CR-02-039/040; Codex then returned CR-02-041 for nullable dependent deletes that could strip provenance. CR-02-041 is locally remediated and the next pushed head needs live CI/Codex before GPT Pro delta/final re-review and merge.
 
 ## Branch
 
@@ -102,7 +102,24 @@ CR-02-038 remediation:
 
 CR-02-039/040 remediation:
 
-- Local tests pass. Push and live CI are pending for the next head.
+- Commit: `52a99629b5f2cf136e39efc1e4d4b47858abfe47`
+- PASS on head `52a99629b5f2cf136e39efc1e4d4b47858abfe47`:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26664789980/job/78595633058
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26664791691/job/78595636864
+- Codex request comments:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4580266549
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4580275752
+- PR review-route trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4393164756
+- Follow-up Codex review event: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4393174859
+- Finding: CR-02-041 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327171659.
+
+CR-02-041 remediation:
+
+- Local remediation adds pre-delete ONETOMANY dependent-row checks and a ToolCallLog provenance-preservation regression test.
+- Local route tests: PASS, 36 tests.
+- Local API tests: PASS, 50 tests.
+- API compile: PASS.
+- Next pushed head needs live CI/Codex before GPT Pro delta/final re-review.
 
 ## Codex Review
 
@@ -129,7 +146,7 @@ Implementation-head Codex review:
 - Current-head review requests for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579409749; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579426105; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796.
 - Current-head review event for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 returned CR-02-036 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560.
 - Current-head no-major response for `09585c58e71eb72b532ea42569d38dce2aa7b648`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862.
-- Follow-up status: CR-02-037 is resolved in pushed head `e3e260178fb23408680f025bfc473c164cee473a`; CR-02-038 is resolved in pushed head `dd58ef23571f3511eb844b131d861813f0aed14e`. Codex then returned CR-02-039 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327095853 and CR-02-040 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327095860. The local remediation adds deterministic 409 delete-conflict handling and current-head BLOCKED wording; the next pushed head needs live CI/Codex before merge.
+- Follow-up status: CR-02-037 is resolved in pushed head `e3e260178fb23408680f025bfc473c164cee473a`; CR-02-038 is resolved in pushed head `dd58ef23571f3511eb844b131d861813f0aed14e`; CR-02-039/040 is resolved in pushed head `52a99629b5f2cf136e39efc1e4d4b47858abfe47`. Codex then returned CR-02-041 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3327171659. The local remediation adds pre-delete dependent-row checks for nullable provenance relations; the next pushed head needs live CI/Codex before merge.
 
 Required comment:
 
@@ -144,7 +161,7 @@ Stage 02 plan PASS is saved in:
 - `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
 - `reviews/stage_02/GPT_PRO_PLAN_ACTION_ITEMS.md`
 
-Final implementation review is PASS for implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648`. CR-02-038/039 change runtime validation/error handling after that PASS, so the remediation head needs a GPT Pro delta/final re-review after live CI and Codex clear. The earlier final review included:
+Final implementation review is PASS for implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648`. CR-02-038/039/041 change runtime validation/error handling after that PASS, so the remediation head needs a GPT Pro delta/final re-review after live CI and Codex clear. The earlier final review included:
 
 - PR URL and implementation commit.
 - CI links for the implementation head.
