@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: apps/api/Dockerfile
     environment:
-      FINSIGNALHUB_DATABASE_URL: postgresql+psycopg://finsignalhub:${POSTGRES_PASSWORD:-finsignalhub_dev_password_placeholder}@postgres:5432/${POSTGRES_DB:-finsignalhub_dev}
+      FINSIGNALHUB_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-finsignalhub}:${POSTGRES_PASSWORD:-finsignalhub_dev_password_placeholder}@postgres:5432/${POSTGRES_DB:-finsignalhub_dev}
     ports:
       - "${API_PORT:-8000}:8000"
     depends_on:
