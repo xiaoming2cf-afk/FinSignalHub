@@ -109,6 +109,7 @@ Current locally verified:
 - Runtime forbidden-scope scan: PASS; only expected guard-test strings in `apps/api/tests/test_stage02_forbidden_scope.py`.
 - Artifact ID uniqueness: PASS.
 - `git diff --check`: PASS.
+- CR-02-035 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
 
 Before final acceptance, Codex must prepend the latest implementation commit, CI links, Codex review URL/result, and any additional local verification results. If the implementation head does not have CI PASS and Codex no-major evidence, treat the GitHub gate as BLOCKED.
 
@@ -116,21 +117,22 @@ Implementation code commit pushed before this evidence sync:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on head `db89107a855588d534da1eb4d32c151c120ec442`, and CR-02-034 on head `99b366655c0b2374952740d9ed329e9584a38564`. The code remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, explicit null provenance-erasure rejection on PATCH, tool-call lineage, and deployment evidence sync. The latest CR-02-034 remediation is documentation-only and refreshes static Gate 6 evidence after the CR-02-032/033 code remediation was pushed and CI-passed.
+Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on head `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on head `99b366655c0b2374952740d9ed329e9584a38564`, and CR-02-035 on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`. The code remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, explicit null provenance-erasure rejection on PATCH, tool-call lineage, and deployment evidence sync. The latest CR-02-035 remediation is documentation-only and refreshes static Gate 6 evidence after the CR-02-034 evidence remediation was pushed and CI-passed.
 
 Last live PR head checked before this documentation-only remediation:
 
-- `99b366655c0b2374952740d9ed329e9584a38564`
+- `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`
 - CI PASS:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26656858247/job/78569136022
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26656861240/job/78569146303
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26658014798/job/78573096062
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26658016567/job/78573101585
 - Current-head Codex review requests:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578935974
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578953153
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392200416
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578974231
-- Current-head Codex result: CR-02-034 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392219133.
-- Current remediation status: CR-02-034 documentation evidence refresh is the active branch-head remediation; live CI PASS and current-head Codex no-major are still required before this packet can be submitted as final implementation review evidence.
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579161453
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579177268
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392356502
+  - GitHub plugin issue comment id `4579213970`
+  - GitHub plugin PR review id `4392391270`
+- Current-head Codex result: CR-02-035 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392409474 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326573986.
+- Current remediation status: CR-02-035 documentation evidence refresh is the active branch-head remediation; live CI PASS and current-head Codex no-major are still required before this packet can be submitted as final implementation review evidence.
 - Browser/GPT Pro route status: BLOCKED. Chrome extension calls returned `native pipe is closed` after one retry; Chrome is running, extension is installed/enabled, native host manifest is correct, and the recovery-window attempt still failed.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.

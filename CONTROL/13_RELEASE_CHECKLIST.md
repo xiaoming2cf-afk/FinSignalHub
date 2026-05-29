@@ -44,4 +44,4 @@ Stage 02 implementation release checklist is active. Before accepting, tagging, 
 - GPT Pro final implementation review must pass or accepted CONDITIONAL PASS with critical items resolved.
 - GPT Pro must provide Stage 03 instructions.
 
-Current Stage 02 release blocker: CR-02-034 is a documentation-only GitHub gate evidence refresh after head `99b366655c0b2374952740d9ed329e9584a38564` passed CI and Codex identified stale Gate 6 wording. Do not release, tag, merge, or request Stage 03 until the latest pushed remediation head has live CI PASS, current-head Codex no-major evidence, and GPT Pro final implementation PASS or accepted CONDITIONAL PASS.
+Current Stage 02 release blocker: CR-02-035 is a documentation-only GitHub gate evidence refresh after head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37` passed CI and Codex identified stale Gate 6 CI wording in `CONTROL/24_CURRENT_STAGE_STATE.md`. Do not release, tag, merge, or request Stage 03 until the latest pushed remediation head has live CI PASS, current-head Codex no-major evidence, and GPT Pro final implementation PASS or accepted CONDITIONAL PASS.
