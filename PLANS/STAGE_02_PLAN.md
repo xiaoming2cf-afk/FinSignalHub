@@ -39,7 +39,7 @@ FinSignalHub remains Research Mode-first, MCP-first, and evidence-stream oriente
 Stage 02 exists to create a minimum model layer that can later support:
 
 - Research projects.
-- Evidence items with provenance fields.
+- Evidence items with mandatory provenance fields.
 - Research claims and evidence edges.
 - Research delta records as stored artifacts, not computation engines.
 - Literature matrix rows.
@@ -48,6 +48,29 @@ Stage 02 exists to create a minimum model layer that can later support:
 - Tool call logs.
 
 This stage must not become a chatbot, generic RAG, stock prediction system, investment advice feature, ordinary report generator, financial dashboard, model leaderboard, Risk Mode, Replay Engine, connector runtime, evidence extraction pipeline, or MCP business tool layer.
+
+### Mandatory Provenance Fields For Later Implementation
+
+The later Stage 02 implementation goal must explicitly model and validate provenance. The plan is not satisfied by a generic `provenance` blob alone.
+
+Required provenance attributes, where applicable:
+
+- `source_identity`: stable source identifier, URL, citation key, uploaded document id, or dataset id.
+- `source_type`: controlled value such as literature, preprint, dataset, method note, user upload metadata, or tool output.
+- `retrieval_time`: timezone-aware timestamp for when the source or derived artifact was retrieved or generated.
+- `quoted_evidence_span`: exact quoted text plus span offsets or page/section locator when a claim relies on a quote; nullable only with an explicit `no_quote_reason` for non-text artifacts.
+- `transformation_notes`: concise record of normalization, parsing, manual correction, or model-assisted transformation.
+- `confidence`: bounded confidence value or enum with documented meaning.
+- `tool_call_lineage`: reference to the `ToolCallLog` record or equivalent tool-call lineage fields that produced or transformed the artifact.
+
+Entity-level provenance requirements:
+
+- `Source` and `Document` must preserve `source_identity`, `source_type`, retrieval or upload time, bibliographic or dataset locator fields, and enough metadata to support later connector replay without implementing connectors in Stage 02.
+- `EvidenceItem` must carry all mandatory provenance attributes and cannot support a claim edge unless source identity, source type, retrieval time, transformation notes, confidence, and tool-call lineage are present.
+- `ResearchClaim` must keep claim text, project linkage, derivation notes, confidence, and references to supporting or originating evidence artifacts.
+- `ClaimEvidenceEdge` must keep `claim_id`, `evidence_item_id`, relation type, rationale, confidence, and the tool-call lineage that created or revised the edge.
+- `ResearchDelta`, `LiteratureMatrixRow`, `MethodCard`, `DatasetCard`, and `ReproPackExport` must store source artifact references, generation time, transformation notes, confidence or review status, and tool-call lineage so later stages can export reproducible evidence.
+- `ToolCallLog` must capture tool name, tool version or schema version, called-at time, argument hash or safe serialized arguments, input artifact ids, output artifact ids, status, and deterministic error shape without storing secrets.
 
 ## Scope
 

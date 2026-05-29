@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. CI is passing on the latest pushed head. Codex review returned a P2 stale-status finding; the local fix is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
+Planning PR open. CI is passing on the latest pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`. Codex review returned CR-02-002 P2 and CR-02-003 P1 after the CR-02-001 fix; the local remediation is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
 
 ## Branch
 
@@ -18,14 +18,14 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-PASS on head `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa`.
+PASS on head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475537339/job/77960003550
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475538983/job/77960008299
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477432515/job/77966471943
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477434886/job/77966479585
 
 ## Codex Review
 
-P2 finding received; local fix prepared.
+Current findings received; local fix prepared.
 
 Attempts used:
 
@@ -36,11 +36,16 @@ Attempts used:
 
 Prior head `af35b2253524641701d0a00ca6ebf6cee02ef897` received a no-major response at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4548899623.
 
-Current head `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa` received CR-02-001:
+Previous head `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa` received CR-02-001:
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3306943259
 
-The local fix updates `reviews/stage_02/SUBAGENT_SUMMARY.md` so its gate status matches PR #8 and CI evidence. Gate 6 remains pending until the fix is pushed, CI passes, and Codex returns no major issues for the new head.
+CR-02-001 was fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`. Codex then returned:
+
+- CR-02-002: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129403
+- CR-02-003: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129409
+
+The local remediation updates `CHECKLISTS/STAGE_02_CHECKLIST.md` and `PLANS/STAGE_02_PLAN.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 

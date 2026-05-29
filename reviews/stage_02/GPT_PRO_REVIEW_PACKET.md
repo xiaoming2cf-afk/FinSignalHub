@@ -26,14 +26,14 @@ Plan path: `PLANS/STAGE_02_PLAN.md`
 
 Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
-Stage 02 planning head: `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa`
+Stage 02 planning head: `a1f4d2fff7b980d21531d80f21038d337d46b7b3`
 
 CI status: PASS.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475537339/job/77960003550
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26475538983/job/77960008299
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477432515/job/77966471943
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477434886/job/77966479585
 
-Codex status: BLOCKED/PENDING for current head `d8b6a274d6e5ab3f9b14a90f4266cadd00c343aa` until CR-02-001 follow-up completes.
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in current pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`, but Codex then returned CR-02-002 and CR-02-003. Local remediation is prepared and must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
 
 Important nuance:
 
@@ -44,8 +44,12 @@ Important nuance:
   - minimal CLI retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4548979169
   - GitHub plugin comment: comment id `4548999413`
   - PR review event route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4367584333
-- Codex returned CR-02-001 P2 for the current head: `reviews/stage_02/SUBAGENT_SUMMARY.md` still said GitHub PR and CI were pending even though PR #8 was open and CI had passed.
-- The local fix updates the subagent summary, Codex review summary, deployment evidence, gate result, blocker log, and status logs.
+- Codex returned CR-02-001 P2 for that head: `reviews/stage_02/SUBAGENT_SUMMARY.md` still said GitHub PR and CI were pending even though PR #8 was open and CI had passed.
+- CR-02-001 was fixed and pushed as `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CI passed.
+- Codex then returned CR-02-002 P2 for stale checklist wording and CR-02-003 P1 for insufficient mandatory provenance detail in the plan:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129403
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129409
+- The local fix updates the checklist and strengthens the plan with mandatory provenance attributes and entity-level provenance requirements.
 - This packet does not claim Codex review passed until that fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
@@ -81,6 +85,8 @@ The plan covers:
 - `ToolCallLog`
 
 Model-level primitives may store fields needed later for evidence-stream workflows, but must not implement connectors, extraction, computation engines, MCP business tools, or UI behavior.
+
+Mandatory provenance coverage in the Stage 02 implementation goal must include source identity, source type, retrieval time, quoted evidence span or explicit no-quote rationale, transformation notes, confidence, and tool-call lineage. These attributes must be modeled explicitly where applicable, not hidden behind an unvalidated generic blob.
 
 ## Forbidden Scope
 
