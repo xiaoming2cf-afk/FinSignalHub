@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, and CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`. Head `99b366655c0b2374952740d9ed329e9584a38564` passed live GitHub CI, then Codex returned CR-02-034 because static gate evidence still described the prior `db89107` pending state. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time; this CR-02-034 documentation remediation is not accepted until the next pushed head passes live CI and receives current-head Codex no-major evidence.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, and CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`. Head `99b366655c0b2374952740d9ed329e9584a38564` passed live GitHub CI, then Codex returned CR-02-034 because static gate evidence still described the prior `db89107` pending state. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time; this CR-02-034 documentation remediation is not accepted until the latest pushed head passes live CI and receives current-head Codex no-major evidence.
 
 ## Branch
 
@@ -90,7 +90,7 @@ Implementation-head Codex review:
 - Current-head review event for `db89107a855588d534da1eb4d32c151c120ec442`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392117490 returned CR-02-032/033.
 - Current-head review requests for `99b366655c0b2374952740d9ed329e9584a38564`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578935974; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578953153; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392200416; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578974231.
 - Current-head review event for `99b366655c0b2374952740d9ed329e9584a38564`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392219133 returned CR-02-034 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326432751.
-- Follow-up status: BLOCKED. CR-02-034 is this documentation evidence refresh. It must be pushed, pass live CI, and receive current-head Codex no-major evidence before Gate 6 can pass.
+- Follow-up status: BLOCKED. CR-02-034 is this documentation evidence refresh. The latest pushed head must pass live CI and receive current-head Codex no-major evidence before Gate 6 can pass.
 
 Required comment:
 

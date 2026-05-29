@@ -6,7 +6,7 @@ In remediation. PR #8 is open. The last captured live evidence before this remed
 
 - CR-02-034 P2: `CHECKLISTS/STAGE_02_CHECKLIST.md` and related Gate 6 evidence still described the prior `db89107` / CR-02-032/033 pending state after the remediation had already been pushed, CI-passed, and reviewed on head `99b366655c0b2374952740d9ed329e9584a38564`.
 
-This remediation updates the static GitHub gate evidence while preserving GitHub live PR #8 head, CI, and Codex review as the Gate 6 source of truth. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+This remediation updates the static GitHub gate evidence while preserving GitHub live PR #8 head, CI, and Codex review as the Gate 6 source of truth. A follow-up current-head Codex response is required after the latest pushed head passes CI.
 
 ## Review Scope
 
@@ -62,7 +62,7 @@ Codex must review the Stage 02 plan for:
 | CR-02-031 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326188835 | `source_artifact_refs` did not resolve ClaimEvidenceEdge refs and silently accepted unknown refs, leaving generated artifact provenance refs under-validated. | Added `source_artifact_refs` resolution for known project-scoped artifact rows and ClaimEvidenceEdge-derived project scope; reject unknown refs and cross-project edge refs; added same-project, cross-project, and unknown-ref regression tests. | fixed in `db89107a855588d534da1eb4d32c151c120ec442`; follow-up found CR-02-032/033 |
 | CR-02-032 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326353100 | PATCH requests with explicit `source_artifact_refs: null` bypassed the generated-artifact source-ref guard and could erase required provenance refs. | Updated `source_artifact_refs` validation to distinguish omitted fields from explicit nulls and reject null values; added MethodCard PATCH regression coverage. | fixed in `99b366655c0b2374952740d9ed329e9584a38564`; follow-up found CR-02-034 |
 | CR-02-033 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326353103 | PATCH requests with explicit `tool_call_lineage: null` bypassed lineage validation and could erase lineage or produce database integrity errors. | Updated tool-call lineage validation to reject explicit nulls while still ignoring omitted fields; added ResearchClaim PATCH regression coverage. | fixed in `99b366655c0b2374952740d9ed329e9584a38564`; follow-up found CR-02-034 |
-| CR-02-034 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326432751 | Static GitHub gate docs still pointed at `db89107` and said CR-02-032/033 remediation was pending push/CI/Codex after head `99b366655c0b2374952740d9ed329e9584a38564` had already passed CI and received this current-head Codex review. | Refreshed checklist, deployment, acceptance, PR body, GPT packet, dashboard, blocker, current-state, action-queue, RunLog, and artifact evidence to record CR-02-034 as the active documentation-only remediation and to keep Gate 6 tied to live PR head/CI/Codex evidence. | fixed locally; push, CI, and follow-up Codex required |
+| CR-02-034 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326432751 | Static GitHub gate docs still pointed at `db89107` and said CR-02-032/033 remediation was pending push/CI/Codex after head `99b366655c0b2374952740d9ed329e9584a38564` had already passed CI and received this current-head Codex review. | Refreshed checklist, deployment, acceptance, PR body, GPT packet, dashboard, blocker, current-state, action-queue, RunLog, and artifact evidence to record CR-02-034 as the active documentation-only remediation and to keep Gate 6 tied to live PR head/CI/Codex evidence. | fixed in branch; latest pushed head CI and follow-up Codex required |
 
 ## Review Requests
 
@@ -130,7 +130,7 @@ Codex must review the Stage 02 plan for:
 
 Planning gate PASS. CR-02-018/019 was superseded by PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`, which passed CI and received Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 
-Stage 02 implementation is active after user direct-execution approval. CR-02-020 through CR-02-033 are fixed and pushed through head `99b366655c0b2374952740d9ed329e9584a38564`; GitHub CI passed on that head. Codex then returned CR-02-034 for stale static Gate 6 evidence. CR-02-034 is fixed locally as a documentation-only remediation, but it is not accepted until it is committed, pushed, passes live CI, and receives current-head Codex no-major evidence.
+Stage 02 implementation is active after user direct-execution approval. CR-02-020 through CR-02-033 are fixed and pushed through head `99b366655c0b2374952740d9ed329e9584a38564`; GitHub CI passed on that head. Codex then returned CR-02-034 for stale static Gate 6 evidence. CR-02-034 is a documentation-only remediation now tracked against the latest pushed branch head; it is not accepted until that head passes live CI and receives current-head Codex no-major evidence.
 
 ## Implementation Review Requirement
 

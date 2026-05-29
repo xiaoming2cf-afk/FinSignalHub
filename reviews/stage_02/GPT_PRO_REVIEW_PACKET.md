@@ -130,7 +130,7 @@ Last live PR head checked before this documentation-only remediation:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392200416
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578974231
 - Current-head Codex result: CR-02-034 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392219133.
-- Current local remediation status: CR-02-034 documentation evidence refresh fixed locally; pending commit, push, CI, and current-head Codex follow-up.
+- Current remediation status: CR-02-034 documentation evidence refresh is the active branch-head remediation; live CI PASS and current-head Codex no-major are still required before this packet can be submitted as final implementation review evidence.
 - Browser/GPT Pro route status: BLOCKED. Chrome extension calls returned `native pipe is closed` after one retry; Chrome is running, extension is installed/enabled, native host manifest is correct, and the recovery-window attempt still failed.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.

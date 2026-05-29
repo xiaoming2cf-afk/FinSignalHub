@@ -60,7 +60,7 @@ Verified local evidence:
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
 - Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 - Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; CR-02-024/025 returned on head `9984b407acd2e5b75c57847545807cf083c9bc2a`; CR-02-026/027/028/029 returned on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`; CR-02-030/031 returned on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`; CR-02-032/033 returned on head `db89107a855588d534da1eb4d32c151c120ec442`; CR-02-034 returned on head `99b366655c0b2374952740d9ed329e9584a38564`.
-- Current remediation status: CR-02-034 documentation evidence refresh is local after Codex review on head `99b366655c0b2374952740d9ed329e9584a38564`; local checks will be rerun before push. The remediation still needs commit, push, live CI PASS, and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
+- Current remediation status: CR-02-034 documentation evidence refresh is the active branch-head remediation after Codex review on head `99b366655c0b2374952740d9ed329e9584a38564`. The latest pushed head still needs live CI PASS and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
 
 Required review request after implementation push:
 
