@@ -44,9 +44,9 @@ Pending plan review.
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Last captured remediation baseline before this durable checklist refresh: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`
+- Last captured remediation baseline before this subagent-summary refresh: `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`
 - CI: PASS on the last captured baseline.
-- Codex: CR-02-007 is fixed in this checklist gate-status refresh. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the live PR head. This PR body must be paired with GitHub live PR head/CI/Codex evidence at submission time.
+- Codex: CR-02-008 is fixed in this subagent-summary refresh. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the live PR head. This PR body must be paired with GitHub live PR head/CI/Codex evidence at submission time.
 
 ## Current Codex Findings
 
@@ -56,7 +56,8 @@ Pending plan review.
 - CR-02-004: planned implementation paths used nonexistent `apps/api/app`; fixed by using the existing `apps/api/finsignalhub_api` package.
 - CR-02-005: PR body status was stale; fixed in `d8693f99fbd5f41b8914184de366edb5a3e35352`.
 - CR-02-006: GPT Pro review packet used stale head/CI evidence; fixed in `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
-- CR-02-007: Stage 02 checklist GitHub gate used stale head/finding evidence; fixed by this checklist gate-status refresh.
+- CR-02-007: Stage 02 checklist GitHub gate used stale head/finding evidence; fixed in `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`.
+- CR-02-008: Stage 02 subagent summary used stale CR-02-001 gate evidence; fixed by this subagent-summary refresh.
 
 ## Codex Review Request
 

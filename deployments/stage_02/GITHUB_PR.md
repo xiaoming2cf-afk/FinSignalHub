@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. The last captured live evidence before this durable checklist refresh was CI PASS on pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Codex review returned CR-02-007 P2 after the CR-02-006 fix. This file must not be used as a self-referential claim that the commit containing it is already reviewed; Gate 6 requires GitHub live PR head/CI/Codex evidence after push.
+Planning PR open. The last captured live evidence before this subagent-summary refresh was CI PASS on pushed head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`. Codex review returned CR-02-008 P2 after the CR-02-007 fix. This file must not be used as a self-referential claim that the commit containing it is already reviewed; Gate 6 requires GitHub live PR head/CI/Codex evidence after push.
 
 ## Branch
 
@@ -18,10 +18,10 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-Last captured PASS before this durable checklist refresh: head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
+Last captured PASS before this subagent-summary refresh: head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637962341/job/78503002273
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637964405/job/78503009027
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26638748298/job/78505706631
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26638750078/job/78505712265
 
 ## Codex Review
 
@@ -63,6 +63,12 @@ CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. C
 - CR-02-007: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324406953
 
 The local remediation updates `CHECKLISTS/STAGE_02_CHECKLIST.md` so Gate 6 depends on GitHub live PR head/CI/Codex evidence at review time, rather than naming a committed self-referential current head. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
+CR-02-007 was fixed in pushed head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`. Codex then returned:
+
+- CR-02-008: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324516627
+
+The local remediation updates `reviews/stage_02/SUBAGENT_SUMMARY.md` so the summary uses the same GitHub live PR head/CI/Codex Gate 6 rule and no longer repeats old CR-02-001 state. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 

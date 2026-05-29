@@ -15,3 +15,4 @@
 - Aligned Stage 02 planned API package paths with the existing `apps/api/finsignalhub_api` scaffold and refreshed the PR body status after CR-02-004/005.
 - Updated the Stage 02 GPT Pro packet to require live PR head, CI, and Codex evidence at submission time after CR-02-006.
 - Synchronized the Stage 02 checklist GitHub gate with the CR-02-007 Codex finding and changed mutable gate evidence to require GitHub live PR head/CI/Codex proof at review time.
+- Updated the Stage 02 subagent summary to follow the same live-head-aware Gate 6 rule after CR-02-008.

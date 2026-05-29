@@ -7,7 +7,7 @@
 | Tests | Planning checks now; model, migration, schema, CRUD tests later | pending |
 | Docs | Domain model plan docs and later model boundary docs | pending |
 | Logs | Stage logs current | pending |
-| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open; last captured live evidence before this checklist refresh was CI PASS on `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0` plus CR-02-007 for this checklist's stale GitHub gate row. Gate 6 must use GitHub live PR head/CI/Codex evidence at review time, not a committed self-referential head value. Follow-up CI and Codex no-major evidence are required before this gate can pass. |
+| GitHub | Branch, PR, CI, Codex review | blocked: PR #8 open; last captured live evidence before this subagent-summary refresh was CI PASS on `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931` plus CR-02-008 for stale subagent gate evidence. Gate 6 must use GitHub live PR head/CI/Codex evidence at review time, not a committed self-referential head value. Follow-up CI and Codex no-major evidence are required before this gate can pass. |
 | GPT Pro | Plan packet, response, action items, final plan result | pending |
 | Product governance | Provenance-backed research entities; no connectors, extraction, MCP business tools, or financial advice | pending |
 | Security | Secret scan, data boundary checks, no real API keys | pending |

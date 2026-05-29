@@ -19,7 +19,8 @@ Planning-only subagent verification completed.
 
 ## Remaining Gates
 
-- GitHub PR #8 is open and current-head CI is passing.
-- Codex review returned a P2 stale-status finding on this file; the summary now aligns with current PR/CI evidence and requires a follow-up current-head Codex response after push.
+- GitHub PR #8 is open, but Gate 6 must be evaluated from GitHub live PR head, CI, and Codex evidence at review time. This committed summary must not claim that the commit containing it is already reviewed.
+- Last captured live evidence before this summary refresh: PR #8 head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931` had CI PASS, and Codex returned CR-02-008 on this file for stale subagent gate evidence.
+- Codex findings CR-02-001 through CR-02-007 are fixed in pushed heads or local live-head-aware evidence wording; CR-02-008 is fixed by this summary refresh and requires push, CI, and follow-up current-head Codex no-major evidence.
 - GPT Pro plan review is pending.
 - Stage 02 implementation remains blocked by B-0017.

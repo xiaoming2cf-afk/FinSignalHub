@@ -28,14 +28,14 @@ Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 Stage 02 planning head: **not final in this file until live GitHub evidence is supplied at submission time**.
 
-Latest verified pushed remediation baseline before this checklist gate refresh: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
+Latest verified pushed remediation baseline before this subagent-summary refresh: `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`.
 
 CI status for that baseline: PASS.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637962341/job/78503002273
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26637964405/job/78503009027
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26638748298/job/78505706631
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26638750078/job/78505712265
 
-Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`; CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Codex then returned CR-02-007 for stale checklist GitHub gate evidence. This checklist gate refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`; CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; CR-02-007 was fixed in pushed head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`. Codex then returned CR-02-008 for stale subagent summary gate evidence. This subagent-summary refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
 
 Submission rule: before pasting this packet into GPT Pro, the operator must prepend the live PR #8 head commit, CI links, and Codex result from GitHub. The committed packet records historical evidence and must not be treated as a self-referential claim that the commit containing it already passed CI/Codex. If the live head does not have CI PASS and Codex no-major evidence, GPT Pro must treat the GitHub gate as BLOCKED and must not authorize Stage 02 implementation.
 
@@ -64,6 +64,10 @@ Important nuance:
 - Codex then returned CR-02-007 P2 because `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded older GitHub gate evidence:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324406953
 - The local fix updates the checklist Gate 6 row so reviewers use GitHub live PR head/CI/Codex evidence at submission time instead of a committed self-referential current-head value.
+- CR-02-007 was fixed and pushed as `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`; CI passed.
+- Codex then returned CR-02-008 P2 because `reviews/stage_02/SUBAGENT_SUMMARY.md` still described old subagent gate evidence:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324516627
+- The local fix updates the subagent summary to use the same GitHub live PR head/CI/Codex Gate 6 rule.
 - This packet does not claim Codex review passed until this fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
