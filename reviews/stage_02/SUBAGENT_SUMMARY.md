@@ -19,6 +19,7 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 | docs-log-agent | Docs, logs, review artifacts | docs, CONTROL, RUNLOG, review files | integration in progress | `logs/subagents/stage_02/docs-log-agent.md` |
 | Mendel | Read-only CR-02-020/021/022 remediation audit | none | PASS after additional regression tests | `logs/subagents/stage_02/mendel-remediation-audit.md` |
 | Hegel | Read-only CR-02-030/031 remediation audit | none | PASS with representative-coverage risk noted | `logs/subagents/stage_02/hegel-cr-02-030-031-audit.md` |
+| Volta CR-02-038 audit | Read-only ToolCallLog artifact-scope audit | none | PASS: finding valid; local remediation added route guards and regression tests | `logs/subagents/stage_02/volta-cr-02-038-audit.md` |
 
 ## Integrated Findings
 
@@ -34,11 +35,12 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 - Mendel findings were integrated: CR-02-020/021/022 local remediation passed read-only audit, and the suggested extra regression tests were added before the final verification batch.
 - Hegel findings were integrated: CR-02-030 SQLite FK/project-existence remediation and CR-02-031 ClaimEvidenceEdge/unknown `source_artifact_refs` remediation pass read-only inspection. Hegel noted remaining risk that generated-artifact route tests are representative rather than exhaustive and that the broad `source_artifact_refs` allowlist should remain documented as Stage 02 provenance semantics.
 - CR-02-032/033 were fixed locally without a new subagent because they are narrow PATCH-null validation findings. Explicit null `source_artifact_refs` and `tool_call_lineage` are now rejected while omitted fields keep prior PATCH semantics.
+- Volta confirmed CR-02-038 is valid: ToolCallLog input/output artifact ids must be project-scoped to preserve replay lineage. The main thread added ToolCallLog create/update artifact guards and regression tests for same-project, cross-project, and unknown refs.
 
 ## Remaining Gates
 
-- CR-02-032/033 local remediation must be committed and pushed to PR #8.
-- GitHub CI must pass for the implementation head.
-- Codex must return no major issues for the implementation head.
-- GPT Pro final implementation review must PASS or accepted CONDITIONAL PASS with critical items resolved.
-- GPT Pro must assign Stage 03 before any Stage 03 work begins.
+- CR-02-038 remediation must be committed and pushed to PR #8.
+- GitHub CI must pass for the latest pushed head.
+- Codex must return no major issues for the latest pushed head.
+- GPT Pro final implementation review already returned PASS for the implementation-reviewed head; Stage 03 remains planning-only until the final evidence/Codex follow-up is complete.
+- GPT Pro must assign and pass Stage 03 planning before any Stage 03 implementation begins.

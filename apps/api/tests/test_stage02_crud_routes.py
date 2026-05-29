@@ -218,6 +218,94 @@ def test_tool_call_create_rejects_unknown_project(client: TestClient) -> None:
     assert response.json()["detail"]["model"] == "ResearchProject"
 
 
+def test_tool_call_create_accepts_same_project_artifact_ids(client: TestClient) -> None:
+    project, source, document, _tool_call = _create_project_source_document_tool(
+        client,
+        title="Project A tool artifact acceptance",
+    )
+
+    response = client.post(
+        "/research-mode/tool-call-logs",
+        json={
+            "project_id": project["id"],
+            "tool_name": "manual.stage02.same_project_artifact_check",
+            "called_at": _now(),
+            "argument_hash": f"hash-same-project-artifacts-{project['id']}",
+            "input_artifact_ids": [source["id"]],
+            "output_artifact_ids": [document["id"]],
+            "status": "succeeded",
+        },
+    )
+
+    assert response.status_code == 201, response.text
+    payload = response.json()
+    assert payload["input_artifact_ids"] == [source["id"]]
+    assert payload["output_artifact_ids"] == [document["id"]]
+
+
+def test_tool_call_create_rejects_cross_project_input_artifact(client: TestClient) -> None:
+    project_a, _source_a, _document_a, _tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A tool input artifact boundary",
+    )
+    _project_b, source_b, _document_b, _tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B tool input artifact boundary",
+    )
+
+    response = client.post(
+        "/research-mode/tool-call-logs",
+        json={
+            "project_id": project_a["id"],
+            "tool_name": "manual.stage02.cross_project_input_artifact",
+            "called_at": _now(),
+            "argument_hash": f"hash-cross-project-input-{project_a['id']}",
+            "input_artifact_ids": [source_b["id"]],
+            "status": "succeeded",
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_tool_call_artifact"
+    assert response.json()["detail"]["field_name"] == "input_artifact_ids"
+
+
+def test_tool_call_update_rejects_cross_project_output_artifact(client: TestClient) -> None:
+    _project_a, _source_a, _document_a, tool_call_a = _create_project_source_document_tool(
+        client,
+        title="Project A tool output artifact boundary",
+    )
+    _project_b, _source_b, document_b, _tool_call_b = _create_project_source_document_tool(
+        client,
+        title="Project B tool output artifact boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/tool-call-logs/{tool_call_a['id']}",
+        json={"output_artifact_ids": [document_b["id"]]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_tool_call_artifact"
+    assert response.json()["detail"]["field_name"] == "output_artifact_ids"
+
+
+def test_tool_call_update_rejects_unknown_input_artifact(client: TestClient) -> None:
+    _project, _source, _document, tool_call = _create_project_source_document_tool(
+        client,
+        title="Project A tool unknown artifact boundary",
+    )
+
+    response = client.patch(
+        f"/research-mode/tool-call-logs/{tool_call['id']}",
+        json={"input_artifact_ids": ["missing-stage02-artifact"]},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_tool_call_artifact"
+    assert response.json()["detail"]["field_name"] == "input_artifact_ids"
+
+
 def test_crud_create_get_list_update_delete_for_stage02_entities(client: TestClient) -> None:
     project = _post(client, "research-projects", {"title": "Temporal contamination study"})
     project_id = project["id"]

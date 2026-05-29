@@ -220,6 +220,60 @@ def _require_source_artifact_refs_project(
             )
 
 
+def _require_tool_call_artifact_ids_project(
+    session: Session,
+    project_id: str,
+    data: dict[str, Any],
+    *,
+    error: str,
+) -> None:
+    for field_name in ("input_artifact_ids", "output_artifact_ids"):
+        if field_name not in data or data[field_name] is None:
+            continue
+        for artifact_ref in data[field_name]:
+            item_project_id = _source_artifact_ref_project_id(session, artifact_ref, error=error)
+            if item_project_id is None:
+                raise _bad_request(
+                    error,
+                    f"{field_name} must resolve to a known project-scoped artifact.",
+                    field_name=field_name,
+                    item_id=artifact_ref,
+                    expected_project_id=project_id,
+                )
+            if item_project_id != project_id:
+                raise _bad_request(
+                    error,
+                    f"{field_name} must not reference artifacts from another project.",
+                    field_name=field_name,
+                    item_id=artifact_ref,
+                    item_project_id=item_project_id,
+                    expected_project_id=project_id,
+                )
+
+
+def _require_tool_call_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_payload_project_exists(session, data)
+    _require_tool_call_artifact_ids_project(
+        session,
+        data["project_id"],
+        data,
+        error="cross_project_tool_call_artifact",
+    )
+
+
+def _require_tool_call_update_scope(
+    session: Session,
+    item: ToolCallLog,
+    data: dict[str, Any],
+) -> None:
+    _require_tool_call_artifact_ids_project(
+        session,
+        item.project_id,
+        data,
+        error="cross_project_tool_call_artifact",
+    )
+
+
 def _require_document_create_scope(session: Session, data: dict[str, Any]) -> None:
     _require_payload_project_exists(session, data)
     _require_related_project(
@@ -598,7 +652,8 @@ register_crud_routes(
     create_schema=schemas.ToolCallLogCreate,
     update_schema=schemas.ToolCallLogUpdate,
     read_schema=schemas.ToolCallLogRead,
-    before_create=_require_payload_project_exists,
+    before_create=_require_tool_call_create_scope,
+    before_update=_require_tool_call_update_scope,
 )
 register_crud_routes(
     route_name="evidence-items",
