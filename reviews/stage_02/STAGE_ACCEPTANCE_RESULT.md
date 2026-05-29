@@ -2,7 +2,7 @@
 
 ## Current Result
 
-Stage 02 implementation is **LOCAL REMEDIATION IN PROGRESS / BLOCKED PENDING FINAL GITHUB AND GPT PRO GATES**.
+Stage 02 implementation is **GITHUB EVIDENCE REMEDIATION IN PROGRESS / BLOCKED PENDING FINAL GITHUB AND GPT PRO GATES**.
 
 The Stage 02 plan gate is already satisfied:
 
@@ -11,16 +11,16 @@ The Stage 02 plan gate is already satisfied:
 - Codex returned no major issues for that head at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 - The user approved direct execution without repeated confirmation.
 
-Final Stage 02 acceptance is still blocked. The CR-02-030/031 remediation is pushed and CI passed on head `db89107a855588d534da1eb4d32c151c120ec442`, but current-head Codex review returned CR-02-032/033. The CR-02-032/033 remediation is fixed locally and passed local checks, but it is not accepted until committed, pushed, CI-passed, and Codex-reviewed. GPT Pro final implementation review is also blocked because the Chrome extension route currently fails with `native pipe is closed`.
+Final Stage 02 acceptance is still blocked. The CR-02-032/033 remediation is pushed and CI passed on head `99b366655c0b2374952740d9ed329e9584a38564`, but current-head Codex review returned CR-02-034 because this file and related Gate 6 evidence still referenced the earlier `db89107` pending state. The CR-02-034 remediation refreshes static GitHub gate evidence and is not accepted until it is committed, pushed, CI-passed, and Codex-reviewed. GPT Pro final implementation review is also blocked because the Chrome extension route currently fails with `native pipe is closed`.
 
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
 | Scope | `PLANS/STAGE_02_PLAN.md`; `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`; `CONTROL/05_DECISION_LOG.md` ADR-0002 | PASS local | Scope is limited to Research Mode domain model primitives. Support-file exception is explicit and reviewable. |
-| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-033 remediation guards evidence, claim, document, claim-edge, generated artifact, source/document/tool-call, lineage, `source_artifact_refs`, explicit null provenance erasure on PATCH, SQLite FK enforcement, orphan project-scoped creates, and quote/no-quote provenance boundaries on create and update. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
+| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-033 remediation guards evidence, claim, document, claim-edge, generated artifact, source/document/tool-call, lineage, `source_artifact_refs`, explicit null provenance erasure on PATCH, SQLite FK enforcement, orphan project-scoped creates, and quote/no-quote provenance boundaries on create and update. CR-02-034 is documentation evidence refresh only. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
 | Tests | API tests, MCP tests, compile checks, Docker/PostgreSQL/Alembic checks, phase check, secret scan, forbidden-scope scan, `git diff --check` | PASS local after CR-02-032/033 | Local verification after CR-02-032/033 remediation passed: API 44 tests, targeted route tests 30, MCP 2 tests, compile, phase_check, and compose config. Prior strict secret scan, runtime forbidden-scope scan with expected guard-test-only matches, diff check, and full Docker/PostgreSQL/Alembic smoke remain recorded. |
-| Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; README files; PR/GPT packets | PASS local | Docs updated for implementation status, commands, and support-file exception. |
+| Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; README files; PR/GPT packets | PASS local | Docs updated for implementation status, commands, support-file exception, and CR-02-034 GitHub gate evidence refresh. |
 | Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/` | PASS local | Logs synchronized to G-0004 implementation goal. |
-| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Head `db89107` has CI PASS, but Codex returned CR-02-032/033. Local remediation must be committed, pushed, CI-passed, and reviewed by Codex before Gate 6 can pass. |
+| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Head `99b366655c0b2374952740d9ed329e9584a38564` has CI PASS, but Codex returned CR-02-034. This documentation evidence refresh must be committed, pushed, CI-passed, and reviewed by Codex before Gate 6 can pass. |
 | GPT Pro | plan response/action items; final implementation packet/response/action items | BLOCKED | Plan PASS exists. Final implementation review has not been submitted because Codex gate is incomplete and Chrome extension automation is currently degraded with `native pipe is closed`. |
 | Product governance | forbidden-scope tests and runtime scan | PASS local | Runtime forbidden-scope test and scan passed. |
 | Security | placeholder-only env; secret scan | PASS local | Likely-secret scan found no matches. |
@@ -55,7 +55,7 @@ Final Stage 02 acceptance is still blocked. The CR-02-030/031 remediation is pus
 
 ## Final Result
 
-Current result: **LOCAL REMEDIATION READY / BLOCKED FOR FINAL CODEX AND GPT PRO GATES**.
+Current result: **DOCUMENTATION EVIDENCE REMEDIATION READY / BLOCKED FOR FINAL CODEX AND GPT PRO GATES**.
 
 Do not mark Stage 02 PASS and do not start Stage 03 until:
 
