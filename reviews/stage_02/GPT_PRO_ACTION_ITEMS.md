@@ -1,19 +1,33 @@
-# GPT Pro Stage 02 Action Items
-
-This file mirrors `reviews/stage_02/GPT_PRO_PLAN_ACTION_ITEMS.md` for the generic phase gate file naming convention.
+# GPT Pro Final Action Items: Stage 02 Implementation
 
 ## Result
 
-Stage 02 plan review: PASS.
+Stage 02 implementation final gate: **PASS**.
 
-## Blocking Condition
+## Required Before Closing Stage 02
 
-Stage 02 implementation is not authorized until the user explicitly approves the Stage 02 `/goal`.
+- Save the final GPT Pro response.
+- Save this action-item file.
+- Update `reviews/stage_02/STAGE_ACCEPTANCE_RESULT.md` to PASS / ACCEPTED.
+- Update `CONTROL/04_EXECUTION_LOG.md`.
+- Update `CONTROL/07_CODEX_GOAL_REGISTRY.md`.
+- Update `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` with Stage 03 planning-only instructions.
+- Update `CONTROL/18_ARTIFACT_REGISTRY.md`.
+- Update `CONTROL/19_STAGE_DASHBOARD.md`.
+- Update `CONTROL/20_BLOCKER_LOG.md`, resolving B-0020.
+- Update `CONTROL/24_CURRENT_STAGE_STATE.md`.
+- Update `CONTROL/25_NEXT_ACTION_QUEUE.md`.
+- Update `CONTROL/27_CHECKPOINT_LOG.md`.
+- Update `RUNLOG/LONG_RUN_CURRENT.md` and `RUNLOG/LONG_RUN_SUMMARY.md`.
 
-## Required Before Implementation
+## Deferred Items
 
-- Preserve Research Mode-first, MCP-first, evidence-stream product identity.
-- Use only the allowed Stage 02 file boundaries in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`.
-- Keep Stage 03 unauthorized.
-- Save and commit GPT Pro response/action-item evidence.
-- Run local checks, CI, Codex review, and GPT Pro final implementation review after implementation work.
+- CI hardening.
+- Advanced provenance policy engine.
+- Graph-level validation.
+- Export logic.
+- MCP tools.
+
+## Next Stage
+
+Stage 03 is authorized for planning only. Do not implement Stage 03 until `PLANS/STAGE_03_PLAN.md` is created, reviewed through GitHub/Codex, submitted to GPT Pro for plan review, and converted into a user-approved `/goal`.

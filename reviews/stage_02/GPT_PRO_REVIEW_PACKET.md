@@ -112,7 +112,7 @@ Current locally verified:
 - CR-02-035 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
 - CR-02-036 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
 
-Before final acceptance, Codex must prepend the latest implementation commit, CI links, Codex review URL/result, and any additional local verification results. If the implementation head does not have CI PASS and Codex no-major evidence, treat the GitHub gate as BLOCKED.
+Final implementation review was submitted after live GitHub evidence was verified. The implementation-reviewed head had CI PASS and Codex no-major evidence before GPT Pro review.
 
 Implementation code commit pushed before this evidence sync:
 
@@ -120,21 +120,21 @@ Implementation code commit pushed before this evidence sync:
 
 Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on head `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on head `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The code remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, explicit null provenance-erasure rejection on PATCH, tool-call lineage, and deployment evidence sync. The latest CR-02-036 remediation is documentation-only and refreshes static Gate 6 evidence after the CR-02-035 evidence remediation was pushed and CI-passed.
 
-Last live PR head checked before this documentation-only remediation:
+Live PR head submitted to GPT Pro:
 
-- `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`
+- `09585c58e71eb72b532ea42569d38dce2aa7b648`
 - CI PASS:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26659276329/job/78577388488
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26659279119/job/78577396682
-- Current-head Codex review requests:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579409749
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579426105
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796
-- Current-head Codex result: CR-02-036 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560.
-- Current remediation status: CR-02-036 documentation evidence refresh is the active branch-head remediation; live CI PASS and current-head Codex no-major are still required before this packet can be submitted as final implementation review evidence.
-- Browser/GPT Pro route status: BLOCKED. Chrome extension calls returned `native pipe is closed` after one retry; Chrome is running, extension is installed/enabled, native host manifest is correct, and the recovery-window attempt still failed.
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660048397/job/78580033327
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660051219/job/78580042699
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862
 
-The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.
+Browser/GPT Pro route status: PASS with recovery. Chrome extension calls returned `native pipe is closed`; Chrome was running, the extension was enabled, and the native host manifest was valid. The specified GPT Pro page was accessible through the logged-in Chrome page, and Windows UI Automation was used to submit the packet and capture the response. No password, verification code, API key, payment data, or secret was entered.
+
+GPT Pro final response is saved in:
+
+- `reviews/stage_02/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
 
 ## Review Files
 

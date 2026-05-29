@@ -2,68 +2,46 @@
 
 ## Current Result
 
-Stage 02 implementation is **GITHUB EVIDENCE REMEDIATION IN PROGRESS / BLOCKED PENDING FINAL GITHUB AND GPT PRO GATES**.
+Stage 02 implementation is **PASS / ACCEPTED**.
 
-The Stage 02 plan gate is already satisfied:
+GPT Pro final implementation review returned PASS on 2026-05-29 after live PR #8 evidence was submitted through Chrome with Windows UI Automation recovery.
 
-- GPT Pro returned PASS for the Stage 02 plan.
-- PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d` passed CI.
-- Codex returned no major issues for that head at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
-- The user approved direct execution without repeated confirmation.
+Stage 03 is authorized for planning only. Stage 03 implementation is not authorized.
 
-Final Stage 02 acceptance is still blocked. The CR-02-035 remediation is pushed and CI passed on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`, but current-head Codex review returned CR-02-036 because `CONTROL/24_CURRENT_STAGE_STATE.md` lacked committed CI evidence for that reviewed head. The CR-02-036 remediation refreshes static GitHub gate evidence and is not accepted until the latest pushed head is CI-passed and Codex-reviewed with no major issues. GPT Pro final implementation review is also blocked because the Chrome extension route currently fails with `native pipe is closed`.
+## Final Gate Evidence
+
+- Branch: `stage/02-domain-models`.
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8.
+- Live implementation head reviewed by GPT Pro: `09585c58e71eb72b532ea42569d38dce2aa7b648`.
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660048397/job/78580033327
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660051219/job/78580042699
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862
+- GPT Pro final response:
+  - `reviews/stage_02/GPT_PRO_REVIEW_RESPONSE.md`
+  - `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
+- GPT Pro final action items:
+  - `reviews/stage_02/GPT_PRO_ACTION_ITEMS.md`
+  - `reviews/stage_02/GPT_PRO_FINAL_ACTION_ITEMS.md`
+
+## Ten-Gate Result
 
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
-| Scope | `PLANS/STAGE_02_PLAN.md`; `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`; `CONTROL/05_DECISION_LOG.md` ADR-0002 | PASS local | Scope is limited to Research Mode domain model primitives. Support-file exception is explicit and reviewable. |
-| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-033 remediation guards evidence, claim, document, claim-edge, generated artifact, source/document/tool-call, lineage, `source_artifact_refs`, explicit null provenance erasure on PATCH, SQLite FK enforcement, orphan project-scoped creates, and quote/no-quote provenance boundaries on create and update. CR-02-034 through CR-02-036 are documentation evidence refreshes only. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
-| Tests | API tests, MCP tests, compile checks, Docker/PostgreSQL/Alembic checks, phase check, secret scan, forbidden-scope scan, `git diff --check` | PASS local after CR-02-032/033 | Local verification after CR-02-032/033 remediation passed: API 44 tests, targeted route tests 30, MCP 2 tests, compile, phase_check, and compose config. Prior strict secret scan, runtime forbidden-scope scan with expected guard-test-only matches, diff check, and full Docker/PostgreSQL/Alembic smoke remain recorded. |
-| Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; README files; PR/GPT packets | PASS local | Docs updated for implementation status, commands, support-file exception, and CR-02-036 GitHub gate evidence refresh. |
-| Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/` | PASS local | Logs synchronized to G-0004 implementation goal. |
-| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1` has CI PASS, but Codex returned CR-02-036. The latest pushed documentation evidence refresh must be CI-passed and reviewed by Codex with no major issues before Gate 6 can pass. |
-| GPT Pro | plan response/action items; final implementation packet/response/action items | BLOCKED | Plan PASS exists. Final implementation review has not been submitted because Codex gate is incomplete and Chrome extension automation is currently degraded with `native pipe is closed`. |
-| Product governance | forbidden-scope tests and runtime scan | PASS local | Runtime forbidden-scope test and scan passed. |
-| Security | placeholder-only env; secret scan | PASS local | Likely-secret scan found no matches. |
-| Next stage | `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` | BLOCKED | Stage 03 is unauthorized until GPT Pro final Stage 02 PASS assigns it. |
-
-## Current Local Evidence
-
-- `python -m pytest apps/api/tests`: PASS, 21 tests after CR-02-020/021/022/023 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py apps/api/tests/test_stage02_schemas.py -q`: PASS, 20 tests after CR-02-024/025 remediation.
-- `python -m pytest apps/api/tests`: PASS, 27 tests after CR-02-024/025 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 23 tests after CR-02-026/027/028/029 remediation.
-- `python -m pytest apps/api/tests`: PASS, 36 tests after CR-02-026/027/028/029 remediation.
-- `python -m pytest apps/api/tests`: PASS, 42 tests after CR-02-030/031 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 28 targeted route tests after CR-02-030/031 remediation.
-- `python -m pytest apps/api/tests/test_stage02_models.py -q`: PASS, 5 model tests after CR-02-030 remediation.
-- `python -m pytest apps/api/tests`: PASS, 44 tests after CR-02-032/033 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 30 targeted route tests after CR-02-032/033 remediation.
-- `python -m pytest apps/api/tests/test_stage02_schemas.py apps/api/tests/test_stage02_crud_routes.py`: PASS, 14 tests after CR-02-023 remediation.
-- `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
-- `python -m compileall apps/api/finsignalhub_api`: PASS.
-- `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
-- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02`: PASS.
-- `npm.cmd run web:build`: PASS.
-- `npm.cmd run web:audit`: PASS, 0 vulnerabilities.
-- `docker compose config`: PASS.
-- PostgreSQL Alembic `upgrade head`, `downgrade -1`, `upgrade head`: PASS.
-- Full `docker compose up --build -d` plus API/MCP/web smoke: PASS.
-- Likely-secret scan: PASS.
-- Runtime forbidden-scope scan: PASS.
-- Artifact ID uniqueness: PASS, 1191 scanned IDs.
-- `git diff --check`: PASS.
-- CR-02-035 documentation remediation checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact ID uniqueness with 232 IDs, checkpoint ID uniqueness with 151 IDs, and `git diff --check` with only normal Windows line-ending warnings.
-- CR-02-036 documentation remediation checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact ID uniqueness with 235 IDs, checkpoint ID uniqueness with 153 IDs, and `git diff --check` with only normal Windows line-ending warnings.
+| Scope | `PLANS/STAGE_02_PLAN.md`; `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`; ADR-0002 in `CONTROL/05_DECISION_LOG.md` | PASS | Scope stayed limited to Research Mode domain model primitives, schemas, migration, CRUD primitives, tests, docs, and logs. |
+| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS | Approved models and CRUD primitives exist. Remediations through CR-02-036 addressed provenance, project-boundary, update-guard, and Gate 6 evidence issues. |
+| Tests | API tests, MCP tests, compile checks, phase check, Docker/PostgreSQL/Alembic checks, secret scan, forbidden-scope scan, `git diff --check` | PASS | Local verification passed: API 44 tests, targeted route 30 tests, model 5 tests, MCP 2 tests, compile, phase_check, Docker/PostgreSQL/Alembic, web build/audit, smoke, scans, and diff check. |
+| Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; review/deployment/control docs | PASS | Documentation reflects Stage 02 implementation and support-file exception. |
+| Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/` | PASS | Final GPT Pro PASS and Stage 03 planning-only instruction are recorded. |
+| GitHub | PR #8; head `09585c58e71eb72b532ea42569d38dce2aa7b648`; CI links; Codex no-major link | PASS | Live CI and Codex no-major evidence is sufficient despite older committed packet wording. |
+| GPT Pro | final response and final action item files | PASS | GPT Pro returned Stage 02 implementation PASS and allowed Stage 02 acceptance after saving response/action items locally. |
+| Product governance | forbidden-scope scans; GPT Pro final response; Codex no-major | PASS | No forbidden Stage 03+ behavior was indicated. |
+| Security | `.env.example` placeholders; secret scans; no credential entry in browser flow | PASS | No secrets were entered or committed. |
+| Next stage | `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` | PASS | GPT Pro assigned Stage 03 planning only. |
 
 ## Final Result
 
-Current result: **CR-02-036 DOCUMENTATION EVIDENCE REMEDIATION READY / BLOCKED FOR FINAL CODEX AND GPT PRO GATES**.
+Stage 02 implementation: **PASS / ACCEPTED**.
 
-Do not mark Stage 02 PASS and do not start Stage 03 until:
-
-1. full local verification remains valid;
-2. current PR #8 head remains identified from live GitHub evidence;
-3. GitHub CI remains passing for the implementation head;
-4. Codex returns no major issues for the implementation head;
-5. GPT Pro final implementation review returns PASS or accepted CONDITIONAL PASS with critical items resolved;
-6. GPT Pro provides Stage 03 instructions.
+Next valid action: Stage 03 `/plan` only. Do not implement Stage 03 until the Stage 03 plan and GPT Pro plan gate pass and the user-approved Stage 03 `/goal` is recorded.

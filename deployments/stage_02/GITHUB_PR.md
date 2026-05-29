@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. Head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1` passed live GitHub CI, then Codex returned CR-02-036 because `CONTROL/24_CURRENT_STAGE_STATE.md` lacked committed CI evidence for that reviewed head. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time; this CR-02-036 documentation remediation is not accepted until the latest pushed head passes live CI and receives current-head Codex no-major evidence.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, and CR-02-036 on `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`. The final implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed CI, Codex returned no major issues, and GPT Pro returned final implementation PASS. Gate 6 is PASS for that reviewed implementation head. Any later documentation-only final evidence commit still needs live CI/Codex before merge.
 
 ## Branch
 
@@ -82,6 +82,12 @@ Current PR head after CR-02-035 remediation:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26659276329/job/78577388488
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26659279119/job/78577396682
 
+Implementation-reviewed head after CR-02-036 remediation:
+
+- PASS on head `09585c58e71eb72b532ea42569d38dce2aa7b648`:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660048397/job/78580033327
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660051219/job/78580042699
+
 ## Codex Review
 
 Planning and gate-remediation Codex findings CR-02-001 through CR-02-019 are preserved in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md`.
@@ -106,7 +112,8 @@ Implementation-head Codex review:
 - Current-head review event for `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392409474 returned CR-02-035 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326573986.
 - Current-head review requests for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579409749; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579426105; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796.
 - Current-head review event for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 returned CR-02-036 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560.
-- Follow-up status: BLOCKED. CR-02-036 is this documentation evidence refresh. The latest pushed head must pass live CI and receive current-head Codex no-major evidence before Gate 6 can pass.
+- Current-head no-major response for `09585c58e71eb72b532ea42569d38dce2aa7b648`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862.
+- Follow-up status: PASS for implementation-reviewed head. Final evidence documentation commit is expected after GPT Pro response/action items are saved and must receive normal CI/Codex before merge.
 
 Required comment:
 
@@ -121,7 +128,7 @@ Stage 02 plan PASS is saved in:
 - `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
 - `reviews/stage_02/GPT_PRO_PLAN_ACTION_ITEMS.md`
 
-Final implementation review is pending. It must include:
+Final implementation review is PASS. It included:
 
 - PR URL and implementation commit.
 - CI links for the implementation head.
@@ -129,3 +136,8 @@ Final implementation review is pending. It must include:
 - Local check evidence.
 - Acceptance result.
 - Known support-file exception from ADR-0002.
+
+GPT Pro final response is saved in:
+
+- `reviews/stage_02/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`

@@ -62,7 +62,7 @@ Verified local evidence:
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
 - Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 - Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; CR-02-024/025 returned on head `9984b407acd2e5b75c57847545807cf083c9bc2a`; CR-02-026/027/028/029 returned on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`; CR-02-030/031 returned on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`; CR-02-032/033 returned on head `db89107a855588d534da1eb4d32c151c120ec442`; CR-02-034 returned on head `99b366655c0b2374952740d9ed329e9584a38564`; CR-02-035 returned on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`; CR-02-036 returned on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`.
-- Current remediation status: CR-02-036 documentation evidence refresh is the active branch-head remediation after Codex review on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`, which passed live CI before that review. The latest pushed head still needs live CI PASS and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
+- Current implementation-reviewed status: head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed live CI and Codex no-major after CR-02-036 remediation. GPT Pro final review returned PASS through the specified Chrome page using Windows UI Automation recovery after the Chrome extension route returned `native pipe is closed`.
 
 Required review request after implementation push:
 
@@ -73,9 +73,9 @@ Required review request after implementation push:
 ## GPT Pro Status
 
 - Stage 02 plan review: PASS.
-- Final implementation review: blocked until current-head Codex no-major exists and Chrome/GPT Pro submission route is controllable.
-- Stage 03: not authorized.
+- Final implementation review: PASS.
+- Stage 03: authorized for planning only; implementation is not authorized.
 
 ## Acceptance
 
-Stage 02 remains blocked until local checks, CI, Codex, GPT Pro final review, and next-stage instruction are all recorded.
+Stage 02 implementation is PASS / ACCEPTED for the implementation-reviewed head. Final documentation-only evidence commit must still pass normal CI/Codex before merge. Stage 03 may proceed to `/plan` only after the final evidence commit is recorded.
