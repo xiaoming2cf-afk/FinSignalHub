@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. GPT Pro plan review passed after the `857696e19d46446658081ec2ed1236c791099730` evidence baseline. Later evidence head `06a6d4b2f848bd0c93b753d7df46c2248b659149` passed CI, then Codex returned CR-02-012/013/014 for stale post-GPT-Pro gate wording. This file is part of that local remediation and must not be used as a self-referential claim that the remediation commit is already reviewed; Gate 6 for implementation must use GitHub live PR head/CI/Codex evidence after the remediation push.
+Planning PR open. GPT Pro plan review passed after the `857696e19d46446658081ec2ed1236c791099730` evidence baseline. Current captured head `69cd91760178881b2ce623d40675052907c1b64a` passed CI, then Codex returned CR-02-018/019 for stale checklist and deployment evidence. This file is part of the CR-02-018/019 remediation and must not be used as a self-referential claim that the remediation commit is already reviewed; Gate 6 for implementation must use GitHub live PR head/CI/Codex evidence after the remediation push.
 
 ## Branch
 
@@ -18,7 +18,12 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-Last captured PASS after GPT Pro plan review evidence push: head `06a6d4b2f848bd0c93b753d7df46c2248b659149`.
+Last captured PASS before the CR-02-018/019 remediation: head `69cd91760178881b2ce623d40675052907c1b64a`.
+
+- Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643740985/job/78523532221
+- Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643743160/job/78523539827
+
+Earlier PASS after GPT Pro plan review evidence push: head `06a6d4b2f848bd0c93b753d7df46c2248b659149`.
 
 - Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26642429143/job/78518834903
 - Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26642432801/job/78518847540
@@ -114,6 +119,13 @@ The earlier review on `06a6d4b2f848bd0c93b753d7df46c2248b659149` also returned C
 - CR-02-016: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955842
 
 The local remediation updates `PLANS/STAGE_02_PLAN.md` and `logs/subagents/stage_02/plan-scope-verifier.md` so the Stage 02 implementation file boundary matches GPT Pro's saved `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` instruction and the subagent verifier no longer claims GPT Pro is pending. Gate 6 remains pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
+The remediation commit `69cd91760178881b2ce623d40675052907c1b64a` passed CI, and Codex returned:
+
+- CR-02-018: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092862
+- CR-02-019: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092872
+
+The local remediation updates `CHECKLISTS/STAGE_02_CHECKLIST.md`, this deployment record, and related gate summaries so the current blocker is CR-02-018/019 instead of superseded CR-02-012/014 or CR-02-016/017 text. Gate 6 remains pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 

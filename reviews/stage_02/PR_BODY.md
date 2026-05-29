@@ -44,9 +44,9 @@ PASS for Stage 02 plan review. Implementation still requires explicit user `/goa
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Last captured live evidence before this subagent/changelog refresh: `04b66822be98155a7112f42e7e084552b34b2154`
+- Last captured live evidence before this CR-02-018/019 remediation: `69cd91760178881b2ce623d40675052907c1b64a`.
 - CI: PASS on that pushed head.
-- Codex: PASS/no-major on head `857696e19d46446658081ec2ed1236c791099730` before GPT Pro plan review. Final evidence commits still require CI/Codex follow-up before implementation starts.
+- Codex: returned CR-02-018/019 on that pushed head. Final evidence commits still require CI/Codex follow-up before implementation starts.
 
 ## Current Codex Findings
 
@@ -61,6 +61,14 @@ PASS for Stage 02 plan review. Implementation still requires explicit user `/goa
 - CR-02-009: Stage 02 directories lacked purpose docs; fixed in `04b66822be98155a7112f42e7e084552b34b2154`.
 - CR-02-010: Stage 02 subagent summary still described older CR-02-008 state; fixed by this subagent summary refresh.
 - CR-02-011: `CHANGELOG.md` contained internal CR-specific remediation notes; fixed by compressing it to user-visible Stage 02 governance changes only.
+- CR-02-012: checklist still marked GitHub blocked and GPT Pro pending after GPT Pro PASS; fixed in the post-GPT-Pro evidence remediation.
+- CR-02-013: deployment record still described GPT Pro as pending after saved PASS; fixed in the post-GPT-Pro evidence remediation.
+- CR-02-014: subagent summary still listed GPT Pro plan review as pending; fixed in the post-GPT-Pro evidence remediation.
+- CR-02-015: checklist GPT Pro gate still named older `06a6d4b2` pending state; fixed in `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`.
+- CR-02-016: Stage 02 plan listed root config/CI/env files outside GPT Pro's approved implementation boundary; fixed in `69cd91760178881b2ce623d40675052907c1b64a`.
+- CR-02-017: subagent verifier still described GPT Pro plan review as pending; fixed in `69cd91760178881b2ce623d40675052907c1b64a`.
+- CR-02-018: checklist Gate 6 still described older CR-02-012/013/014 blocker state; fixed locally by this remediation.
+- CR-02-019: deployment evidence still described older CR-02-012/013/014 blocker state; fixed locally by this remediation.
 
 ## Codex Review Request
 

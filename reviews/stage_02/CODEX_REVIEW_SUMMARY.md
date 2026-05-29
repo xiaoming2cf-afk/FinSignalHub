@@ -2,12 +2,12 @@
 
 ## Current Status
 
-In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`. Codex reviewed that head and returned one new finding, while one prior `06a6d4b2f848bd0c93b753d7df46c2248b659149` finding also remained unaddressed:
+In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `69cd91760178881b2ce623d40675052907c1b64a`. Codex reviewed that head and returned two new findings:
 
-- CR-02-016 P2: `PLANS/STAGE_02_PLAN.md` still listed root config, CI workflow, Docker, and env files as later Stage 02 implementation targets, conflicting with GPT Pro's narrower implementation boundary in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`.
-- CR-02-017 P2: `logs/subagents/stage_02/plan-scope-verifier.md` still said GPT Pro plan review was pending even though GPT Pro PASS is now saved.
+- CR-02-018 P2: `CHECKLISTS/STAGE_02_CHECKLIST.md` still described the active GitHub blocker as CR-02-012/013/014 on `06a6d4b2f848bd0c93b753d7df46c2248b659149`, even though the current blocker had advanced.
+- CR-02-019 P2: `deployments/stage_02/GITHUB_PR.md` still described the active deployment evidence as part of the CR-02-012/013/014 remediation, even though the current blocker had advanced.
 
-The local remediation updates the Stage 02 plan implementation boundary and the stale subagent verifier log so GPT Pro plan review is PASS and Stage 02 implementation can only touch GPT Pro-approved files after current-head CI/Codex and explicit user Stage 02 implementation `/goal`. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+The local remediation updates the checklist, deployment record, and current gate summaries so they point to CR-02-018/019 as the latest active blocker while preserving earlier CR-02-012/017 entries as historical findings. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
 
 ## Review Scope
 
@@ -47,6 +47,8 @@ Codex must review the Stage 02 plan for:
 | CR-02-015 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955838 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded the GPT Pro gate as pending for head `06a6d4b2f848bd0c93b753d7df46c2248b659149`. | Fixed by commit `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`, which recorded GPT Pro plan PASS in the checklist while keeping implementation blocked. | fixed in `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`; follow-up found CR-02-017 |
 | CR-02-016 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324955842 | `PLANS/STAGE_02_PLAN.md` listed root config, CI workflow, Docker, and env files as later implementation targets even though GPT Pro narrowed the implementation boundary in `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`. | Removed root config, CI workflow, Docker, env, root README, and `AGENTS.md` from the Stage 02 implementation file list unless GPT Pro explicitly expands scope later. | fixed locally; follow-up required |
 | CR-02-017 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325012558 | `logs/subagents/stage_02/plan-scope-verifier.md` still said GPT Pro plan review was pending despite saved PASS evidence. | Updated the subagent verifier log to say GPT Pro plan review PASS is saved and remaining blockers are current-head CI/Codex plus explicit user `/goal`. | fixed locally; follow-up required |
+| CR-02-018 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092862 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still described Gate 6 as blocked by older CR-02-012/013/014 evidence instead of the latest current-head blocker chain. | Updated the checklist GitHub row and current status to identify CR-02-018/019 as the active remediation while keeping Gate 6 blocked until push, CI, and current-head Codex no-major. | fixed locally; follow-up required |
+| CR-02-019 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092872 | `deployments/stage_02/GITHUB_PR.md` still described deployment evidence as part of the older CR-02-012/013/014 remediation instead of the current CR-02-018/019 state. | Updated deployment status, latest CI evidence, and Codex history with CR-02-018/019 and the live-head Gate 6 rule. | fixed locally; follow-up required |
 
 ## Review Requests
 
@@ -79,10 +81,11 @@ Codex must review the Stage 02 plan for:
 | 25 | Post-GPT-Pro evidence current-head CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576171244 | Codex review event on `06a6d4b2f848bd0c93b753d7df46c2248b659149` returned CR-02-012/013/014 |
 | 26 | Post-GPT-Pro evidence GitHub plugin PR review route | review id `4390309166` | requested after CR-02-012/013/014 had already been returned; no extra duplicate fix required |
 | 27 | Post-CR-02-012/013/014 GitHub plugin PR review route | review id `4390393035` | Codex review event on `929b3e8259eb7b29fe5686b70e8cae9ec79cef88` returned CR-02-017; prior CR-02-016 also remained actionable |
+| 28 | Post-CR-02-016/017 GitHub plugin PR review route and minimal CLI comment | review id `4390469536`; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576440700 | Codex review event on `69cd91760178881b2ce623d40675052907c1b64a` returned CR-02-018/019 |
 
 ## Current Gate Result
 
-BLOCKED pending follow-up for the remediation of CR-02-016/017. GPT Pro plan review is PASS, but the remediation commit must be pushed, pass CI, and receive current-head Codex no-major evidence before Stage 02 implementation can start. Explicit user Stage 02 implementation `/goal` approval is still required after those GitHub checks.
+BLOCKED pending follow-up for the remediation of CR-02-018/019. GPT Pro plan review is PASS, but the remediation commit must be pushed, pass CI, and receive current-head Codex no-major evidence before Stage 02 implementation can start. Explicit user Stage 02 implementation `/goal` approval is still required after those GitHub checks.
 
 ## Current-Head Rule
 

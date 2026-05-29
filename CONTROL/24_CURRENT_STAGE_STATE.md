@@ -35,19 +35,19 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 | Field | Value |
 | --- | --- |
 | Current stage | Stage 02 Research Mode domain models planning |
-| Current phase status | Stage 02 plan PASS; implementation blocked pending CR-02-016/017 follow-up CI/Codex and user `/goal` approval |
+| Current phase status | Stage 02 plan PASS; implementation blocked pending CR-02-018/019 follow-up CI/Codex and user `/goal` approval |
 | Active branch | `stage/02-domain-models` |
 | Latest PR | Stage 02 PR #8: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 |
-| Latest CI status | PASS on remediation head `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643216544/job/78521660167 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643221304/job/78521676253. The CR-02-016/017 remediation still needs CI follow-up after push. |
-| Latest Codex review status | BLOCKED: Codex returned CR-02-017 on head `929b3e8259eb7b29fe5686b70e8cae9ec79cef88`; prior CR-02-016 remained actionable. Local remediation is prepared and requires push, CI, and current-head Codex no-major evidence. |
+| Latest CI status | PASS on remediation head `69cd91760178881b2ce623d40675052907c1b64a`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643740985/job/78523532221 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26643743160/job/78523539827. The CR-02-018/019 remediation still needs CI follow-up after push. |
+| Latest Codex review status | BLOCKED: Codex returned CR-02-018/019 on head `69cd91760178881b2ce623d40675052907c1b64a` for stale checklist/deployment evidence. Local remediation is prepared and requires push, CI, and current-head Codex no-major evidence. |
 | Latest GPT Pro review status | PASS for Stage 02 plan; response saved in `reviews/stage_02/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; Stage 03 not authorized |
 | Active goal id | G-0003 |
-| Next required action | run checks for CR-02-016/017 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit user Stage 02 `/goal` approval before implementation |
-| Blocker status | B-0017 open for Stage 02 implementation authorization; B-0019 open for CR-02-016/017 current-head Codex follow-up |
-| Last updated time | 2026-05-29T09:37:17-05:00 |
+| Next required action | run checks for CR-02-018/019 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit user Stage 02 `/goal` approval before implementation |
+| Blocker status | B-0017 open for Stage 02 implementation authorization; B-0019 open for CR-02-018/019 current-head Codex follow-up |
+| Last updated time | 2026-05-29T09:51:20-05:00 |
 
 Current detected stage is: Stage 02 Research Mode domain models planning.
 
-Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 plan review passed. Stage 02 implementation is not authorized until CR-02-016/017 remediation gets current-head CI/Codex no-major evidence and explicit user `/goal` approval.
+Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 plan review passed. Stage 02 implementation is not authorized until CR-02-018/019 remediation gets current-head CI/Codex no-major evidence and explicit user `/goal` approval.
 
-Next valid action is: run checks for CR-02-016/017 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit Stage 02 `/goal` approval before implementation.
+Next valid action is: run checks for CR-02-018/019 remediation, commit and push, wait for CI, request one current-head Codex review, then wait for explicit Stage 02 `/goal` approval before implementation.
