@@ -14,6 +14,68 @@ def _post(client: TestClient, route: str, payload: dict[str, Any]) -> dict[str, 
     return response.json()
 
 
+def _create_project_evidence_claim(
+    client: TestClient,
+    *,
+    title: str,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+    project = _post(client, "research-projects", {"title": title})
+    project_id = project["id"]
+    source = _post(
+        client,
+        "sources",
+        {
+            "project_id": project_id,
+            "source_identity": f"doi:10.0000/{project_id}",
+            "source_type": "literature",
+            "title": f"{title} source",
+            "retrieval_time": _now(),
+        },
+    )
+    tool_call = _post(
+        client,
+        "tool-call-logs",
+        {
+            "project_id": project_id,
+            "tool_name": "manual.stage02.fixture",
+            "called_at": _now(),
+            "argument_hash": f"hash-{project_id}",
+            "status": "succeeded",
+        },
+    )
+    evidence = _post(
+        client,
+        "evidence-items",
+        {
+            "project_id": project_id,
+            "source_id": source["id"],
+            "tool_call_id": tool_call["id"],
+            "evidence_text": "Evidence text",
+            "source_identity": source["source_identity"],
+            "source_type": "literature",
+            "retrieval_time": _now(),
+            "quoted_evidence_span": {"page": 1, "start": 0, "end": 13, "text": "Evidence text"},
+            "transformation_notes": "manual fixture",
+            "confidence": 0.9,
+            "tool_call_lineage": [tool_call["id"]],
+        },
+    )
+    claim = _post(
+        client,
+        "research-claims",
+        {
+            "project_id": project_id,
+            "originating_evidence_item_id": evidence["id"],
+            "tool_call_id": tool_call["id"],
+            "claim_text": f"{title} contains fixture evidence.",
+            "derivation_notes": "Derived from the fixture evidence item.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call["id"]],
+        },
+    )
+    return project, tool_call, evidence, claim
+
+
 def test_stage02_crud_routes_are_registered(client: TestClient) -> None:
     routes = {route.path for route in client.app.routes}
 
@@ -221,3 +283,107 @@ def test_crud_create_get_list_update_delete_for_stage02_entities(client: TestCli
 
     response = client.delete(f"/research-mode/repro-pack-exports/{created['repro-pack-exports']['id']}")
     assert response.status_code == 204
+
+
+def test_evidence_update_cannot_clear_quote_provenance(client: TestClient) -> None:
+    _project, _tool_call, evidence, _claim = _create_project_evidence_claim(
+        client,
+        title="Quote provenance project",
+    )
+
+    response = client.patch(
+        f"/research-mode/evidence-items/{evidence['id']}",
+        json={"quoted_evidence_span": None, "no_quote_reason": None},
+    )
+
+    assert response.status_code == 422
+    assert response.json()["detail"]["error"] == "missing_evidence_quote_provenance"
+
+
+def test_evidence_update_cannot_clear_only_quote_when_no_reason_exists(client: TestClient) -> None:
+    _project, _tool_call, evidence, _claim = _create_project_evidence_claim(
+        client,
+        title="Quote-only provenance project",
+    )
+
+    response = client.patch(
+        f"/research-mode/evidence-items/{evidence['id']}",
+        json={"quoted_evidence_span": None},
+    )
+
+    assert response.status_code == 422
+    assert response.json()["detail"]["error"] == "missing_evidence_quote_provenance"
+
+
+def test_evidence_update_allows_replacing_quote_with_no_quote_reason(client: TestClient) -> None:
+    _project, _tool_call, evidence, _claim = _create_project_evidence_claim(
+        client,
+        title="No quote replacement project",
+    )
+
+    response = client.patch(
+        f"/research-mode/evidence-items/{evidence['id']}",
+        json={
+            "quoted_evidence_span": None,
+            "no_quote_reason": "Evidence source is normalized metadata without a direct quote span.",
+        },
+    )
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["quoted_evidence_span"] is None
+    assert payload["no_quote_reason"] == "Evidence source is normalized metadata without a direct quote span."
+
+
+def test_claim_evidence_edge_rejects_cross_project_links(client: TestClient) -> None:
+    _project_a, tool_call_a, _evidence_a, claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A",
+    )
+    _project_b, _tool_call_b, evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B",
+    )
+
+    response = client.post(
+        "/research-mode/claim-evidence-edges",
+        json={
+            "claim_id": claim_a["id"],
+            "evidence_item_id": evidence_b["id"],
+            "tool_call_id": tool_call_a["id"],
+            "relation_type": "supports",
+            "rationale": "Cross-project link should be rejected.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_a["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_evidence_edge"
+
+
+def test_claim_evidence_edge_rejects_cross_project_tool_call(client: TestClient) -> None:
+    _project_a, _tool_call_a, evidence_a, claim_a = _create_project_evidence_claim(
+        client,
+        title="Project A tool-call boundary",
+    )
+    _project_b, tool_call_b, _evidence_b, _claim_b = _create_project_evidence_claim(
+        client,
+        title="Project B tool-call boundary",
+    )
+
+    response = client.post(
+        "/research-mode/claim-evidence-edges",
+        json={
+            "claim_id": claim_a["id"],
+            "evidence_item_id": evidence_a["id"],
+            "tool_call_id": tool_call_b["id"],
+            "relation_type": "supports",
+            "rationale": "Cross-project tool call should be rejected.",
+            "confidence": 0.8,
+            "tool_call_lineage": [tool_call_b["id"]],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"]["error"] == "cross_project_claim_evidence_tool_call"

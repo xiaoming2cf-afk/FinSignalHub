@@ -36,6 +36,68 @@ def _not_found(error: NotFoundError) -> HTTPException:
     )
 
 
+def _unprocessable(error: str, message: str, **context: Any) -> HTTPException:
+    return HTTPException(
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        detail={"error": error, "message": message, **context},
+    )
+
+
+def _bad_request(error: str, message: str, **context: Any) -> HTTPException:
+    return HTTPException(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        detail={"error": error, "message": message, **context},
+    )
+
+
+def _require_evidence_update_provenance(
+    _session: Session,
+    item: EvidenceItem,
+    data: dict[str, Any],
+) -> None:
+    quoted_span = data.get("quoted_evidence_span", item.quoted_evidence_span)
+    no_quote_reason = data.get("no_quote_reason", item.no_quote_reason)
+    if not quoted_span and not no_quote_reason:
+        raise _unprocessable(
+            "missing_evidence_quote_provenance",
+            "EvidenceItem updates must preserve quoted_evidence_span or no_quote_reason.",
+            evidence_item_id=item.id,
+        )
+
+
+def _require_same_project_edge(session: Session, data: dict[str, Any]) -> None:
+    claim_id = data["claim_id"]
+    evidence_item_id = data["evidence_item_id"]
+    claim = session.get(ResearchClaim, claim_id)
+    if claim is None:
+        raise _not_found(NotFoundError("ResearchClaim", claim_id))
+    evidence_item = session.get(EvidenceItem, evidence_item_id)
+    if evidence_item is None:
+        raise _not_found(NotFoundError("EvidenceItem", evidence_item_id))
+    if claim.project_id != evidence_item.project_id:
+        raise _bad_request(
+            "cross_project_claim_evidence_edge",
+            "ClaimEvidenceEdge cannot link a claim and evidence item from different projects.",
+            claim_id=claim_id,
+            claim_project_id=claim.project_id,
+            evidence_item_id=evidence_item_id,
+            evidence_project_id=evidence_item.project_id,
+        )
+    tool_call_id = data.get("tool_call_id")
+    if tool_call_id:
+        tool_call = session.get(ToolCallLog, tool_call_id)
+        if tool_call is None:
+            raise _not_found(NotFoundError("ToolCallLog", tool_call_id))
+        if tool_call.project_id != claim.project_id:
+            raise _bad_request(
+                "cross_project_claim_evidence_tool_call",
+                "ClaimEvidenceEdge tool_call_id must belong to the same project as the edge.",
+                tool_call_id=tool_call_id,
+                tool_call_project_id=tool_call.project_id,
+                claim_project_id=claim.project_id,
+            )
+
+
 def register_crud_routes(
     *,
     route_name: str,
@@ -43,13 +105,18 @@ def register_crud_routes(
     create_schema: type,
     update_schema: type,
     read_schema: type,
+    before_create: Any | None = None,
+    before_update: Any | None = None,
 ) -> None:
     service = CrudService(model)
     prefix = f"/{route_name}"
 
     @router.post(prefix, response_model=read_schema, status_code=status.HTTP_201_CREATED)
     def create_item(payload: create_schema, session: Session = Depends(get_db_session)) -> Any:  # type: ignore[valid-type]
-        return service.create(session, payload.model_dump(exclude_unset=True))
+        data = payload.model_dump(exclude_unset=True)
+        if before_create:
+            before_create(session, data)
+        return service.create(session, data)
 
     @router.get(prefix, response_model=list[read_schema])  # type: ignore[valid-type]
     def list_items(
@@ -73,7 +140,12 @@ def register_crud_routes(
         session: Session = Depends(get_db_session),
     ) -> Any:
         try:
-            return service.update(session, item_id, payload.model_dump(exclude_unset=True))
+            data = payload.model_dump(exclude_unset=True)
+            if before_update:
+                item = service.get(session, item_id)
+                before_update(session, item, data)
+                return service.update_existing(session, item, data)
+            return service.update(session, item_id, data)
         except NotFoundError as error:
             raise _not_found(error) from error
 
@@ -119,6 +191,7 @@ register_crud_routes(
     create_schema=schemas.EvidenceItemCreate,
     update_schema=schemas.EvidenceItemUpdate,
     read_schema=schemas.EvidenceItemRead,
+    before_update=_require_evidence_update_provenance,
 )
 register_crud_routes(
     route_name="research-claims",
@@ -133,6 +206,7 @@ register_crud_routes(
     create_schema=schemas.ClaimEvidenceEdgeCreate,
     update_schema=schemas.ClaimEvidenceEdgeUpdate,
     read_schema=schemas.ClaimEvidenceEdgeRead,
+    before_create=_require_same_project_edge,
 )
 register_crud_routes(
     route_name="research-deltas",

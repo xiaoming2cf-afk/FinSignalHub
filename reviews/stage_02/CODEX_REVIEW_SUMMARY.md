@@ -2,12 +2,13 @@
 
 ## Current Status
 
-In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `69cd91760178881b2ce623d40675052907c1b64a`. Codex reviewed that head and returned two new findings:
+In remediation. PR #8 is open. The last captured live evidence before this remediation was CI PASS on pushed head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`. Codex reviewed that head and returned implementation findings:
 
-- CR-02-018 P2: `CHECKLISTS/STAGE_02_CHECKLIST.md` still described the active GitHub blocker as CR-02-012/013/014 on `06a6d4b2f848bd0c93b753d7df46c2248b659149`, even though the current blocker had advanced.
-- CR-02-019 P2: `deployments/stage_02/GITHUB_PR.md` still described the active deployment evidence as part of the CR-02-012/013/014 remediation, even though the current blocker had advanced.
+- CR-02-020 P1: `EvidenceItemUpdate` allowed clearing both `quoted_evidence_span` and `no_quote_reason`.
+- CR-02-021 P1: `ClaimEvidenceEdge` creation allowed cross-project claim/evidence links.
+- CR-02-022 P2: deployment evidence still described current-head CI as pending after live CI had passed.
 
-The local remediation updates the checklist, deployment record, and current gate summaries so they point to CR-02-018/019 as the latest active blocker while preserving earlier CR-02-012/017 entries as historical findings. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+The local remediation adds API-level guards and regression tests for the two P1 provenance/project-boundary findings, and updates deployment evidence to use live PR #8 checks as the Gate 6 source of truth. Gate 6 must still be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
 
 ## Review Scope
 
@@ -49,6 +50,9 @@ Codex must review the Stage 02 plan for:
 | CR-02-017 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325012558 | `logs/subagents/stage_02/plan-scope-verifier.md` still said GPT Pro plan review was pending despite saved PASS evidence. | Updated the subagent verifier log to say GPT Pro plan review PASS is saved and remaining blockers are current-head CI/Codex plus explicit user `/goal`. | fixed locally; follow-up required |
 | CR-02-018 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092862 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still described Gate 6 as blocked by older CR-02-012/013/014 evidence instead of the latest current-head blocker chain. | Updated the checklist GitHub row and current status to identify CR-02-018/019 as the active remediation while keeping Gate 6 blocked until push, CI, and current-head Codex no-major. | fixed locally; follow-up required |
 | CR-02-019 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325092872 | `deployments/stage_02/GITHUB_PR.md` still described deployment evidence as part of the older CR-02-012/013/014 remediation instead of the current CR-02-018/019 state. | Updated deployment status, latest CI evidence, and Codex history with CR-02-018/019 and the live-head Gate 6 rule. | fixed locally; follow-up required |
+| CR-02-020 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717746 | `EvidenceItemUpdate` could clear both `quoted_evidence_span` and `no_quote_reason`, violating quote provenance for evidence already used by claim edges. | Added an EvidenceItem update guard that merges the patch with the stored item and rejects updates that leave both fields empty; added schema and route regression tests. | fixed locally; follow-up required |
+| CR-02-021 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717751 | `ClaimEvidenceEdge` creation could link a claim from project A to evidence from project B. | Added a create guard that loads the claim and evidence item, rejects cross-project edges, and validates optional edge tool-call project membership; added route regression test. | fixed locally; follow-up required |
+| CR-02-022 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3325717754 | `deployments/stage_02/GITHUB_PR.md` said current-head CI was pending even though the review request cited passing CI on head `834c8f0`. | Refreshed deployment evidence to record the live CI PASS links for `834c8f0` and to state that any subsequent push resets Gate 6 until live PR checks and Codex review pass again. | fixed locally; follow-up required |
 
 ## Review Requests
 
@@ -82,12 +86,16 @@ Codex must review the Stage 02 plan for:
 | 26 | Post-GPT-Pro evidence GitHub plugin PR review route | review id `4390309166` | requested after CR-02-012/013/014 had already been returned; no extra duplicate fix required |
 | 27 | Post-CR-02-012/013/014 GitHub plugin PR review route | review id `4390393035` | Codex review event on `929b3e8259eb7b29fe5686b70e8cae9ec79cef88` returned CR-02-017; prior CR-02-016 also remained actionable |
 | 28 | Post-CR-02-016/017 GitHub plugin PR review route and minimal CLI comment | review id `4390469536`; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576440700 | Codex review event on `69cd91760178881b2ce623d40675052907c1b64a` returned CR-02-018/019 |
+| 29 | Implementation-head full CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577560652 | bot `eyes` reaction observed; current-head Codex review later returned CR-02-020/021/022 |
+| 30 | Implementation-head minimal CLI comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577573272 | bot `eyes` reaction observed |
+| 31 | Implementation-head PR review event | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391270460 | Codex review event on `834c8f03982394a8c7c9a7229ae4b574db21a8ba` returned CR-02-020/021/022 |
+| 32 | Implementation-head GitHub plugin comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4577605061 | requested current-head review after bounded retry method switch; later review evidence was inspected through GitHub API |
 
 ## Current Gate Result
 
 Planning gate PASS. CR-02-018/019 was superseded by PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`, which passed CI and received Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 
-Stage 02 implementation is active locally after user direct-execution approval. A fresh implementation-head Codex review is still required after commit and push.
+Stage 02 implementation is active locally after user direct-execution approval. CR-02-020/021/022 are fixed locally. A fresh implementation-head Codex review is still required after this remediation is committed, pushed, and CI passes.
 
 ## Implementation Review Requirement
 

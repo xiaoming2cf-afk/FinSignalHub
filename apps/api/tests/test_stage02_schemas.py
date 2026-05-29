@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import pytest
 from pydantic import ValidationError
 
-from finsignalhub_api.schemas.domain import EvidenceItemCreate
+from finsignalhub_api.schemas.domain import EvidenceItemCreate, EvidenceItemUpdate
 
 
 def _now() -> datetime:
@@ -68,6 +68,11 @@ def test_evidence_item_schema_rejects_unstructured_quote_span() -> None:
             confidence=0.8,
             tool_call_lineage=["tool-call-1"],
         )
+
+
+def test_evidence_item_update_schema_rejects_unstructured_quote_span() -> None:
+    with pytest.raises(ValidationError):
+        EvidenceItemUpdate(quoted_evidence_span={"text": "Evidence text"})
 
 
 def test_evidence_item_schema_rejects_naive_retrieval_time() -> None:

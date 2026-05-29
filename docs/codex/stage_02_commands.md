@@ -4,11 +4,11 @@ Use these commands for Stage 02 implementation verification.
 
 ## Latest Verified Results
 
-Verified on 2026-05-29 before the Stage 02 implementation commit:
+Verified on 2026-05-29 after CR-02-020/021/022 local remediation:
 
 | Check | Result |
 | --- | --- |
-| `python -m pytest apps/api/tests` | PASS, 14 tests |
+| `python -m pytest apps/api/tests` | PASS, 20 tests |
 | `python -m pytest apps/mcp_server/tests` | PASS, 2 tests |
 | `python -m compileall apps/api/finsignalhub_api` | PASS |
 | `python -m compileall apps/mcp_server/finsignalhub_mcp_server` | PASS |
@@ -20,7 +20,7 @@ Verified on 2026-05-29 before the Stage 02 implementation commit:
 | `docker compose up --build -d` plus API/MCP/web smoke | PASS |
 | likely-secret scan | PASS, no matches |
 | runtime forbidden-scope scan | PASS, no matches |
-| artifact ID uniqueness check | PASS, 204 IDs unique |
+| artifact ID uniqueness check | PASS |
 | `git diff --check` | PASS; only line-ending warnings from Git on Windows |
 
 ## Local Python Checks

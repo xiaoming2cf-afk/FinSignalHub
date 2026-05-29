@@ -41,6 +41,9 @@ class CrudService(Generic[ModelT]):
 
     def update(self, session: Session, item_id: str, data: dict[str, Any]) -> ModelT:
         item = self.get(session, item_id)
+        return self.update_existing(session, item, data)
+
+    def update_existing(self, session: Session, item: ModelT, data: dict[str, Any]) -> ModelT:
         for key, value in self._normalize(data).items():
             setattr(item, key, value)
         session.commit()

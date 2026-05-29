@@ -213,6 +213,11 @@ class EvidenceItemUpdate(BaseModel):
     tool_call_lineage: list[str] | None = Field(default=None, min_length=1)
     validation_status: ValidationStatus | None = None
 
+    @model_validator(mode="after")
+    def validate_quote_shape_for_update(self) -> "EvidenceItemUpdate":
+        _require_quote_shape(self.quoted_evidence_span)
+        return self
+
 
 class EvidenceItemRead(TimestampedRead, EvidenceItemCreate):
     pass

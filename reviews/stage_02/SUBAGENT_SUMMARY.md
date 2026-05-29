@@ -17,6 +17,7 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 | api-schema-agent | Pydantic schemas, CRUD services, routers | `apps/api/finsignalhub_api/schemas/`; `services/`; `routers/` | integrated after validation fixes | `logs/subagents/stage_02/api-schema-agent.md` |
 | test-agent | Stage 02 model/schema/route/migration/forbidden tests | `apps/api/tests/` | integrated | `logs/subagents/stage_02/test-agent.md` |
 | docs-log-agent | Docs, logs, review artifacts | docs, CONTROL, RUNLOG, review files | integration in progress | `logs/subagents/stage_02/docs-log-agent.md` |
+| Mendel | Read-only CR-02-020/021/022 remediation audit | none | PASS after additional regression tests | `logs/subagents/stage_02/mendel-remediation-audit.md` |
 
 ## Integrated Findings
 
@@ -29,11 +30,12 @@ Stage 02 implementation is active locally after plan PASS, CI/Codex no-major pre
 - Api-schema-agent findings were integrated: timezone-aware create/update timestamps, structured quote span validation, non-empty lineage/source artifact refs, and claim provenance requirements.
 - Test-agent findings were integrated: model, schema, CRUD route, Alembic, and forbidden-scope tests.
 - Docs-log-agent found stale "implementation blocked" claims and missing exception logging; those are being synchronized before push.
+- Mendel findings were integrated: CR-02-020/021/022 local remediation passed read-only audit, and the suggested extra regression tests were added before the final verification batch.
 
 ## Remaining Gates
 
-- Full local verification batch must pass.
-- Implementation head must be committed and pushed to PR #8.
+- Full local verification batch must pass after CR-02-020/021/022 remediation.
+- Remediation head must be committed and pushed to PR #8.
 - GitHub CI must pass for the implementation head.
 - Codex must return no major issues for the implementation head.
 - GPT Pro final implementation review must PASS or accepted CONDITIONAL PASS with critical items resolved.

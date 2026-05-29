@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-This deployment record is part of a follow-up evidence sync and must not claim that the evidence-sync head already passed CI or Codex. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
+Implementation-head Codex review on `834c8f03982394a8c7c9a7229ae4b574db21a8ba` returned CR-02-020/021/022. The local remediation is not accepted until it is committed, pushed, passes live GitHub CI, and receives current-head Codex no-major evidence. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
 
 ## Branch
 
@@ -41,9 +41,14 @@ Implementation code commit:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Current PR head CI:
+Implementation evidence-sync head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`:
 
-- Pending live GitHub check for the latest pushed head.
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26649397078/job/78543509339
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26649400325/job/78543520982
+
+Current PR head CI after CR-02-020/021/022 remediation:
+
+- Pending until this remediation is pushed and live checks complete.
 
 ## Codex Review
 
@@ -55,7 +60,9 @@ Pre-implementation current-head no-major evidence:
 
 Implementation-head Codex review:
 
-- Pending for the latest pushed PR #8 head.
+- Review event: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391300390
+- Findings: CR-02-020, CR-02-021, and CR-02-022 in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md`.
+- Follow-up status: pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new live PR head.
 
 Required comment:
 
