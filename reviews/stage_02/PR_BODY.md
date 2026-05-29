@@ -44,9 +44,9 @@ Pending plan review.
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Current remediation baseline: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`
-- CI: PASS on the remediation baseline.
-- Codex: CR-02-007 is fixed in this checklist gate-status refresh. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+- Last captured remediation baseline before this durable checklist refresh: `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`
+- CI: PASS on the last captured baseline.
+- Codex: CR-02-007 is fixed in this checklist gate-status refresh. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the live PR head. This PR body must be paired with GitHub live PR head/CI/Codex evidence at submission time.
 
 ## Current Codex Findings
 

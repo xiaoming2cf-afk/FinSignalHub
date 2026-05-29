@@ -10,7 +10,7 @@ Current blockers for final acceptance: none for Stage 01. Docker daemon is resol
 
 Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5c4b9a6cec9b1488883fe20742` passed CI and Codex, tag `stage-01-repo-scaffold` was pushed, and PR #7 merged into `main` at `6b71850a1a59603fe169cd5a5ddf8d40adfaf8f4`.
 
-Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 and CI is passing on head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`. Codex review is blocked by B-0018 because Codex returned CR-02-007 P2 for stale checklist GitHub gate evidence; the local fix is ready and requires push, CI, and follow-up Codex no-major evidence.
+Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8. The last captured live evidence before the durable checklist refresh was CI PASS on head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`. Codex review is blocked by B-0018 because Codex returned CR-02-007 P2 for stale checklist GitHub gate evidence; the local fix is ready and requires push, CI, and follow-up Codex no-major evidence. Gate 6 must use GitHub live PR head/CI/Codex evidence at review time rather than committed self-referential head claims.
 
 ## Next expected milestones
 

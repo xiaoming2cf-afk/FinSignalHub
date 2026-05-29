@@ -2,11 +2,11 @@
 
 ## Current Status
 
-In remediation. PR #8 is open and CI passed on current pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Codex reviewed that head and returned one new finding:
+In remediation. PR #8 is open. The last captured live evidence before this durable checklist refresh was CI PASS on pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`. Codex reviewed that head and returned one new finding:
 
 - CR-02-007 P2: `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded the GitHub gate against older `e336d404...` and CR-02-004/005 evidence instead of the current `30c9c939...` head and follow-up blocker.
 
-The local remediation updates the checklist GitHub gate row to the current pushed head and CR-02-007 follow-up state. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
+The local remediation updates the checklist GitHub gate row so it no longer depends on a committed self-referential "current head" value. Gate 6 must be evaluated from GitHub live PR head, CI, and Codex evidence at review time. A follow-up current-head Codex response is required after this remediation is committed, pushed, and CI passes.
 
 ## Review Scope
 
@@ -35,7 +35,7 @@ Codex must review the Stage 02 plan for:
 | CR-02-004 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247315 | The Stage 02 plan proposed later model/router files under `apps/api/app`, but the Stage 01 scaffold runs and packages `apps/api/finsignalhub_api`. | Updated Stage 02 plan, task, and GPT Pro packet paths to use `apps/api/finsignalhub_api` for db, models, schemas, services, routers, core, and compile checks. | fixed in `d8693f99fbd5f41b8914184de366edb5a3e35352`; follow-up found CR-02-006 |
 | CR-02-005 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247318 | `reviews/stage_02/PR_BODY.md` still referenced the prior `af35b225...` head and stale Codex pending status. | Refreshed PR body status with the current remediation baseline, CI status, and known CR-02-001 through CR-02-005 chain. | fixed in `d8693f99fbd5f41b8914184de366edb5a3e35352`; follow-up found CR-02-006 |
 | CR-02-006 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324305755 | `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md` identified an older head and CI evidence, risking GPT Pro review against stale artifacts. | Removed the stale fixed-head claim, recorded `d8693f9` only as the latest verified baseline before that packet refresh, and required live PR #8 head/CI/Codex evidence immediately before GPT Pro submission. | fixed in `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; follow-up found CR-02-007 |
-| CR-02-007 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324406953 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded the GitHub gate against `e336d404...` and CR-02-004/005 although current evidence is `30c9c939...` with CR-02-007 follow-up required. | Updated the checklist GitHub gate row to the current pushed head and CR-02-007 blocked state. | fixed locally; follow-up required |
+| CR-02-007 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324406953 | `CHECKLISTS/STAGE_02_CHECKLIST.md` still recorded the GitHub gate against `e336d404...` and CR-02-004/005 although last captured live evidence was `30c9c939...` with CR-02-007 follow-up required. | Updated the checklist GitHub gate row to use GitHub live PR head/CI/Codex evidence at review time instead of a committed self-referential head value. | fixed locally; follow-up required |
 
 ## Review Requests
 
