@@ -100,12 +100,12 @@ Planning-only files in this branch:
 
 Implementation files proposed for a later approved Stage 02 goal:
 
-- `apps/api/app/db/`
-- `apps/api/app/models/`
-- `apps/api/app/schemas/`
-- `apps/api/app/services/`
-- `apps/api/app/routers/`
-- `apps/api/app/core/`
+- `apps/api/finsignalhub_api/db/`
+- `apps/api/finsignalhub_api/models/`
+- `apps/api/finsignalhub_api/schemas/`
+- `apps/api/finsignalhub_api/services/`
+- `apps/api/finsignalhub_api/routers/`
+- `apps/api/finsignalhub_api/core/`
 - `apps/api/tests/`
 - `apps/api/alembic/`
 - `apps/api/alembic.ini`
@@ -124,10 +124,10 @@ Implementation files proposed for a later approved Stage 02 goal:
 
 Until Stage 02 plan review and goal approval pass, do not create or modify:
 
-- `apps/api/app/models/`
-- `apps/api/app/schemas/`
-- `apps/api/app/services/`
-- `apps/api/app/routers/`
+- `apps/api/finsignalhub_api/models/`
+- `apps/api/finsignalhub_api/schemas/`
+- `apps/api/finsignalhub_api/services/`
+- `apps/api/finsignalhub_api/routers/`
 - `apps/api/alembic/`
 - Any migration files.
 - Any product table or model runtime code.
@@ -167,9 +167,9 @@ Required skills:
 
 Stage 02 implementation plan must declare bounded subagents:
 
-- `schema-agent`: `apps/api/app/models/`, `apps/api/app/db/`
+- `schema-agent`: `apps/api/finsignalhub_api/models/`, `apps/api/finsignalhub_api/db/`
 - `migration-agent`: `apps/api/alembic/`, `apps/api/alembic.ini`
-- `api-schema-agent`: `apps/api/app/schemas/`, `apps/api/app/routers/`, `apps/api/app/services/`
+- `api-schema-agent`: `apps/api/finsignalhub_api/schemas/`, `apps/api/finsignalhub_api/routers/`, `apps/api/finsignalhub_api/services/`
 - `test-agent`: `apps/api/tests/`
 - `docs-log-agent`: docs, `CONTROL/`, `RUNLOG/`, `reviews/stage_02/`, `deployments/stage_02/`, `logs/subagents/stage_02/`
 
@@ -231,7 +231,7 @@ The Stage 02 goal must include:
 
 ```powershell
 python -m pytest apps/api/tests
-python -m compileall apps/api/app
+python -m compileall apps/api/finsignalhub_api
 python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02
 git diff --check
 ```

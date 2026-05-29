@@ -44,9 +44,17 @@ Pending plan review.
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Head: `af35b2253524641701d0a00ca6ebf6cee02ef897`
-- CI: PASS
-- Codex: pending; no response after standard comment, minimal retry, GitHub plugin comment, and PR review event route.
+- Current remediation baseline: `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`
+- CI: PASS on the remediation baseline.
+- Codex: CR-02-004 and CR-02-005 are fixed in this PR body refresh and Stage 02 path update. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
+## Current Codex Findings
+
+- CR-02-001: stale subagent GitHub/CI status; fixed in `a1f4d2fff7b980d21531d80f21038d337d46b7b3`.
+- CR-02-002: stale checklist GitHub gate status; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
+- CR-02-003: missing mandatory provenance detail; fixed in `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
+- CR-02-004: planned implementation paths used nonexistent `apps/api/app`; fixed by using the existing `apps/api/finsignalhub_api` package.
+- CR-02-005: PR body status was stale; fixed by this file.
 
 ## Codex Review Request
 

@@ -33,7 +33,7 @@ CI status: PASS.
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477432515/job/77966471943
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477434886/job/77966479585
 
-Codex status: BLOCKED/PENDING. CR-02-001 is fixed in current pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`, but Codex then returned CR-02-002 and CR-02-003. Local remediation is prepared and must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; Codex then returned CR-02-004 and CR-02-005. Local remediation is prepared and must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
 
 Important nuance:
 
@@ -49,7 +49,11 @@ Important nuance:
 - Codex then returned CR-02-002 P2 for stale checklist wording and CR-02-003 P1 for insufficient mandatory provenance detail in the plan:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129403
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129409
-- The local fix updates the checklist and strengthens the plan with mandatory provenance attributes and entity-level provenance requirements.
+- CR-02-002 and CR-02-003 were fixed and pushed as `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CI passed.
+- Codex then returned CR-02-004 P2 for using nonexistent `apps/api/app` paths instead of the existing `apps/api/finsignalhub_api` package, and CR-02-005 P2 for stale PR body status:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247315
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247318
+- The local fix updates planned Stage 02 implementation paths to `apps/api/finsignalhub_api/` and refreshes the PR body status.
 - This packet does not claim Codex review passed until that fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.
@@ -135,7 +139,7 @@ Later implementation tests:
 - `alembic upgrade head`
 - `alembic downgrade -1` or documented blocker
 - `alembic upgrade head`
-- `python -m compileall apps/api/app`
+- `python -m compileall apps/api/finsignalhub_api`
 - Docker/Postgres migration check if required
 
 ## Review Questions

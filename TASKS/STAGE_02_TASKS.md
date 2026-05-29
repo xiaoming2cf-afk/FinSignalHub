@@ -22,12 +22,12 @@ Planning files now allowed:
 
 Implementation files are allowed only after GPT Pro plan review and user `/goal` approval:
 
-- `apps/api/app/db/`
-- `apps/api/app/models/`
-- `apps/api/app/schemas/`
-- `apps/api/app/services/`
-- `apps/api/app/routers/`
-- `apps/api/app/core/`
+- `apps/api/finsignalhub_api/db/`
+- `apps/api/finsignalhub_api/models/`
+- `apps/api/finsignalhub_api/schemas/`
+- `apps/api/finsignalhub_api/services/`
+- `apps/api/finsignalhub_api/routers/`
+- `apps/api/finsignalhub_api/core/`
 - `apps/api/tests/`
 - `apps/api/alembic/`
 - `apps/api/alembic.ini`

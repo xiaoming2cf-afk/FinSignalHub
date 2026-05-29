@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. CI is passing on the latest pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`. Codex review returned CR-02-002 P2 and CR-02-003 P1 after the CR-02-001 fix; the local remediation is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
+Planning PR open. CI is passing on the latest pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`. Codex review returned CR-02-004 P2 and CR-02-005 P2 after the CR-02-002/003 fix; the local remediation is prepared and requires push, CI, and follow-up Codex review before Gate 6 can pass.
 
 ## Branch
 
@@ -18,10 +18,10 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-PASS on head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`.
+PASS on head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477432515/job/77966471943
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26477434886/job/77966479585
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26636515334/job/78498102242
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26636517110/job/78498108239
 
 ## Codex Review
 
@@ -45,7 +45,12 @@ CR-02-001 was fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`. C
 - CR-02-002: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129403
 - CR-02-003: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3307129409
 
-The local remediation updates `CHECKLISTS/STAGE_02_CHECKLIST.md` and `PLANS/STAGE_02_PLAN.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`. Codex then returned:
+
+- CR-02-004: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247315
+- CR-02-005: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324247318
+
+The local remediation updates `PLANS/STAGE_02_PLAN.md`, `TASKS/STAGE_02_TASKS.md`, `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md`, and `reviews/stage_02/PR_BODY.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 
