@@ -2431,3 +2431,21 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0242 and CP-0156.
 - Blockers: B-0020 resolved.
 - Next action: commit and push final Stage 02 evidence.
+
+## Cycle 0136
+
+- Timestamp: 2026-05-29T16:11:38-05:00
+- Files read: Codex final evidence review event for head `b80ad20623531005eb6b966608cebb22d8332731`, inline comment CR-02-037, artifact registry, Codex summary, current state, dashboard, release checklist, PR body, deployment evidence, acceptance result, and local check outputs.
+- Current detected stage is: Stage 02 Research Mode domain models implementation.
+- Current detected blocker status is: B-0021 open for final documentation evidence Codex follow-up. B-0020 remains resolved for the implementation-reviewed head.
+- Next valid action is: commit and push CR-02-037 remediation, then run live CI/Codex on the new documentation-only evidence head.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: Pauli prior read-only audit context.
+- Commands/tools run: PR #8 review/comment inspection; phase_check 02; strict token-pattern scan; artifact row ID uniqueness; checkpoint row ID uniqueness; git diff check.
+- Files changed: CONTROL/18 artifact registry, Codex summary, blocker log, current state, dashboard, action queue, release checklist, PR body, deployment evidence, acceptance result, execution log, checkpoint log, RunLog current.
+- Tests run: PASS for phase_check 02, strict token-pattern scan with no matches, 244 artifact IDs unique before check row, 156 checkpoint IDs unique before check row, and `git diff --check` with only normal Windows line-ending warnings.
+- GitHub status: PR #8 open; final evidence head `b80ad20623531005eb6b966608cebb22d8332731` CI PASS but Codex returned CR-02-037; local remediation pending push.
+- GPT Pro status: PASS for Stage 02 implementation; Stage 03 planning only.
+- Artifacts created: A-0243 through A-0245 and CP-0157.
+- Blockers: B-0021.
+- Next action: commit and push CR-02-037 remediation.

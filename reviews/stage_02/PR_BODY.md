@@ -78,4 +78,4 @@ Required review request after implementation push:
 
 ## Acceptance
 
-Stage 02 implementation is PASS / ACCEPTED for the implementation-reviewed head. Final documentation-only evidence commit must still pass normal CI/Codex before merge. Stage 03 may proceed to `/plan` only after the final evidence commit is recorded.
+Stage 02 implementation is PASS / ACCEPTED for the implementation-reviewed head. Final documentation-only evidence commit `b80ad20623531005eb6b966608cebb22d8332731` passed CI but received CR-02-037 for untracked screenshot artifact paths in `CONTROL/18_ARTIFACT_REGISTRY.md`; the local remediation removes those paths and relies on committed textual GPT Pro response files. Stage 03 may proceed to `/plan` only after the final evidence remediation is pushed and checked.

@@ -113,7 +113,7 @@ Implementation-head Codex review:
 - Current-head review requests for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579409749; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579426105; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796.
 - Current-head review event for `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 returned CR-02-036 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560.
 - Current-head no-major response for `09585c58e71eb72b532ea42569d38dce2aa7b648`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862.
-- Follow-up status: PASS for implementation-reviewed head. Final evidence documentation commit is expected after GPT Pro response/action items are saved and must receive normal CI/Codex before merge.
+- Follow-up status: CR-02-037 active for final documentation evidence. Final evidence head `b80ad20623531005eb6b966608cebb22d8332731` passed CI but Codex returned https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326933033 because `CONTROL/18_ARTIFACT_REGISTRY.md` cited untracked screenshot paths. The local remediation removes those paths and relies on committed textual GPT Pro response files; the next pushed head needs live CI/Codex before merge.
 
 Required comment:
 

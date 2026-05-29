@@ -2,13 +2,13 @@
 
 ## Current Status
 
-PASS for the implementation-reviewed head. PR #8 is open. After CR-02-036 remediation, head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed live CI and Codex returned no major issues:
+Final evidence remediation in progress. PR #8 is open. After CR-02-036 remediation, implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` passed live CI and Codex returned no major issues:
 
 - CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660048397/job/78580033327
 - CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26660051219/job/78580042699
 - Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862
 
-This file preserves prior findings and records that final documentation-only acceptance evidence may be committed after GPT Pro PASS. Any later pushed evidence commit must still pass live CI/Codex before merge, but the implementation-reviewed head has satisfied Gate 6.
+This file preserves prior findings and records that final documentation-only acceptance evidence may be committed after GPT Pro PASS. Final evidence head `b80ad20623531005eb6b966608cebb22d8332731` passed CI but Codex returned CR-02-037 for an uncommitted screenshot-path registry entry. CR-02-037 is fixed locally by relying on committed textual GPT Pro response files instead of untracked screenshots. The next pushed head must pass live CI/Codex before merge.
 
 ## Review Scope
 
@@ -67,6 +67,7 @@ Codex must review the Stage 02 plan for:
 | CR-02-034 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326432751 | Static GitHub gate docs still pointed at `db89107` and said CR-02-032/033 remediation was pending push/CI/Codex after head `99b366655c0b2374952740d9ed329e9584a38564` had already passed CI and received this current-head Codex review. | Refreshed checklist, deployment, acceptance, PR body, GPT packet, dashboard, blocker, current-state, action-queue, RunLog, and artifact evidence to record CR-02-034 as the then-active documentation-only remediation and to keep Gate 6 tied to live PR head/CI/Codex evidence. | fixed in `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`; follow-up found CR-02-035 |
 | CR-02-035 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326573986 | `CONTROL/24_CURRENT_STAGE_STATE.md` still said the latest remediation head required fresh CI verification even though PR head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37` had live CI PASS evidence. | Refreshed `CONTROL/24_CURRENT_STAGE_STATE.md`, checklist, deployment, acceptance, PR body, GPT packet, dashboard, blocker, release checklist, action queue, RunLog, and artifact evidence to record `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37` CI PASS plus CR-02-035 as the documentation-only remediation. | fixed in `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`; follow-up found CR-02-036 |
 | CR-02-036 | P1 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326673560 | `CONTROL/24_CURRENT_STAGE_STATE.md` lacked committed CI evidence for reviewed head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`, so Gate 6 evidence was stale for the actual pushed head. | Refreshed current state, checklist, deployment evidence, acceptance, PR/GPT packet, dashboard, blocker, release checklist, action queue, RunLog, and artifact evidence to record the reviewed-head CI evidence, then pushed final remediation head `09585c58e71eb72b532ea42569d38dce2aa7b648`; CI passed and Codex returned no major issues. | fixed; Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862 |
+| CR-02-037 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3326933033 | `CONTROL/18_ARTIFACT_REGISTRY.md` cited untracked screenshot artifacts as Stage 02 acceptance evidence, so reviewers could not verify registered paths from the commit. | Updated artifact `A-0241` to rely only on committed textual GPT Pro response files and explicitly note that raw browser screenshots are not registered acceptance artifacts. | fixed locally; latest pushed head CI and follow-up Codex required |
 
 ## Review Requests
 
@@ -140,12 +141,13 @@ Codex must review the Stage 02 plan for:
 | 66 | Post-CR-02-035 PR review route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392531796 | method switch to GitHub PR review route for current head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1` |
 | 67 | Current-head Codex review event | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392546316 | Codex reviewed `0d46aa12cce60533cc0c6bb35d58af0c01b716b1` and returned CR-02-036 |
 | 68 | Post-CR-02-036 current-head Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862 | PASS: Codex did not find major issues on current head `09585c58e71eb72b532ea42569d38dce2aa7b648` |
+| 69 | Final evidence current-head Codex review event | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4392874439 | Codex reviewed final evidence head `b80ad20623531005eb6b966608cebb22d8332731` and returned CR-02-037 |
 
 ## Current Gate Result
 
 Planning gate PASS. CR-02-018/019 was superseded by PR #8 pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`, which passed CI and received Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 
-Stage 02 implementation is PASS for the implementation-reviewed head. CR-02-020 through CR-02-036 are fixed and pushed through head `09585c58e71eb72b532ea42569d38dce2aa7b648`; GitHub CI passed on that head and Codex returned no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862. Final acceptance evidence is documentation-only and must pass normal CI/Codex after push before merge.
+Stage 02 implementation is PASS for the implementation-reviewed head. CR-02-020 through CR-02-036 are fixed and pushed through head `09585c58e71eb72b532ea42569d38dce2aa7b648`; GitHub CI passed on that head and Codex returned no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4579603862. Final acceptance evidence head `b80ad20623531005eb6b966608cebb22d8332731` passed CI but Codex returned CR-02-037. CR-02-037 is fixed locally and requires push, CI, and follow-up Codex.
 
 ## Implementation Review Requirement
 
