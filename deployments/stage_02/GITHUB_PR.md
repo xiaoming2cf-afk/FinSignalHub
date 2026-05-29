@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. The last captured live evidence before this subagent/changelog refresh was CI PASS on pushed head `04b66822be98155a7112f42e7e084552b34b2154`. Codex review returned CR-02-010 and CR-02-011 P2 after the CR-02-009 fix. This file must not be used as a self-referential claim that the commit containing it is already reviewed; Gate 6 requires GitHub live PR head/CI/Codex evidence after push.
+Planning PR open. Live evidence before GPT Pro plan submission: pushed head `857696e19d46446658081ec2ed1236c791099730` passed CI and Codex returned no major issues. This file must not be used as a self-referential claim that later evidence commits are already reviewed; Gate 6 for implementation must use GitHub live PR head/CI/Codex evidence after any final evidence push.
 
 ## Branch
 
@@ -18,7 +18,10 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-Last captured PASS before this subagent/changelog refresh: head `04b66822be98155a7112f42e7e084552b34b2154`.
+Last captured PASS before GPT Pro plan review: head `857696e19d46446658081ec2ed1236c791099730`.
+
+- Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26641127042/job/78514186780
+- Stage Governance CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26641129908/job/78514196263
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640171982/job/78510781968
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640175514/job/78510793998
@@ -81,7 +84,13 @@ CR-02-009 was fixed in pushed head `04b66822be98155a7112f42e7e084552b34b2154`. C
 - CR-02-010: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664431
 - CR-02-011: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664434
 
-The local remediation refreshes `reviews/stage_02/SUBAGENT_SUMMARY.md` to the current gate state and removes internal CR-specific remediation notes from `CHANGELOG.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+CR-02-010 and CR-02-011 were fixed in pushed head `857696e19d46446658081ec2ed1236c791099730`. CI passed and Codex returned no major issues:
+
+- CLI trigger: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4575963752
+- GitHub plugin PR review route: review id `4390090610`
+- Codex no-major response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4575983642
+
+Gate 6 passed for the Stage 02 planning packet submitted to GPT Pro. Final evidence commits after GPT Pro response still require CI/Codex follow-up before implementation starts.
 
 Required comment after PR creation:
 
