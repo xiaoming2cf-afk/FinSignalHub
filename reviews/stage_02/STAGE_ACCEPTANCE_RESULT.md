@@ -17,7 +17,7 @@ Implementation is not authorized until:
 | Tests | `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02`; no-implementation-file check; forbidden-scope scan; secret scan; `git diff --check` | PASS for planning | Runtime tests are later goal work. |
 | Docs | plan, task, checklist, PR body, review packet, acceptance placeholder, deployment placeholder, Codex summary, subagent summary | PASS for planning | Implementation docs are later goal work. |
 | Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/LONG_RUN_CURRENT.md`; `RUNLOG/LONG_RUN_SUMMARY.md` | PASS for planning | Must stay current through PR/GPT Pro review. |
-| GitHub | `stage/02-domain-models`; PR #8; CI links in `deployments/stage_02/GITHUB_PR.md`; Codex request attempts and CR-02-001 through CR-02-008 in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md` | BLOCKED | Last captured live evidence before this subagent-summary refresh was CI PASS on `ec43b6e`, but Codex returned CR-02-008 after the CR-02-007 fix. The subagent summary gate-status finding is fixed locally, and Gate 6 must use GitHub live PR head/CI/Codex evidence after push before it can pass. |
+| GitHub | `stage/02-domain-models`; PR #8; CI links in `deployments/stage_02/GITHUB_PR.md`; Codex request attempts and CR-02-001 through CR-02-009 in `reviews/stage_02/CODEX_REVIEW_SUMMARY.md` | BLOCKED | Last captured live evidence before this directory-docs refresh was CI PASS on `fc5045e`, but Codex returned CR-02-009 after the CR-02-008 fix. The missing directory purpose-doc finding is fixed locally, and Gate 6 must use GitHub live PR head/CI/Codex evidence after push before it can pass. |
 | GPT Pro | `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md` | PENDING | Plan review required before implementation. |
 | Product governance | no forbidden implementation files; forbidden-scope scan | PASS for planning | Product governor must block drift. |
 | Security | secret scan and no real API keys | PASS for planning | No secrets found in planning artifacts. |
@@ -33,4 +33,4 @@ Implementation is not authorized until:
 
 ## Final Planning Result
 
-Current result: **BLOCKED FOR IMPLEMENTATION** until GitHub/Codex and GPT Pro plan-review gates pass, followed by user `/goal` approval. The GitHub/Codex gate is currently blocked by CR-02-008 follow-up evidence after the local fix is pushed.
+Current result: **BLOCKED FOR IMPLEMENTATION** until GitHub/Codex and GPT Pro plan-review gates pass, followed by user `/goal` approval. The GitHub/Codex gate is currently blocked by CR-02-009 follow-up evidence after the local fix is pushed.
