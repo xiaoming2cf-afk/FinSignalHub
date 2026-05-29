@@ -12,7 +12,11 @@ Pre-implementation evidence:
 - GPT Pro plan review: PASS
 - User approval: direct execution approved in the local conversation.
 
-Implementation evidence is pending until the local implementation is committed and pushed.
+Implementation code commit pushed:
+
+- `fb8274aaaeedb3128d96c88473f49b0169186ee9`
+
+This deployment record is part of a follow-up evidence sync and must not claim that the evidence-sync head already passed CI or Codex. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
 
 ## Branch
 
@@ -33,9 +37,13 @@ Pre-implementation head `8800022f55d79db951b57a61a1d1c7b3301cea9d`:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26644818088/job/78527344409
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26644820730/job/78527352865
 
-Implementation head:
+Implementation code commit:
 
-- Pending commit and push.
+- `fb8274aaaeedb3128d96c88473f49b0169186ee9`
+
+Current PR head CI:
+
+- Pending live GitHub check for the latest pushed head.
 
 ## Codex Review
 
@@ -47,7 +55,7 @@ Pre-implementation current-head no-major evidence:
 
 Implementation-head Codex review:
 
-- Pending after implementation push.
+- Pending for the latest pushed PR #8 head.
 
 Required comment:
 

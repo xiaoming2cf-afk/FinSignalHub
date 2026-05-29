@@ -56,7 +56,8 @@ Verified local evidence:
 - Pre-implementation head: `8800022f55d79db951b57a61a1d1c7b3301cea9d`
 - Pre-implementation CI: PASS
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
-- Implementation head: pending commit and push
+- Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
+- Current PR head CI/Codex: use GitHub live PR #8 evidence at review time; this file does not claim its own evidence-sync commit has already passed.
 
 Required review request after implementation push:
 

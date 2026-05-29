@@ -110,6 +110,12 @@ Current locally verified:
 
 Before final submission, Codex must prepend the latest implementation commit, CI links, Codex review URL/result, and any additional local verification results. If the implementation head does not have CI PASS and Codex no-major evidence, treat the GitHub gate as BLOCKED.
 
+Implementation code commit pushed before this evidence sync:
+
+- `fb8274aaaeedb3128d96c88473f49b0169186ee9`
+
+The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.
+
 ## Review Files
 
 - Plan: `PLANS/STAGE_02_PLAN.md`
