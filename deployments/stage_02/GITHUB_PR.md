@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning PR open. The last captured live evidence before this directory-docs refresh was CI PASS on pushed head `fc5045e8702cfc66db71d5bf52701c818ab49d57`. Codex review returned CR-02-009 P2 after the CR-02-008 fix. This file must not be used as a self-referential claim that the commit containing it is already reviewed; Gate 6 requires GitHub live PR head/CI/Codex evidence after push.
+Planning PR open. The last captured live evidence before this subagent/changelog refresh was CI PASS on pushed head `04b66822be98155a7112f42e7e084552b34b2154`. Codex review returned CR-02-010 and CR-02-011 P2 after the CR-02-009 fix. This file must not be used as a self-referential claim that the commit containing it is already reviewed; Gate 6 requires GitHub live PR head/CI/Codex evidence after push.
 
 ## Branch
 
@@ -18,10 +18,10 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 ## CI
 
-Last captured PASS before this directory-docs refresh: head `fc5045e8702cfc66db71d5bf52701c818ab49d57`.
+Last captured PASS before this subagent/changelog refresh: head `04b66822be98155a7112f42e7e084552b34b2154`.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26639515644/job/78508459825
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26639517648/job/78508466510
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640171982/job/78510781968
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640175514/job/78510793998
 
 ## Codex Review
 
@@ -75,6 +75,13 @@ CR-02-008 was fixed in pushed head `fc5045e8702cfc66db71d5bf52701c818ab49d57`. C
 - CR-02-009: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324590704
 
 The local remediation adds per-directory README purpose docs for `reviews/stage_02/`, `deployments/stage_02/`, and `logs/subagents/stage_02/`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
+
+CR-02-009 was fixed in pushed head `04b66822be98155a7112f42e7e084552b34b2154`. Codex then returned:
+
+- CR-02-010: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664431
+- CR-02-011: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664434
+
+The local remediation refreshes `reviews/stage_02/SUBAGENT_SUMMARY.md` to the current gate state and removes internal CR-specific remediation notes from `CHANGELOG.md`. Gate 6 remains pending until the remediation is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Required comment after PR creation:
 

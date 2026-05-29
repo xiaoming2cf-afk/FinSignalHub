@@ -28,14 +28,14 @@ Stage 02 planning PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
 
 Stage 02 planning head: **not final in this file until live GitHub evidence is supplied at submission time**.
 
-Latest verified pushed remediation baseline before this directory-docs refresh: `fc5045e8702cfc66db71d5bf52701c818ab49d57`.
+Latest verified pushed remediation baseline before this subagent/changelog refresh: `04b66822be98155a7112f42e7e084552b34b2154`.
 
 CI status for that baseline: PASS.
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26639515644/job/78508459825
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26639517648/job/78508466510
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640171982/job/78510781968
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26640175514/job/78510793998
 
-Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`; CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; CR-02-007 was fixed in pushed head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`; CR-02-008 was fixed in pushed head `fc5045e8702cfc66db71d5bf52701c818ab49d57`. Codex then returned CR-02-009 for missing stage directory purpose docs. This directory-docs refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
+Codex status: BLOCKED/PENDING. CR-02-001 is fixed in pushed head `a1f4d2fff7b980d21531d80f21038d337d46b7b3`; CR-02-002 and CR-02-003 were fixed in pushed head `e336d4049e52b02a1b5e68a6c68cd8dc4373c53b`; CR-02-004 and CR-02-005 were fixed in pushed head `d8693f99fbd5f41b8914184de366edb5a3e35352`; CR-02-006 was fixed in pushed head `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`; CR-02-007 was fixed in pushed head `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`; CR-02-008 was fixed in pushed head `fc5045e8702cfc66db71d5bf52701c818ab49d57`; CR-02-009 was fixed in pushed head `04b66822be98155a7112f42e7e084552b34b2154`. Codex then returned CR-02-010 for stale subagent summary state and CR-02-011 for internal remediation notes in `CHANGELOG.md`. This subagent/changelog refresh must be pushed, pass CI, and receive follow-up Codex no-major evidence before Gate 6 can pass.
 
 Submission rule: before pasting this packet into GPT Pro, the operator must prepend the live PR #8 head commit, CI links, and Codex result from GitHub. The committed packet records historical evidence and must not be treated as a self-referential claim that the commit containing it already passed CI/Codex. If the live head does not have CI PASS and Codex no-major evidence, GPT Pro must treat the GitHub gate as BLOCKED and must not authorize Stage 02 implementation.
 
@@ -72,6 +72,11 @@ Important nuance:
 - Codex then returned CR-02-009 P2 because Stage 02 directories lacked purpose docs:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324590704
 - The local fix adds purpose docs under `reviews/stage_02/`, `deployments/stage_02/`, and `logs/subagents/stage_02/`.
+- CR-02-009 was fixed and pushed as `04b66822be98155a7112f42e7e084552b34b2154`; CI passed.
+- Codex then returned CR-02-010 and CR-02-011 P2:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664431
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#discussion_r3324664434
+- The local fix refreshes `reviews/stage_02/SUBAGENT_SUMMARY.md` to the active CR-02-010/011 gate state and compresses `CHANGELOG.md` to user-visible Stage 02 governance changes only.
 - This packet does not claim Codex review passed until this fix is pushed, CI passes, and Codex returns no major issues for the new head.
 
 Stage 02 target: Research Mode Domain Models.

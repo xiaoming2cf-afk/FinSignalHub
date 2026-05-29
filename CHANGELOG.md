@@ -10,10 +10,4 @@
 - Captured GPT Pro post-acceptance PASS confirmation for restored GitHub CLI and Docker capability evidence.
 - Added Stage 01 scaffold acceptance evidence: local scaffold checks, PR #7 CI/Codex evidence, GPT Pro final PASS, and Stage 02 planning-only instructions.
 - Added Stage 02 planning artifacts for Research Mode domain models, with implementation explicitly blocked until GPT Pro plan review and user `/goal` approval.
-- Recorded Stage 02 Codex CR-02-001 remediation for stale subagent gate status before GPT Pro plan review.
-- Strengthened the Stage 02 plan with explicit mandatory provenance fields and synchronized current Codex gate status after CR-02-002/003.
-- Aligned Stage 02 planned API package paths with the existing `apps/api/finsignalhub_api` scaffold and refreshed the PR body status after CR-02-004/005.
-- Updated the Stage 02 GPT Pro packet to require live PR head, CI, and Codex evidence at submission time after CR-02-006.
-- Synchronized the Stage 02 checklist GitHub gate with the CR-02-007 Codex finding and changed mutable gate evidence to require GitHub live PR head/CI/Codex proof at review time.
-- Updated the Stage 02 subagent summary to follow the same live-head-aware Gate 6 rule after CR-02-008.
-- Added purpose docs for Stage 02 review, deployment, and subagent-log directories after CR-02-009.
+- Expanded Stage 02 planning governance with explicit provenance scope, live PR/CI/Codex gate evidence rules, subagent evidence, and stage directory purpose docs.

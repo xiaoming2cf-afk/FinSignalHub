@@ -44,9 +44,9 @@ Pending plan review.
 ## GitHub Status
 
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8
-- Last captured remediation baseline before this directory-docs refresh: `fc5045e8702cfc66db71d5bf52701c818ab49d57`
-- CI: PASS on the last captured baseline.
-- Codex: CR-02-009 is fixed by adding Stage 02 directory purpose docs. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the live PR head. This PR body must be paired with GitHub live PR head/CI/Codex evidence at submission time.
+- Last captured live evidence before this subagent/changelog refresh: `04b66822be98155a7112f42e7e084552b34b2154`
+- CI: PASS on that pushed head.
+- Codex: CR-02-010 and CR-02-011 are fixed by refreshing `reviews/stage_02/SUBAGENT_SUMMARY.md` and keeping `CHANGELOG.md` user-visible only. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the live PR head. This PR body must be paired with GitHub live PR head/CI/Codex evidence at submission time.
 
 ## Current Codex Findings
 
@@ -58,7 +58,9 @@ Pending plan review.
 - CR-02-006: GPT Pro review packet used stale head/CI evidence; fixed in `30c9c9395ecc7593a6e2a1913cc39105f76c4bf0`.
 - CR-02-007: Stage 02 checklist GitHub gate used stale head/finding evidence; fixed in `ec43b6e576bf3e7ff2deb75df02ea76eccaf3931`.
 - CR-02-008: Stage 02 subagent summary used stale CR-02-001 gate evidence; fixed in `fc5045e8702cfc66db71d5bf52701c818ab49d57`.
-- CR-02-009: Stage 02 directories lacked purpose docs; fixed by this directory-docs refresh.
+- CR-02-009: Stage 02 directories lacked purpose docs; fixed in `04b66822be98155a7112f42e7e084552b34b2154`.
+- CR-02-010: Stage 02 subagent summary still described older CR-02-008 state; fixed by this subagent summary refresh.
+- CR-02-011: `CHANGELOG.md` contained internal CR-specific remediation notes; fixed by compressing it to user-visible Stage 02 governance changes only.
 
 ## Codex Review Request
 

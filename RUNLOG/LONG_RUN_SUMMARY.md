@@ -10,11 +10,11 @@ Current blockers for final acceptance: none for Stage 01. Docker daemon is resol
 
 Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5c4b9a6cec9b1488883fe20742` passed CI and Codex, tag `stage-01-repo-scaffold` was pushed, and PR #7 merged into `main` at `6b71850a1a59603fe169cd5a5ddf8d40adfaf8f4`.
 
-Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8. The last captured live evidence before the directory-docs refresh was CI PASS on head `fc5045e8702cfc66db71d5bf52701c818ab49d57`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`. Codex review is blocked by B-0018 because Codex returned CR-02-009 P2 for missing Stage 02 directory purpose docs; the local fix is ready and requires push, CI, and follow-up Codex no-major evidence. Gate 6 must use GitHub live PR head/CI/Codex evidence at review time rather than committed self-referential head claims.
+Current stage: Stage 02 planning on branch `stage/02-domain-models`. PR #8 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8. The last captured live evidence before the subagent/changelog refresh was CI PASS on head `04b66822be98155a7112f42e7e084552b34b2154`. Stage 02 implementation is blocked by B-0017 until the Stage 02 plan receives GPT Pro PASS or accepted CONDITIONAL PASS and the user approves a Stage 02 `/goal`. Codex review is blocked by B-0018 because Codex returned CR-02-010/011 P2 for stale Stage 02 subagent state and internal CR-specific changelog notes; the local fix is ready and requires push, CI, and follow-up Codex no-major evidence. Gate 6 must use GitHub live PR head/CI/Codex evidence at review time rather than committed self-referential head claims.
 
 ## Next expected milestones
 
-1. Run checks, commit and push the CR-02-009 fix, then wait for CI.
+1. Run checks, commit and push the CR-02-010/011 fix, then wait for CI.
 2. Request one follow-up current-head Codex review; if no response after bounded wait, switch method rather than polling repeatedly.
 3. Submit the Stage 02 plan packet to GPT Pro with PR/CI/Codex evidence or explicit blocker disclosure.
 4. Save GPT Pro response, action items, and plan result under `reviews/stage_02/`.
