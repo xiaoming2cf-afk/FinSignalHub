@@ -94,6 +94,15 @@ def _require_related_list_project(
         )
 
 
+def _require_project_exists(session: Session, project_id: str) -> None:
+    if session.get(ResearchProject, project_id) is None:
+        raise _not_found(NotFoundError("ResearchProject", project_id))
+
+
+def _require_payload_project_exists(session: Session, data: dict[str, Any]) -> None:
+    _require_project_exists(session, data["project_id"])
+
+
 def _require_tool_call_lineage_project(
     session: Session,
     project_id: str,
@@ -114,16 +123,39 @@ def _require_tool_call_lineage_project(
     )
 
 
-def _require_source_artifact_refs_project(
+def _claim_evidence_edge_project_id(
     session: Session,
-    project_id: str,
-    data: dict[str, Any],
+    artifact_ref: str,
     *,
     error: str,
-) -> None:
-    refs = data.get("source_artifact_refs")
-    if refs is None:
-        return
+) -> str | None:
+    edge = session.get(ClaimEvidenceEdge, artifact_ref)
+    if edge is None:
+        return None
+    claim = session.get(ResearchClaim, edge.claim_id)
+    if claim is None:
+        raise _not_found(NotFoundError("ResearchClaim", edge.claim_id))
+    evidence_item = session.get(EvidenceItem, edge.evidence_item_id)
+    if evidence_item is None:
+        raise _not_found(NotFoundError("EvidenceItem", edge.evidence_item_id))
+    if claim.project_id != evidence_item.project_id:
+        raise _bad_request(
+            error,
+            "source_artifact_refs cannot use a claim-evidence edge with inconsistent project membership.",
+            field_name="source_artifact_refs",
+            item_id=artifact_ref,
+            claim_project_id=claim.project_id,
+            evidence_project_id=evidence_item.project_id,
+        )
+    return claim.project_id
+
+
+def _source_artifact_ref_project_id(
+    session: Session,
+    artifact_ref: str,
+    *,
+    error: str,
+) -> str | None:
     project_scoped_models = (
         Source,
         Document,
@@ -136,24 +168,46 @@ def _require_source_artifact_refs_project(
         ReproPackExport,
         ToolCallLog,
     )
+    for model in project_scoped_models:
+        related = session.get(model, artifact_ref)
+        if related is not None:
+            return related.project_id
+    return _claim_evidence_edge_project_id(session, artifact_ref, error=error)
+
+
+def _require_source_artifact_refs_project(
+    session: Session,
+    project_id: str,
+    data: dict[str, Any],
+    *,
+    error: str,
+) -> None:
+    refs = data.get("source_artifact_refs")
+    if refs is None:
+        return
     for artifact_ref in refs:
-        for model in project_scoped_models:
-            related = session.get(model, artifact_ref)
-            if related is None:
-                continue
-            if related.project_id != project_id:
-                raise _bad_request(
-                    error,
-                    "source_artifact_refs must not reference artifacts from another project.",
-                    field_name="source_artifact_refs",
-                    item_id=artifact_ref,
-                    item_project_id=related.project_id,
-                    expected_project_id=project_id,
-                )
-            break
+        item_project_id = _source_artifact_ref_project_id(session, artifact_ref, error=error)
+        if item_project_id is None:
+            raise _bad_request(
+                error,
+                "source_artifact_refs must resolve to a known project-scoped artifact.",
+                field_name="source_artifact_refs",
+                item_id=artifact_ref,
+                expected_project_id=project_id,
+            )
+        if item_project_id != project_id:
+            raise _bad_request(
+                error,
+                "source_artifact_refs must not reference artifacts from another project.",
+                field_name="source_artifact_refs",
+                item_id=artifact_ref,
+                item_project_id=item_project_id,
+                expected_project_id=project_id,
+            )
 
 
 def _require_document_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_payload_project_exists(session, data)
     _require_related_project(
         session,
         model=Source,
@@ -212,6 +266,7 @@ def _require_research_claim_related_scope(session: Session, project_id: str, dat
 
 
 def _require_evidence_item_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_payload_project_exists(session, data)
     _require_evidence_item_related_scope(session, data["project_id"], data)
 
 
@@ -240,6 +295,7 @@ def _require_evidence_item_update_scope(
 
 
 def _require_research_claim_create_scope(session: Session, data: dict[str, Any]) -> None:
+    _require_payload_project_exists(session, data)
     _require_research_claim_related_scope(session, data["project_id"], data)
 
 
@@ -368,6 +424,7 @@ def _create_project_scope_hook(
     error: str,
 ) -> Any:
     def before_create(session: Session, data: dict[str, Any]) -> None:
+        _require_payload_project_exists(session, data)
         _require_generated_artifact_scope(
             session,
             data["project_id"],
@@ -511,6 +568,7 @@ register_crud_routes(
     create_schema=schemas.SourceCreate,
     update_schema=schemas.SourceUpdate,
     read_schema=schemas.SourceRead,
+    before_create=_require_payload_project_exists,
 )
 register_crud_routes(
     route_name="documents",
@@ -526,6 +584,7 @@ register_crud_routes(
     create_schema=schemas.ToolCallLogCreate,
     update_schema=schemas.ToolCallLogUpdate,
     read_schema=schemas.ToolCallLogRead,
+    before_create=_require_payload_project_exists,
 )
 register_crud_routes(
     route_name="evidence-items",

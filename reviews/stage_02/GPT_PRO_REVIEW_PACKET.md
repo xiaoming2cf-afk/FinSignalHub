@@ -93,8 +93,9 @@ The implementation must not include:
 
 Current locally verified:
 
-- `python -m pytest apps/api/tests`: PASS, 36 tests after CR-02-020 through CR-02-029 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 23 targeted route tests after CR-02-026/027/028/029 remediation.
+- `python -m pytest apps/api/tests`: PASS, 42 tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 28 targeted route tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_models.py -q`: PASS, 5 model tests after CR-02-030 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
 - `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
@@ -105,17 +106,32 @@ Current locally verified:
 - PostgreSQL Alembic `upgrade head`, `downgrade -1`, `upgrade head`: PASS.
 - Full `docker compose up --build -d` plus API/MCP/web smoke: PASS.
 - Likely-secret scan: PASS.
-- Runtime forbidden-scope scan: PASS.
+- Runtime forbidden-scope scan: PASS; only expected guard-test strings in `apps/api/tests/test_stage02_forbidden_scope.py`.
 - Artifact ID uniqueness: PASS.
 - `git diff --check`: PASS.
 
-Before final submission, Codex must prepend the latest implementation commit, CI links, Codex review URL/result, and any additional local verification results. If the implementation head does not have CI PASS and Codex no-major evidence, treat the GitHub gate as BLOCKED.
+Before final acceptance, Codex must prepend the latest implementation commit, CI links, Codex review URL/result, and any additional local verification results. If the implementation head does not have CI PASS and Codex no-major evidence, treat the GitHub gate as BLOCKED.
 
 Implementation code commit pushed before this evidence sync:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, and CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`. The local remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, tool-call lineage, and deployment evidence sync. This remediation must be pushed, pass live CI, and receive current-head Codex no-major evidence before GPT Pro final acceptance can pass.
+Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, and CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`. The remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, tool-call lineage, and deployment evidence sync.
+
+Current live PR head:
+
+- `9c4e5d35556eb2115ccb333185f50a2889a02c33`
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26654056821/job/78559544170
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26654058385/job/78559547100
+- Current-head Codex review requests:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578394872
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578418494
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391863335
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578477038
+- Delayed current-head Codex result: CR-02-030/031 returned at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391903098.
+- Current local remediation status: fixed locally and Hegel read-only audit found no blocking issue; pending commit, push, CI, and current-head Codex follow-up.
+- Browser/GPT Pro route status: BLOCKED. Chrome extension calls returned `native pipe is closed` after one retry; Chrome is running, extension is installed/enabled, native host manifest is correct, and the recovery-window attempt still failed.
 
 The live PR #8 head, CI links, and Codex result must still be verified from GitHub immediately before this packet is submitted to GPT Pro.
 

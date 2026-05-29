@@ -42,6 +42,12 @@ Evidence-bearing and generated artifact models expose explicit fields instead of
 
 `ResearchProject` owns all Stage 02 artifacts. `Source` owns normalized `Document` records and may link to `EvidenceItem`. `ResearchClaim` connects to `EvidenceItem` through `ClaimEvidenceEdge`. `ToolCallLog` can link to generated or transformed artifacts, but Stage 02 does not execute business tools.
 
+## Project Scope Guards
+
+Stage 02 CRUD routes must not create orphan project-scoped records. The default SQLite engine enables foreign-key checks, and project-scoped create hooks validate that submitted `project_id` values already exist.
+
+Generated artifact `source_artifact_refs` are Stage 02 provenance references, not generation instructions. They may point to known project-scoped Stage 02 artifacts, including `Source`, `Document`, `EvidenceItem`, `ResearchClaim`, `ResearchDelta`, `LiteratureMatrixRow`, `MethodCard`, `DatasetCard`, `ReproPackExport`, `ToolCallLog`, and `ClaimEvidenceEdge`. Unknown refs are rejected. `ClaimEvidenceEdge` refs derive project scope from their linked claim and evidence item and are rejected if those records are inconsistent or belong to another project.
+
 ## Migration
 
 The initial Alembic revision is `0001_research_mode_domain_models`. It creates only the approved Stage 02 tables and supports downgrade to the empty schema for this initial migration.

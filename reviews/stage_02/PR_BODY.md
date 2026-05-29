@@ -35,8 +35,9 @@ Stage 02 modifies `pyproject.toml`, `.env.example`, `docker-compose.yml`, README
 
 Verified local evidence:
 
-- `python -m pytest apps/api/tests`: PASS, 36 tests after CR-02-020 through CR-02-029 remediation.
-- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 23 targeted route tests after CR-02-026/027/028/029 remediation.
+- `python -m pytest apps/api/tests`: PASS, 42 tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 28 targeted route tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_models.py -q`: PASS, 5 model tests after CR-02-030 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
 - `python -m compileall apps/mcp_server/finsignalhub_mcp_server`: PASS.
@@ -47,7 +48,7 @@ Verified local evidence:
 - PostgreSQL Alembic upgrade/downgrade/upgrade: PASS.
 - Full Docker Compose build/smoke for API/MCP/web: PASS.
 - Likely-secret scan: PASS.
-- Runtime forbidden-scope scan: PASS.
+- Runtime forbidden-scope scan: PASS; only expected guard-test strings in `apps/api/tests/test_stage02_forbidden_scope.py`.
 - Artifact ID uniqueness: PASS.
 - `git diff --check`: PASS.
 
@@ -59,7 +60,7 @@ Verified local evidence:
 - Pre-implementation Codex: no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382
 - Implementation code commit: `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 - Implementation-head Codex findings: CR-02-020/021/022 returned on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`; CR-02-023 returned on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`; CR-02-024/025 returned on head `9984b407acd2e5b75c57847545807cf083c9bc2a`; CR-02-026/027/028/029 returned on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`.
-- Current remediation status: fixed locally; push, CI, Codex no-major, and GPT Pro final review are still required.
+- Current remediation status: CR-02-030/031 fixed locally after delayed Codex review on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`; local checks and Hegel read-only audit pass. The remediation still needs commit, push, live CI PASS, and current-head Codex no-major. GPT Pro final review is not submitted because the hard GitHub/Codex gate is incomplete and Chrome extension automation is blocked.
 
 Required review request after implementation push:
 
@@ -70,7 +71,7 @@ Required review request after implementation push:
 ## GPT Pro Status
 
 - Stage 02 plan review: PASS.
-- Final implementation review: pending after implementation head CI/Codex pass.
+- Final implementation review: blocked until current-head Codex no-major exists and Chrome/GPT Pro submission route is controllable.
 - Stage 03: not authorized.
 
 ## Acceptance

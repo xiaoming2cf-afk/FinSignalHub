@@ -1,4 +1,5 @@
 from finsignalhub_api.db.base import Base
+from finsignalhub_api.db.session import build_engine
 
 
 APPROVED_TABLES = {
@@ -19,6 +20,15 @@ APPROVED_TABLES = {
 
 def test_stage02_metadata_registers_only_approved_entities() -> None:
     assert set(Base.metadata.tables) == APPROVED_TABLES
+
+
+def test_default_sqlite_engine_enables_foreign_keys() -> None:
+    engine = build_engine("sqlite+pysqlite:///:memory:")
+    try:
+        with engine.connect() as connection:
+            assert connection.exec_driver_sql("PRAGMA foreign_keys").scalar_one() == 1
+    finally:
+        engine.dispose()
 
 
 def test_evidence_item_has_explicit_provenance_fields() -> None:

@@ -11,17 +11,17 @@ The Stage 02 plan gate is already satisfied:
 - Codex returned no major issues for that head at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4576703382.
 - The user approved direct execution without repeated confirmation.
 
-Final Stage 02 acceptance is still blocked until the CR-02-020 through CR-02-029 remediation is committed, pushed, passes CI, receives Codex no-major review, and passes GPT Pro final implementation review.
+Final Stage 02 acceptance is still blocked. The CR-02-020 through CR-02-029 remediation is pushed and CI passed on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, but a delayed current-head Codex review returned CR-02-030/031. The CR-02-030/031 remediation is fixed locally and passed local checks, but it is not accepted until committed, pushed, CI-passed, and Codex-reviewed. GPT Pro final implementation review is also blocked because the Chrome extension route currently fails with `native pipe is closed`.
 
 | Gate | Evidence | Result | Notes |
 | --- | --- | --- | --- |
 | Scope | `PLANS/STAGE_02_PLAN.md`; `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`; `CONTROL/05_DECISION_LOG.md` ADR-0002 | PASS local | Scope is limited to Research Mode domain model primitives. Support-file exception is explicit and reviewable. |
-| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-029 remediation guards evidence, claim, document, claim-edge, generated artifact, source/document/tool-call, lineage, and quote/no-quote provenance boundaries on create and update. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
-| Tests | API tests, MCP tests, compile checks, Docker/PostgreSQL/Alembic checks, phase check, secret scan, forbidden-scope scan, `git diff --check` | PASS local after CR-02-026/027/028/029 | Full local verification passed after CR-02-026/027/028/029 remediation: API 36 tests, MCP 2 tests, compile, phase_check, web build/audit, compose config, Alembic round trip, compose build/smoke, scans, registry ID check, and diff check. |
+| Functionality | `apps/api/finsignalhub_api/models/`; `schemas/`; `services/`; `routers/`; `apps/api/alembic/` | PASS local | Local implementation covers approved model primitives only. CR-02-020 through CR-02-031 remediation guards evidence, claim, document, claim-edge, generated artifact, source/document/tool-call, lineage, `source_artifact_refs`, SQLite FK enforcement, orphan project-scoped creates, and quote/no-quote provenance boundaries on create and update. No connectors, extraction, graph computation, delta engine, MCP business tools, or UI behavior. |
+| Tests | API tests, MCP tests, compile checks, Docker/PostgreSQL/Alembic checks, phase check, secret scan, forbidden-scope scan, `git diff --check` | PASS local after CR-02-030/031 | Local verification after CR-02-030/031 remediation passed: API 42 tests, targeted route tests 28, model tests 5, MCP 2 tests, compile, phase_check, compose config, secret scan, runtime forbidden-scope scan with expected guard-test-only matches, and diff check. Prior full Docker/PostgreSQL/Alembic smoke passed after CR-02-026/027/028/029. |
 | Docs | `docs/architecture/stage_02_domain_models.md`; `docs/codex/stage_02_commands.md`; README files; PR/GPT packets | PASS local | Docs updated for implementation status, commands, and support-file exception. |
 | Logs | `CONTROL/04`; `CONTROL/07`; `CONTROL/18`; `CONTROL/19`; `CONTROL/20`; `CONTROL/24`; `CONTROL/25`; `CONTROL/27`; `RUNLOG/` | PASS local | Logs synchronized to G-0004 implementation goal. |
-| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Codex returned CR-02-020 through CR-02-029 across heads `834c8f0`, `d631c3f`, `9984b40`, and `2b6f9c5`; local remediation must be pushed, pass CI, and receive Codex no-major evidence. |
-| GPT Pro | plan response/action items; final implementation packet/response/action items | BLOCKED | Plan PASS exists; final implementation review has not yet been submitted. |
+| GitHub | `stage/02-domain-models`; PR #8; deployment evidence | BLOCKED | Current remote head `9c4e5d3` has CI PASS, but delayed Codex review returned CR-02-030/031. Local remediation must be committed, pushed, CI-passed, and reviewed by Codex before Gate 6 can pass. |
+| GPT Pro | plan response/action items; final implementation packet/response/action items | BLOCKED | Plan PASS exists. Final implementation review has not been submitted because Codex gate is incomplete and Chrome extension automation is currently degraded with `native pipe is closed`. |
 | Product governance | forbidden-scope tests and runtime scan | PASS local | Runtime forbidden-scope test and scan passed. |
 | Security | placeholder-only env; secret scan | PASS local | Likely-secret scan found no matches. |
 | Next stage | `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md` | BLOCKED | Stage 03 is unauthorized until GPT Pro final Stage 02 PASS assigns it. |
@@ -33,6 +33,9 @@ Final Stage 02 acceptance is still blocked until the CR-02-020 through CR-02-029
 - `python -m pytest apps/api/tests`: PASS, 27 tests after CR-02-024/025 remediation.
 - `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 23 tests after CR-02-026/027/028/029 remediation.
 - `python -m pytest apps/api/tests`: PASS, 36 tests after CR-02-026/027/028/029 remediation.
+- `python -m pytest apps/api/tests`: PASS, 42 tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_crud_routes.py -q`: PASS, 28 targeted route tests after CR-02-030/031 remediation.
+- `python -m pytest apps/api/tests/test_stage02_models.py -q`: PASS, 5 model tests after CR-02-030 remediation.
 - `python -m pytest apps/api/tests/test_stage02_schemas.py apps/api/tests/test_stage02_crud_routes.py`: PASS, 14 tests after CR-02-023 remediation.
 - `python -m pytest apps/mcp_server/tests`: PASS, 2 tests.
 - `python -m compileall apps/api/finsignalhub_api`: PASS.
@@ -50,13 +53,13 @@ Final Stage 02 acceptance is still blocked until the CR-02-020 through CR-02-029
 
 ## Final Result
 
-Current result: **LOCAL REMEDIATION IN PROGRESS / BLOCKED FOR FINAL IMPLEMENTATION GATES**.
+Current result: **LOCAL REMEDIATION READY / BLOCKED FOR FINAL CODEX AND GPT PRO GATES**.
 
 Do not mark Stage 02 PASS and do not start Stage 03 until:
 
-1. full local verification passes;
-2. current PR #8 head is pushed and identified from live GitHub evidence;
-3. GitHub CI passes for the implementation head;
+1. full local verification remains valid;
+2. current PR #8 head remains identified from live GitHub evidence;
+3. GitHub CI remains passing for the implementation head;
 4. Codex returns no major issues for the implementation head;
 5. GPT Pro final implementation review returns PASS or accepted CONDITIONAL PASS with critical items resolved;
 6. GPT Pro provides Stage 03 instructions.

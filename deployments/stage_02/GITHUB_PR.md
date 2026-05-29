@@ -16,7 +16,7 @@ Implementation code commit pushed:
 
 - `fb8274aaaeedb3128d96c88473f49b0169186ee9`
 
-Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, and CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`. The local remediation is not accepted until it is committed, pushed, passes live GitHub CI, and receives current-head Codex no-major evidence. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
+Implementation-head Codex reviews returned CR-02-020/021/022 on `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, and CR-02-030/031 on `9c4e5d35556eb2115ccb333185f50a2889a02c33`. The CR-02-030/031 remediation is local until committed and pushed. It is not accepted until it passes live GitHub CI and receives current-head Codex no-major evidence. Gate 6 must use GitHub live PR #8 head, CI, and Codex evidence at review time.
 
 ## Branch
 
@@ -52,9 +52,11 @@ Current PR head CI after CR-02-020/021/022/023/024/025 remediation:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26652770384/job/78555122876
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26652772684/job/78555129504
 
-Current local CR-02-026/027/028/029 remediation:
+Current PR head after CR-02-026/027/028/029 remediation:
 
-- Pending push and live checks.
+- PASS on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26654056821/job/78559544170
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26654058385/job/78559547100
 
 ## Codex Review
 
@@ -71,7 +73,9 @@ Implementation-head Codex review:
 - Follow-up review event for `d631c3fde13f063885da2ae8899235abb9c4cd0b`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391474914
 - Follow-up review event for `9984b407acd2e5b75c57847545807cf083c9bc2a`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391593818
 - Follow-up review events for `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391713965 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391730054
-- Follow-up status: pending until this remediation is pushed, CI passes, and Codex returns no major issues for the new live PR head.
+- Current-head review requests for `9c4e5d35556eb2115ccb333185f50a2889a02c33`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578394872; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578418494; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391863335; https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4578477038
+- Delayed current-head review event for `9c4e5d35556eb2115ccb333185f50a2889a02c33`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#pullrequestreview-4391903098 returned CR-02-030/031.
+- Follow-up status: BLOCKED. CR-02-030/031 are fixed locally, but the remediation must be committed, pushed, pass live CI, and receive current-head Codex no-major evidence. Gate 6 remains incomplete.
 
 Required comment:
 
