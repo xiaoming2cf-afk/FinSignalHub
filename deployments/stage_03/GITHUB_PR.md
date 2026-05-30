@@ -25,7 +25,7 @@ PR created.
 
 ## CI
 
-Head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6` passed CI, but Codex returned CR-03-025 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395639864. The CR-03-025 remediation must receive fresh live-head CI/Codex review after push before merge. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
+Previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920` passed CI, but Codex returned CR-03-026/027 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395654575. The B-0061 remediation must receive fresh live-head CI/Codex review after push before merge. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -51,10 +51,11 @@ Head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6` passed CI, but Codex returned CR
 - GPT Pro PASS closeout head `2ec8db3` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26687860374/job/78659080023 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26687861435/job/78659082704
 - CR-03-021/022 remediation head `b013342` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688395634/job/78660434696 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688396586/job/78660436791
 - CR-03-023/024 remediation head `4372b5e` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837076/job/78661584706 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837766/job/78661587466
+- CR-03-025 remediation head `902a040` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689193783/job/78662529624 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689194917/job/78662532667
 
 ## Codex Review
 
-BLOCKED by CR-03-025 on head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6`: Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395639864. The PR body self-referential head wording is fixed locally. The next pushed head must pass CI and Codex.
+BLOCKED by CR-03-026/027 on previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920`: Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395654575. Acceptance-result and action-queue stale closeout wording is fixed locally. The next pushed head must pass CI and Codex.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -138,7 +139,7 @@ BLOCKED by CR-03-025 on head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6`: Codex r
 - Boole consistency cleanup Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395497369
 - CR-03-020: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328863643
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012, then CR-03-013, then CR-03-014/015, then CR-03-016, then CR-03-017, then CR-03-018/019, then CR-03-020, then CR-03-021/022, then CR-03-023/024. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Head `88ee895d615f8734559427676c84ac2d6dada0bf` has CI PASS for CR-03-018/019 remediation, head `d198f6e5609e03404bd255f68ed13a92294dc22b` has CI PASS for Boole consistency cleanup, head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` has CI PASS plus Codex no-major after CR-03-020 remediation, closeout head `2ec8db331f464b69dde75d191b55c51f746f68ca` has CI PASS but Codex CR-03-021/022, and head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8` has CI PASS but Codex CR-03-023/024. The next live-head requirement applies to the CR-03-023/024 remediation commit.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012, then CR-03-013, then CR-03-014/015, then CR-03-016, then CR-03-017, then CR-03-018/019, then CR-03-020, then CR-03-021/022, then CR-03-023/024, then CR-03-025, then CR-03-026/027. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Head `88ee895d615f8734559427676c84ac2d6dada0bf` has CI PASS for CR-03-018/019 remediation, head `d198f6e5609e03404bd255f68ed13a92294dc22b` has CI PASS for Boole consistency cleanup, head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` has CI PASS plus Codex no-major after CR-03-020 remediation, closeout head `2ec8db331f464b69dde75d191b55c51f746f68ca` has CI PASS but Codex CR-03-021/022, head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8` has CI PASS but Codex CR-03-023/024, head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6` has CI PASS but Codex CR-03-025, and head `902a0405e9e9410152e586514fc301b52ffe9920` has CI PASS but Codex CR-03-026/027. The next live-head requirement applies to the B-0061 remediation commit.
 
 ## GPT Pro
 
@@ -153,4 +154,4 @@ Saved evidence:
 
 ## Closeout Head Rule
 
-Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` passed CI and Codex no-major, and GPT Pro accepted it. Head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8` passed CI but received CR-03-023/024. Any remediation commit after that head must receive live-head CI and current-head Codex no-major before PR merge. Record final external verification in PR comments or merge evidence without creating an unnecessary self-referential evidence commit.
+Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` passed CI and Codex no-major, and GPT Pro accepted it. Previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920` passed CI but received CR-03-026/027. Any remediation commit after that head must receive live-head CI and current-head Codex no-major before PR merge. Record final external verification in PR comments or merge evidence without creating an unnecessary self-referential evidence commit.
