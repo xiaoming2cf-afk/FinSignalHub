@@ -9,11 +9,13 @@ PR created.
 - Replacement closeout PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10
 - Replacement closeout branch: `stage/03-source-connectors-closeout-refresh`
 - Active closeout PR head must be checked with `gh pr view 10 --json headRefOid,statusCheckRollup,reviews,comments` before any closeout gate decision.
-- Latest closeout evidence: PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 returned Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583615842 for head `bc1f85b523b0c44c369023e30f7464496c15868f`, and GPT Pro closeout returned PASS.
+- Latest closeout evidence: PR #10 live head `1f03defb437a9f6f2b694a2697754faa1e1ea7f0` passed governance CI and Codex returned no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4584381224. This permits Stage 03 implementation `/goal` drafting only. If the goal-draft commit changes PR #10's head, recheck live PR #10 CI and current-head Codex before GPT Pro goal review can activate connector implementation.
 
 ## Required Branch
 
-`stage/03-source-connectors`
+Original planning branch: `stage/03-source-connectors`.
+
+Active closeout and goal-draft branch: `stage/03-source-connectors-closeout-refresh`.
 
 ## Required Title
 
@@ -55,10 +57,11 @@ Closeout head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c` passed CI on both PR #9
 - CR-03-023/024 remediation head `4372b5e` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837076/job/78661584706 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837766/job/78661587466
 - CR-03-025 remediation head `902a040` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689193783/job/78662529624 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689194917/job/78662532667
 - B-0061 remediation / closeout head `14145ff` CI on PR #9/#10 surfaces: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689639859/job/78663671817, https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689640849/job/78663674316, https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689963801/job/78664529174, and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689971351/job/78664548042
+- PR #10 pre-goal-draft head `1f03def` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693379468/job/78673610551 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693380166/job/78673612338
 
 ## Codex Review
 
-PR #10 is the active closeout route. PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 Codex no-major https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583540247 independently confirmed no major issues for the same head after bounded retry. GPT Pro closeout later returned PASS for PR #10. CR-03-029/030 were remediated in this closeout refresh, and CR-03-031/032/033 are recorded as a governance-only synchronization fix under B-0064. Final closeout acceptance uses the live PR #10 head, CI check rollup, and current-head Codex response; do not use PR #9 or a historical fixed head for the active gate.
+PR #10 is the active closeout and goal-draft route. PR #10 Codex no-major https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4584381224 confirmed no major issues for live pre-goal-draft head `1f03defb437a9f6f2b694a2697754faa1e1ea7f0` after CR-03-034 remediation. GPT Pro closeout returned PASS for PR #10 and allowed only implementation `/goal` drafting. Final goal activation uses the live PR #10 head, CI check rollup, current-head Codex response, and GPT Pro implementation-goal review; do not use PR #9 or a historical fixed head for the active gate.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
