@@ -6,8 +6,10 @@ PR created.
 
 - PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
 - Head branch: `stage/03-source-connectors`
+- Replacement closeout PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10
+- Replacement closeout branch: `stage/03-source-connectors-closeout-refresh`
 - Live PR head must be checked with `gh pr view 9 --json headRefOid` before any gate decision.
-- Latest external status comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582536773
+- Latest closeout evidence: PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 returned Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583540247 for the same head.
 
 ## Required Branch
 
@@ -25,7 +27,7 @@ PR created.
 
 ## CI
 
-Previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920` passed CI, but Codex returned CR-03-026/027 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395654575. The B-0061 remediation must receive fresh live-head CI/Codex review after push before merge. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
+Closeout head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c` passed CI on both PR #9 and replacement PR #10 surfaces and resolved B-0061 / CR-03-026/027. PR #9 then returned CR-03-028 on stale current-stage state, while PR #10 returned same-head no-major as the method-switch route. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -52,10 +54,11 @@ Previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920` passed CI, but
 - CR-03-021/022 remediation head `b013342` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688395634/job/78660434696 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688396586/job/78660436791
 - CR-03-023/024 remediation head `4372b5e` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837076/job/78661584706 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837766/job/78661587466
 - CR-03-025 remediation head `902a040` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689193783/job/78662529624 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689194917/job/78662532667
+- B-0061 remediation / closeout head `14145ff` CI on PR #9/#10 surfaces: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689639859/job/78663671817, https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689640849/job/78663674316, https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689963801/job/78664529174, and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26689971351/job/78664548042
 
 ## Codex Review
 
-BLOCKED by CR-03-026/027 on previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920`: Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395654575. Acceptance-result and action-queue stale closeout wording is fixed locally. The next pushed head must pass CI and Codex.
+MIXED / B-0062 active for current correction: PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 Codex no-major https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583540247 independently confirmed no major issues for the same head after bounded retry. Earlier CR-03-026/027 on head `902a0405e9e9410152e586514fc301b52ffe9920` is resolved, but this status correction must be pushed and externally rechecked.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
