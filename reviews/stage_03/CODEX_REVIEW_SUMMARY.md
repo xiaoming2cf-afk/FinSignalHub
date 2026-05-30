@@ -2,7 +2,7 @@
 
 ## Status
 
-CR-03-004 fixed locally; follow-up CI/Codex review pending.
+Historical planning head `fb78f00` has CI PASS and Codex no-major evidence. If this evidence-sync update is pushed, Gate 6 must be refreshed against the live PR head before acceptance. GPT Pro plan review remains blocked by background browser control.
 
 ## Current Head Rule
 
@@ -22,6 +22,9 @@ CR-03-004 fixed locally; follow-up CI/Codex review pending.
 | 5 | Follow-up Codex review | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394190212 | Returned CR-03-002 and CR-03-003 P2 |
 | 6 | Follow-up Codex request | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581441579 | Requested review on the pushed CR-03-002/003 remediation head |
 | 7 | Codex review | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394210758 | Returned CR-03-004 P2 on stale current-head check evidence |
+| 8 | Historical `fb78f00` Codex request | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581483811 | Requested review on pushed CR-03-004 remediation head `fb78f00` |
+| 9 | Historical `fb78f00` minimal retry | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581492409 | Minimal `@codex review` retry on the same pushed head |
+| 10 | Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712 | Codex reported no major issues for historical planning head `fb78f00`; any later push requires a fresh live-head check |
 
 ## Initial Environment Blocker
 
@@ -39,10 +42,10 @@ This was superseded when Codex later submitted review `4394157060`.
 
 | Finding ID | Severity | Evidence | Summary | Status |
 | --- | --- | --- | --- | --- |
-| CR-03-001 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327894712 | The connector contract listed fields not accepted by existing `DocumentCreate`, creating pressure to drop provenance or make out-of-scope Stage 02 schema changes. | fixed locally; follow-up pending |
-| CR-03-002 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921258 | This summary named the pre-remediation commit as current. | fixed locally; follow-up pending |
-| CR-03-003 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921260 | The GPT Pro packet still described the superseded environment blocker instead of the active Codex findings. | fixed locally; follow-up pending |
-| CR-03-004 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327936653 | The checklist said current-head planning checks passed while RunLog still said checks were pending after stale-evidence remediation. | fixed locally; follow-up pending |
+| CR-03-001 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327894712 | The connector contract listed fields not accepted by existing `DocumentCreate`, creating pressure to drop provenance or make out-of-scope Stage 02 schema changes. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
+| CR-03-002 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921258 | This summary named the pre-remediation commit as current. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
+| CR-03-003 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921260 | The GPT Pro packet still described the superseded environment blocker instead of the active Codex findings. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
+| CR-03-004 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327936653 | The checklist said current-head planning checks passed while RunLog still said checks were pending after stale-evidence remediation. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
 
 ## Local Resolution
 
@@ -54,4 +57,4 @@ The checklist, acceptance result, blocker log, current stage state, action queue
 
 ## Gate Result
 
-Gate 6 remains BLOCKED until the CR-03-004 evidence fix is pushed, CI passes, and Codex returns no major issues for the live PR head. Stage 03 implementation must not begin.
+Gate 6 historical evidence exists for pushed head `fb78f00`: CI passed and Codex reported no major issues. Gate 6 is PENDING LIVE RECHECK after any later evidence-sync push until the live PR head passes CI and Codex again. Stage 03 implementation must still not begin because GPT Pro Gate 7 is blocked.

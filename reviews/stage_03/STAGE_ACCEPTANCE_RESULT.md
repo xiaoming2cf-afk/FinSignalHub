@@ -9,10 +9,10 @@ Stage 03 status: **PLANNING ACTIVE / IMPLEMENTATION BLOCKED**.
 | Tests | PASS | local Stage 03 planning checks were rerun for the CR-03-004 evidence fix; `phase_check.py --stage 03` passed; implementation path check passed; strict token-pattern scan had no matches; `git diff --check` had no errors |
 | Docs | PASS | architecture and commands docs exist |
 | Logs | PASS | CONTROL and RUNLOG updates exist |
-| GitHub | BLOCKED | PR #9 exists; Codex returned CR-03-004 P2 on the latest pushed head because checklist evidence was stale; local evidence records now identify the CR-03-004 fix and require push, CI, and follow-up Codex no-major before Gate 6 can pass |
-| GPT Pro | BLOCKED | plan packet exists, but background Chrome route returned `native pipe is closed`; foreground visual recovery is suspended per user instruction |
+| GitHub | PENDING LIVE RECHECK | PR #9 exists. Historical planning head `fb78f00` passed CI and Codex reported no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712. Any evidence-sync push after that head must pass CI and Codex again before Gate 6 is current. |
+| GPT Pro | BLOCKED | plan packet exists, but background Chrome tab control/runtime setup still times out after bounded retries and native-host restart; in-app Browser lacks the required login state or times out; standalone background Computer Use is not exposed; foreground visual recovery is suspended per user instruction |
 | Product governance | PASS | Research Mode evidence-stream alignment preserved; no chatbot, generic RAG, stock prediction, investment advice, dashboard, report, Risk Mode, or Replay Engine behavior |
 | Security | PASS | no secrets, no paid/private API dependency, no live network CI |
 | Next stage | BLOCKED | implementation requires GPT Pro plan PASS and approved `/goal` |
 
-Final result: BLOCKED until the CR-03-004 evidence fix is pushed, the latest PR head passes CI, Codex returns no major issues, and GPT Pro plan review passes.
+Final result: BLOCKED until GPT Pro plan review passes. Stage 03 implementation remains unauthorized.

@@ -24,11 +24,12 @@ PR created.
 
 ## CI
 
-PASS for the last pushed head before the local CR-03-004 evidence fix. The live PR head must be rechecked after every push.
+Historical PASS for pushed head `fb78f00`; any later evidence-sync push resets Gate 6 until the live PR head has CI PASS and Codex no-major evidence again.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
-- Latest known pushed-head CI before this evidence fix: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672773289/job/78619005801 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672774309/job/78619008899
+- Historical pushed-head CI before CR-03-004: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672773289/job/78619005801 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672774309/job/78619008899
+- Historical `fb78f00` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673120429/job/78620012223 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673121155/job/78620014248
 
 ## Codex Review
 
@@ -46,8 +47,11 @@ BLOCKED.
 - Follow-up request for current pushed head: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581441579
 - Codex review response on that head: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394210758
 - CR-03-004: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327936653
+- Historical `fb78f00` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581483811
+- Historical `fb78f00` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581492409
+- Historical `fb78f00` Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004. Gate 6 remains blocked until the live PR head has CI PASS and Codex no-major evidence.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004. Pushed head `fb78f00` has historical CI PASS and Codex no-major evidence. Any later push resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 

@@ -48,11 +48,12 @@ The Stage 03 plan must not implement connectors yet. It must define:
 ## Current External Gate Blockers
 
 - GitHub PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- CI: PASS for Stage Governance CI.
-- Codex review: BLOCKED until the live PR head receives a Codex no-major response. Active findings and remediation status are maintained in `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`.
-- GPT Pro submission route: this packet is ready, but background Chrome control returned `native pipe is closed`; foreground visual recovery is suspended because the user is using Chrome.
+- GitHub PR: PR #9 remains the source of truth; verify the live head with `gh pr view 9 --json headRefOid` before accepting Gate 6.
+- Historical CI/Codex evidence: planning head `fb78f00` passed CI and Codex reported no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712.
+- Evidence-sync rule: if this packet is submitted from a later evidence-sync commit, the later live PR head must also have CI PASS and Codex no-major evidence before Gate 6 is current.
+- GPT Pro submission route: this packet is ready, but the available background routes are not yet sufficient. The in-app Browser can open the page but lacks the needed ChatGPT login state or times out. The Chrome extension can list the logged-in ChatGPT tabs when addressed by exact backend id, but DOM, screenshot, controlled-tab reload/new-tab, and alternate-tab claim attempts timed out before a safe background submission could be made. Tool discovery exposes no standalone background Computer Use API. Read-only Windows UI Automation can identify the Chrome tab but not ChatGPT content/composer controls. Restarting the Chrome native host partially restored backend selection, but `openTabs`, `nameSession`, and `tabs.new` still timed out. Foreground visual recovery is suspended because the user is using Chrome.
 
-If this packet is submitted after the route is restored, please also verify the active Codex summary and advise whether any remaining Codex blocker must be resolved before Stage 03 implementation can proceed.
+If this packet is submitted after the route is restored, please verify the active Codex summary and the PR #9 current-head evidence before deciding whether Stage 03 implementation may be planned.
 
 Please answer:
 
