@@ -25,7 +25,7 @@ PR created.
 
 ## CI
 
-Head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8` passed CI, but Codex returned CR-03-023/024 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395611193. The CR-03-023/024 remediation must receive fresh live-head CI/Codex review after push before merge. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
+Head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6` passed CI, but Codex returned CR-03-025 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395639864. The CR-03-025 remediation must receive fresh live-head CI/Codex review after push before merge. Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` remains the accepted GPT Pro planning evidence head.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -50,10 +50,11 @@ Head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8` passed CI, but Codex returned CR
 - CR-03-020 remediation head `dfe38f2` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26686644136/job/78655920616 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26686643304/job/78655918498
 - GPT Pro PASS closeout head `2ec8db3` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26687860374/job/78659080023 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26687861435/job/78659082704
 - CR-03-021/022 remediation head `b013342` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688395634/job/78660434696 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688396586/job/78660436791
+- CR-03-023/024 remediation head `4372b5e` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837076/job/78661584706 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26688837766/job/78661587466
 
 ## Codex Review
 
-BLOCKED by CR-03-023/024 on head `b0133425f6b712329fb82c9b2e2bd7b34641c5d8`: Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395611193. The top Chrome extension row and PR body current closeout status are fixed locally. The next pushed head must pass CI and Codex.
+BLOCKED by CR-03-025 on head `4372b5e73d0fb63f66826eb427bcdf65e65d7ca6`: Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395639864. The PR body self-referential head wording is fixed locally. The next pushed head must pass CI and Codex.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
