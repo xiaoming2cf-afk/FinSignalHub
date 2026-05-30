@@ -192,3 +192,23 @@ Connector implementation is not authorized by this closeout review.
 ```
 
 Next-stage instruction remains bounded to Stage 03 implementation `/goal` drafting only. The draft must include allowed files, forbidden files, mocked connector tests, no-network CI, provenance mapping, subagents, stop conditions, GitHub/Codex/GPT Pro final gates, and an explicit prohibition on connector code until the separate implementation `/goal` begins.
+
+## Stage 03 Implementation Goal PASS From GPT Pro
+
+Timestamp: 2026-05-30T15:51:25-05:00
+
+Source files:
+
+- `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`
+- `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`
+
+GPT Pro reviewed the Stage 03 implementation `/goal` draft, PR #10 head `8f10f95c69c3eaf7d6ada7b878e017b917929e33`, CI PASS links, and Codex no-major evidence, then returned:
+
+```text
+VERDICT: PASS.
+Begin Stage 03 implementation only under the accepted goal scope.
+Implement connector primitives with mocked fixtures and normalized output only.
+Run required local checks, CI, current-head Codex review, and final GPT Pro Stage 03 implementation review before accepting Stage 03.
+```
+
+Next instruction: after this evidence-sync update is saved and the resulting implementation branch head has live CI PASS plus current-head Codex no-major, start Stage 03 source connector implementation only for OpenAlex, Crossref, Semantic Scholar, arXiv, and user-upload metadata. Outputs must normalize into existing Stage 02-compatible `SourceCreate`, `DocumentCreate`, and `ToolCallLog` payloads. Stage 04+ extraction, claim graph, delta, Repro Pack, MCP business tools, UI/dashboard behavior, chatbot/RAG, stock prediction, investment advice, Risk Mode, Replay Engine, auth, billing, live external API tests in CI, API keys, paid credentials, and full document parsing remain forbidden.
