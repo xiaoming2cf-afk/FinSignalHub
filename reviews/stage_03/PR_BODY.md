@@ -2,7 +2,7 @@
 
 ## Goal
 
-Plan Research Mode source connectors for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata, then draft the separate Stage 03 implementation `/goal` packet after PR #10 live-head CI/Codex and GPT Pro closeout allow goal drafting. This PR still does not implement connector code.
+Plan and implement Research Mode source connector primitives for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata after PR #10 live-head CI/Codex and GPT Pro accepted the separate Stage 03 implementation `/goal`.
 
 ## Scope
 
@@ -17,11 +17,14 @@ Included:
   - `reviews/stage_03/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md`
   - `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`
   - `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`
+- Connector primitives:
+  - `apps/api/finsignalhub_api/connectors/`
+  - `apps/api/tests/test_stage03_connectors.py`
+  - `apps/api/tests/fixtures/stage03_connectors/`
+- Connector docs and subagent evidence under `docs/architecture/stage_03_source_connectors.md`, `docs/codex/stage_03_commands.md`, and `logs/subagents/stage_03/`.
 
 Not included:
 
-- connector implementation;
-- connector tests and fixtures;
 - external API calls;
 - evidence extraction;
 - LLM adapters;
@@ -32,10 +35,13 @@ Not included:
 
 ## Checks
 
-Planning-only checks to run before PR:
+Checks to run before PR:
 
+- `python -m pytest apps/api/tests/test_stage03_connectors.py`
+- `python -m pytest apps/api/tests -q`
+- `python -m compileall apps/api/finsignalhub_api`
 - `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 03`
-- no Stage 03 implementation files exist
+- forbidden-scope scan
 - secret scan
 - `git diff --check`
 
@@ -58,5 +64,5 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 - Current closeout gate before goal drafting: PR #10 live head `1f03defb437a9f6f2b694a2697754faa1e1ea7f0` passed governance CI and Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4584381224. That evidence allowed goal drafting only.
 - Implementation-goal draft gate: PR #10 goal-draft head `8f10f95c69c3eaf7d6ada7b878e017b917929e33` passed live CI at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693919817/job/78675014690 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693921040/job/78675017595, and Codex returned no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4584553889.
 - GPT Pro plan/closeout/goal review: PASS after Chrome follow-up, PR #10 closeout review, and implementation-goal review. Follow-up response is saved in `reviews/stage_03/GPT_PRO_FOLLOWUP_RESPONSE.md`; closeout response is saved in `reviews/stage_03/GPT_PRO_CLOSEOUT_RESPONSE.md`; implementation-goal response is saved in `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`; action items are saved in `reviews/stage_03/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`.
-- Implementation: not started in this evidence update. Actual connector code may begin only after this evidence-sync head is pushed and receives live CI PASS plus current-head Codex no-major, and only inside the accepted Stage 03 source-connector primitive scope.
+- Implementation: started after PR #10 head `494c91a93e3110559047fcfba4e5ea3745cc59de` passed live CI and Codex no-major for the implementation-goal activation evidence. Connector code is bounded to source metadata normalization into existing Stage 02 schemas and fixture-only tests.
 - Closeout note: if this PR body closeout is pushed as a new evidence commit, merge must verify the live PR head has CI PASS and current-head Codex no-major again. Do not require another self-referential evidence commit solely to record that external verification.

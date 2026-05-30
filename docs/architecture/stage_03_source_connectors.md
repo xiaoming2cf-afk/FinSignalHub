@@ -42,17 +42,44 @@ Connector-specific fields that are not accepted by `DocumentCreate`, such as aut
 
 The connector contract must use deterministic errors, must not require secrets in normal tests, and must not require Stage 02 schema or migration changes unless a later plan explicitly records a cross-stage exception.
 
-## Planned Connectors
+## Implemented Stage 03 Primitives
 
-- OpenAlex: literature metadata from fixture responses.
-- Crossref: DOI and publication metadata from fixture responses.
-- Semantic Scholar: paper metadata and external ids from fixture responses.
-- arXiv: preprint metadata from fixture responses.
-- User upload metadata: local file metadata and user-provided citation fields, not document parsing or extraction.
+Stage 03 now includes fixture/local metadata normalizers under `apps/api/finsignalhub_api/connectors/`:
+
+- `normalize_openalex_record`
+- `normalize_crossref_record`
+- `normalize_semantic_scholar_record`
+- `normalize_arxiv_record`
+- `normalize_user_upload_metadata`
+
+Each normalizer returns a `NormalizedConnectorResult` with:
+
+- `source_payload`: validates as `SourceCreate`.
+- `document_payload_seed`: validates as `DocumentCreate` after the persistence layer supplies `source_id`.
+- `tool_call_payload`: validates as `ToolCallLogCreate`.
+- `provider_metadata`: sanitized provider metadata retained for provenance.
+
+The connector package has no default network client. It performs deterministic metadata mapping only.
+
+## Provider Mapping
+
+- OpenAlex: maps work id, DOI, title, publication date, landing page, host venue, license, and authors into literature source/document payloads.
+- Crossref: maps DOI, URL, title, issued or published date parts, container title, publisher, type, and authors into literature source/document payloads.
+- Semantic Scholar: maps paper id, DOI, arXiv id, corpus id, venue, publication date, publication type, and authors into literature source/document payloads.
+- arXiv: maps arXiv id, DOI, title, publication/update time, category, links, and authors into preprint source/document payloads.
+- User upload metadata: maps caller-provided file metadata, hash, citation fields, DOI, URL, and optional metadata into `user_upload_metadata` source/document payloads. It does not parse file content.
+
+## Tool Call Lineage
+
+`ToolCallLogCreate` payloads record the provider normalizer name, schema version, retrieval time, deterministic argument hash, sanitized safe arguments, and `succeeded` status. `input_artifact_ids` and `output_artifact_ids` are intentionally omitted by normalizers because source and document IDs do not exist until the persistence step creates records. A later bounded persistence step may update those artifact IDs after creation without changing Stage 02 schemas.
+
+## Sanitization
+
+Connector metadata and safe arguments redact key names containing `api_key`, `apikey`, `authorization`, `password`, `secret`, or `token`. This is a defensive control for fixture and user-upload metadata; it is not a substitute for keeping secrets out of inputs.
 
 ## No-Network Rule
 
-Normal tests and CI must use fixture data and mocked clients. Live network probes, if ever needed, must be optional, manually invoked, and excluded from default CI.
+Normal tests and CI use fixture data only. The Stage 03 connector modules must not import `httpx`, `requests`, `urllib.request`, or `socket` in default connector code. Live network probes, if ever needed, must be optional, manually invoked, and excluded from default CI.
 
 ## Forbidden Boundaries
 

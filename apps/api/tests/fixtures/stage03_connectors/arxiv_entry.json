@@ -1,0 +1,22 @@
+{
+  "id": "2401.01234v2",
+  "title": "Boundary tests for research-mode source intake",
+  "published": "2024-01-05T12:30:00Z",
+  "updated": "2024-01-08T12:30:00Z",
+  "doi": "10.48550/arXiv.2401.01234",
+  "authors": [
+    "Iris Preprint",
+    "Theo Metadata"
+  ],
+  "primary_category": "cs.DL",
+  "links": [
+    {
+      "rel": "alternate",
+      "href": "https://arxiv.org/abs/2401.01234"
+    },
+    {
+      "rel": "related",
+      "href": "https://arxiv.org/pdf/2401.01234"
+    }
+  ]
+}
