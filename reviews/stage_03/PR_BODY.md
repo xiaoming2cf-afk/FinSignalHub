@@ -45,9 +45,9 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 ## Current Gate Status
 
 - Local planning checks: PASS.
-- CR-03-014/015 remediation checks: PASS locally; `2d7929b` CI PASS; CR-03-016 GPT Pro follow-up packet refresh pending live-head recheck.
+- CR-03-017 remediation checks: PASS locally; follow-up packet evidence head `fcd68bc` CI PASS, but Codex review `4395424386` returned CR-03-017 on blocker status consistency.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- CI: PASS for GPT Pro packet/deployment evidence correction head `2d7929ba6b3c7c930527875516044a6f07dfb31c` with jobs https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26684340657/job/78649906092 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26684341409/job/78649907898. Any later follow-up packet evidence correction must be verified against the live PR head before Gate 6 can pass.
-- Codex review: BLOCKED by CR-03-016 from Codex review `4395395251` on GPT Pro packet/deployment evidence correction head `2d7929ba6b3c7c930527875516044a6f07dfb31c`; CR-03-014/015 remediation advanced Codex to this follow-up packet evidence finding.
+- CI: PASS for follow-up packet evidence head `fcd68bc68b50ddd22d6fca8d62f2c8076c7d998c` with jobs https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26684736251/job/78650932138 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26684737012/job/78650933976. Any later blocker-status consistency correction must be verified against the live PR head before Gate 6 can pass.
+- Codex review: BLOCKED by CR-03-017 from Codex review `4395424386` on follow-up packet evidence head `fcd68bc68b50ddd22d6fca8d62f2c8076c7d998c`; CR-03-016 remediation advanced Codex to this blocker-status consistency finding.
 - GPT Pro plan review: CONDITIONAL PASS / FOLLOW-UP BLOCKED. Response saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. B-0040 remains open until GPT Pro follow-up confirms. B-0045, B-0046, B-0047, and B-0048 block safe Chrome/background follow-up.
 - Implementation: not authorized.
