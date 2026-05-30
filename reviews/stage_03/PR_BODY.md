@@ -46,7 +46,7 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 
 - Local planning checks: PASS.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- CI: PASS for Stage Governance CI.
-- Codex review: PASS for live head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`; current no-major response is https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952. Active and historical findings are tracked in `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`.
-- GPT Pro plan review: CONDITIONAL PASS. Response saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. B-0040 remains open: corrected artifacts must be committed, PR head CI/Codex must be refreshed after this evidence push, and GPT Pro follow-up must confirm before implementation planning.
+- CI: PASS for evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46`; next push requires fresh CI.
+- Codex review: BLOCKED by CR-03-006 until the non-self-validating Gate 6 wording fix is pushed and rechecked. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` received a Codex no-major issue comment at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582257443, but inline P2 CR-03-006 remains active.
+- GPT Pro plan review: CONDITIONAL PASS. Response saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. B-0040 remains open: corrected artifacts must be committed, PR head CI/Codex must be refreshed, and GPT Pro follow-up must confirm before implementation planning.
 - Implementation: not authorized.

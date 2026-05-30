@@ -24,7 +24,7 @@ PR created.
 
 ## CI
 
-Latest live head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and has current-head Codex no-major evidence. Any later push must refresh this section before Gate 6 is accepted.
+Latest evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed both Stage Governance CI jobs and has a Codex no-major issue comment, but inline CR-03-006 requires a local remediation push and a fresh Gate 6 recheck before Gate 6 is accepted.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -32,10 +32,11 @@ Latest live head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Go
 - Historical `fb78f00` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673120429/job/78620012223 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673121155/job/78620014248
 - Historical/superseded `4c81fe9` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26676983766/job/78630553695 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26676984564/job/78630556146
 - Live `ce5b94a` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677318215/job/78631445574 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677319070/job/78631447611
+- Evidence head `5fb9a75` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678988094/job/78635909898 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678989068/job/78635912065
 
 ## Codex Review
 
-PASS for current live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`.
+BLOCKED by CR-03-006 until the self-validating Gate 6 wording fix is pushed and rechecked. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed CI and received a Codex no-major issue comment, but also received inline P2 finding CR-03-006.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -60,8 +61,13 @@ PASS for current live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`.
 - Live `ce5b94a` review request after CR-03-005 remediation: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582005214
 - Live `ce5b94a` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582008361
 - Live `ce5b94a` Codex no-major response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952
+- Evidence head `5fb9a75` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582240987
+- Evidence head `5fb9a75` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582245197
+- Evidence head `5fb9a75` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395045006
+- Evidence head `5fb9a75` Codex no-major comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582257443
+- CR-03-006: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328458099
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005. The CR-03-005 remediation adds `user-upload-agent` to `CONTROL/21_SUBAGENT_PROTOCOL.md`. The pushed head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed CI and Codex no-major review. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006. The CR-03-006 remediation changes committed Gate 6 wording to require external live PR-head evidence after each evidence commit instead of marking GitHub PASS with prior-head evidence. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 
