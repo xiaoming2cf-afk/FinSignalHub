@@ -212,3 +212,26 @@ Run required local checks, CI, current-head Codex review, and final GPT Pro Stag
 ```
 
 Next instruction: after this evidence-sync update is saved and the resulting implementation branch head has live CI PASS plus current-head Codex no-major, start Stage 03 source connector implementation only for OpenAlex, Crossref, Semantic Scholar, arXiv, and user-upload metadata. Outputs must normalize into existing Stage 02-compatible `SourceCreate`, `DocumentCreate`, and `ToolCallLog` payloads. Stage 04+ extraction, claim graph, delta, Repro Pack, MCP business tools, UI/dashboard behavior, chatbot/RAG, stock prediction, investment advice, Risk Mode, Replay Engine, auth, billing, live external API tests in CI, API keys, paid credentials, and full document parsing remain forbidden.
+
+## Stage 03 Final Implementation PASS And Stage 04 Planning Instruction From GPT Pro
+
+Timestamp: 2026-05-30T18:28:03-05:00
+
+Source files:
+
+- `reviews/stage_03/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
+- `reviews/stage_03/GPT_PRO_FINAL_ACTION_ITEMS.md`
+
+GPT Pro reviewed PR #10, implementation remediation head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`, CI PASS links, current-head Codex no-major evidence, and CR-03-041 remediation, then returned:
+
+```text
+VERDICT: PASS.
+Stage 03 final implementation: PASS.
+Stage 03 may close after evidence closeout.
+Next allowed action: Stage 04 planning only.
+Stage 04 implementation is not authorized.
+```
+
+Stage 04 planning objective: plan evidence extraction skeleton only. The plan must define extraction schemas, relation type enums, quote-span validation, provenance validation, mock LLM extraction adapter, extraction worker skeleton, tests with mocks, and stop conditions. The plan may prepare the bridge from `Document` / connector-normalized metadata to future `EvidenceItem` candidates, but must not implement production extraction, external LLM calls, claim graph computation, Research Delta, Repro Pack, MCP business tools, Risk Mode, Replay Engine, chatbot/RAG/dashboard, stock prediction, investment advice, auth, billing, or live external network calls.
+
+Allowed Stage 04 planning files: `PLANS/STAGE_04_PLAN.md`, `TASKS/STAGE_04_TASKS.md`, `CHECKLISTS/STAGE_04_CHECKLIST.md`, `reviews/stage_04/GPT_PRO_REVIEW_PACKET.md`, `reviews/stage_04/PR_BODY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `deployments/stage_04/GITHUB_PR.md`, `docs/architecture/stage_04_evidence_extraction.md`, `docs/codex/stage_04_commands.md`, `logs/subagents/stage_04/`, and required `CONTROL/` / `RUNLOG/` updates. Do not create `apps/api/finsignalhub_api/extraction/`, `apps/api/tests/test_stage04_extraction.py`, or `apps/api/tests/fixtures/stage04_extraction/` until Stage 04 implementation is separately approved.
