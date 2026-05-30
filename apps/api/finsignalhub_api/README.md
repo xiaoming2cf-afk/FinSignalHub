@@ -1,15 +1,15 @@
 # API Package
 
-This package contains the Stage 01 FastAPI health-only scaffold.
+This package contains the FastAPI application for FinSignalHub.
 
-Allowed in Stage 01:
+Allowed after Stage 02 implementation approval:
 
-- application factory or app instance needed for `/health`;
-- deterministic health response showing scaffold stage and scope.
+- deterministic `/health` response showing Stage 02 domain primitive scope;
+- Research Mode domain models under `models/`;
+- database session/config primitives under `db/` and `core/`;
+- Pydantic schemas under `schemas/`;
+- generic CRUD helpers and model-level routers under `services/` and `routers/`.
 
 Forbidden until later approved stages:
 
-- product domain models;
-- database table logic;
-- research workflow endpoints;
 - connector, extraction, claim graph, Research Delta, Repro Pack, chatbot, RAG, dashboard, prediction, or investment behavior.

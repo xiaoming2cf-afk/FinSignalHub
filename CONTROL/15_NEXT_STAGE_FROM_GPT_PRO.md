@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Stores GPT Pro instructions for the next stage.
+Stores GPT Pro instructions for the next authorized work unit.
 
 ## Owner
 
@@ -10,7 +10,7 @@ Stage next-goal synthesizer.
 
 ## When to update
 
-Update only after GPT Pro passes or conditionally passes the current stage and gives next-stage instructions.
+Update only after GPT Pro passes or conditionally passes a stage or plan gate and gives next-step instructions.
 
 ## Required fields
 
@@ -26,212 +26,149 @@ Update only after GPT Pro passes or conditionally passes the current stage and g
 
 ## Example format
 
-`Source Stage 00 | PASS | Next Stage 01 | scaffold repo only | raw instruction pasted below`
+`Source Stage 02 implementation gate | PASS | Next Stage 03 planning | source connectors planning only | raw instruction pasted below`
 
 ## Current state
 
-Source stage: Stage 01.
+Source stage: Stage 02 implementation final gate.
 
 GPT Pro result: PASS.
 
-Important condition: Stage 01 is accepted. Stage 02 may begin as planning only. Stage 02 implementation is not authorized until the Stage 02 plan exists, GPT Pro plan review passes, user goal approval is recorded, and the Stage 02 GitHub/CI/Codex gates are ready.
+Important condition: Stage 03 is authorized for planning only. Stage 03 implementation is not authorized.
 
 ## Next Stage ID
 
-Stage 02: Research Mode Domain Models.
+Stage 03 planning: Source Connectors.
 
 ## Next Stage Goal
 
-Create the Stage 02 plan for minimum Research Mode domain models and basic CRUD. The plan must define database models, migrations, Pydantic schemas, model-level CRUD services, basic API routers, tests, docs, logs, PR evidence, and GPT Pro plan review.
+Create `PLANS/STAGE_03_PLAN.md` for Research Mode source connector planning only.
 
-Do not implement Stage 02 until the Stage 02 plan is reviewed by GPT Pro and the user approves the Stage 02 goal.
+The Stage 03 plan must define connector framework scope, file boundaries, subagents, normalized `Document` mapping, provenance fields, mocked test strategy, no-network test rule, CI checks, stop conditions, and a GPT Pro plan review packet.
 
-## Allowed Planning Files
-
-- `PLANS/STAGE_02_PLAN.md`
-- `TASKS/STAGE_02_TASKS.md`
-- `CHECKLISTS/STAGE_02_CHECKLIST.md`
-- `reviews/stage_02/GPT_PRO_REVIEW_PACKET.md`
-- `reviews/stage_02/PR_BODY.md`
-- `reviews/stage_02/STAGE_ACCEPTANCE_RESULT.md`
-- `deployments/stage_02/GITHUB_PR.md`
-- `CONTROL/04_EXECUTION_LOG.md`
-- `CONTROL/07_CODEX_GOAL_REGISTRY.md`
-- `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`
-- `CONTROL/18_ARTIFACT_REGISTRY.md`
-- `CONTROL/19_STAGE_DASHBOARD.md`
-- `CONTROL/20_BLOCKER_LOG.md`
-- `CONTROL/24_CURRENT_STAGE_STATE.md`
-- `CONTROL/25_NEXT_ACTION_QUEUE.md`
-- `CONTROL/27_CHECKPOINT_LOG.md`
-- `RUNLOG/LONG_RUN_CURRENT.md`
-- `RUNLOG/LONG_RUN_SUMMARY.md`
-
-## Stage 02 Implementation File Boundary From GPT Pro
-
-Implementation is not yet authorized. When authorized by GPT Pro and user goal approval, Stage 02 may create or modify only the bounded model-layer areas below:
-
-- `apps/api/app/db/`
-- `apps/api/app/models/`
-- `apps/api/app/schemas/`
-- `apps/api/app/services/`
-- `apps/api/app/routers/`
-- `apps/api/app/core/`
-- `apps/api/tests/`
-- `apps/api/alembic/`
-- `apps/api/alembic.ini`
-- `apps/api/alembic/versions/`
-- `docs/architecture/stage_02_domain_models.md`
-- `docs/codex/stage_02_commands.md`
-- `pyproject.toml`
-- `docker-compose.yml`
-- `.github/workflows/ci.yml`
-- `.github/workflows/phase-deploy.yml`
-- `.env.example`
-- `README.md`
-- `AGENTS.md` only if stage rules need clarification
-
-## Required Stage 02 Model Scope From GPT Pro
-
-The Stage 02 plan must cover these model primitives:
-
-- `ResearchProject`
-- `Source`
-- `Document`
-- `EvidenceItem`
-- `ResearchClaim`
-- `ClaimEvidenceEdge`
-- `ResearchDelta`
-- `LiteratureMatrixRow`
-- `MethodCard`
-- `DatasetCard`
-- `ReproPackExport`
-- `ToolCallLog`
-
-Stage 02 may create model tables, schemas, migration, and primitive CRUD. It must not implement business workflows.
-
-## Files Or Areas Not To Touch In Stage 02
+## Allowed Planning Targets
 
 - OpenAlex connector.
 - Crossref connector.
 - Semantic Scholar connector.
 - arXiv connector.
-- User upload ingestion.
-- External API calls.
+- User upload connector.
+- Connector base interface.
+- Normalized `Document` output.
+- Mocked tests.
+- Docs.
+- Logs.
+- GPT Pro plan review packet.
+
+## Required Stage 03 Planning Files
+
+- `PLANS/STAGE_03_PLAN.md`
+- `TASKS/STAGE_03_TASKS.md`
+- `CHECKLISTS/STAGE_03_CHECKLIST.md`
+- `reviews/stage_03/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_03/PR_BODY.md`
+- `reviews/stage_03/STAGE_ACCEPTANCE_RESULT.md`
+- `deployments/stage_03/GITHUB_PR.md`
+- `docs/architecture/stage_03_source_connectors.md`
+- `docs/codex/stage_03_commands.md`
+- `logs/subagents/stage_03/`
+- Required `CONTROL/` and `RUNLOG/` status updates.
+
+## Required Subagents
+
+Stage 03 plan should declare:
+
+- `openalex-agent`
+- `crossref-agent`
+- `semantic-scholar-agent`
+- `arxiv-agent`
+- `user-upload-agent`
+- `connector-review-agent`
+
+Each subagent must have bounded file authority and must write logs under `logs/subagents/stage_03/`.
+
+## Required Tests To Plan
+
+- `pytest apps/api/tests/test_stage03_connectors.py`
+- Mocked HTTP tests only.
+- No external network calls in normal tests.
+- Fixture-based OpenAlex sample response.
+- Fixture-based Crossref sample response.
+- Fixture-based Semantic Scholar sample response.
+- Fixture-based arXiv sample response.
+- User-upload sample fixture.
+- Normalized `Document` schema validation.
+- `publication_time` / `release_time` mapping tests.
+- `source_identity` mapping tests.
+- URL / DOI / external id mapping tests.
+- Rate-limit and retry behavior tests with mocks.
+- Forbidden-scope scan.
+- Secret scan.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 03`
+- `git diff --check`
+
+CI must not require real API keys.
+
+## Forbidden Scope
+
+Do not implement in Stage 03 planning or implementation:
+
+- Evidence extraction.
 - LLM adapters.
-- LLM extraction.
-- Evidence extraction pipeline.
-- Quote-span extraction logic beyond a schema field.
-- Dedup pipeline.
 - Claim graph computation.
-- Research delta computation beyond model/table fields.
-- Literature matrix generation logic.
+- Research delta computation.
 - Repro Pack export logic.
 - MCP business tools.
-- ChatGPT App implementation.
-- Claude Connector, Copilot Connector, or other external connector implementation.
 - Risk Mode.
 - Replay Engine.
 - Stock prediction.
 - Investment advice.
 - Chatbot UI.
 - Generic RAG.
-- Dashboard product behavior.
-- Auth or billing.
+- Dashboard behavior.
 
-## Stage 02 Required Subagents
+## Risks
 
-- `schema-agent`: SQLAlchemy/SQLModel models and relationships.
-- `migration-agent`: Alembic setup and migration checks.
-- `api-schema-agent`: Pydantic schemas, CRUD routers, and services without business workflow logic.
-- `test-agent`: model, migration, CRUD, and forbidden-scope tests.
-- `docs-log-agent`: docs, logs, review packet, artifact registry, dashboard, and deployment evidence.
+- External API dependency creep.
+- Connector work becoming ingestion or extraction workflow.
+- Connector output bypassing provenance requirements.
+- Stage 03 drifting into evidence extraction.
+- User upload becoming a full document parser.
 
-## Stage 02 Required Tests From GPT Pro
+## Stop Conditions
 
-The Stage 02 plan must include:
+Codex must stop and ask for user or GPT Pro guidance if:
 
-```text
-pytest apps/api/tests
-alembic upgrade head
-alembic downgrade -1 or documented if not supported
-alembic upgrade head again
-python -m compileall apps/api/app
-python finsignalhub-codex-plugin/scripts/phase_check.py --stage 02
-secret scan
-forbidden runtime/scope scan
-git diff --check
-```
-
-If Postgres is used through Docker, the plan must include `docker compose up -d postgres`, migration pass, and `docker compose down`.
-
-## Stage 02 Acceptance Criteria From GPT Pro
-
-- Stage 02 plan exists and GPT Pro plan review passes.
-- SQLAlchemy/SQLModel models exist after implementation is authorized.
-- Alembic migration exists and runs after implementation is authorized.
-- Pydantic schemas exist after implementation is authorized.
-- CRUD routers/services exist for model primitives after implementation is authorized.
-- Tests pass.
-- No external connectors exist.
-- No LLM extraction exists.
-- No MCP business tools exist.
-- No claim graph or research delta computation exists beyond tables/schemas.
-- No Risk Mode, Replay Engine, stock prediction, or investment advice exists.
-- Docs, logs, artifact registry, PR, CI, Codex review, GPT Pro final implementation review, and Stage 03 assignment are complete.
-
-## Stage 02 Risks From GPT Pro
-
-- Implementing connectors early is blocking drift.
-- Turning `ResearchDelta` into a computation engine is blocking drift.
-- Turning `EvidenceItem` into an extraction pipeline is blocking drift.
-- Implementing MCP business tools early is blocking drift.
-- Over-complex model relationships should be controlled; Stage 02 should stay minimal and relational.
-- Irreproducible migrations are blocking.
-
-## Stage 02 Stop Conditions From GPT Pro
-
-Stop and request user or GPT Pro judgment if:
-
-- External data APIs are required.
-- A real LLM API key is required.
-- Model design exceeds Research Mode P0.
-- Alembic migration cannot run and the cause is unclear.
-- Auth or billing is required.
-- Stage 01 scaffold structure needs a destructive change.
-- Investment advice, stock prediction, Risk Mode, or Replay Engine implementation appears.
-- Docker/Postgres remains unavailable and migration tests depend on it.
+1. A connector requires paid API keys or private credentials.
+2. A source endpoint is inaccessible and no public fixture can be used.
+3. Implementation requires real network tests.
+4. Connector work requires evidence extraction.
+5. Connector work requires an LLM adapter.
+6. Connector work requires claim graph or research delta computation.
+7. Connector work requires MCP business tool exposure.
+8. Repository package layout requires destructive restructuring.
+9. Stage 03 plan cannot preserve Stage 02 model boundaries.
+10. External source terms create licensing ambiguity requiring user decision.
 
 ## Raw GPT Pro Instruction Source
 
-Full Stage 01 final implementation response is saved at `reviews/stage_01/GPT_PRO_REVIEW_RESPONSE.md` and duplicated at `reviews/stage_01/GPT_PRO_FINAL_REVIEW_RESPONSE.md`.
+Full final response is saved at:
+
+- `reviews/stage_02/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
 
 ## Raw GPT Pro Instruction
 
 ```text
-GPT Pro Stage 01 final implementation review result: PASS.
+Stage 02 implementation result: PASS.
+Stage 02 may be accepted now after saving this response/action items locally.
+ADR-0002 support-file exception: acceptable.
+Provenance modeling and validation: sufficient for Stage 02.
+Forbidden Stage 03+ behavior: none indicated.
+Live GitHub CI + Codex no-major evidence: sufficient despite committed historical pending wording.
+Stage 03: planning only, not implementation.
+Final verdict: PASS.
 
-Stage 01 is accepted.
-
-Next action:
-Begin Stage 02 planning only.
-
-Do not implement Stage 02 yet.
-
-Create PLANS/STAGE_02_PLAN.md.
-
-Stage 02 plan must cover:
-- Research Mode domain model scope
-- file boundaries
-- forbidden scope
-- subagents
-- migrations
-- tests
-- CI
-- docs
-- GitHub PR
-- GPT Pro plan review
-- stop conditions
-
-After Stage 02 plan is created, prepare reviews/stage_02/GPT_PRO_REVIEW_PACKET.md and submit to GPT Pro for plan review.
+Begin Stage 03 planning only.
+Do not implement Stage 03.
 ```
