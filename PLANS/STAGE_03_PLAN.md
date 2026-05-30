@@ -144,7 +144,9 @@ Docs must define connector contracts, normalized `SourceCreate`/`DocumentCreate`
 
 ## GitHub Deployment
 
-Use branch `stage/03-source-connectors`. PR title must be `Stage 03: Source Connectors`. PR body comes from `reviews/stage_03/PR_BODY.md`. After PR creation, comment:
+Original planning branch: `stage/03-source-connectors` with PR #9. That route is historical after PR #9 was superseded during closeout.
+
+Active Stage 03 closeout, evidence-sync, and implementation-gate branch: `stage/03-source-connectors-closeout-refresh` with PR #10. Future Stage 03 pushes must use PR #10 unless a later ADR and blocker explicitly authorize a route change. PR title remains `Stage 03: Source Connectors`. PR body comes from `reviews/stage_03/PR_BODY.md`. After PR creation or after any pushed head that needs review, comment:
 
 ```text
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
