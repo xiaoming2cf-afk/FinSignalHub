@@ -178,8 +178,44 @@ def test_tool_call_safe_arguments_do_not_include_secret_like_fields() -> None:
     serialized = json.dumps(tool_call.safe_arguments, sort_keys=True).lower()
 
     assert "must-not-leak" not in serialized
-    assert tool_call.safe_arguments["api_key"] == "[redacted]"
-    assert tool_call.safe_arguments["nested"]["token"] == "[redacted]"
+    assert tool_call.safe_arguments["extra"]["api_key"] == "[redacted]"
+    assert tool_call.safe_arguments["extra"]["nested"]["token"] == "[redacted]"
+
+
+def test_tool_call_safe_arguments_preserve_core_provenance_fields() -> None:
+    context = ConnectorRunContext(
+        project_id=PROJECT_ID,
+        retrieval_time=RETRIEVAL_TIME,
+        query_ref="fixture-query:crossref",
+        fixture_id="crossref-fixture-001",
+        fixture=True,
+        extra_safe_arguments={
+            "provider": "spoofed",
+            "fixture": False,
+            "fixture_id": "spoofed-fixture",
+            "query_ref": "spoofed-query",
+            "source_identity": "spoofed-source",
+            "api_key": "must-not-leak",
+        },
+    )
+    result = normalize_crossref_record(_load_fixture("crossref_work.json"), context)
+
+    source = result.to_source_create()
+    tool_call = result.to_tool_call_log_create()
+    serialized = json.dumps(tool_call.safe_arguments, sort_keys=True).lower()
+
+    assert tool_call.safe_arguments["provider"] == "crossref"
+    assert tool_call.safe_arguments["fixture"] is True
+    assert tool_call.safe_arguments["fixture_id"] == "crossref-fixture-001"
+    assert tool_call.safe_arguments["query_ref"] == "fixture-query:crossref"
+    assert tool_call.safe_arguments["source_identity"] == source.source_identity
+    assert tool_call.safe_arguments["extra"]["provider"] == "spoofed"
+    assert tool_call.safe_arguments["extra"]["fixture"] is False
+    assert tool_call.safe_arguments["extra"]["fixture_id"] == "spoofed-fixture"
+    assert tool_call.safe_arguments["extra"]["query_ref"] == "spoofed-query"
+    assert tool_call.safe_arguments["extra"]["source_identity"] == "spoofed-source"
+    assert tool_call.safe_arguments["extra"]["api_key"] == "[redacted]"
+    assert "must-not-leak" not in serialized
 
 
 def test_user_upload_provider_metadata_redacts_secret_like_fields() -> None:

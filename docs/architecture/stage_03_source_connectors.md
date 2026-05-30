@@ -71,7 +71,7 @@ The connector package has no default network client. It performs deterministic m
 
 ## Tool Call Lineage
 
-`ToolCallLogCreate` payloads record the provider normalizer name, schema version, retrieval time, deterministic argument hash, sanitized safe arguments, and `succeeded` status. `input_artifact_ids` and `output_artifact_ids` are intentionally omitted by normalizers because source and document IDs do not exist until the persistence step creates records. A later bounded persistence step may update those artifact IDs after creation without changing Stage 02 schemas.
+`ToolCallLogCreate` payloads record the provider normalizer name, schema version, retrieval time, deterministic argument hash, sanitized safe arguments, and `succeeded` status. Core safe-argument provenance fields (`provider`, `query_ref`, `fixture`, `fixture_id`, and `source_identity`) are canonical and cannot be overwritten by extra fixture arguments; extras are sanitized under the `extra` key. `input_artifact_ids` and `output_artifact_ids` are intentionally omitted by normalizers because source and document IDs do not exist until the persistence step creates records. A later bounded persistence step may update those artifact IDs after creation without changing Stage 02 schemas.
 
 ## Sanitization
 

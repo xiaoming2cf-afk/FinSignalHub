@@ -16,3 +16,4 @@
 - Recorded Stage 02 final implementation acceptance with CI, Codex no-major, GPT Pro PASS, and Stage 03 planning-only instructions.
 - Recorded Stage 02 merge/tag evidence and started Stage 03 source connector planning artifacts without implementing connectors or external API calls.
 - Added Stage 03 fixture-only source connector primitives for OpenAlex, Crossref, Semantic Scholar, arXiv, and user-upload metadata normalization, with local checks passing and final GitHub/Codex/GPT Pro gates pending.
+- Hardened Stage 03 connector tool-call provenance so extra fixture arguments cannot overwrite canonical provider, query, fixture, or source identity fields.

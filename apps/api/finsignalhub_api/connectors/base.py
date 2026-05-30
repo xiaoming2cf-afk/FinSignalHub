@@ -215,7 +215,7 @@ def build_result(
         "fixture": context.fixture,
         "fixture_id": context.fixture_id,
         "source_identity": source_identity_value,
-        **dict(context.extra_safe_arguments),
+        "extra": dict(context.extra_safe_arguments),
     })
     tool_call_payload = {
         "project_id": context.project_id,

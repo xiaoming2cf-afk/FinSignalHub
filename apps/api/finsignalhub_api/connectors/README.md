@@ -11,7 +11,7 @@ Allowed behavior:
 Forbidden behavior:
 
 - Live API fetching in default code paths or CI.
-- Evidence extraction, abstract summarization, quote-span validation, claim graph logic, research delta computation, MCP business tools, admin UI behavior, chatbot/RAG behavior, stock prediction, or investment advice.
+- Evidence extraction, abstract summarization, quote-span validation, claim graph logic, research delta computation, MCP business tools, admin UI behavior, chat-first or retrieval-answering behavior, stock prediction, or investment advice.
 - Stage 02 schema or migration changes without a blocker and ADR.
 
 Tool call artifact IDs are not populated during normalization because Stage 02 source and document IDs are created by persistence after these payloads are validated. The persistence layer may update tool-call artifacts in a later bounded step without changing this connector contract.
