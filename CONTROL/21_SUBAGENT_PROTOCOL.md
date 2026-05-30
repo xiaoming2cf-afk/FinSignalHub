@@ -40,7 +40,7 @@ Rules:
 Recommended future subagents:
 
 - Stage 02: schema-agent, migration-agent, api-schema-agent, test-agent, docs-agent.
-- Stage 03: openalex-agent, crossref-agent, semantic-scholar-agent, arxiv-agent, connector-review-agent.
+- Stage 03: openalex-agent, crossref-agent, semantic-scholar-agent, arxiv-agent, user-upload-agent, connector-review-agent.
 - Stage 04: extraction-schema-agent, llm-adapter-agent, provenance-agent, dedup-agent, test-agent.
 - Stage 06: mcp-core-agent, mcp-schema-agent, mcp-tool-agent, mcp-test-agent, mcp-docs-agent.
 - Stage 07: admin-ui-agent, api-client-agent, claim-graph-ui-agent, browser-test-agent.

@@ -24,12 +24,13 @@ PR created.
 
 ## CI
 
-Historical PASS for pushed head `fb78f00`; any later evidence-sync push resets Gate 6 until the live PR head has CI PASS and Codex no-major evidence again.
+Latest live head `4c81fe994528a9a86a403bd6bbf4af02bea5b940` passed CI, but Codex returned CR-03-005. Gate 6 remains blocked until the local subagent protocol fix is pushed, CI passes, and Codex returns no major issues.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
 - Historical pushed-head CI before CR-03-004: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672773289/job/78619005801 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26672774309/job/78619008899
 - Historical `fb78f00` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673120429/job/78620012223 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26673121155/job/78620014248
+- Live `4c81fe9` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26676983766/job/78630553695 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26676984564/job/78630556146
 
 ## Codex Review
 
@@ -50,8 +51,13 @@ BLOCKED.
 - Historical `fb78f00` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581483811
 - Historical `fb78f00` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581492409
 - Historical `fb78f00` Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712
+- Live `4c81fe9` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581969982
+- Live `4c81fe9` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581972563
+- Live `4c81fe9` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394838153
+- Live `4c81fe9` Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394842622
+- CR-03-005: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328323655
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004. Pushed head `fb78f00` has historical CI PASS and Codex no-major evidence. Any later push resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005. The latest local remediation adds `user-upload-agent` to `CONTROL/21_SUBAGENT_PROTOCOL.md`. Any push resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 
