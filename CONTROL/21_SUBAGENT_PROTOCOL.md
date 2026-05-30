@@ -45,4 +45,13 @@ Recommended future subagents:
 - Stage 06: mcp-core-agent, mcp-schema-agent, mcp-tool-agent, mcp-test-agent, mcp-docs-agent.
 - Stage 07: admin-ui-agent, api-client-agent, claim-graph-ui-agent, browser-test-agent.
 
+Stage 03 central responsibility map:
+
+- `openalex-agent`: fixture-only OpenAlex metadata mapping plan.
+- `crossref-agent`: fixture-only Crossref metadata mapping plan.
+- `semantic-scholar-agent`: fixture-only Semantic Scholar metadata mapping plan.
+- `arxiv-agent`: fixture-only arXiv metadata mapping plan.
+- `user-upload-agent`: uploaded-file metadata normalization plan only; no file parsing implementation, storage implementation, extraction behavior, or user-upload endpoint may be created in Stage 03 planning.
+- `connector-review-agent`: provenance, no-network, no-business-implementation, and Stage 02 schema-compatibility review.
+
 Stage 00 will use a bounded verification subagent if available.

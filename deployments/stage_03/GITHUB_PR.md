@@ -25,7 +25,7 @@ PR created.
 
 ## CI
 
-Previous external PR head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` passed both Stage Governance CI jobs after CR-03-009 remediation and live PR body sync. This blocker-evidence update requires fresh live-head CI after push before Gate 6 can pass again.
+Blocker-evidence PR head `f9b2e3067d123dc915ffe2977cb448f3008b0294` passed both Stage Governance CI jobs, but Codex returned CR-03-010/011. The local remediation must be pushed and receive fresh live-head CI before Gate 6 can pass again.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -37,11 +37,12 @@ Previous external PR head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` passed both
 - Remediation head `ed225b8` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679401271/job/78636992587 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679402165/job/78636994658
 - Remediation head `407e3c7` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679737133/job/78637922164 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679736597/job/78637920789
 - Remediation head `00c10af` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680087571/job/78638852209 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680086688/job/78638849144
-- Current head `9d71438` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581
+- Historical current head `9d71438` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581
+- Blocker-evidence head `f9b2e30` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26682407743/job/78644956912 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26682408362/job/78644958676
 
 ## Codex Review
 
-PENDING LIVE-HEAD RECHECK after this blocker-evidence update. CR-03-009 was remediated by refreshing `reviews/stage_03/PR_BODY.md`, pushing the remediation, syncing the live PR body, and receiving Codex no-major evidence for previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`.
+BLOCKED by CR-03-010/011 after blocker-evidence head `f9b2e3067d123dc915ffe2977cb448f3008b0294`. CR-03-009 was remediated by refreshing `reviews/stage_03/PR_BODY.md`, pushing the remediation, syncing the live PR body, and receiving Codex no-major evidence for previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`. CR-03-010/011 require the new local remediation to be pushed, CI to pass, and Codex to recheck.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -85,9 +86,15 @@ PENDING LIVE-HEAD RECHECK after this blocker-evidence update. CR-03-009 was reme
 - Current head `9d71438` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582437268
 - Current head `9d71438` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582442430
 - Current head `9d71438` Codex no-major response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582454142
+- Blocker-evidence head `f9b2e30` exact review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582637296
+- Blocker-evidence head `f9b2e30` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582641144
+- Blocker-evidence head `f9b2e30` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395230707
+- Blocker-evidence head `f9b2e30` Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395247885
+- CR-03-010: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328323655
+- CR-03-011: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328643688
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has CI PASS and Codex no-major after all known CR-03 findings. This blocker-evidence update resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Current Gate 6 remains blocked by CR-03-010/011 until the local remediation is pushed and rechecked.
 
 ## GPT Pro
 
-CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but this blocker-evidence update needs fresh live-head Gate 6 evidence after push. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
+CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had historical external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but the current CR-03-010/011 remediation needs fresh live-head Gate 6 evidence after push. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.

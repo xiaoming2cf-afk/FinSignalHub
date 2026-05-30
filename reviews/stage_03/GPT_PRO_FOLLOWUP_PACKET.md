@@ -17,19 +17,20 @@ Please review the updated Stage 03 planning gate after the prior CONDITIONAL PAS
 Evidence now available:
 
 - PR #9: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- Current PR head: `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`
-- CI PASS:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581
-- Codex no-major for current head:
-  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582454142
-- Live PR body has been synced from `reviews/stage_03/PR_BODY.md`.
-- Known Codex findings CR-03-001 through CR-03-009 are historical/resolved for the current head.
+- Live PR head must be verified immediately before this packet is submitted by reading PR #9, not by trusting an embedded commit hash in this file.
+- Required live GitHub evidence to include in the GPT Pro message before submission:
+  - `gh pr view 9 --json headRefOid,statusCheckRollup,url`
+  - current-head CI PASS links for both Stage Governance jobs
+  - current-head Codex result link or current-head Codex blocker link
+- If the live PR head has changed after this packet was last committed, GPT Pro must treat any older commit hash or older CI/Codex link as historical evidence only.
+- As of the latest committed blocker-evidence head, the follow-up packet itself is blocked until the new head receives fresh CI/Codex evidence. Do not treat the historical `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` no-major result as evidence for a later push.
+- Live PR body must be synced from `reviews/stage_03/PR_BODY.md` after any remediation push and before GPT Pro submission.
+- Known Codex findings CR-03-001 through CR-03-009 are historical/resolved; CR-03-010/011 are the active GitHub gate findings until the remediation head is pushed and rechecked.
 - Stage 03 implementation paths remain absent:
   - `apps/api/finsignalhub_api/connectors`
   - `apps/api/tests/test_stage03_connectors.py`
   - `apps/api/tests/fixtures/stage03_connectors`
-- Local governance checks pass:
+- Local governance checks that must pass before GPT Pro submission:
   - `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 03`
   - Stage 03 implementation path absence check
   - tracked secret-pattern scan

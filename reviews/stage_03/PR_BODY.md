@@ -45,8 +45,9 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 ## Current Gate Status
 
 - Local planning checks: PASS.
+- CR-03-010/011 local remediation checks: PASS; push, CI, and Codex recheck pending.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- CI: PENDING LIVE-HEAD RECHECK after this blocker-evidence push. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` passed jobs https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581.
-- Codex review: PENDING LIVE-HEAD RECHECK after this blocker-evidence push. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582454142 after CR-03-009 remediation and live PR body sync.
+- CI: PASS for blocker-evidence head `f9b2e3067d123dc915ffe2977cb448f3008b0294`; the next remediation push must receive fresh CI.
+- Codex review: BLOCKED by CR-03-010/011 from Codex review `4395247885`; the next remediation push must receive a fresh current-head Codex result.
 - GPT Pro plan review: CONDITIONAL PASS / FOLLOW-UP BLOCKED. Response saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. B-0040 remains open until GPT Pro follow-up confirms. B-0045, B-0046, B-0047, and B-0048 block safe Chrome/background follow-up.
 - Implementation: not authorized.
