@@ -23,9 +23,10 @@ Evidence now available:
   - current-head CI PASS links for both Stage Governance jobs
   - current-head Codex result link or current-head Codex blocker link
 - If the live PR head has changed after this packet was last committed, GPT Pro must treat any older commit hash or older CI/Codex link as historical evidence only.
-- As of the latest committed blocker-evidence head, the follow-up packet itself is blocked until the new head receives fresh CI/Codex evidence. Do not treat the historical `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` no-major result as evidence for a later push.
+- The follow-up packet must be completed from live PR #9 evidence at submission time. Do not treat any embedded commit hash, older CI link, or older Codex no-major response in this file as current evidence for a later push.
 - Live PR body must be synced from `reviews/stage_03/PR_BODY.md` after any remediation push and before GPT Pro submission.
-- Known Codex findings CR-03-001 through CR-03-009 are historical/resolved; CR-03-010/011 are the active GitHub gate findings until the remediation head is pushed and rechecked.
+- Known Codex findings are tracked in `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`; GPT Pro must read that file before deciding. If the Codex summary lists any active CR-03 finding or pending live-head recheck, Gate 6 is not passed.
+- As of this packet refresh, CR-03-001 through CR-03-015 are historical/resolved or superseded in sequence, and CR-03-016 is the active blocker until this follow-up-packet correction passes CI and receives Codex recheck. Treat this line as historical after any later commit and verify the live summary before submission.
 - Stage 03 implementation paths remain absent:
   - `apps/api/finsignalhub_api/connectors`
   - `apps/api/tests/test_stage03_connectors.py`
