@@ -4,7 +4,7 @@ Use these commands for Stage 02 implementation verification.
 
 ## Latest Verified Results
 
-Verified on 2026-05-29 after CR-02-043 local remediation.
+Verified on 2026-05-29 after CR-02-043 remediation and current-head gate evidence.
 
 | Check | Result |
 | --- | --- |
@@ -20,6 +20,10 @@ Verified on 2026-05-29 after CR-02-043 local remediation.
 | `docker compose config` | PASS |
 | `docker compose up -d postgres` plus Alembic upgrade/downgrade/upgrade | PASS |
 | `docker compose up --build -d` plus API/MCP/web smoke | PASS |
+| GitHub CI for runtime remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313` | PASS |
+| Codex review for runtime remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313` | PASS, no major issues |
+| Final docs/log evidence-sync head | pending commit, push, fresh CI, and fresh Codex before merge |
+| GPT Pro CR-02-043 delta/final review | PASS |
 | likely-secret scan | PASS, no matches |
 | runtime forbidden-scope scan | PASS; only expected guard-test strings in `apps/api/tests/test_stage02_forbidden_scope.py` |
 | artifact ID uniqueness check | PASS |

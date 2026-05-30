@@ -111,11 +111,11 @@ Current locally verified:
 - `git diff --check`: PASS.
 - CR-02-035 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
 - CR-02-036 documentation remediation governance checks: PASS for `phase_check.py --stage 02`, strict token-pattern scan, artifact/checkpoint ID uniqueness, and `git diff --check` with only normal Windows line-ending warnings.
-- CR-02-038 ToolCallLog artifact-scope remediation checks: PASS for targeted route tests, full API tests, API compile, and phase_check; final scans, live CI/Codex, and GPT Pro delta/final re-review are pending after push.
+- CR-02-038 ToolCallLog artifact-scope remediation checks: PASS for targeted route tests, full API tests, API compile, phase_check, final scans, live CI/Codex, and GPT Pro delta/final review.
 - CR-02-039/040 delete-conflict and acceptance-wording remediation checks: PASS for targeted route tests, full API tests, API compile, final scans, live CI, and follow-up Codex; follow-up Codex returned CR-02-041.
 - CR-02-041 nullable dependent-delete remediation checks: PASS for targeted route tests, full API tests, API compile, final scans, live CI, and follow-up Codex; follow-up Codex returned CR-02-042.
 - CR-02-042 compose database URL remediation checks: PASS for `docker compose config`, targeted route tests, full API tests, phase check, live CI, and follow-up Codex; follow-up Codex returned CR-02-043.
-- CR-02-043 explicit-null PATCH remediation checks: PASS for targeted route tests, full API tests, API compile, `docker compose config`, and phase check; final scans, live CI/Codex, and GPT Pro delta/final re-review are pending after push.
+- CR-02-043 explicit-null PATCH remediation checks: PASS for targeted route tests, full API tests, API compile, `docker compose config`, phase check, final scans, live CI, current-head Codex no-major review, and GPT Pro delta/final review.
 
 Final implementation review was submitted after live GitHub evidence was verified. The implementation-reviewed head had CI PASS and Codex no-major evidence before GPT Pro review.
 
@@ -125,7 +125,18 @@ Implementation code commit pushed before this evidence sync:
 
 Implementation-head Codex review returned CR-02-020/021/022 on head `834c8f03982394a8c7c9a7229ae4b574db21a8ba`, CR-02-023 on head `d631c3fde13f063885da2ae8899235abb9c4cd0b`, CR-02-024/025 on head `9984b407acd2e5b75c57847545807cf083c9bc2a`, CR-02-026/027/028/029 on head `2b6f9c57b75ea3c4e0a2c460fbae4a6a38e4e487`, CR-02-030/031 on head `9c4e5d35556eb2115ccb333185f50a2889a02c33`, CR-02-032/033 on head `db89107a855588d534da1eb4d32c151c120ec442`, CR-02-034 on head `99b366655c0b2374952740d9ed329e9584a38564`, CR-02-035 on head `d41e8d0429c30f5fa4a6bb1cf8fc32c2a83dcd37`, CR-02-036 on head `0d46aa12cce60533cc0c6bb35d58af0c01b716b1`, CR-02-037 on final evidence head `b80ad20623531005eb6b966608cebb22d8332731`, CR-02-038 on CR-02-037 remediation head `e3e260178fb23408680f025bfc473c164cee473a`, CR-02-039/040 on CR-02-038 remediation head `dd58ef23571f3511eb844b131d861813f0aed14e`, CR-02-041 on CR-02-039/040 remediation head `52a99629b5f2cf136e39efc1e4d4b47858abfe47`, CR-02-042 on CR-02-041 remediation head `6bff2191781b02d6e2bb2459a3c1efae05bfedf2`, and CR-02-043 on CR-02-042 remediation head `01d26414d09b53e0c280cbf4839727d283da8053`. The code remediation adds evidence quote-provenance update guards, project-boundary guards for EvidenceItem, ResearchClaim, Document, ClaimEvidenceEdge, generated artifact creation/update paths, source-artifact refs, SQLite FK enforcement, orphan project-scoped create rejection, explicit null provenance-erasure rejection on PATCH, tool-call lineage, ToolCallLog input/output artifact-id project-scope validation, deterministic 409 delete-conflict handling, pre-delete dependent-row checks that prevent nullable provenance references from being nulled, compose database URL interpolation that keeps API and Postgres credentials aligned when `POSTGRES_USER` is overridden, and generic PATCH validation that rejects explicit nulls for SQLAlchemy non-null columns before database persistence.
 
-Live PR head submitted to GPT Pro:
+Runtime remediation head after CR-02-043:
+
+- `eb4dd0f97ad04ce2173b5d677564d3254ad93313`
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26667701917/job/78604527585
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26667703073/job/78604531086
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4580699730
+- GPT Pro delta/final review: PASS, saved in `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`.
+- Final docs/log evidence-sync head: pending commit, push, and fresh CI/Codex before merge; it must not change runtime behavior.
+
+Prior live PR head submitted to GPT Pro before CR-02-043:
 
 - `09585c58e71eb72b532ea42569d38dce2aa7b648`
 - CI PASS:

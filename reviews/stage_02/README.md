@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This directory contains review and acceptance evidence for the Stage 02 Research Mode domain models plan. It is planning-only until GPT Pro plan review, current-head GitHub/Codex evidence, and user `/goal` approval authorize implementation.
+This directory contains review and acceptance evidence for the Stage 02 Research Mode domain models work. Stage 02 implementation is accepted for the current remediation head after current-head CI, Codex no-major evidence, and GPT Pro delta/final PASS. Stage 03 remains planning-only until a new approved plan, GitHub/Codex gates, GPT Pro plan review, and user-approved goal exist.
 
 ## How future stages use this directory
 
