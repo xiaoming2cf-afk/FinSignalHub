@@ -3332,8 +3332,8 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Commands/tools run: `gh api` review/comment inspection; verifier subagent; targeted governance edits; `phase_check.py --stage 03`; Stage 03 implementation path absence check; high-confidence secret-pattern scan; `git diff --check`; artifact/checkpoint ID uniqueness.
 - Files changed: `CONTROL/21_SUBAGENT_PROTOCOL.md`; `reviews/stage_03/GPT_PRO_FOLLOWUP_PACKET.md`; Codex/deployment/gate evidence; blocker/current-state/action/dashboard/release/goal logs; artifact registry; checkpoint log; execution log; this RunLog.
 - Tests run: PASS for phase check; PASS for Stage 03 implementation path absence; PASS for high-confidence secret-pattern scan; PASS for `git diff --check` with normal Windows line-ending warnings only; PASS for artifact/checkpoint ID uniqueness before adding this row.
-- GitHub status: CR-03-010/011 local remediation pending commit/push/CI/Codex recheck.
+- GitHub status: CR-03-010/011 remediation requires live-head CI/Codex recheck.
 - GPT Pro status: CONDITIONAL PASS / BLOCKED; no follow-up response captured.
 - Artifacts created: A-0326 and CP-0220.
 - Blockers: B-0040 open; B-0045 open; B-0046 open; B-0047 open; B-0048 open; B-0050 open; B-0028 blocks implementation.
-- Next action: commit and push CR-03-010/011 remediation, sync PR body, and refresh live-head CI/Codex; do not implement Stage 03.
+- Next action: sync PR body and refresh live-head CI/Codex for the remediation PR head; do not implement Stage 03.
