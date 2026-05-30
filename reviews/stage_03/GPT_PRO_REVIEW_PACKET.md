@@ -48,15 +48,15 @@ The Stage 03 plan must not implement connectors yet. It must define:
 ## Current External Gate Blockers
 
 - GitHub PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- GitHub PR: PR #9 remains the source of truth; verify the live head with `gh pr view 9 --json headRefOid` before accepting Gate 6.
-- Current GitHub/Codex status: live head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues after the CR-03-005 remediation.
-- Current CI evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677318215/job/78631445574 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677319070/job/78631447611
-- Current Codex evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952
-- CR-03-005 remediation: `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list, matching `PLANS/STAGE_03_PLAN.md`.
+- PR #9 remains the source of truth; verify the live head with `gh pr view 9 --json headRefOid` before accepting Gate 6.
+- This base packet is historical planning context and must not be reused as a final GPT Pro follow-up packet without live-head evidence.
+- Before any GPT Pro follow-up, read `reviews/stage_03/GPT_PRO_FOLLOWUP_PACKET.md`, `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`, `deployments/stage_03/GITHUB_PR.md`, and `CONTROL/24_CURRENT_STAGE_STATE.md`.
+- Insert the live PR head, live CI job links, live Codex review result, unresolved blockers, and exact acceptance status into the follow-up request at submission time.
+- If any current-head CI, Codex, or blocker evidence is missing or stale, GPT Pro must return CONDITIONAL PASS or FAIL and Stage 03 implementation remains unauthorized.
 - GPT Pro submission route: initial Chrome extension and in-app Browser routes were insufficient, but an off-screen Microsoft Edge Default profile controlled through CDP opened the logged-in GPT Pro page and submitted this Stage 03 planning packet without entering secrets. GPT Pro returned CONDITIONAL PASS. Response and action items are saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md` and `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`.
 - GPT Pro conditional must-fix: corrected gate artifacts must be committed back to PR #9, local exact-head `gh pr view 9 --json headRefOid` / CI / Codex evidence must be recorded, and follow-up GPT Pro confirmation is required before Stage 03 implementation `/goal`.
 
-If this packet is resubmitted after the evidence commit, please verify the active Codex summary and PR #9 current-head evidence before deciding whether Stage 03 implementation may be planned.
+If this packet is resubmitted after any evidence commit, reject stale embedded head evidence and require the live follow-up packet values before deciding whether Stage 03 implementation may be planned.
 
 Please answer:
 

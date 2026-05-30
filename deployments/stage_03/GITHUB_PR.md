@@ -25,7 +25,7 @@ PR created.
 
 ## CI
 
-PR body evidence correction head `c86e5b99f556228a9f06b85234b376c52417f51d` passed both Stage Governance CI jobs, but Codex returned CR-03-013. The current-state CI-evidence correction must receive fresh live-head CI before Gate 6 can pass again.
+Current-state evidence correction head `4fd9278db518747d93e968518680783d6310f74e` passed both Stage Governance CI jobs, but Codex returned CR-03-014/015. The GPT Pro packet and deployment CI-list correction must receive fresh live-head CI before Gate 6 can pass again.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -40,10 +40,12 @@ PR body evidence correction head `c86e5b99f556228a9f06b85234b376c52417f51d` pass
 - Historical current head `9d71438` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581
 - Blocker-evidence head `f9b2e30` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26682407743/job/78644956912 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26682408362/job/78644958676
 - Remediation head `a65a6d0` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683137776/job/78646799544 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683137007/job/78646797581
+- PR body evidence head `c86e5b9` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683710269/job/78648259829 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683711141/job/78648262232
+- Current-state evidence head `4fd9278` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683979429/job/78648979607 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26683980043/job/78648981384
 
 ## Codex Review
 
-BLOCKED by CR-03-013 after PR body evidence correction head `c86e5b99f556228a9f06b85234b376c52417f51d`. CR-03-010/011 were remediated by clarifying Stage 03 subagent protocol and live-head GPT Pro follow-up evidence. CR-03-012 was remediated by refreshing the PR body CI evidence. CR-03-013 requires the current-state CI-evidence correction to pass CI and receive a current-head Codex recheck.
+BLOCKED by CR-03-014/015 after current-state evidence correction head `4fd9278db518747d93e968518680783d6310f74e`. CR-03-010/011 were remediated by clarifying Stage 03 subagent protocol and live-head GPT Pro follow-up evidence. CR-03-012 was remediated by refreshing the PR body CI evidence. CR-03-013 was remediated by refreshing current-stage CI evidence. CR-03-014 requires the GPT Pro review packet to stop embedding obsolete Gate 6 evidence. CR-03-015 requires deployment evidence to list the current-state CI job links.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -99,9 +101,15 @@ BLOCKED by CR-03-013 after PR body evidence correction head `c86e5b99f556228a9f0
 - Remediation head `a65a6d0` Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395338983
 - CR-03-012: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328716798
 - CR-03-013: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328737719
+- Current-state evidence head `4fd9278` exact review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582842101
+- Current-state evidence head `4fd9278` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582848667
+- Current-state evidence head `4fd9278` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395370907
+- Current-state evidence head `4fd9278` Codex reviews: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395370803 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395376770
+- CR-03-014: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328751139
+- CR-03-015: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328754711
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012, then CR-03-013. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Current Gate 6 remains blocked by CR-03-013 until the current-state CI-evidence correction is rechecked.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012, then CR-03-013, then CR-03-014/015. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Current Gate 6 remains blocked by CR-03-014/015 until the GPT Pro packet and deployment CI-list correction is rechecked.
 
 ## GPT Pro
 
-CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had historical external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but the current CR-03-013 remediation needs fresh live-head Gate 6 evidence before GPT Pro follow-up. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
+CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had historical external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but the current CR-03-014/015 remediation needs fresh live-head Gate 6 evidence before GPT Pro follow-up. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
