@@ -24,7 +24,7 @@ PR created.
 
 ## CI
 
-Latest pushed head `407e3c7b7d91b9406ff2ece335aab7ce184e3154` passed both Stage Governance CI jobs and fixed CR-03-007, but inline CR-03-008 requires a stale-current blocker wording fix and a fresh Gate 6 recheck before Gate 6 is accepted.
+Latest pushed head `00c10afde5e6b53417e9339982e525d7a94556f8` passed both Stage Governance CI jobs and fixed CR-03-008, but inline CR-03-009 requires a stale PR body gate-status fix and a fresh Gate 6 recheck before Gate 6 is accepted.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -35,10 +35,11 @@ Latest pushed head `407e3c7b7d91b9406ff2ece335aab7ce184e3154` passed both Stage 
 - Evidence head `5fb9a75` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678988094/job/78635909898 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678989068/job/78635912065
 - Remediation head `ed225b8` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679401271/job/78636992587 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679402165/job/78636994658
 - Remediation head `407e3c7` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679737133/job/78637922164 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679736597/job/78637920789
+- Remediation head `00c10af` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680087571/job/78638852209 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680086688/job/78638849144
 
 ## Codex Review
 
-BLOCKED by CR-03-008 until the stale current-blocker wording fix is pushed and rechecked. Remediation head `407e3c7b7d91b9406ff2ece335aab7ce184e3154` passed CI and fixed CR-03-007, but received inline P2 finding CR-03-008.
+BLOCKED by CR-03-009 until the stale PR body gate-status fix is pushed, synced to the live PR, and rechecked. Remediation head `00c10afde5e6b53417e9339982e525d7a94556f8` passed CI and fixed CR-03-008, but received inline P2 finding CR-03-009.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -75,8 +76,12 @@ BLOCKED by CR-03-008 until the stale current-blocker wording fix is pushed and r
 - Remediation head `407e3c7` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582332312
 - Remediation head `407e3c7` Codex review event: review event for commit `407e3c7b7d`
 - CR-03-008: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328486909
+- Remediation head `00c10af` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582388468
+- Remediation head `00c10af` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582394153
+- Remediation head `00c10af` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395098632
+- CR-03-009: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328507889
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008. The CR-03-008 remediation updates current-state wording so resolved historical findings are not presented as the active blocker; future runs refresh exact-head CI/Codex instead of creating redundant evidence commits. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009. The CR-03-009 remediation refreshes the PR body source and must be synced to the live PR body after push. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 
