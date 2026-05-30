@@ -8,8 +8,8 @@ PR created.
 - Head branch: `stage/03-source-connectors`
 - Replacement closeout PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10
 - Replacement closeout branch: `stage/03-source-connectors-closeout-refresh`
-- Live PR head must be checked with `gh pr view 9 --json headRefOid` before any gate decision.
-- Latest closeout evidence: PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 returned Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583540247 for the same head.
+- Active closeout PR head must be checked with `gh pr view 10 --json headRefOid,statusCheckRollup,reviews,comments` before any closeout gate decision.
+- Latest closeout evidence: PR #9 Codex review https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395680354 returned CR-03-028 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3329054895 for head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c`; replacement PR #10 returned Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583615842 for head `bc1f85b523b0c44c369023e30f7464496c15868f`, and GPT Pro closeout returned PASS.
 
 ## Required Branch
 
