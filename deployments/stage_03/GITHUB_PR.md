@@ -158,3 +158,18 @@ Saved evidence:
 ## Closeout Head Rule
 
 Pre-closeout planning head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79` passed CI and Codex no-major, and GPT Pro accepted it. Previous closeout head `902a0405e9e9410152e586514fc301b52ffe9920` passed CI but received CR-03-026/027. Any remediation commit after that head must receive live-head CI and current-head Codex no-major before PR merge. Record final external verification in PR comments or merge evidence without creating an unnecessary self-referential evidence commit.
+
+## PR #10 Closeout Route
+
+Replacement PR #10 is the active closeout route:
+
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10
+- Verified head before this evidence update: `bc1f85b523b0c44c369023e30f7464496c15868f`
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26690706057/job/78666475053
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26690706542/job/78666476206
+- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583615842
+- External verification: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#issuecomment-4583619687
+- GPT Pro closeout PASS: `reviews/stage_03/GPT_PRO_CLOSEOUT_RESPONSE.md`
+
+If this closeout evidence update changes PR #10's head, verify live-head CI PASS and current-head Codex no-major before merge. Do not create another evidence-only commit solely to record that external verification unless a reviewer requires a file correction.
