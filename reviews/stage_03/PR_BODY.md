@@ -41,3 +41,12 @@ After PR creation, request:
 ```
 
 GPT Pro plan review remains a hard gate before any Stage 03 implementation.
+
+## Current Gate Status
+
+- Local planning checks: PASS.
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
+- CI: PASS for Stage Governance CI.
+- Codex review: BLOCKED because the Codex connector requires a repository environment.
+- GPT Pro plan review: BLOCKED because the background Chrome route returned `native pipe is closed`; foreground visual recovery is suspended per user instruction.
+- Implementation: not authorized.

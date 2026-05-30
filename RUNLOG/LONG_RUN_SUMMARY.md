@@ -12,13 +12,11 @@ Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5
 
 Stage 02 is complete, tagged, and merged. PR #8 is at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 and merged into `main` at `c5124e166eee4a563a0642a4dcd3fd2db128d615` after current-head CI/Codex and GPT Pro gates. The tag `stage-02-domain-models` points at the merge commit. GPT Pro authorized Stage 03 planning only. Stage 03 implementation is not authorized. Foreground visual recovery was suspended after the user requested background operation; standalone background Computer Use is not exposed in the current tool surface and is recorded as B-0027.
 
-Current stage: Stage 03 source connectors planning on branch `stage/03-source-connectors`. The planning scope covers OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata as provenance-preserving normalized `Document` inputs. B-0028 blocks implementation. No connector implementation files, external API calls, ingestion jobs, extraction logic, claim graph logic, MCP business tools, UI behavior, reports, stock tools, investment advice, or generic RAG behavior are authorized.
+Current stage: Stage 03 source connectors planning on branch `stage/03-source-connectors`. PR #9 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9 and governance CI passed. The planning scope covers OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata as provenance-preserving normalized `Document` inputs. B-0028 blocks implementation. B-0029 blocks Codex review because the Codex connector requires a repository environment. B-0030 blocks GPT Pro plan submission because the background Chrome route returned `native pipe is closed` and foreground visual recovery is suspended. No connector implementation files, external API calls, ingestion jobs, extraction logic, claim graph logic, MCP business tools, UI behavior, reports, stock tools, investment advice, or generic RAG behavior are authorized.
 
 ## Next expected milestones
 
-1. Run Stage 03 planning-only checks.
-2. Commit and push `stage/03-source-connectors`.
-3. Create the Stage 03 planning PR and request Codex review.
-4. Submit the Stage 03 plan packet to GPT Pro through the background Chrome route where possible.
-5. Do not implement Stage 03 until its plan, GitHub/Codex gate, GPT Pro plan review, and a separate approved `/goal` are complete.
-6. Use background Chrome extension/browser control for GPT Pro where possible; do not use foreground visual recovery while the user is actively using Chrome.
+1. Resolve B-0029 by configuring a Codex environment for `xiaoming2cf-afk/FinSignalHub`, then rerun `@codex review` on PR #9.
+2. Resolve B-0030 by restoring background Chrome/Computer Use access for GPT Pro review without foreground interference.
+3. Submit the Stage 03 plan packet to GPT Pro after Codex review evidence exists or with the blocker explicitly disclosed if GPT Pro is asked to advise on the blocker.
+4. Do not implement Stage 03 until its plan, GitHub/Codex gate, GPT Pro plan review, and a separate approved `/goal` are complete.

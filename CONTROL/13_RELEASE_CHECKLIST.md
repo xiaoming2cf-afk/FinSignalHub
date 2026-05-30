@@ -38,4 +38,4 @@ Stage 02 implementation release checklist is complete.
 
 Stage 02 passed full local checks, kept the root support-file exception limited to dependencies, placeholder database routing, and stage-status docs, passed PR #8 live CI/Codex, passed GPT Pro final implementation review, passed GPT Pro CR-02-043 delta/final review, pushed tag `stage-02-domain-models`, and merged PR #8 at `c5124e166eee4a563a0642a4dcd3fd2db128d615`.
 
-Current Stage 03 release checklist status: planning active only. Stage 03 cannot be accepted, tagged, merged, or implemented until the Stage 03 plan passes local planning checks, GitHub CI, Codex review, GPT Pro plan review, and a separate approved `/goal` exists. Stage 03 implementation remains unauthorized.
+Current Stage 03 release checklist status: planning active and externally blocked. Local planning checks passed, PR #9 exists, and GitHub CI passed. Stage 03 cannot be accepted, tagged, merged, or implemented because Codex review is blocked by B-0029 and GPT Pro plan review is blocked by B-0030. Stage 03 implementation remains unauthorized.
