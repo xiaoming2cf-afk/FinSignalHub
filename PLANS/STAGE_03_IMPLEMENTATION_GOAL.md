@@ -186,4 +186,4 @@ Stop and log a blocker if:
 
 ## Activation Status
 
-Drafted after PR #10 live head `1f03defb437a9f6f2b694a2697754faa1e1ea7f0` passed CI and Codex no-major. Implementation is still not active until this goal draft itself passes PR #10 live-head CI/Codex after push and GPT Pro accepts the implementation goal.
+Drafted after PR #10 live head `1f03defb437a9f6f2b694a2697754faa1e1ea7f0` passed CI and Codex no-major. The goal draft itself later passed PR #10 live-head CI/Codex at `8f10f95c69c3eaf7d6ada7b878e017b917929e33`, and GPT Pro accepted the implementation goal. Connector implementation is still not active from those historical gates alone: any response/action-item evidence-sync head or implementation head after that acceptance must pass live PR #10 CI and current-head Codex no-major before connector code starts or continues.
