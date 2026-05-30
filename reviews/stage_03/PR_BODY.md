@@ -45,9 +45,9 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 ## Current Gate Status
 
 - Local planning checks: PASS.
-- CR-03-018/019 remediation checks: PASS locally at `2026-05-30T08:55:02-05:00` and CI PASS for head `88ee895d615f8734559427676c84ac2d6dada0bf`; Boole's subagent consistency audit found remaining active/current wording cleanup, so the next live head still requires CI PASS and Codex recheck before Gate 6 can pass.
+- CR-03-020 remediation status: local verification passed at `2026-05-30T09:40:32-05:00`. Boole consistency cleanup head `d198f6e5609e03404bd255f68ed13a92294dc22b` passed CI, but Codex review `4395497369` found `reviews/stage_03/STAGE_ACCEPTANCE_RESULT.md` still named older `88ee895...` Gate 6 evidence.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
-- CI: PASS for CR-03-018/019 remediation head `88ee895d615f8734559427676c84ac2d6dada0bf` with jobs https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26685639462/job/78653258443 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26685640199/job/78653260539. The follow-up consistency cleanup must be verified against the live PR head before Gate 6 can pass.
-- Codex review: BLOCKED pending newer recheck. Latest Codex review is `4395459729` on blocker-status correction head `fe68bc8c6d2cfb61ba7265c614d12231b9476cb7`; CR-03-018/019 remediation head `88ee895d615f8734559427676c84ac2d6dada0bf` passed CI, but Codex request is deferred until subagent cleanup is committed.
+- CI: PASS for Boole consistency cleanup head `d198f6e5609e03404bd255f68ed13a92294dc22b` with jobs https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26685986490/job/78654178154 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26685987458/job/78654180516. The CR-03-020 remediation must be verified against the live PR head before Gate 6 can pass.
+- Codex review: BLOCKED by CR-03-020 from Codex review `4395497369` on Boole consistency cleanup head `d198f6e5609e03404bd255f68ed13a92294dc22b`; CR-03-018/019 remediation advanced Codex to this acceptance-result live-head evidence finding.
 - GPT Pro plan review: CONDITIONAL PASS / FOLLOW-UP BLOCKED. Response saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. B-0040 remains open until GPT Pro follow-up confirms. B-0045, B-0046, B-0047, and B-0048 block safe Chrome/background follow-up.
 - Implementation: not authorized.
