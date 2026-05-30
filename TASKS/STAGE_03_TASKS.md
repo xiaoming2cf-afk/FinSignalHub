@@ -93,7 +93,7 @@ Document connector contracts, normalized fields, provenance mapping, fixture own
 
 ## GitHub deployment tasks
 
-Use branch `stage/03-source-connectors`, PR title `Stage 03: Source Connectors`, PR body from `reviews/stage_03/PR_BODY.md`, CI, and `@codex review`.
+Original planning branch `stage/03-source-connectors` and PR #9 are historical. Use active branch `stage/03-source-connectors-closeout-refresh` and PR #10 for Stage 03 closeout, evidence-sync, and implementation-gate work unless a later ADR and blocker authorize another route. PR title remains `Stage 03: Source Connectors`; PR body comes from `reviews/stage_03/PR_BODY.md`; each pushed head must pass CI and `@codex review`.
 
 ## GPT Pro review tasks
 
