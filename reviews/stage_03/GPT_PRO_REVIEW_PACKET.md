@@ -49,10 +49,10 @@ The Stage 03 plan must not implement connectors yet. It must define:
 
 - GitHub PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
 - CI: PASS for Stage Governance CI.
-- Codex review: BLOCKED because the Codex connector responded that this repository needs a Codex environment before Codex can run.
+- Codex review: BLOCKED until the live PR head receives a Codex no-major response. Active findings and remediation status are maintained in `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`.
 - GPT Pro submission route: this packet is ready, but background Chrome control returned `native pipe is closed`; foreground visual recovery is suspended because the user is using Chrome.
 
-If this packet is submitted after the route is restored, please also advise whether the Codex environment blocker must be resolved before any Stage 03 implementation can proceed.
+If this packet is submitted after the route is restored, please also verify the active Codex summary and advise whether any remaining Codex blocker must be resolved before Stage 03 implementation can proceed.
 
 Please answer:
 

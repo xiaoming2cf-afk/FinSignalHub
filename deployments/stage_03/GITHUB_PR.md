@@ -39,8 +39,11 @@ BLOCKED.
 - Codex connector blocker response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581352067
 - Codex review response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394157060
 - CR-03-001: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327894712
+- Follow-up Codex review response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394190212
+- CR-03-002: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921258
+- CR-03-003: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921260
 
-Codex eventually performed a review and returned CR-03-001. The fix is local and must be pushed, CI-passed, and reviewed again before Gate 6 can pass.
+Codex returned CR-03-001, then CR-03-002/003. Gate 6 remains blocked until the live PR head has CI PASS and Codex no-major evidence.
 
 ## GPT Pro
 

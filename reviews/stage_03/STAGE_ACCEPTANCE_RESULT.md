@@ -9,10 +9,10 @@ Stage 03 status: **PLANNING ACTIVE / IMPLEMENTATION BLOCKED**.
 | Tests | PASS | `phase_check.py --stage 03` passed; implementation path check passed; secret scan had no matches; `git diff --check` had only normal Windows line-ending warnings |
 | Docs | PASS | architecture and commands docs exist |
 | Logs | PASS | CONTROL and RUNLOG updates exist |
-| GitHub | BLOCKED | PR #9 exists and CI passed; Codex returned CR-03-001 P2 and local fix requires push/CI/follow-up review |
+| GitHub | BLOCKED | PR #9 exists and CI passed; Codex returned CR-03-002/003 P2 and local fix requires push/CI/follow-up review |
 | GPT Pro | BLOCKED | plan packet exists, but background Chrome route returned `native pipe is closed`; foreground visual recovery is suspended per user instruction |
 | Product governance | PASS | Research Mode evidence-stream alignment preserved; no chatbot, generic RAG, stock prediction, investment advice, dashboard, report, Risk Mode, or Replay Engine behavior |
 | Security | PASS | no secrets, no paid/private API dependency, no live network CI |
 | Next stage | BLOCKED | implementation requires GPT Pro plan PASS and approved `/goal` |
 
-Final result: BLOCKED until CR-03-001 follow-up Codex review and GPT Pro plan review pass.
+Final result: BLOCKED until CR-03-002/003 follow-up Codex review and GPT Pro plan review pass.
