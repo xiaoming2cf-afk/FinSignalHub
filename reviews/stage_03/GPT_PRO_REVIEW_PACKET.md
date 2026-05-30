@@ -49,11 +49,14 @@ The Stage 03 plan must not implement connectors yet. It must define:
 
 - GitHub PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
 - GitHub PR: PR #9 remains the source of truth; verify the live head with `gh pr view 9 --json headRefOid` before accepting Gate 6.
-- Current GitHub/Codex status: live head `4c81fe994528a9a86a403bd6bbf4af02bea5b940` passed CI, but Codex returned CR-03-005 P2 because the central `CONTROL/21_SUBAGENT_PROTOCOL.md` omitted `user-upload-agent` while the Stage 03 plan declared it.
-- Current remediation status: `CONTROL/21_SUBAGENT_PROTOCOL.md` has been updated locally to include `user-upload-agent`; Gate 6 still requires push, CI, and follow-up Codex no-major evidence before acceptance.
-- GPT Pro submission route: this packet is ready, but the available background routes are not yet sufficient. The in-app Browser can open the page but lacks the needed ChatGPT login state or times out. The Chrome extension can list the logged-in ChatGPT tabs when addressed by exact backend id, but DOM, screenshot, controlled-tab reload/new-tab, and alternate-tab claim attempts timed out before a safe background submission could be made. Tool discovery exposes no standalone background Computer Use API. Read-only Windows UI Automation can identify the Chrome tab but not ChatGPT content/composer controls. Restarting the Chrome native host partially restored backend selection, but `openTabs`, `nameSession`, and `tabs.new` still timed out. Foreground visual recovery is suspended because the user is using Chrome.
+- Current GitHub/Codex status: live head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues after the CR-03-005 remediation.
+- Current CI evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677318215/job/78631445574 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677319070/job/78631447611
+- Current Codex evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952
+- CR-03-005 remediation: `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list, matching `PLANS/STAGE_03_PLAN.md`.
+- GPT Pro submission route: initial Chrome extension and in-app Browser routes were insufficient, but an off-screen Microsoft Edge Default profile controlled through CDP opened the logged-in GPT Pro page and submitted this Stage 03 planning packet without entering secrets. GPT Pro returned CONDITIONAL PASS. Response and action items are saved in `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md` and `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`.
+- GPT Pro conditional must-fix: corrected gate artifacts must be committed back to PR #9, local exact-head `gh pr view 9 --json headRefOid` / CI / Codex evidence must be recorded, and follow-up GPT Pro confirmation is required before Stage 03 implementation `/goal`.
 
-If this packet is submitted after the route is restored, please verify the active Codex summary and the PR #9 current-head evidence before deciding whether Stage 03 implementation may be planned.
+If this packet is resubmitted after the evidence commit, please verify the active Codex summary and PR #9 current-head evidence before deciding whether Stage 03 implementation may be planned.
 
 Please answer:
 

@@ -2,9 +2,7 @@
 
 ## Status
 
-Historical planning head `fb78f00` has CI PASS and Codex no-major evidence. If this evidence-sync update is pushed, Gate 6 must be refreshed against the live PR head before acceptance. GPT Pro plan review remains blocked by background browser control.
-
-Latest live-head review on `4c81fe994528a9a86a403bd6bbf4af02bea5b940` returned CR-03-005. The local remediation adds `user-upload-agent` to the central subagent protocol. Gate 6 remains blocked until this remediation is pushed, CI passes, and Codex returns no major issues for the new live PR head.
+Prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues after the CR-03-005 remediation. GPT Pro plan review completed through an off-screen Edge/CDP route and returned CONDITIONAL PASS. B-0040 now blocks final permission until corrected artifacts are committed, PR head CI/Codex are refreshed, and GPT Pro follow-up confirms.
 
 ## Current Head Rule
 
@@ -28,6 +26,9 @@ Latest live-head review on `4c81fe994528a9a86a403bd6bbf4af02bea5b940` returned C
 | 9 | Historical `fb78f00` minimal retry | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581492409 | Minimal `@codex review` retry on the same pushed head |
 | 10 | Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581500712 | Codex reported no major issues for historical planning head `fb78f00`; any later push requires a fresh live-head check |
 | 11 | Live-head Codex review after evidence sync | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394842622 | Returned CR-03-005 P2 on missing `user-upload-agent` in `CONTROL/21_SUBAGENT_PROTOCOL.md` |
+| 12 | Live `ce5b94a` review request after CR-03-005 remediation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582005214 | Requested current-head review after adding `user-upload-agent` to `CONTROL/21_SUBAGENT_PROTOCOL.md` |
+| 13 | Live `ce5b94a` minimal retry | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582008361 | Bounded retry with exact minimal `@codex review` comment |
+| 14 | Live `ce5b94a` Codex no-major response | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952 | Codex reported no major issues for the current pushed head |
 
 ## Initial Environment Blocker
 
@@ -49,7 +50,7 @@ This was superseded when Codex later submitted review `4394157060`.
 | CR-03-002 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921258 | This summary named the pre-remediation commit as current. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
 | CR-03-003 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921260 | The GPT Pro packet still described the superseded environment blocker instead of the active Codex findings. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
 | CR-03-004 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327936653 | The checklist said current-head planning checks passed while RunLog still said checks were pending after stale-evidence remediation. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
-| CR-03-005 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328323655 | `PLANS/STAGE_03_PLAN.md` declares `user-upload-agent`, but `CONTROL/21_SUBAGENT_PROTOCOL.md` omitted it from the Stage 03 central subagent list. | fixed locally; push/CI/follow-up Codex pending |
+| CR-03-005 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328323655 | `PLANS/STAGE_03_PLAN.md` declares `user-upload-agent`, but `CONTROL/21_SUBAGENT_PROTOCOL.md` omitted it from the Stage 03 central subagent list. | resolved in pushed head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`; CI passed and Codex returned no major issues |
 
 ## Local Resolution
 
@@ -57,8 +58,8 @@ The Stage 03 plan, tasks, architecture doc, PR body, GPT Pro packet, checklist, 
 
 The summary no longer names a fixed commit as the current head. The GPT Pro packet now points to this Codex summary for the active Codex blocker state.
 
-The checklist, acceptance result, blocker log, current stage state, action queue, release checklist, stage dashboard, goal registry, artifact registry, checkpoint log, execution log, and RunLog now record CR-03-004 as historical and CR-03-005 as the active live-head Codex finding. `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list.
+The checklist, acceptance result, blocker log, current stage state, action queue, release checklist, stage dashboard, goal registry, artifact registry, checkpoint log, execution log, and RunLog now record CR-03-004 as historical and CR-03-005 as resolved on live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list.
 
 ## Gate Result
 
-Gate 6 is BLOCKED until the CR-03-005 fix is pushed, CI passes, and Codex returns no major issues for the new live PR head. Stage 03 implementation must still not begin because GPT Pro Gate 7 is blocked.
+Gate 6 was PASS for prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. This evidence commit will require a fresh Gate 6 check after push. Stage 03 implementation must still not begin because GPT Pro Gate 7 is only CONDITIONAL PASS and B-0040 plus a separate approved `/goal` remain required.
