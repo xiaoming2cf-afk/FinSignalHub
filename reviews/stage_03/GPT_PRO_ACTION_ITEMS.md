@@ -1,42 +1,38 @@
 # Stage 03 GPT Pro Action Items
 
-## Verdict
+## Current Verdict
 
-`CONDITIONAL PASS`
+`PASS` for the Stage 03 planning gate.
 
-## Must Fix Before Stage 03 Implementation Goal
+The earlier CONDITIONAL PASS items were resolved by the Chrome follow-up saved in:
 
-1. Ensure all Stage 03 gate artifacts no longer contain stale `4c81fe9` / CR-03-005-blocked wording.
-2. Ensure `reviews/stage_03/GPT_PRO_REVIEW_PACKET.md`, `CHECKLISTS/STAGE_03_CHECKLIST.md`, `CONTROL/*`, and `RUNLOG/*` reflect the latest verified Gate 6 evidence or explicitly defer to live PR-head verification after a later push.
-3. Record local command evidence for:
-   - `gh pr view 9 --json headRefOid`
-   - `gh pr checks 9`
-   - Codex no-major response for the exact current PR head.
-4. Record that the review packet submitted to GPT Pro supersedes stale repository artifacts, or commit the corrected packet and review artifacts back to PR #9.
-5. Keep Stage 03 implementation blocked until a separate approved `/goal` exists.
+- `reviews/stage_03/GPT_PRO_FOLLOWUP_RESPONSE.md`
+- `reviews/stage_03/GPT_PRO_FOLLOWUP_ACTION_ITEMS.md`
 
-## Deferrable
+## Resolved Must-Fix Items
 
-- Live provider API probes.
-- Real API keys, paid APIs, private APIs, or credentials.
-- Provider rate-limit tuning beyond mocked behavior.
-- Full-text upload parsing.
-- Evidence extraction.
-- Claim graph.
-- Research delta.
-- RAG answering.
-- Dashboard, report, stock, investment, or advice behavior.
+- `B-0040`: resolved by GPT Pro follow-up.
+- `B-0057` / `CR-03-020`: resolved by live-head CI PASS and current-head Codex no-major evidence for PR #9 head `dfe38f2ecfd600bed1a38f8ad21ce9305fc5ab79`.
+- Stale Stage 03 gate artifacts were corrected before the follow-up packet was submitted.
+- Local exact-head evidence, CI links, and Codex no-major evidence were supplied in the GPT Pro follow-up message.
+
+## Current Required Closeout
+
+- Save follow-up response/action items.
+- Update Stage 03 acceptance and state records.
+- Push the closeout evidence.
+- After that push, verify live PR #9 CI and current-head Codex again before merge. Do not create another evidence-only commit solely to record that external verification unless a reviewer requires it.
 
 ## Implementation Requirements If Later Authorized
 
 - Create connector base interface and provider-specific fixture-backed implementations only under the approved Stage 03 implementation file boundary.
 - Cover OpenAlex, Crossref, Semantic Scholar, arXiv, and user-upload metadata.
 - Emit only existing Stage 02 `SourceCreate`, `DocumentCreate`, and `ToolCallLog` compatible outputs.
-- Do not change Stage 02 schemas, migrations, domain models, or persisted contracts.
+- Do not change Stage 02 schemas, migrations, domain models, or persisted contracts unless a new blocker and ADR approve the exception.
 - Store provider metadata in `SourceCreate.bibliographic_metadata`.
 - Store transformation choices in `DocumentCreate.transformation_notes`.
 - Add mocked no-network tests and fixtures for all providers.
-- Run phase check, no-implementation-scope drift scan, no external API call scan, secret scan, test suite, and `git diff --check`.
+- Run phase check, forbidden-scope scan, no external API call scan, secret scan, test suite, CI, current-head Codex review, and GPT Pro final implementation review.
 
 ## Stop Conditions
 
