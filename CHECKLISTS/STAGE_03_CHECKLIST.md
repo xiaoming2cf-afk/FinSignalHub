@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | Scope | Plan is source connector planning only; no implementation or external calls | PASS |
 | Functionality | Connector contracts and normalized `SourceCreate`/`DocumentCreate` mapping are planned | PASS |
-| Tests | Mocked fixture tests and no-network CI rule are planned; latest B-0040 evidence-cleanup checks are recorded in `CONTROL/18_ARTIFACT_REGISTRY.md` and `CONTROL/27_CHECKPOINT_LOG.md` | PASS |
+| Tests | Mocked fixture tests and no-network CI rule are planned; latest CR-03-008 governance checks are recorded in `CONTROL/18_ARTIFACT_REGISTRY.md` and `CONTROL/27_CHECKPOINT_LOG.md` | PASS |
 | Docs | Architecture and command docs exist | PASS |
 | Logs | CONTROL and RUNLOG entries updated | PASS |
 | GitHub | Branch, PR, CI, Codex review, PR URL | PENDING LIVE-HEAD RECHECK after this evidence commit. Prior head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582016952 after CR-03-005 remediation. Gate 6 may pass only from external PR evidence for the exact current head after push. |

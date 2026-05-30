@@ -24,7 +24,7 @@ PR created.
 
 ## CI
 
-Latest remediation head `ed225b858902717b23ef847c6d660e5f6d4f914a` passed both Stage Governance CI jobs and fixed CR-03-006, but inline CR-03-007 requires a current-state next-action wording fix and a fresh Gate 6 recheck before Gate 6 is accepted.
+Latest pushed head `407e3c7b7d91b9406ff2ece335aab7ce184e3154` passed both Stage Governance CI jobs and fixed CR-03-007, but inline CR-03-008 requires a stale-current blocker wording fix and a fresh Gate 6 recheck before Gate 6 is accepted.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -34,10 +34,11 @@ Latest remediation head `ed225b858902717b23ef847c6d660e5f6d4f914a` passed both S
 - Live `ce5b94a` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677318215/job/78631445574 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26677319070/job/78631447611
 - Evidence head `5fb9a75` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678988094/job/78635909898 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26678989068/job/78635912065
 - Remediation head `ed225b8` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679401271/job/78636992587 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679402165/job/78636994658
+- Remediation head `407e3c7` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679737133/job/78637922164 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679736597/job/78637920789
 
 ## Codex Review
 
-BLOCKED by CR-03-007 until the stale next-action wording fix is pushed and rechecked. Remediation head `ed225b858902717b23ef847c6d660e5f6d4f914a` passed CI and fixed CR-03-006, but received inline P2 finding CR-03-007.
+BLOCKED by CR-03-008 until the stale current-blocker wording fix is pushed and rechecked. Remediation head `407e3c7b7d91b9406ff2ece335aab7ce184e3154` passed CI and fixed CR-03-007, but received inline P2 finding CR-03-008.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -71,8 +72,11 @@ BLOCKED by CR-03-007 until the stale next-action wording fix is pushed and reche
 - Remediation head `ed225b8` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582299840
 - Remediation head `ed225b8` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395059850
 - CR-03-007: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328475080
+- Remediation head `407e3c7` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582332312
+- Remediation head `407e3c7` Codex review event: review event for commit `407e3c7b7d`
+- CR-03-008: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328486909
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007. The CR-03-007 remediation updates current-state next action after a committed fix so future runs refresh exact-head CI/Codex instead of creating redundant evidence commits. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008. The CR-03-008 remediation updates current-state wording so resolved historical findings are not presented as the active blocker; future runs refresh exact-head CI/Codex instead of creating redundant evidence commits. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 
