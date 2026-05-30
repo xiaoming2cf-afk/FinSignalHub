@@ -14,3 +14,4 @@
 - Captured Stage 02 plan gate PASS from GPT Pro and recorded the implementation `/goal` boundary for user approval.
 - Started Stage 02 Research Mode domain model implementation after user approval, adding provenance-focused model primitives, migration/schema/CRUD scaffolding, and verification evidence without adding connectors, extraction, MCP business tools, dashboards, reports, or financial advice features.
 - Recorded Stage 02 final implementation acceptance with CI, Codex no-major, GPT Pro PASS, and Stage 03 planning-only instructions.
+- Recorded Stage 02 merge/tag evidence and started Stage 03 source connector planning artifacts without implementing connectors or external API calls.
