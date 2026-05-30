@@ -87,4 +87,3 @@ Each subagent must stay within bounded file authority and write `logs/subagents/
 ## Stop Conditions
 
 Stop if a real API key, private credential, paid API account, login, secret, live network test dependency, `EvidenceItem` generation, LLM adapter, extraction pipeline, claim graph, Research Delta, Repro Pack, MCP business tool, dashboard, chatbot/RAG, stock prediction, investment advice, Risk Mode, Replay Engine, auth, billing, or Stage 02 schema/migration change without blocker and ADR becomes necessary.
-
