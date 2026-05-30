@@ -25,7 +25,7 @@ PR created.
 
 ## CI
 
-Remediation PR head `a65a6d022758ef005d411b460f5aeb7e1ed26c77` passed both Stage Governance CI jobs, but Codex returned CR-03-012. The PR body CI-evidence correction must receive fresh live-head CI before Gate 6 can pass again.
+PR body evidence correction head `c86e5b99f556228a9f06b85234b376c52417f51d` passed both Stage Governance CI jobs, but Codex returned CR-03-013. The current-state CI-evidence correction must receive fresh live-head CI before Gate 6 can pass again.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -43,7 +43,7 @@ Remediation PR head `a65a6d022758ef005d411b460f5aeb7e1ed26c77` passed both Stage
 
 ## Codex Review
 
-BLOCKED by CR-03-012 after remediation head `a65a6d022758ef005d411b460f5aeb7e1ed26c77`. CR-03-010/011 were remediated by clarifying Stage 03 subagent protocol and live-head GPT Pro follow-up evidence. CR-03-012 requires the PR body CI-evidence correction to pass CI and receive a current-head Codex recheck.
+BLOCKED by CR-03-013 after PR body evidence correction head `c86e5b99f556228a9f06b85234b376c52417f51d`. CR-03-010/011 were remediated by clarifying Stage 03 subagent protocol and live-head GPT Pro follow-up evidence. CR-03-012 was remediated by refreshing the PR body CI evidence. CR-03-013 requires the current-state CI-evidence correction to pass CI and receive a current-head Codex recheck.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -98,9 +98,10 @@ BLOCKED by CR-03-012 after remediation head `a65a6d022758ef005d411b460f5aeb7e1ed
 - Remediation head `a65a6d0` GitHub connector comment route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582760926
 - Remediation head `a65a6d0` Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395338983
 - CR-03-012: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328716798
+- CR-03-013: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328737719
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Current Gate 6 remains blocked by CR-03-012 until the PR body CI-evidence correction is rechecked.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009, then CR-03-010/011, then CR-03-012, then CR-03-013. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has historical CI PASS and Codex no-major after CR-03-009. Current Gate 6 remains blocked by CR-03-013 until the current-state CI-evidence correction is rechecked.
 
 ## GPT Pro
 
-CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had historical external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but the current CR-03-012 remediation needs fresh live-head Gate 6 evidence before GPT Pro follow-up. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
+CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had historical external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but the current CR-03-013 remediation needs fresh live-head Gate 6 evidence before GPT Pro follow-up. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
