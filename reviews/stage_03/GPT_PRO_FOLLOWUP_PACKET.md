@@ -26,7 +26,7 @@ Evidence now available:
 - The follow-up packet must be completed from live PR #9 evidence at submission time. Do not treat any embedded commit hash, older CI link, or older Codex no-major response in this file as current evidence for a later push.
 - Live PR body must be synced from `reviews/stage_03/PR_BODY.md` after any remediation push and before GPT Pro submission.
 - Known Codex findings are tracked in `reviews/stage_03/CODEX_REVIEW_SUMMARY.md`; GPT Pro must read that file before deciding. If the Codex summary lists any active CR-03 finding or pending live-head recheck, Gate 6 is not passed.
-- As of this packet refresh, CR-03-001 through CR-03-016 are historical/resolved or superseded in sequence, and CR-03-017 is the active blocker until the blocker-status consistency correction passes CI and receives Codex recheck. Treat this line as historical after any later commit and verify the live summary before submission.
+- As of this packet refresh, CR-03-001 through CR-03-017 are historical/resolved or superseded in sequence, and CR-03-018/019 are the active blockers until the blocker/route consistency correction passes CI and receives Codex recheck. Treat this line as historical after any later commit and verify the live summary before submission.
 - Stage 03 implementation paths remain absent:
   - `apps/api/finsignalhub_api/connectors`
   - `apps/api/tests/test_stage03_connectors.py`
