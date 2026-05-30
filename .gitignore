@@ -24,6 +24,7 @@ artifacts/chrome_gpt_state.png
 artifacts/gpt_gate_question_*.png
 artifacts/gpt_gate_question_clipboard.txt
 artifacts/stage_01_web_admin_visible_smoke.png
+artifacts/runtime/
 
 # OS and editor
 .DS_Store

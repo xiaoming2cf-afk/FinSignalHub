@@ -7,6 +7,7 @@ PR created.
 - PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
 - Head branch: `stage/03-source-connectors`
 - Live PR head must be checked with `gh pr view 9 --json headRefOid` before any gate decision.
+- Latest external status comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582536773
 
 ## Required Branch
 
@@ -24,7 +25,7 @@ PR created.
 
 ## CI
 
-Latest pushed head `00c10afde5e6b53417e9339982e525d7a94556f8` passed both Stage Governance CI jobs and fixed CR-03-008, but inline CR-03-009 requires a stale PR body gate-status fix and a fresh Gate 6 recheck before Gate 6 is accepted.
+Previous external PR head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` passed both Stage Governance CI jobs after CR-03-009 remediation and live PR body sync. This blocker-evidence update requires fresh live-head CI after push before Gate 6 can pass again.
 
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671983662/job/78616805428
 - Stage Governance CI `governance-check`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26671988731/job/78616819311
@@ -36,10 +37,11 @@ Latest pushed head `00c10afde5e6b53417e9339982e525d7a94556f8` passed both Stage 
 - Remediation head `ed225b8` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679401271/job/78636992587 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679402165/job/78636994658
 - Remediation head `407e3c7` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679737133/job/78637922164 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26679736597/job/78637920789
 - Remediation head `00c10af` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680087571/job/78638852209 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680086688/job/78638849144
+- Current head `9d71438` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680552878/job/78640058018 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26680551960/job/78640055581
 
 ## Codex Review
 
-BLOCKED by CR-03-009 until the stale PR body gate-status fix is pushed, synced to the live PR, and rechecked. Remediation head `00c10afde5e6b53417e9339982e525d7a94556f8` passed CI and fixed CR-03-008, but received inline P2 finding CR-03-009.
+PENDING LIVE-HEAD RECHECK after this blocker-evidence update. CR-03-009 was remediated by refreshing `reviews/stage_03/PR_BODY.md`, pushing the remediation, syncing the live PR body, and receiving Codex no-major evidence for previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`.
 
 - Required Codex comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581351994
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
@@ -80,9 +82,12 @@ BLOCKED by CR-03-009 until the stale PR body gate-status fix is pushed, synced t
 - Remediation head `00c10af` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582394153
 - Remediation head `00c10af` GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395098632
 - CR-03-009: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328507889
+- Current head `9d71438` review request: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582437268
+- Current head `9d71438` minimal retry: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582442430
+- Current head `9d71438` Codex no-major response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582454142
 
-Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009. The CR-03-009 remediation refreshes the PR body source and must be synced to the live PR body after push. Any future push resets Gate 6 until live PR head checks and Codex review pass again.
+Codex returned CR-03-001, then CR-03-002/003, then CR-03-004, then CR-03-005, then CR-03-006, then CR-03-007, then CR-03-008, then CR-03-009. Previous external head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5` has CI PASS and Codex no-major after all known CR-03 findings. This blocker-evidence update resets Gate 6 until live PR head checks and Codex review pass again.
 
 ## GPT Pro
 
-CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Follow-up remains blocked by B-0040 until corrected artifacts are committed, the PR head receives fresh CI/Codex evidence, and GPT Pro confirms the must-fix items are resolved.
+CONDITIONAL PASS. The Stage 03 plan packet was submitted through an off-screen Microsoft Edge Default profile controlled by CDP without entering secrets. GPT Pro response is saved at `reviews/stage_03/GPT_PRO_REVIEW_RESPONSE.md`; action items are saved at `reviews/stage_03/GPT_PRO_ACTION_ITEMS.md`. Corrected artifacts had external CI/Codex evidence for previous head `9d71438e90e4dfd7bea0078ff1a6097be454f6b5`, but this blocker-evidence update needs fresh live-head Gate 6 evidence after push. Follow-up remains blocked by B-0045, B-0046, B-0047, and B-0048.
