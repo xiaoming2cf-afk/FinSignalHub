@@ -2,7 +2,7 @@
 
 ## Status
 
-Prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues after the CR-03-005 remediation. GPT Pro plan review completed through an off-screen Edge/CDP route and returned CONDITIONAL PASS. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed CI and got a Codex no-major issue comment, but Codex also returned CR-03-006 P2 on self-validating Gate 6 wording. This file now records CR-03-006 as active until its remediation is pushed and rechecked.
+Prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage Governance CI jobs and Codex returned no major issues after the CR-03-005 remediation. GPT Pro plan review completed through an off-screen Edge/CDP route and returned CONDITIONAL PASS. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed CI and got a Codex no-major issue comment, but Codex also returned CR-03-006 P2 on self-validating Gate 6 wording. Remediation head `ed225b858902717b23ef847c6d660e5f6d4f914a` passed CI and fixed CR-03-006, but Codex returned CR-03-007 P2 on stale next-action wording in `CONTROL/24_CURRENT_STAGE_STATE.md`.
 
 ## Current Head Rule
 
@@ -33,6 +33,10 @@ Prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af` passed both Stage 
 | 16 | Evidence head `5fb9a75` minimal retry | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582245197 | Bounded retry with exact minimal `@codex review` comment |
 | 17 | Evidence head `5fb9a75` GitHub connector review route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395045006 | Submitted a PR review event through the GitHub connector method switch |
 | 18 | Evidence head `5fb9a75` Codex no-major comment | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582257443 | Codex reported no major issues, but inline CR-03-006 still requires remediation before Gate 6 can be treated as clean |
+| 19 | Remediation head `ed225b8` Codex request | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582295029 | Requested review after CR-03-006 remediation |
+| 20 | Remediation head `ed225b8` minimal retry | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4582299840 | Bounded retry with exact minimal `@codex review` comment |
+| 21 | Remediation head `ed225b8` GitHub connector review route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4395059850 | Submitted a PR review event through the GitHub connector method switch |
+| 22 | Remediation head `ed225b8` Codex review | review event for commit `ed225b8589`; inline https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328475080 | Codex returned CR-03-007 P2 on stale next-action wording |
 
 ## Initial Environment Blocker
 
@@ -55,7 +59,8 @@ This was superseded when Codex later submitted review `4394157060`.
 | CR-03-003 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327921260 | The GPT Pro packet still described the superseded environment blocker instead of the active Codex findings. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
 | CR-03-004 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327936653 | The checklist said current-head planning checks passed while RunLog still said checks were pending after stale-evidence remediation. | resolved; historical `fb78f00` no-major evidence exists; live-head recheck required after later pushes |
 | CR-03-005 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328323655 | `PLANS/STAGE_03_PLAN.md` declares `user-upload-agent`, but `CONTROL/21_SUBAGENT_PROTOCOL.md` omitted it from the Stage 03 central subagent list. | resolved in pushed head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`; CI passed and Codex returned no major issues |
-| CR-03-006 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328458099 | `STAGE_ACCEPTANCE_RESULT.md` marked the GitHub gate PASS using prior-head evidence inside the same evidence-cleanup commit, creating self-validating Gate 6 wording. | fixed locally; push, CI, and Codex follow-up pending |
+| CR-03-006 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328458099 | `STAGE_ACCEPTANCE_RESULT.md` marked the GitHub gate PASS using prior-head evidence inside the same evidence-cleanup commit, creating self-validating Gate 6 wording. | resolved in pushed head `ed225b858902717b23ef847c6d660e5f6d4f914a`; follow-up Codex moved to CR-03-007 |
+| CR-03-007 | P2 | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3328475080 | `CONTROL/24_CURRENT_STAGE_STATE.md` still told the next run to commit the CR-03-006 fix even though that fix was already committed. | fixed locally; push, CI, and Codex follow-up pending |
 
 ## Local Resolution
 
@@ -63,8 +68,8 @@ The Stage 03 plan, tasks, architecture doc, PR body, GPT Pro packet, checklist, 
 
 The summary no longer names a fixed commit as the current head. The GPT Pro packet now points to this Codex summary for the active Codex blocker state.
 
-The checklist, acceptance result, blocker log, current stage state, action queue, release checklist, stage dashboard, goal registry, artifact registry, checkpoint log, execution log, and RunLog now record CR-03-004 as historical and CR-03-005 as resolved on live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list. CR-03-006 is remediated locally by making committed GitHub gate rows non-self-validating: they require external live PR-head evidence after each evidence push instead of marking Gate 6 PASS inside the same committed artifact.
+The checklist, acceptance result, blocker log, current stage state, action queue, release checklist, stage dashboard, goal registry, artifact registry, checkpoint log, execution log, and RunLog now record CR-03-004 as historical and CR-03-005 as resolved on live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. `CONTROL/21_SUBAGENT_PROTOCOL.md` now includes `user-upload-agent` in the Stage 03 central subagent list. CR-03-006 is resolved in pushed head `ed225b858902717b23ef847c6d660e5f6d4f914a`. CR-03-007 is remediated locally by changing `CONTROL/24_CURRENT_STAGE_STATE.md` so the next action after this fix is exact-head CI/Codex refresh and GPT Pro follow-up after Gate 6, not another redundant CR-03-006 commit.
 
 ## Gate Result
 
-Gate 6 was PASS for prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed CI and received a Codex no-major issue comment, but CR-03-006 keeps Gate 6 blocked until this local remediation is pushed and rechecked. Stage 03 implementation must still not begin because GPT Pro Gate 7 is only CONDITIONAL PASS and B-0040 plus a separate approved `/goal` remain required.
+Gate 6 was PASS for prior live PR head `ce5b94a4ffdad3b08488fb8f7a6952e12a58b4af`. Evidence head `5fb9a751fc004d00d1859342b96cb650216f2a46` passed CI and received a Codex no-major issue comment, but CR-03-006 blocked it. Remediation head `ed225b858902717b23ef847c6d660e5f6d4f914a` passed CI and fixed CR-03-006, but CR-03-007 keeps Gate 6 blocked until this local state-row fix is pushed and rechecked. Stage 03 implementation must still not begin because GPT Pro Gate 7 is only CONDITIONAL PASS and B-0040 plus a separate approved `/goal` remain required.
