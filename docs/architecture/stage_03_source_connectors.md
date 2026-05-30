@@ -6,24 +6,41 @@ Define a Research Mode source connector layer that normalizes source metadata in
 
 ## Connector Contract
 
-Each future connector should accept a query or source reference and return normalized document candidates with:
+Each future connector should accept a query or source reference and return a candidate that can be converted into the existing Stage 02 schemas without model or migration changes.
 
+Persisted source payloads must match `SourceCreate`:
+
+- `project_id`
 - `source_identity`
 - `source_type`
 - `title`
-- `abstract_or_description`
-- `authors_or_creators`
-- `publication_time` or `release_time`
-- `retrieval_time`
 - `url`
 - `doi`
-- `external_ids`
-- `license_or_terms_note`
-- `transformation_notes`
-- `confidence`
-- `tool_call_lineage`
+- `locator`
+- `publication_time`
+- `retrieval_time`
+- `bibliographic_metadata`
+- `validation_status`
 
-The connector contract must use deterministic errors and must not require secrets in normal tests.
+Persisted document payloads must match `DocumentCreate`:
+
+- `project_id`
+- `source_id`
+- `title`
+- `normalized_document_ref`
+- `source_identity`
+- `source_type`
+- `retrieval_time`
+- `publication_time`
+- `url`
+- `doi`
+- `locator`
+- `transformation_notes`
+- `validation_status`
+
+Connector-specific fields that are not accepted by `DocumentCreate`, such as authors, abstract text, external ids, license notes, raw provider ids, and provider-specific confidence hints, must be retained in `SourceCreate.bibliographic_metadata` or summarized in `DocumentCreate.transformation_notes`. Tool-call lineage must be represented by Stage 02 `ToolCallLog` records and artifact references, not by adding an unsupported field to `DocumentCreate`.
+
+The connector contract must use deterministic errors, must not require secrets in normal tests, and must not require Stage 02 schema or migration changes unless a later plan explicitly records a cross-stage exception.
 
 ## Planned Connectors
 

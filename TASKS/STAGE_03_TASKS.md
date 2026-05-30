@@ -2,7 +2,7 @@
 
 ## Stage goal
 
-Plan Research Mode source connectors that normalize public source metadata and user upload metadata into provenance-preserving `Document` inputs. This is planning only until GPT Pro and user gates authorize implementation.
+Plan Research Mode source connectors that normalize public source metadata and user upload metadata into provenance-preserving `SourceCreate` and `DocumentCreate` inputs that match the existing Stage 02 schemas. This is planning only until GPT Pro and user gates authorize implementation.
 
 ## User needs
 
@@ -59,7 +59,7 @@ Planning declares but does not run implementation subagents:
 Planning tasks:
 
 1. Write Stage 03 plan, tasks, checklist, PR body, GPT Pro review packet, acceptance placeholder, deployment placeholder, and docs.
-2. Define connector base contract and normalized `Document` mapping.
+2. Define connector base contract and normalized `SourceCreate`/`DocumentCreate` mapping without Stage 02 schema or migration changes.
 3. Define mocked fixture strategy and no-network CI rule.
 4. Define file authority for each future subagent.
 5. Update control logs, artifact registry, dashboard, and RunLog.
@@ -83,7 +83,7 @@ Future implementation tests:
 
 - mocked HTTP only
 - fixture mapping tests for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata
-- normalized `Document` validation
+- normalized `SourceCreate` and `DocumentCreate` validation
 - provenance mapping validation
 - no-network CI enforcement
 

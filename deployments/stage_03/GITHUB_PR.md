@@ -6,7 +6,7 @@ PR created.
 
 - PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9
 - Head branch: `stage/03-source-connectors`
-- Head commit: `6d153c5b350203d6d1a638e8d947016908b02414`
+- Live PR head must be checked with `gh pr view 9 --json headRefOid` before any gate decision.
 
 ## Required Branch
 
@@ -37,8 +37,10 @@ BLOCKED.
 - Minimal retry comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581356264
 - GitHub connector review route: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394151276
 - Codex connector blocker response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#issuecomment-4581352067
+- Codex review response: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#pullrequestreview-4394157060
+- CR-03-001: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9#discussion_r3327894712
 
-Codex did not perform a review. The connector response says this repository needs a Codex environment before Codex can run.
+Codex eventually performed a review and returned CR-03-001. The fix is local and must be pushed, CI-passed, and reviewed again before Gate 6 can pass.
 
 ## GPT Pro
 

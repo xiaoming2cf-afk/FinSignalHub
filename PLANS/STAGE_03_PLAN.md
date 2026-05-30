@@ -27,14 +27,14 @@ Stage 02 is merged and tagged. GPT Pro authorized Stage 03 planning only. This p
 
 Stage 03 must preserve FinSignalHub as Research Mode-first, MCP-first, and evidence-stream oriented.
 
-The planned connectors exist only to normalize external or uploaded source metadata into provenance-preserving `Document` inputs for later evidence workflows. They must not produce evidence extraction, summaries, investment advice, stock signals, dashboards, generic RAG answers, or report output.
+The planned connectors exist only to normalize external or uploaded source metadata into provenance-preserving `SourceCreate` and `DocumentCreate` inputs for later evidence workflows, using the schemas already created in Stage 02. They must not produce evidence extraction, summaries, investment advice, stock signals, dashboards, generic RAG answers, or report output.
 
 ## Scope
 
 Stage 03 planning scope:
 
 - Define source connector boundaries for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata.
-- Define a connector base interface and normalized `Document` mapping.
+- Define a connector base interface and normalized `SourceCreate`/`DocumentCreate` mapping that stays within the existing Stage 02 persisted schemas.
 - Define fixture-based mocked tests and no-network CI rules.
 - Define file boundaries, subagents, docs, logs, GitHub deployment, Codex review, GPT Pro plan review, risks, and stop conditions.
 
@@ -132,15 +132,15 @@ Tests to include in the later implementation goal:
 - `pytest apps/api/tests/test_stage03_connectors.py`
 - mocked HTTP tests only
 - fixtures for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata
-- normalized `Document` mapping validation
+- normalized `SourceCreate` and `DocumentCreate` mapping validation
 - publication/release time mapping validation
-- URL, DOI, external id, source identity, and source type mapping validation
+- URL, DOI, locator, source identity, source type, and provider metadata mapping validation
 - rate-limit and retry behavior with mocks
 - no real API keys and no network-dependent CI
 
 ## Docs
 
-Docs must define connector contracts, normalized `Document` fields, provenance mapping, no-network testing, fixture responsibilities, licensing risks, and stop conditions.
+Docs must define connector contracts, normalized `SourceCreate`/`DocumentCreate` fields, provenance mapping, no-network testing, fixture responsibilities, licensing risks, and stop conditions.
 
 ## GitHub Deployment
 
@@ -160,7 +160,7 @@ Submit `reviews/stage_03/GPT_PRO_REVIEW_PACKET.md` to the specified GPT Pro page
 - Real network tests or API keys leak into CI.
 - Source terms or licensing constraints are ignored.
 - User upload becomes full parsing or extraction.
-- Normalized `Document` loses provenance needed by Stage 04.
+- Normalized source/document payloads lose provenance needed by Stage 04 or require unsupported Stage 02 schema changes.
 
 ## Stop Conditions
 
@@ -169,4 +169,4 @@ Stop if:
 - A connector requires paid API keys, private credentials, secrets, or login.
 - Normal tests require live network calls.
 - Work requires evidence extraction, LLM adapters, claim graph computation, research delta computation, MCP business tools, or UI product behavior.
-- Connector output cannot preserve source identity, source type, retrieval time, URL/DOI/external id, transformation notes, confidence, and tool-call lineage.
+- Connector output cannot preserve source identity, source type, retrieval time, URL/DOI/locator, provider metadata, transformation notes, validation status, and tool-call lineage using existing Stage 02 Source, Document, and ToolCallLog schemas.

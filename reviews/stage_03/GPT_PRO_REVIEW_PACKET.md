@@ -26,7 +26,7 @@ Create a source connector plan for:
 - arXiv
 - user upload metadata
 - connector base interface
-- normalized `Document` output
+- normalized `SourceCreate` and `DocumentCreate` output using the existing Stage 02 schemas
 - mocked tests and no-network CI
 
 ## Planned Boundaries
@@ -34,7 +34,7 @@ Create a source connector plan for:
 The Stage 03 plan must not implement connectors yet. It must define:
 
 - connector contracts;
-- normalized `Document` field mapping;
+- normalized `SourceCreate` and `DocumentCreate` field mapping without Stage 02 schema or migration changes;
 - provenance requirements;
 - fixture strategy;
 - no-network tests;

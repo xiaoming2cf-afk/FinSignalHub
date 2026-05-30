@@ -9,7 +9,7 @@ Plan Research Mode source connectors for OpenAlex, Crossref, Semantic Scholar, a
 Included:
 
 - Stage 03 plan, tasks, checklist, review packet, PR body, acceptance placeholder, deployment placeholder, architecture doc, command doc, and subagent log README.
-- Connector contract and normalized `Document` mapping plan.
+- Connector contract and normalized `SourceCreate`/`DocumentCreate` mapping plan aligned to the existing Stage 02 schemas.
 - Mocked fixture test plan and no-network CI rule.
 
 Not included:
