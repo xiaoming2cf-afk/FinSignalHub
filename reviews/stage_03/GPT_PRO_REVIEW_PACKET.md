@@ -35,6 +35,7 @@ The implementation must normalize metadata into existing Stage 02-compatible `So
 - Updated the Stage 02 forbidden-scope guard so Stage 03-approved connector provider names are allowed only inside the connector package while forbidden Stage 04+ behaviors remain blocked.
 - Remediated Codex CR-03-041 by preventing `extra_safe_arguments` from overriding canonical `ToolCallLog.safe_arguments` provenance fields. Extra fixture arguments now live under `safe_arguments.extra`, and regression coverage verifies spoofed `provider`, `fixture`, `fixture_id`, `query_ref`, and `source_identity` values cannot replace canonical fields.
 - Remediated Codex CR-03-042 by parsing arXiv bare ids, versioned ids, `arXiv:` prefixed ids, abs URLs, and PDF URLs into stable `arxiv:<id>` source identity while preserving versioned ids as locator/provider metadata.
+- Remediated Codex CR-03-043 locally by supporting old-style dotted arXiv archive classes such as `physics.ins-det/0301001` and `physics.atom-ph/9901001`; live PR #10 CI/Codex and GPT Pro re-review remain required before merge or Stage 04 planning.
 
 ## Explicit Non-Implementation
 

@@ -183,6 +183,53 @@ def test_arxiv_normalizes_versioned_and_url_ids_to_stable_identity(raw_id: str) 
     assert tool_call.safe_arguments["source_identity"] == "arxiv:2401.01234"
 
 
+@pytest.mark.parametrize(
+    ("raw_id", "stable_id", "versioned_id", "version"),
+    [
+        ("physics.ins-det/0301001", "physics.ins-det/0301001", "physics.ins-det/0301001", None),
+        ("physics.atom-ph/9901001v1", "physics.atom-ph/9901001", "physics.atom-ph/9901001v1", "v1"),
+        (
+            "https://arxiv.org/abs/physics.ins-det/0301001v1",
+            "physics.ins-det/0301001",
+            "physics.ins-det/0301001v1",
+            "v1",
+        ),
+        (
+            "https://arxiv.org/pdf/physics.atom-ph/9901001v2.pdf",
+            "physics.atom-ph/9901001",
+            "physics.atom-ph/9901001v2",
+            "v2",
+        ),
+    ],
+)
+def test_arxiv_normalizes_old_style_dotted_archive_classes(
+    raw_id: str,
+    stable_id: str,
+    versioned_id: str,
+    version: str | None,
+) -> None:
+    fixture = _load_fixture("arxiv_entry.json")
+    fixture["id"] = raw_id
+    fixture.pop("links")
+    fixture.pop("url", None)
+
+    result = normalize_arxiv_record(fixture, _context("arxiv"))
+
+    source = result.to_source_create()
+    tool_call = result.to_tool_call_log_create()
+    metadata = source.bibliographic_metadata["provider_metadata"]
+
+    assert source.source_identity == f"arxiv:{stable_id}"
+    assert source.url == f"https://arxiv.org/abs/{stable_id}"
+    assert source.locator == versioned_id
+    assert metadata["raw_provider_id"] == raw_id
+    assert metadata["versioned_provider_id"] == versioned_id
+    assert metadata["arxiv_version"] == version
+    assert metadata["external_ids"]["arxiv"] == stable_id
+    assert metadata["external_ids"]["arxiv_versioned"] == versioned_id
+    assert tool_call.safe_arguments["source_identity"] == f"arxiv:{stable_id}"
+
+
 def test_user_upload_metadata_stays_metadata_only() -> None:
     result = normalize_user_upload_metadata(
         _load_fixture("user_upload_metadata.json"),

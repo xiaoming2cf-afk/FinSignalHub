@@ -66,7 +66,7 @@ The connector package has no default network client. It performs deterministic m
 - OpenAlex: maps work id, DOI, title, publication date, landing page, host venue, license, and authors into literature source/document payloads.
 - Crossref: maps DOI, URL, title, issued or published date parts, container title, publisher, type, and authors into literature source/document payloads.
 - Semantic Scholar: maps paper id, DOI, arXiv id, corpus id, venue, publication date, publication type, and authors into literature source/document payloads.
-- arXiv: maps bare ids, versioned ids, or canonical arXiv URLs into stable `arxiv:<id>` source identity, keeps the versioned id as locator/provider metadata, canonicalizes the abstract URL, and maps DOI, title, publication/update time, category, links, and authors into preprint source/document payloads.
+- arXiv: maps bare ids, versioned ids, canonical arXiv URLs, PDF URLs, and old-style dotted archive classes such as `physics.ins-det/0301001` or `physics.atom-ph/9901001` into stable `arxiv:<id>` source identity, keeps the versioned id as locator/provider metadata, canonicalizes the abstract URL, and maps DOI, title, publication/update time, category, links, and authors into preprint source/document payloads.
 - User upload metadata: maps caller-provided file metadata, hash, citation fields, DOI, URL, and optional metadata into `user_upload_metadata` source/document payloads. It does not parse file content.
 
 ## Tool Call Lineage

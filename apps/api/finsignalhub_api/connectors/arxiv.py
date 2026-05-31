@@ -18,7 +18,7 @@ from finsignalhub_api.models.enums import SourceType
 PROVIDER = "arxiv"
 _ARXIV_NEW_ID_RE = re.compile(r"(?P<stable>\d{4}\.\d{4,5})(?P<version>v\d+)?", re.IGNORECASE)
 _ARXIV_OLD_ID_RE = re.compile(
-    r"(?P<stable>[a-z-]+(?:\.[A-Z]{2})?/\d{7})(?P<version>v\d+)?",
+    r"(?P<stable>[a-z]+(?:-[a-z]+)*(?:\.[a-z]+(?:-[a-z]+)*)?/\d{7})(?P<version>v\d+)?",
     re.IGNORECASE,
 )
 

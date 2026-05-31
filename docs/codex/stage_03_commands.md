@@ -44,5 +44,5 @@ Expected connector-test evidence:
 - No default connector module imports live network clients.
 - Secret-like metadata keys are redacted from safe arguments and provider metadata.
 - Extra fixture arguments are nested under `safe_arguments.extra` and cannot override canonical tool-call provenance fields.
-- arXiv bare, versioned, and URL-shaped ids normalize to stable `arxiv:<id>` identity while preserving versioned id metadata.
+- arXiv bare, versioned, URL-shaped, PDF URL, and old-style dotted archive ids normalize to stable `arxiv:<id>` identity while preserving versioned id metadata.
 - No `EvidenceItem`, claim graph, Research Delta, MCP business tool, UI, RAG, stock/investment, Risk Mode, or Replay Engine behavior is added.
