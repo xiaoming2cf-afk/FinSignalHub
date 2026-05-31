@@ -58,6 +58,6 @@ GPT Pro plan review remains a hard gate before any Stage 04 implementation goal 
 - Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 - CI: latest reviewed heads passed CI; the current remediation head must pass CI after push.
-- Codex review: BLOCKED by CR-04-001 through CR-04-005 until the current remediation head receives Codex no-major or all new findings are handled.
+- Codex review: BLOCKED by CR-04-001 through CR-04-006 until the current remediation head receives Codex no-major or all new findings are handled.
 - GPT Pro review: pending.
 - Stage 04 implementation: not authorized.

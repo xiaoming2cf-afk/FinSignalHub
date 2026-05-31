@@ -39,7 +39,12 @@ PASS for remediation head `5aab88868e7024e31b7b9b7da525bcb9d2a75d3e`:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26703593010/job/78700722237
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26703592295/job/78700719535
 
-The CR-04-005 remediation head must pass CI after push.
+PASS for remediation head `4ec8b5a19f4e72526c04fdaeda9fbf44761e6e2d`:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26703768523/job/78701168265
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26703767525/job/78701165098
+
+The CR-04-006 remediation head must pass CI after push.
 
 ## Codex Review
 
@@ -57,6 +62,10 @@ Reviewed head `5aab88868e7024e31b7b9b7da525bcb9d2a75d3e` returned P2 finding:
 
 - CR-04-005: `RUNLOG/LONG_RUN_SUMMARY.md` still directed the next run toward PR creation instead of continuing on active PR #11.
 
+Reviewed head `4ec8b5a19f4e72526c04fdaeda9fbf44761e6e2d` returned P2 finding:
+
+- CR-04-006: `CONTROL/24_CURRENT_STAGE_STATE.md` still told the next run to rerun already-passed CR-04-005 local checks.
+
 Current remediation is local and must be pushed, pass CI, and receive current-head Codex no-major before GPT Pro plan review.
 
 ## GPT Pro
@@ -72,4 +81,4 @@ Use `gh pr view 11 --json headRefOid,statusCheckRollup,reviews,comments` and `gh
 - Created at: 2026-05-30T22:03:49-05:00
 - URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 - Initial pushed head before this PR evidence update: `ef5b8fccebfa0c313cc6f3a38abac7ba34b68758`
-- Required next step: commit/push the CR-04-005 remediation, sync the live PR body if needed, wait for CI, and request current-head Codex review.
+- Required next step: commit/push the CR-04-006 remediation, sync the live PR body if needed, wait for CI, and request current-head Codex review.
