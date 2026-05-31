@@ -57,7 +57,7 @@ GPT Pro plan review remains a hard gate before any Stage 04 implementation goal 
 - Stage 04 planning branch: `stage/04-evidence-extraction`.
 - Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
-- CI: CR-04-011/012/013 remediation head `2601f25bb33a9062e27c841d352a31bc7c467eca` passed both governance checks; for this source body and any later evidence-only head, Gate 6 is determined by live PR #11 current-head checks, not by a fixed hash copied into this file.
-- Codex review: PASS for remediation head `2601f25bb33a9062e27c841d352a31bc7c467eca` at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4586063499; any later status-only head must receive current-head Codex before closeout, merge, or implementation-goal drafting.
-- GPT Pro review: PASS for Stage 04 planning; response/action items saved locally in `GPT_PRO_PLAN_REVIEW_RESPONSE.md` / `GPT_PRO_PLAN_ACTION_ITEMS.md`, with protocol-compatible aliases `GPT_PRO_REVIEW_RESPONSE.md` / `GPT_PRO_ACTION_ITEMS.md`.
+- CI: status head `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0` passed both governance checks; for this source body and any later evidence-only head, Gate 6 is determined by live PR #11 current-head checks, not by a fixed hash copied into this file.
+- Codex review: PASS for status head `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0` at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4586101147; this response-saving evidence head must receive current-head Codex before closeout, merge, or implementation-goal drafting.
+- GPT Pro review: PASS for Stage 04 planning and closeout confirmation; response/action items saved locally in `GPT_PRO_PLAN_REVIEW_RESPONSE.md`, `GPT_PRO_PLAN_ACTION_ITEMS.md`, `GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`, and `GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`, with protocol-compatible aliases `GPT_PRO_REVIEW_RESPONSE.md` / `GPT_PRO_ACTION_ITEMS.md`.
 - Stage 04 implementation: not authorized.
