@@ -2,7 +2,7 @@
 
 ## Current Head Rule
 
-Use PR #11 or the active Stage 04 PR created from branch `stage/04-evidence-extraction`. Current-head evidence must come from that PR's head, not from Stage 03 PR #10.
+Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-head evidence must come from that PR's head, not from Stage 03 PR #10.
 
 ## Findings
 

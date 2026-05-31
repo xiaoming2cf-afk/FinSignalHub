@@ -55,9 +55,9 @@ GPT Pro plan review remains a hard gate before any Stage 04 implementation goal 
 
 - Stage 03: merged at `13ee0a0bc497578b235662ea60c9aa225c62e53f` and tagged `stage-03-source-connectors`.
 - Stage 04 planning branch: `stage/04-evidence-extraction`.
-- Local planning checks: pending.
-- PR: pending.
+- Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 - CI: pending.
-- Codex review: pending.
+- Codex review: pending current-head request after this PR evidence update is pushed.
 - GPT Pro review: pending.
 - Stage 04 implementation: not authorized.
