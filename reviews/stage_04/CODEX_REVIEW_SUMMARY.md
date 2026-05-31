@@ -20,6 +20,7 @@ Known reviewed heads:
 - `f59c33ec4459fe925a4785d26185165a16b863e9`: CR-04-011/012/013 after GPT Pro response-saving closeout.
 - `2601f25bb33a9062e27c841d352a31bc7c467eca`: no major issues after CR-04-011/012/013 remediation.
 - `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0`: no major issues after closeout status update.
+- `ce570d66f14bfb859b45258ae2195ae604bd78f1`: CR-04-014 after GPT Pro closeout confirmation evidence was saved.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -33,20 +34,21 @@ Known reviewed heads:
 - CR-04-010 / P2: `CONTROL/24_CURRENT_STAGE_STATE.md` still had a fixed `Last updated time` of `2026-05-31T00:58:10-05:00` after checkpoint and artifact evidence had advanced to CP-0301/A-0423 and head `80b2ed8e7f4186c7329f0371cc6c4bd486e59c57`. Remediation: make the current-state timestamp row use `CONTROL/27_CHECKPOINT_LOG.md` as the dynamic source of truth and record CR-04-010 in companion Gate 6 evidence without treating this file as self-validating current-head proof.
 - CR-04-011 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` still marked GitHub, GPT Pro, and next-stage rows as `PENDING` after the same closeout evidence recorded PR #11, CI/Codex evidence, and GPT Pro PASS. Remediation: update the checklist to distinguish GPT Pro planning PASS from the active closeout remediation gate.
 - CR-04-012 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` declared final Stage 04 planning PASS while the same head still required live current-head GitHub/Codex evidence. Remediation: mark closeout BLOCKED until the remediation head passes live PR #11 CI and current-head Codex; keep GPT Pro planning PASS as content evidence only.
-- CR-04-013 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` contradicted the saved GPT Pro PASS and submitted planning-head GitHub evidence by leaving completed gates as pending. Remediation: record GPT Pro PASS, submitted planning-head CI/Codex evidence, and the active CR-04-011/012/013 closeout blocker in the checklist.
+- CR-04-013 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` contradicted the saved GPT Pro PASS and submitted planning-head GitHub evidence by leaving completed gates as pending. Remediation: record GPT Pro PASS, submitted planning-head CI/Codex evidence, and the then-active CR-04-011/012/013 closeout blocker in the checklist.
+- CR-04-014 / P2: this summary's Required Action section still listed resolved CR-04-011/012/013 findings as active after the same file recorded `2601f25...` and `b7bcb93...` no-major evidence. Remediation: move CR-04-011/012/013 into resolved historical evidence, list only CR-04-014 as the active current-head finding, and route the next step through live PR #11 CI/Codex for the remediation head.
 
 ## Required Action
 
-Planning Gate 6 passed for submitted head `d62d8d8eafb73eb207ba401e12f9d073dff61223`, and GPT Pro passed the Stage 04 planning content. The response-saving closeout head `f59c33ec4459fe925a4785d26185165a16b863e9` passed CI but is now blocked by CR-04-011/012/013.
+Planning Gate 6 passed for submitted head `d62d8d8eafb73eb207ba401e12f9d073dff61223`, and GPT Pro passed the Stage 04 planning content. CR-04-011/012/013 are resolved for reviewed remediation head `2601f25bb33a9062e27c841d352a31bc7c467eca` and status head `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0`.
 
-- CI PASS:
+- Planning review head CI PASS:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705627772/job/78706273945
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705628621/job/78706275805
-- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4585972078
+- Planning review head Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4585972078
 - Closeout head `f59c33ec4459fe925a4785d26185165a16b863e9` CI PASS:
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706061169/job/78707433633
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706062324/job/78707437386
-- Active Codex findings:
+- Historical resolved Codex findings:
   - CR-04-011: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329847299
   - CR-04-012: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850982
   - CR-04-013: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850983
@@ -64,6 +66,15 @@ Closeout status head `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0` passed live PR #
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706788779/job/78709468531
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706789468/job/78709470021
 - Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4586101147
+
+GPT Pro closeout confirmation evidence head `ce570d66f14bfb859b45258ae2195ae604bd78f1` passed live PR #11 CI, then Codex returned CR-04-014:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26707711249/job/78712042167
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26707712111/job/78712044464
+- CR-04-014: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329934163
+
+This CR-04-014 remediation is local in this file and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
 
 Any later status-only evidence commit must still request current-head review again:
 
