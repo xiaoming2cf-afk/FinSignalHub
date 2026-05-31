@@ -21,6 +21,7 @@ Known reviewed heads:
 - `2601f25bb33a9062e27c841d352a31bc7c467eca`: no major issues after CR-04-011/012/013 remediation.
 - `b7bcb935612325dfccbd9da15c17ba5fdcfae9e0`: no major issues after closeout status update.
 - `ce570d66f14bfb859b45258ae2195ae604bd78f1`: CR-04-014 after GPT Pro closeout confirmation evidence was saved.
+- `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7`: CR-04-015 after CR-04-014 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -36,6 +37,7 @@ Known reviewed heads:
 - CR-04-012 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` declared final Stage 04 planning PASS while the same head still required live current-head GitHub/Codex evidence. Remediation: mark closeout BLOCKED until the remediation head passes live PR #11 CI and current-head Codex; keep GPT Pro planning PASS as content evidence only.
 - CR-04-013 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` contradicted the saved GPT Pro PASS and submitted planning-head GitHub evidence by leaving completed gates as pending. Remediation: record GPT Pro PASS, submitted planning-head CI/Codex evidence, and the then-active CR-04-011/012/013 closeout blocker in the checklist.
 - CR-04-014 / P2: this summary's Required Action section still listed resolved CR-04-011/012/013 findings as active after the same file recorded `2601f25...` and `b7bcb93...` no-major evidence. Remediation: move CR-04-011/012/013 into resolved historical evidence, list only CR-04-014 as the active current-head finding, and route the next step through live PR #11 CI/Codex for the remediation head.
+- CR-04-015 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` still reported the GitHub gate as PASS from older head `b7bcb93...` after the same remediation recorded `ce570d66...` / CR-04-014 as the active blocker. Remediation: mark the checklist GitHub row BLOCKED by CR-04-015 until the checklist remediation head passes live PR #11 CI and current-head Codex.
 
 ## Required Action
 
@@ -74,7 +76,14 @@ GPT Pro closeout confirmation evidence head `ce570d66f14bfb859b45258ae2195ae604b
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26707712111/job/78712044464
 - CR-04-014: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329934163
 
-This CR-04-014 remediation is local in this file and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
+CR-04-014 remediation head `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7` passed live PR #11 CI, then Codex returned CR-04-015:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708099738/job/78713116982
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708100683/job/78713119531
+- CR-04-015: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329957258
+
+This CR-04-015 remediation is local in the Stage 04 checklist and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
 
 Any later status-only evidence commit must still request current-head review again:
 

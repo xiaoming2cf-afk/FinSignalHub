@@ -89,6 +89,11 @@ PASS for GPT Pro closeout confirmation evidence head `ce570d66f14bfb859b45258ae2
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26707711249/job/78712042167
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26707712111/job/78712044464
 
+PASS for CR-04-014 remediation head `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7`, followed by Codex CR-04-015:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708099738/job/78713116982
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708100683/job/78713119531
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -155,7 +160,11 @@ Reviewed head `ce570d66f14bfb859b45258ae2195ae604bd78f1` returned P2 CR-04-014:
 
 - CR-04-014: `reviews/stage_04/CODEX_REVIEW_SUMMARY.md` still listed resolved CR-04-011/012/013 findings as active at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329934163.
 
-This deployment evidence file and companion governance records now treat CR-04-011/012/013 as resolved historical findings and CR-04-014 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+Reviewed head `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7` returned P2 CR-04-015:
+
+- CR-04-015: `CHECKLISTS/STAGE_04_CHECKLIST.md` still reported GitHub Gate 6 PASS from older head `b7bcb93...` despite active CR-04-014 evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329957258.
+
+This deployment evidence file and companion governance records now treat CR-04-015 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
 ## GPT Pro
 
