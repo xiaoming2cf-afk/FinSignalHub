@@ -280,3 +280,11 @@ Allowed Stage 04 planning files:
 The Stage 04 plan may reference future implementation paths such as `apps/api/finsignalhub_api/extraction/` and `apps/api/tests/test_stage04_extraction.py`, but must not create extraction implementation code until Stage 04 implementation is separately approved.
 
 Forbidden until separately approved: production extraction, external LLM calls, real API keys, external network calls, claim graph logic, Research Delta logic, Repro Pack logic, MCP business tools, UI/dashboard behavior, chatbot/RAG behavior, stock prediction, investment advice, Risk Mode, Replay Engine, auth, billing, or destructive repository restructuring.
+
+## Stage 03 Merge Closeout And Active Stage 04 Planning State
+
+Timestamp: 2026-05-30T21:46:24-05:00
+
+Stage 03 final evidence head `92970f32f0b22754dad02c661e2b1b9a5d313fec` passed PR #10 CI and Codex no-major after the CR-03-043 GPT Pro re-review PASS was saved. PR #10 was squash-merged into `main` at `13ee0a0bc497578b235662ea60c9aa225c62e53f`, and tag `stage-03-source-connectors` was pushed.
+
+The active next-stage instruction is still Stage 04 planning only. Stage 04 implementation remains unauthorized until the Stage 04 planning PR passes CI/Codex, GPT Pro returns PASS or accepted CONDITIONAL PASS for the plan, and a separate implementation `/goal` is created.
