@@ -2,48 +2,103 @@
 
 ## Stage goal
 
-Create source connectors that normalize research documents.
+Plan Research Mode source connectors that normalize public source metadata and user upload metadata into provenance-preserving `SourceCreate` and `DocumentCreate` inputs that match the existing Stage 02 schemas. This is planning only until GPT Pro and user gates authorize implementation.
 
 ## User needs
 
-Researchers need reliable source ingestion with mock tests and provenance.
+Researchers need repeatable, provenance-aware source intake so later stages can build evidence cards, claim graph edges, literature matrices, method cards, dataset cards, and Repro Packs without relying on opaque source text.
 
 ## Files allowed
 
-To be defined in Stage 03 plan around OpenAlex, Crossref, Semantic Scholar, arXiv, user upload, normalized Document output, mocks, and docs.
+Planning files:
+
+- `PLANS/STAGE_03_PLAN.md`
+- `TASKS/STAGE_03_TASKS.md`
+- `CHECKLISTS/STAGE_03_CHECKLIST.md`
+- `reviews/stage_03/`
+- `deployments/stage_03/`
+- `docs/architecture/stage_03_source_connectors.md`
+- `docs/codex/stage_03_commands.md`
+- `logs/subagents/stage_03/`
+- required control and RunLog records
+
+Later implementation files, only after approved `/goal`:
+
+- `apps/api/finsignalhub_api/connectors/`
+- `apps/api/tests/test_stage03_connectors.py`
+- `apps/api/tests/fixtures/stage03_connectors/`
 
 ## Files forbidden
 
-Claim graph, extraction judgments, admin UI, and financial prediction.
+- Evidence extraction
+- LLM adapters
+- Claim graph computation
+- Research delta engines
+- Repro Pack export logic
+- MCP business tools
+- Admin UI product behavior
+- Chatbot, generic RAG, stock prediction, investment advice, dashboard behavior, Risk Mode, Replay Engine
 
 ## Skills required
 
-`connector-builder`, `codex-log-keeper`, `phase-gate-auditor`.
+`finsignal-product-governor`, `connector-builder`, `evidence-graph-architect`, `phase-gate-auditor`, `codex-log-keeper`, `github-stage-deployer`, `github-review-resolver`, `gpt-pro-review-preparer`, `browser-gpt-pro-reviewer`, `subagent-coordinator`, `acceptance-evidence-collector`.
 
 ## Subagents required
 
-Recommended: openalex-agent, crossref-agent, semantic-scholar-agent, arxiv-agent, connector-review-agent.
+Planning declares but does not run implementation subagents:
+
+- `openalex-agent`
+- `crossref-agent`
+- `semantic-scholar-agent`
+- `arxiv-agent`
+- `user-upload-agent`
+- `connector-review-agent`
 
 ## Implementation tasks
 
-To be filled after GPT Pro Stage 03 instruction.
+Planning tasks:
+
+1. Write Stage 03 plan, tasks, checklist, PR body, GPT Pro review packet, acceptance placeholder, deployment placeholder, and docs.
+2. Define connector base contract and normalized `SourceCreate`/`DocumentCreate` mapping without Stage 02 schema or migration changes.
+3. Define mocked fixture strategy and no-network CI rule.
+4. Define file authority for each future subagent.
+5. Update control logs, artifact registry, dashboard, and RunLog.
+6. Run planning-only checks.
+7. Open PR and request Codex review.
+8. Submit plan to GPT Pro for planning gate.
+
+Later implementation tasks must be created only after GPT Pro plan PASS and approved `/goal`.
 
 ## Test tasks
 
-Connector mock tests and error handling tests.
+Planning-only checks:
+
+- `phase_check.py --stage 03`
+- no implementation files check
+- no external API client/runtime call check
+- secret scan
+- `git diff --check`
+
+Future implementation tests:
+
+- mocked HTTP only
+- fixture mapping tests for OpenAlex, Crossref, Semantic Scholar, arXiv, and user upload metadata
+- normalized `SourceCreate` and `DocumentCreate` validation
+- provenance mapping validation
+- no-network CI enforcement
 
 ## Docs tasks
 
-Document connector provenance and rate-limit assumptions.
+Document connector contracts, normalized fields, provenance mapping, fixture ownership, source licensing risks, and stop conditions.
 
 ## GitHub deployment tasks
 
-Use branch `stage/03-source-connectors`, PR, CI, Codex review.
+Original planning branch `stage/03-source-connectors` and PR #9 are historical. Use active branch `stage/03-source-connectors-closeout-refresh` and PR #10 for Stage 03 closeout, evidence-sync, and implementation-gate work unless a later ADR and blocker authorize another route. PR title remains `Stage 03: Source Connectors`; PR body comes from `reviews/stage_03/PR_BODY.md`; each pushed head must pass CI and `@codex review`.
 
 ## GPT Pro review tasks
 
-Submit Stage 03 packet and request Stage 04 instructions.
+Submit the Stage 03 plan packet to GPT Pro. Save response, action items, final result, and any Stage 03 implementation instructions. Do not implement before PASS and a separate `/goal`.
 
 ## Stop conditions
 
-Stop if connectors lack mocks, provenance, or user-data boundaries.
+Stop if planning requires API keys, live network tests, evidence extraction, LLM adapters, claim graph computation, research delta computation, MCP business tools, destructive restructuring, or licensing decisions that require user judgment.

@@ -1,0 +1,24 @@
+{
+  "paperId": "649def34f8be52c8b66281af98ae884c09aef38b",
+  "corpusId": 215416146,
+  "title": "Evidence graphs for reproducible financial research",
+  "url": "https://www.semanticscholar.org/paper/649def34f8be52c8b66281af98ae884c09aef38b",
+  "venue": "Research Evidence Systems",
+  "year": 2023,
+  "publicationDate": "2023-02-10",
+  "publicationTypes": [
+    "JournalArticle"
+  ],
+  "externalIds": {
+    "DOI": "10.48550/example.2023.002",
+    "ArXiv": "2302.00002"
+  },
+  "authors": [
+    {
+      "name": "Nora Claims"
+    },
+    {
+      "name": "Ravi Provenance"
+    }
+  ]
+}

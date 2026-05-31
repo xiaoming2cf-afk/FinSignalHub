@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 02 Research Mode domain models implementation |
-| Current phase status | Stage 02 implementation is PASS / ACCEPTED. The runtime remediation head passed CI/Codex/GPT Pro, and the final docs/log evidence-sync head must have fresh CI/Codex evidence verified in PR #8 immediately before merge. |
-| Active branch | `stage/02-domain-models` |
-| Latest PR | Stage 02 PR #8: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8; final evidence PR comment: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8#issuecomment-4581143020 |
-| Latest CI status | PASS for runtime remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313`; final docs/log evidence-sync CI must be verified with `gh pr checks 8` immediately before merge. |
-| Latest Codex review status | PASS for runtime remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313`; final docs/log evidence-sync Codex no-major must be verified from the latest PR #8 bot response immediately before merge. |
-| Latest GPT Pro review status | PASS for Stage 02 implementation-reviewed head `09585c58e71eb72b532ea42569d38dce2aa7b648` and CR-02-043 delta/final PASS for runtime remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313`. |
-| Active goal id | G-0004 |
-| Next required action | Verify PR #8 final docs/log evidence-sync CI/Codex, merge Stage 02, then begin Stage 03 `/plan` only. Do not implement Stage 03 until the Stage 03 plan, GitHub/Codex plan gate, GPT Pro plan review, and user-approved goal exist. |
-| Blocker status | B-0020 through B-0026 resolved for Stage 02. Standalone background Computer Use is still unavailable as a tool surface, so future GPT Pro recovery must use background Chrome extension first and must not use foreground visual recovery while the user is working in Chrome. Stage 03 implementation remains blocked until Stage 03 plan, GitHub/Codex, GPT Pro plan review, and user-approved goal exist. |
-| Last updated time | 2026-05-29T20:28:00-05:00 |
+| Current stage | Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks; commit/push pending |
+| Current phase status | Stage 03 connector implementation passed local tests, PR #10 current-head CI/Codex, and GPT Pro final implementation review for head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`. Evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` received CR-03-042; remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37` passed CI, then Codex returned CR-03-043 because old-style dotted arXiv ids such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` were rejected. Remediation head `adb41c36e66a25ddfa943950b7e08a685906560e` extends old-style id parsing, adds regression coverage, passed local checks, passed PR #10 CI, received current-head Codex no-major evidence, and received GPT Pro CR-03-043 re-review PASS. |
+| Active branch | `stage/03-source-connectors-closeout-refresh` |
+| Latest PR | Replacement Stage 03 PR #10: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10. Superseded PR #9: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9 |
+| Latest CI status | PASS for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700384838/job/78692127001 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700385624/job/78692129155. |
+| Latest Codex review status | PASS / no-major for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#pullrequestreview-4396255733 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329584630. |
+| Latest GPT Pro review status | PASS for CR-03-043 re-review saved in `reviews/stage_03/GPT_PRO_CR_03_043_REREVIEW_RESPONSE.md`; GPT Pro answered that CR-03-043 is resolved, PR #10 may merge, and Stage 04 planning-only is allowed next. |
+| Active goal id | G-0006 implementation goal accepted; final evidence closeout update in progress |
+| Next required action | Commit and push this governance-only GPT Pro response/action-item evidence, sync PR #10 body, verify live PR #10 CI/Codex for the resulting head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean. |
+| Blocker status | B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; governance-only evidence commit still requires live PR #10 CI/Codex after push before merge. B-0027/B-0048 remain capability limitations only. |
+| Last updated time | 2026-05-30T21:23:26-05:00 |
 
-Current detected stage is: Stage 02 Research Mode domain models implementation.
+Current detected stage is: Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks and is ready to commit/push.
 
-Current detected blocker status is: Stage 01 is accepted, tagged, and merged. Stage 02 plan review passed. User direct-execution approval is recorded. Stage 02 implementation head `09585c58e71eb72b532ea42569d38dce2aa7b648` has live CI PASS, Codex no-major evidence, and GPT Pro final implementation PASS. B-0020 is resolved for the implementation-reviewed head. B-0021 through B-0025 are resolved by pushed follow-up remediations. B-0026 is resolved by CR-02-043 remediation head `eb4dd0f97ad04ce2173b5d677564d3254ad93313`, live CI PASS, Codex no-major, and GPT Pro delta/final PASS. The refreshed PR body and final evidence comment publish acceptance evidence; the final docs/log evidence-sync PR head must have CI/Codex verified immediately before merge. Chrome extension background tab discovery works; standalone background Computer Use is still not exposed, and foreground visual recovery is suspended per user instruction.
+Current detected blocker status is: CR-03-043 / B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; a governance-only evidence commit must still receive live PR #10 CI/Codex before merge.
 
-Next valid action is: verify PR #8 final docs/log evidence-sync CI/Codex, merge Stage 02, then create Stage 03 `/plan` artifacts only. Stage 03 implementation is not authorized.
+Next valid action is: commit and push GPT Pro re-review evidence, sync PR #10 body, refresh CI/Codex for the live head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean.

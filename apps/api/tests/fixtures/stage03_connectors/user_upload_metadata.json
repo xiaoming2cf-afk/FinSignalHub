@@ -1,0 +1,14 @@
+{
+  "filename": "temporal-contamination-study-metadata.pdf",
+  "file_sha256": "b9e8f7c6d5a40123456789abcdef0123456789abcdef0123456789abcdef0123",
+  "provided_title": "User supplied metadata for a temporal contamination study",
+  "provided_doi": "10.5281/zenodo.1234567",
+  "publication_date": "2025-04-22",
+  "source_url": "https://zenodo.org/records/1234567",
+  "content_type": "application/pdf",
+  "citation": "User Team. Temporal contamination study metadata. Zenodo. 2025.",
+  "metadata": {
+    "uploaded_by": "research-team-fixture",
+    "license": "CC-BY-4.0"
+  }
+}

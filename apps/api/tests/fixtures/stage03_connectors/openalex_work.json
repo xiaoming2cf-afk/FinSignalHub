@@ -1,0 +1,26 @@
+{
+  "id": "https://openalex.org/W2741809807",
+  "doi": "https://doi.org/10.1038/nature12373",
+  "title": "Attention Is All You Need for Research Evidence Tracking",
+  "publication_year": 2017,
+  "publication_date": "2017-06-12",
+  "primary_location": {
+    "landing_page_url": "https://doi.org/10.1038/nature12373",
+    "license": "cc-by",
+    "source": {
+      "display_name": "Nature Methods"
+    }
+  },
+  "authorships": [
+    {
+      "author": {
+        "display_name": "Ada Researcher"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Grace Evidence"
+      }
+    }
+  ]
+}
