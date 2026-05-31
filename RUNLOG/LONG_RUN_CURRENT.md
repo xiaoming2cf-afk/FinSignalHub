@@ -4027,3 +4027,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0386 and CP-0266.
 - Blockers: live-head CI/Codex pending after push.
 - Next action: final diff check, stage, commit, push, sync PR body.
+
+## Cycle 0224
+
+- Timestamp: 2026-05-30T18:58:31-05:00
+- Files read: PR #10 current-head Codex review, arXiv connector, connector tests, arxiv-agent subagent report, Stage 03 review/control logs.
+- Current detected stage is: Stage 03 CR-03-042 remediation local verification in progress.
+- Current detected blocker status is: B-0074 opened because PR #10 evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` passed CI but Codex returned CR-03-042 on unstable arXiv id normalization.
+- Next valid action is: run final scans after log updates, commit and push CR-03-042 remediation, sync PR #10 body, wait for live CI, request current-head Codex, then proceed only if clean.
+- Skills used: github-review-resolver, connector-builder, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: none for this narrow fix; prior arxiv-agent report supplied the stable-id requirement.
+- Commands/tools run: PR #10 review inspection; targeted arXiv connector edit; targeted connector pytest; full API pytest; connector compileall; phase_check 03.
+- Files changed: `apps/api/finsignalhub_api/connectors/arxiv.py`, `apps/api/tests/test_stage03_connectors.py`, Stage 03 architecture/command docs, PR body, acceptance result, deployment evidence, Codex summary, blocker log, dashboard, current state, action queue, release checklist, goal registry, artifact registry, checkpoint log, execution log, and this RunLog.
+- Tests run: PASS so far. Connector tests 19 passed; full API tests 72 passed; connector compileall and phase_check passed. Final scans are pending after log updates.
+- GitHub status: PR #10 evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` has CI PASS but Codex CR-03-042; remediation head pending commit/push.
+- GPT Pro status: final Stage 03 implementation PASS remains saved; Stage 04 planning only authorized after Stage 03 closes.
+- Artifacts created: A-0387 and CP-0267.
+- Blockers: B-0074 open until remediation head passes live CI/Codex.
+- Next action: final scans, then commit/push CR-03-042 remediation.
+
+## Cycle 0225
+
+- Timestamp: 2026-05-30T19:05:00-05:00
+- Files read: CR-03-042 remediation diff and final local verification outputs.
+- Current detected stage is: Stage 03 CR-03-042 remediation ready to push.
+- Current detected blocker status is: B-0074 remains open until the pushed remediation head has live PR #10 CI PASS and current-head Codex no-major.
+- Next valid action is: commit and push CR-03-042 remediation, sync PR #10 body, wait for live CI, request current-head Codex, then submit GPT Pro re-review if required.
+- Skills used: phase-gate-auditor, acceptance-evidence-collector, codex-log-keeper.
+- Subagents used: none for final verification.
+- Commands/tools run: connector pytest; full API pytest; API compileall; phase_check 03; no-network connector scan; forbidden Stage 04 symbol scan; high-confidence secret scan; Stage 04 extraction directory absence check; artifact/checkpoint ID uniqueness; git diff check.
+- Files changed: CONTROL/18 A-0388; CONTROL/27 CP-0268; CONTROL/04 execution log; current-stage/action/acceptance checklist updates; this RunLog.
+- Tests run: PASS. Connector tests 19 passed; full API tests 72 passed; compileall and phase_check passed; no connector network imports; no forbidden Stage 04 implementation symbols in connector code/tests; no high-confidence secrets; no Stage 04 extraction directory; artifact IDs unique 387 and checkpoint IDs unique 267 before companion rows; diff check had only normal line-ending warnings.
+- GitHub status: remediation head pending commit/push.
+- GPT Pro status: final Stage 03 implementation PASS remains saved for prior head; re-review may be required after the remediation head clears CI/Codex because implementation code changed.
+- Artifacts created: A-0388 and CP-0268.
+- Blockers: B-0074 external gates pending.
+- Next action: commit and push CR-03-042 remediation.

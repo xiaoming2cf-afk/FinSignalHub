@@ -140,11 +140,47 @@ def test_arxiv_maps_preprint_identity_and_category() -> None:
     source = result.to_source_create()
     document = result.to_document_create(source_id="source-id")
 
-    assert source.source_identity == "arxiv:2401.01234v2"
+    assert source.source_identity == "arxiv:2401.01234"
     assert source.source_type == "preprint"
     assert source.url == "https://arxiv.org/abs/2401.01234"
     assert document.locator == "2401.01234v2"
-    assert source.bibliographic_metadata["provider_metadata"]["primary_category"] == "cs.DL"
+    metadata = source.bibliographic_metadata["provider_metadata"]
+    assert metadata["primary_category"] == "cs.DL"
+    assert metadata["raw_provider_id"] == "2401.01234v2"
+    assert metadata["versioned_provider_id"] == "2401.01234v2"
+    assert metadata["arxiv_version"] == "v2"
+    assert metadata["external_ids"]["arxiv"] == "2401.01234"
+
+
+@pytest.mark.parametrize(
+    "raw_id",
+    [
+        "2401.01234v2",
+        "arXiv:2401.01234v2",
+        "https://arxiv.org/abs/2401.01234v2",
+        "https://arxiv.org/pdf/2401.01234v2.pdf",
+    ],
+)
+def test_arxiv_normalizes_versioned_and_url_ids_to_stable_identity(raw_id: str) -> None:
+    fixture = _load_fixture("arxiv_entry.json")
+    fixture["id"] = raw_id
+    fixture.pop("links")
+    fixture.pop("url", None)
+
+    result = normalize_arxiv_record(fixture, _context("arxiv"))
+
+    source = result.to_source_create()
+    tool_call = result.to_tool_call_log_create()
+    metadata = source.bibliographic_metadata["provider_metadata"]
+
+    assert source.source_identity == "arxiv:2401.01234"
+    assert source.url == "https://arxiv.org/abs/2401.01234"
+    assert source.locator == "2401.01234v2"
+    assert metadata["raw_provider_id"] == raw_id
+    assert metadata["versioned_provider_id"] == "2401.01234v2"
+    assert metadata["external_ids"]["arxiv"] == "2401.01234"
+    assert metadata["external_ids"]["arxiv_versioned"] == "2401.01234v2"
+    assert tool_call.safe_arguments["source_identity"] == "arxiv:2401.01234"
 
 
 def test_user_upload_metadata_stays_metadata_only() -> None:

@@ -66,12 +66,14 @@ The connector package has no default network client. It performs deterministic m
 - OpenAlex: maps work id, DOI, title, publication date, landing page, host venue, license, and authors into literature source/document payloads.
 - Crossref: maps DOI, URL, title, issued or published date parts, container title, publisher, type, and authors into literature source/document payloads.
 - Semantic Scholar: maps paper id, DOI, arXiv id, corpus id, venue, publication date, publication type, and authors into literature source/document payloads.
-- arXiv: maps arXiv id, DOI, title, publication/update time, category, links, and authors into preprint source/document payloads.
+- arXiv: maps bare ids, versioned ids, or canonical arXiv URLs into stable `arxiv:<id>` source identity, keeps the versioned id as locator/provider metadata, canonicalizes the abstract URL, and maps DOI, title, publication/update time, category, links, and authors into preprint source/document payloads.
 - User upload metadata: maps caller-provided file metadata, hash, citation fields, DOI, URL, and optional metadata into `user_upload_metadata` source/document payloads. It does not parse file content.
 
 ## Tool Call Lineage
 
 `ToolCallLogCreate` payloads record the provider normalizer name, schema version, retrieval time, deterministic argument hash, sanitized safe arguments, and `succeeded` status. Core safe-argument provenance fields (`provider`, `query_ref`, `fixture`, `fixture_id`, and `source_identity`) are canonical and cannot be overwritten by extra fixture arguments; extras are sanitized under the `extra` key. `input_artifact_ids` and `output_artifact_ids` are intentionally omitted by normalizers because source and document IDs do not exist until the persistence step creates records. A later bounded persistence step may update those artifact IDs after creation without changing Stage 02 schemas.
+
+arXiv tool-call lineage uses the stable source identity in `safe_arguments.source_identity`. Versioned ids and raw URL-shaped ids remain visible in sanitized provider metadata so replay can distinguish fixture input shape without fragmenting the source identity across preprint versions.
 
 ## Sanitization
 

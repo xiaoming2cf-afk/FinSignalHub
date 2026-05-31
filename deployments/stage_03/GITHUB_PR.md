@@ -190,3 +190,13 @@ If this closeout evidence update changes PR #10's head, verify live-head CI PASS
 - GPT Pro final PASS: `reviews/stage_03/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
 - Action items: `reviews/stage_03/GPT_PRO_FINAL_ACTION_ITEMS.md`
 - Live-head rule: after this evidence-closeout commit is pushed, verify `gh pr view 10 --json headRefOid,statusCheckRollup,reviews,comments` and require CI PASS plus current-head Codex no-major before merge.
+
+## CR-03-042 Evidence-Closeout Finding
+
+- Evidence-closeout head: `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0`
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26697909113/job/78685447416
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26697908518/job/78685445894
+- Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#pullrequestreview-4396144945
+- Finding: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329475873
+- Status: locally remediated by stable arXiv id parsing and regression tests. The remediation head must be pushed, PR body synced, CI passed, and current-head Codex cleared before merge or Stage 04 planning PR work.

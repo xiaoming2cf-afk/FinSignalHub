@@ -235,3 +235,9 @@ Stage 04 implementation is not authorized.
 Stage 04 planning objective: plan evidence extraction skeleton only. The plan must define extraction schemas, relation type enums, quote-span validation, provenance validation, mock LLM extraction adapter, extraction worker skeleton, tests with mocks, and stop conditions. The plan may prepare the bridge from `Document` / connector-normalized metadata to future `EvidenceItem` candidates, but must not implement production extraction, external LLM calls, claim graph computation, Research Delta, Repro Pack, MCP business tools, Risk Mode, Replay Engine, chatbot/RAG/dashboard, stock prediction, investment advice, auth, billing, or live external network calls.
 
 Allowed Stage 04 planning files: `PLANS/STAGE_04_PLAN.md`, `TASKS/STAGE_04_TASKS.md`, `CHECKLISTS/STAGE_04_CHECKLIST.md`, `reviews/stage_04/GPT_PRO_REVIEW_PACKET.md`, `reviews/stage_04/PR_BODY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `deployments/stage_04/GITHUB_PR.md`, `docs/architecture/stage_04_evidence_extraction.md`, `docs/codex/stage_04_commands.md`, `logs/subagents/stage_04/`, and required `CONTROL/` / `RUNLOG/` updates. Do not create `apps/api/finsignalhub_api/extraction/`, `apps/api/tests/test_stage04_extraction.py`, or `apps/api/tests/fixtures/stage04_extraction/` until Stage 04 implementation is separately approved.
+
+## Stage 03 CR-03-042 Interlock
+
+Timestamp: 2026-05-30T18:58:31-05:00
+
+GPT Pro authorized Stage 04 planning only after Stage 03 evidence closeout, but PR #10 evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` later received Codex CR-03-042 on arXiv stable identity normalization. Stage 04 planning must not start until the CR-03-042 remediation head passes live PR #10 CI and current-head Codex. If the remediation changes implementation behavior materially, submit the updated Stage 03 packet to GPT Pro again before closing Stage 03.
