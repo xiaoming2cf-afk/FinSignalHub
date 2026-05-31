@@ -74,6 +74,11 @@ PASS for GPT Pro response-saving closeout head `f59c33ec4459fe925a4785d26185165a
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706061169/job/78707433633
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706062324/job/78707437386
 
+PASS for CR-04-011/012/013 remediation head `2601f25bb33a9062e27c841d352a31bc7c467eca`:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706492580/job/78708648489
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706493434/job/78708650836
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -127,6 +132,12 @@ Reviewed head `f59c33ec4459fe925a4785d26185165a16b863e9` returned P2 findings af
 - CR-04-013: checklist still marked completed GitHub/GPT Pro gates as pending at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850983.
 
 The current remediation changes the canonical checklist and acceptance result to show GPT Pro planning PASS while keeping closeout BLOCKED until the remediation head receives live PR #11 CI PASS and current-head Codex no-major.
+
+Reviewed head `2601f25bb33a9062e27c841d352a31bc7c467eca` returned no major issues:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4586063499
+
+If this deployment evidence file is changed after `2601f25`, the new live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
 ## GPT Pro
 

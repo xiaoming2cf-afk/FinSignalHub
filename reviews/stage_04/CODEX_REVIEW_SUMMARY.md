@@ -18,6 +18,7 @@ Known reviewed heads:
 - `80b2ed8e7f4186c7329f0371cc6c4bd486e59c57`: CR-04-010.
 - `d62d8d8eafb73eb207ba401e12f9d073dff61223`: no major issues after CR-04-010 remediation.
 - `f59c33ec4459fe925a4785d26185165a16b863e9`: CR-04-011/012/013 after GPT Pro response-saving closeout.
+- `2601f25bb33a9062e27c841d352a31bc7c467eca`: no major issues after CR-04-011/012/013 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -49,7 +50,14 @@ Planning Gate 6 passed for submitted head `d62d8d8eafb73eb207ba401e12f9d073dff61
   - CR-04-012: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850982
   - CR-04-013: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850983
 
-After this CR-04-011/012/013 remediation is pushed, request current-head review again:
+CR-04-011/012/013 remediation head `2601f25bb33a9062e27c841d352a31bc7c467eca` passed live PR #11 CI and Codex no-major:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706492580/job/78708648489
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706493434/job/78708650836
+- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4586063499
+
+Any later status-only evidence commit must still request current-head review again:
 
 ```text
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
