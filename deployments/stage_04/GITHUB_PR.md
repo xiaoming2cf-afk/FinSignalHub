@@ -59,6 +59,11 @@ PASS for remediation head `b1e21b80719dcdfd75d74a4706bd0f5eba7248a4`:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26704645995/job/78703480664
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26704646716/job/78703482484
 
+PASS for remediation head `80b2ed8e7f4186c7329f0371cc6c4bd486e59c57`:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26704935279/job/78704241760
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26704936412/job/78704244791
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -93,7 +98,11 @@ Reviewed head `b1e21b80719dcdfd75d74a4706bd0f5eba7248a4` returned P2 finding:
 
 - CR-04-009: `RUNLOG/LONG_RUN_SUMMARY.md` still sent the next milestone to a stale earlier RunLog remediation instead of the live PR #11 gate.
 
-CR-04-009 remediation is represented in this branch. If it is unpushed, push it; if it is already the live PR #11 current head, wait for CI and request current-head Codex. GPT Pro plan review waits for live current-head CI PASS plus Codex no-major or handled findings.
+Reviewed head `80b2ed8e7f4186c7329f0371cc6c4bd486e59c57` returned P2 finding:
+
+- CR-04-010: `CONTROL/24_CURRENT_STAGE_STATE.md` still used a fixed `Last updated time` from an older checkpoint after the Stage 04 evidence advanced.
+
+CR-04-010 remediation is represented in this branch. If it is unpushed, push it; if it is already the live PR #11 current head, wait for CI and request current-head Codex. GPT Pro plan review waits for live current-head CI PASS plus Codex no-major or handled findings.
 
 ## GPT Pro
 
