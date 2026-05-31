@@ -4441,3 +4441,21 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0419 and CP-0297.
 - Blockers: B-0076 external recheck pending.
 - Next action: commit and push remediation.
+
+## Cycle 0247
+
+- Timestamp: 2026-05-31T00:44:21-05:00
+- Files read: PR #11 current-head Codex review comments, Stage 04 dashboard, current-stage state, next action queue, Codex summary, blocker log, PR body, acceptance result, deployment evidence, and RunLog summary.
+- Current detected stage is: Stage 04 CR-04-008 local remediation checked.
+- Current detected blocker status is: B-0076 open. PR #11 head `848a0a6e419967b75f18c3c4dc186af178e4b161` passed CI but Codex returned P2 because the Stage 04 dashboard still described the remediation as local and the remediation head as pending.
+- Next valid action is: run local checks for CR-04-008 remediation, commit and push, sync the live PR body, wait for CI, request current-head Codex review, and only then submit the GPT Pro plan packet.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, github-stage-deployer, acceptance-evidence-collector.
+- Subagents used: Dirac audit remains integrated; no implementation subagent ran.
+- Commands/tools run: GitHub CLI review inspection, review-thread resolution of stale fixed findings, targeted dashboard/current-state/action-queue/gate evidence patch.
+- Files changed: `CONTROL/19_STAGE_DASHBOARD.md`, `CONTROL/24_CURRENT_STAGE_STATE.md`, `CONTROL/25_NEXT_ACTION_QUEUE.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `CONTROL/20_BLOCKER_LOG.md`, `reviews/stage_04/PR_BODY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `deployments/stage_04/GITHUB_PR.md`, `RUNLOG/LONG_RUN_SUMMARY.md`, `CONTROL/04_EXECUTION_LOG.md`, `CONTROL/07_CODEX_GOAL_REGISTRY.md`, `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, and this RunLog.
+- Tests run: PASS. Phase check passed; forbidden Stage 04 implementation paths are absent; high-confidence secret scan had no matches; `git diff --check` produced only normal Windows line-ending warnings; artifact/checkpoint row IDs are unique; stale dashboard/local-pending wording scan had no matches.
+- GitHub status: PR #11 head `848a0a6e419967b75f18c3c4dc186af178e4b161` has CI PASS but Codex CR-04-008 remains open until the next remediation head passes CI and current-head Codex.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0420, A-0421, CP-0298, and CP-0299.
+- Blockers: B-0076.
+- Next action: commit and push CR-04-008 remediation.
