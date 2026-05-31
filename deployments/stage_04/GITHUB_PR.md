@@ -69,6 +69,11 @@ PASS for planning review head `d62d8d8eafb73eb207ba401e12f9d073dff61223`:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705627772/job/78706273945
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705628621/job/78706275805
 
+PASS for GPT Pro response-saving closeout head `f59c33ec4459fe925a4785d26185165a16b863e9`, followed by Codex CR-04-011/012/013:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706061169/job/78707433633
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26706062324/job/78707437386
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -114,6 +119,14 @@ Reviewed head `d62d8d8eafb73eb207ba401e12f9d073dff61223` returned no major issue
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4585972078
 
 The old CR-04-010 review thread was resolved as outdated. If this response-saving closeout evidence commit changes the live PR head, rerun the live current-head CI/Codex gate before merging.
+
+Reviewed head `f59c33ec4459fe925a4785d26185165a16b863e9` returned P2 findings after CI PASS:
+
+- CR-04-011: stale checklist gate status in `CHECKLISTS/STAGE_04_CHECKLIST.md` at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329847299.
+- CR-04-012: premature closeout PASS wording in `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850982.
+- CR-04-013: checklist still marked completed GitHub/GPT Pro gates as pending at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329850983.
+
+The current remediation changes the canonical checklist and acceptance result to show GPT Pro planning PASS while keeping closeout BLOCKED until the remediation head receives live PR #11 CI PASS and current-head Codex no-major.
 
 ## GPT Pro
 
