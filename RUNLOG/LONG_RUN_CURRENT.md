@@ -4387,3 +4387,57 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0415 and CP-0293.
 - Blockers: B-0076 external recheck pending.
 - Next action: commit and push remediation.
+
+## Cycle 0244
+
+- Timestamp: 2026-05-31T00:22:27-05:00
+- Files read: PR #11 current-head Codex review comments, `CONTROL/25_NEXT_ACTION_QUEUE.md`, Stage 04 Codex summary, deployment evidence, acceptance result, PR body, blocker log, current-state state, dashboard, artifact registry, and checkpoint log.
+- Current detected stage is: Stage 04 planning-only active with CR-04-007 local remediation drafted.
+- Current detected blocker status is: B-0076 open. PR #11 head `ebab55fbf084a70edbd5f02b96ab4d7e0d3f72cf` passed CI but Codex returned P2 because `CONTROL/25_NEXT_ACTION_QUEUE.md` made commit/push an unconditional next step after that head was already on the PR.
+- Next valid action is: run local checks for the CR-04-007 remediation, commit and push, sync the live PR body if needed, wait for CI, request current-head Codex review, and only then submit the GPT Pro plan packet.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, github-stage-deployer, acceptance-evidence-collector.
+- Subagents used: Dirac audit remains integrated; no implementation subagent ran.
+- Commands/tools run: GitHub CLI review inspection, GitHub connector review-trigger method switch, action-queue handoff inspection, targeted governance patch.
+- Files changed: `CONTROL/25_NEXT_ACTION_QUEUE.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `reviews/stage_04/PR_BODY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `deployments/stage_04/GITHUB_PR.md`, `CONTROL/07_CODEX_GOAL_REGISTRY.md`, `CONTROL/19_STAGE_DASHBOARD.md`, `CONTROL/20_BLOCKER_LOG.md`, `CONTROL/24_CURRENT_STAGE_STATE.md`, `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, `CONTROL/04_EXECUTION_LOG.md`, and this RunLog.
+- Tests run: pending after remediation update.
+- GitHub status: PR #11 reviewed head `ebab55f` has CI PASS but Codex CR-04-007 remains open until the next remediation head passes CI and current-head Codex.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0416, A-0417, CP-0294, and CP-0295.
+- Blockers: B-0076.
+- Next action: run local Stage 04 planning checks.
+
+## Cycle 0245
+
+- Timestamp: 2026-05-31T00:24:55-05:00
+- Files read: CR-04-007 remediation diff and local check outputs.
+- Current detected stage is: Stage 04 CR-04-007 remediation local checks passed.
+- Current detected blocker status is: B-0076 remains open until this remediation is pushed, CI passes, and Codex returns no-major or new findings are fixed.
+- Next valid action is: commit and push CR-04-007 remediation, sync the live PR body if needed, wait for CI, request current-head Codex review, and only then submit the GPT Pro plan packet.
+- Skills used: phase-gate-auditor, acceptance-evidence-collector, codex-log-keeper, github-stage-deployer.
+- Subagents used: Dirac audit integrated; no implementation subagent ran.
+- Commands/tools run: `phase_check.py --stage 04`; extraction package absence check; Stage 04 extraction test absence check; Stage 04 extraction fixture absence check; high-confidence secret scan; `git diff --check`; artifact/checkpoint row ID uniqueness; recursive forbidden path file scan; action-queue stale handoff scan.
+- Files changed: `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, `CONTROL/04_EXECUTION_LOG.md`, `CONTROL/25_NEXT_ACTION_QUEUE.md`, and this RunLog.
+- Tests run: PASS. Phase check passed; forbidden Stage 04 implementation paths are absent; high-confidence secret scan had no matches; `git diff --check` produced only normal Windows line-ending warnings; artifact/checkpoint row IDs are unique; action queue no longer contains unconditional push wording.
+- GitHub status: PR #11 reviewed heads have CI PASS, but B-0076 remains open until the remediation head is pushed, CI passes, and current-head Codex returns no-major.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0418 and CP-0296.
+- Blockers: B-0076 external recheck pending.
+- Next action: commit and push remediation.
+
+## Cycle 0246
+
+- Timestamp: 2026-05-31T00:29:34-05:00
+- Files read: CR-04-007 remediation diff, `RUNLOG/LONG_RUN_SUMMARY.md`, Stage 04 PR body, acceptance result, and deployment evidence.
+- Current detected stage is: Stage 04 CR-04-007 remediation pre-push wording hardening.
+- Current detected blocker status is: B-0076 remains open until the live PR #11 current head passes CI and current-head Codex returns no-major or all new findings are handled.
+- Next valid action is: rerun local Stage 04 planning checks, commit and push the remediation, sync the live PR body, wait for CI, request current-head Codex, and only then submit the GPT Pro plan packet.
+- Skills used: github-review-resolver, phase-gate-auditor, acceptance-evidence-collector, codex-log-keeper, github-stage-deployer.
+- Subagents used: Dirac audit integrated; no implementation subagent ran.
+- Commands/tools run: targeted governance patch to replace fixed push/check wording with live PR #11 current-head gate wording.
+- Files changed: `RUNLOG/LONG_RUN_SUMMARY.md`, `reviews/stage_04/PR_BODY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `deployments/stage_04/GITHUB_PR.md`, `CONTROL/04_EXECUTION_LOG.md`, `CONTROL/07_CODEX_GOAL_REGISTRY.md`, `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, and this RunLog.
+- Tests run: PASS. Phase check passed; forbidden Stage 04 implementation paths are absent; high-confidence secret scan had no matches; `git diff --check` produced only normal Windows line-ending warnings; artifact/checkpoint row IDs are unique; targeted stale-wording scan has only historical finding text.
+- GitHub status: PR #11 reviewed heads have CI PASS, but this CR-04-007 remediation has not yet been pushed.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0419 and CP-0297.
+- Blockers: B-0076 external recheck pending.
+- Next action: commit and push remediation.
