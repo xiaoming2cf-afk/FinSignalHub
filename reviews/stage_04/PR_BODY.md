@@ -57,7 +57,7 @@ GPT Pro plan review remains a hard gate before any Stage 04 implementation goal 
 - Stage 04 planning branch: `stage/04-evidence-extraction`.
 - Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
-- CI: latest reviewed heads through `80b2ed8e7f4186c7329f0371cc6c4bd486e59c57` passed CI; for this source body and any later evidence-only head, Gate 6 is determined by live PR #11 current-head checks, not by a fixed hash copied into this file.
-- Codex review: BLOCKED by CR-04-001 through CR-04-010 until the live PR #11 current head receives Codex no-major or all new findings are handled.
-- GPT Pro review: pending.
+- CI: head `d62d8d8eafb73eb207ba401e12f9d073dff61223` passed both governance checks; for this source body and any later evidence-only head, Gate 6 is determined by live PR #11 current-head checks, not by a fixed hash copied into this file.
+- Codex review: PASS for head `d62d8d8eafb73eb207ba401e12f9d073dff61223`; if this closeout evidence commit changes the head, request current-head Codex again before merge.
+- GPT Pro review: PASS for Stage 04 planning; response/action items saved locally in `GPT_PRO_PLAN_REVIEW_RESPONSE.md` / `GPT_PRO_PLAN_ACTION_ITEMS.md`, with protocol-compatible aliases `GPT_PRO_REVIEW_RESPONSE.md` / `GPT_PRO_ACTION_ITEMS.md`.
 - Stage 04 implementation: not authorized.

@@ -288,3 +288,98 @@ Timestamp: 2026-05-30T21:46:24-05:00
 Stage 03 final evidence head `92970f32f0b22754dad02c661e2b1b9a5d313fec` passed PR #10 CI and Codex no-major after the CR-03-043 GPT Pro re-review PASS was saved. PR #10 was squash-merged into `main` at `13ee0a0bc497578b235662ea60c9aa225c62e53f`, and tag `stage-03-source-connectors` was pushed.
 
 The active next-stage instruction is still Stage 04 planning only. Stage 04 implementation remains unauthorized until the Stage 04 planning PR passes CI/Codex, GPT Pro returns PASS or accepted CONDITIONAL PASS for the plan, and a separate implementation `/goal` is created.
+
+## Stage 04 Planning PASS And Implementation Goal Draft Instruction From GPT Pro
+
+Timestamp: 2026-05-31T01:58:00-05:00
+
+Source files:
+
+- `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`
+- `reviews/stage_04/GPT_PRO_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_ACTION_ITEMS.md`
+
+GPT Pro reviewed PR #11, Stage 04 planning head `d62d8d8eafb73eb207ba401e12f9d073dff61223`, CI PASS links, current-head Codex no-major evidence, and the Stage 04 planning review packet, then returned:
+
+```text
+Final gate result: PASS.
+Stage 04 planning accepted; separate implementation /goal drafting allowed; Stage 04 implementation not yet authorized.
+```
+
+Authorized next action: draft a separate Stage 04 implementation `/goal` only after the response/action-item evidence closeout head is pushed and passes live PR #11 CI plus current-head Codex review.
+
+Future implementation `/goal` objective: implement a mock-only evidence extraction skeleton that can later transform Stage 03 normalized `Document` records into provenance-preserving `EvidenceItem` candidate payloads.
+
+Allowed future implementation goal paths:
+
+- `apps/api/finsignalhub_api/extraction/`
+- `apps/api/finsignalhub_api/extraction/schemas.py`
+- `apps/api/finsignalhub_api/extraction/relations.py`
+- `apps/api/finsignalhub_api/extraction/quote_span.py`
+- `apps/api/finsignalhub_api/extraction/provenance.py`
+- `apps/api/finsignalhub_api/extraction/mock_llm_adapter.py`
+- `apps/api/finsignalhub_api/extraction/worker.py`
+- `apps/api/tests/test_stage04_extraction.py`
+- `apps/api/tests/fixtures/stage04_extraction/`
+- Stage 04 docs, reviews, deployments, logs, `CONTROL/`, `RUNLOG/`, `TASKS/`, and `CHECKLISTS/` records required by the stage gate.
+
+Required future implementation scope:
+
+- Evidence candidate schema.
+- Relation type enum.
+- Quote-span validator.
+- No-quote rationale validator.
+- Provenance preservation validator.
+- Deterministic mock LLM adapter.
+- Mock-only worker skeleton.
+
+Required future tests:
+
+- Mock-only extraction tests.
+- No-network enforcement.
+- Quote-span valid and invalid cases.
+- No-quote rationale requirement.
+- Relation validation.
+- Provenance preservation.
+- Candidate schema validation.
+- Deterministic mock adapter output.
+- Worker fixture test.
+- High-confidence secret scan.
+- Forbidden-scope scan.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
+- `python -m compileall apps/api/finsignalhub_api`.
+- `git diff --check`.
+- CI PASS.
+- Current-head Codex no-major.
+- Final GPT Pro implementation review.
+
+Required future subagents:
+
+- `extraction-schema-agent`
+- `relation-enum-agent`
+- `quote-span-agent`
+- `provenance-agent`
+- `mock-llm-adapter-agent`
+- `worker-skeleton-agent`
+- `test-agent`
+- `docs-log-agent`
+- `scope-review-agent`
+
+Forbidden until the separate implementation goal is accepted:
+
+- External LLM API calls.
+- Real network calls.
+- Production extraction pipeline.
+- Claim graph computation.
+- Research Delta computation.
+- Repro Pack export logic.
+- MCP business tools.
+- UI/dashboard behavior.
+- Chatbot/RAG behavior.
+- Stock prediction or investment advice.
+- Risk Mode or Replay Engine.
+- Auth or billing.
+- Unreviewed Stage 03 connector changes.
+
+Stop if any future Stage 04 implementation draft or work requires a real LLM API key, external network access, claim graph work, Research Delta work, Repro Pack output, MCP business tools, UI/dashboard behavior, auth/billing, stock/investment behavior, chatbot/RAG behavior, Risk Mode, Replay Engine, unresolved CI/Codex gate, or unreviewed Stage 03 connector modification.

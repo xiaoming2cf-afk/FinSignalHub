@@ -75,6 +75,22 @@ Required local checks:
 - Forbidden-scope scan
 - `git diff --check`
 
+## Submitted Live Gate 6 Evidence Addendum
+
+This addendum was included in the Chrome submission on 2026-05-31:
+
+- Repository: https://github.com/xiaoming2cf-afk/FinSignalHub
+- Stage 04 PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
+- Current PR head submitted for this review: `d62d8d8eafb73eb207ba401e12f9d073dff61223`
+- Branch: `stage/04-evidence-extraction`
+- CI PASS for current head:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705627772/job/78706273945
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26705628621/job/78706275805
+- Codex current-head no-major evidence: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4585972078
+- CR-04-010 old review thread was resolved as outdated after the dynamic timestamp remediation.
+- Local checks before push: `phase_check.py --stage 04` PASS; forbidden Stage 04 implementation paths absent; high-confidence secret scan had no matches; `git diff --check` had only Windows line-ending warnings; artifact/checkpoint IDs were unique.
+- Stage 04 implementation remains not authorized. This review asked only whether the Stage 04 planning gate may pass and whether a separate implementation `/goal` may be drafted.
+
 ## Known Limitations
 
 - This is planning only. It deliberately does not prove runtime extraction behavior.
