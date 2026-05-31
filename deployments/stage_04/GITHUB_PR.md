@@ -24,11 +24,21 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 
 ## CI
 
-Pending for the current Stage 04 PR head after the PR evidence update.
+PASS for reviewed head `306f009e6148ce1645f51216a0cff81e84d48290`:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26701801365/job/78695858840
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26701800767/job/78695857259
+
+The CR-04-001/002 remediation head must pass CI after push.
 
 ## Codex Review
 
-Pending. Request after the PR evidence update is pushed so the review targets the current head.
+Current reviewed head `306f009e6148ce1645f51216a0cff81e84d48290` returned P2 findings:
+
+- CR-04-001: stale Stage 04 acceptance evidence in `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`.
+- CR-04-002: missing purpose READMEs for `reviews/stage_04/` and `deployments/stage_04/`.
+
+Remediation is local and must be pushed, pass CI, and receive current-head Codex no-major before GPT Pro plan review.
 
 ## GPT Pro
 
@@ -43,4 +53,4 @@ Use `gh pr view 11 --json headRefOid,statusCheckRollup,reviews,comments` and `gh
 - Created at: 2026-05-30T22:03:49-05:00
 - URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 - Initial pushed head before this PR evidence update: `ef5b8fccebfa0c313cc6f3a38abac7ba34b68758`
-- Required next step: commit/push this PR evidence update, sync the live PR body if needed, wait for CI, and request current-head Codex review.
+- Required next step: commit/push CR-04-001/002 remediation, sync the live PR body if needed, wait for CI, and request current-head Codex review.

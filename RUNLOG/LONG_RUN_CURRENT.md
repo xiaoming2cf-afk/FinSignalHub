@@ -4243,3 +4243,39 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0403 and CP-0281.
 - Blockers: missing current-head PR CI/Codex and GPT Pro plan review evidence.
 - Next action: commit and push PR evidence update.
+
+## Cycle 0236
+
+- Timestamp: 2026-05-30T23:32:16-05:00
+- Files read: PR #11 reviews/comments, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `deployments/stage_04/GITHUB_PR.md`, and Stage 04 directory structure.
+- Current detected stage is: Stage 04 planning active with CR-04-001/002 local remediation drafted.
+- Current detected blocker status is: B-0076 open. PR #11 head `306f009e6148ce1645f51216a0cff81e84d48290` passed CI, but Codex returned P2 findings on stale acceptance evidence and missing Stage 04 directory READMEs.
+- Next valid action is: run local checks, commit and push CR-04-001/002 remediation, wait for CI, request current-head Codex review, and only then submit the GPT Pro plan packet.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector.
+- Subagents used: Dirac audit remains integrated; no implementation subagent ran.
+- Commands/tools run: GitHub CLI/connector PR review inspection; targeted governance patch.
+- Files changed: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `reviews/stage_04/README.md`, `deployments/stage_04/README.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `deployments/stage_04/GITHUB_PR.md`, `CONTROL/20_BLOCKER_LOG.md`, `CONTROL/25_NEXT_ACTION_QUEUE.md`, `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/27_CHECKPOINT_LOG.md`, `CONTROL/04_EXECUTION_LOG.md`, `CONTROL/19_STAGE_DASHBOARD.md`, `CONTROL/24_CURRENT_STAGE_STATE.md`, and this RunLog.
+- Tests run: pending after remediation update.
+- GitHub status: PR #11 current reviewed head has CI PASS and Codex CR-04-001/002.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0404, A-0405, CP-0282, and CP-0283.
+- Blockers: B-0076.
+- Next action: run local checks.
+
+## Cycle 0237
+
+- Timestamp: 2026-05-30T23:35:24-05:00
+- Files read: CR-04-001/002 remediation diff and local check outputs.
+- Current detected stage is: Stage 04 CR-04-001/002 remediation local checks passed.
+- Current detected blocker status is: B-0076 remains open until this remediation is pushed, CI passes, and Codex returns no-major or new findings are fixed.
+- Next valid action is: commit and push CR-04-001/002 remediation, wait for CI, request current-head Codex review, and only then submit the GPT Pro plan packet.
+- Skills used: phase-gate-auditor, acceptance-evidence-collector, codex-log-keeper, github-stage-deployer.
+- Subagents used: Dirac audit integrated; no implementation subagent ran.
+- Commands/tools run: `phase_check.py --stage 04`; extraction package absence check; Stage 04 test file absence check; Stage 04 fixture directory absence check; high-confidence secret scan; `git diff --check`; artifact/checkpoint row ID uniqueness.
+- Files changed: `CONTROL/04_EXECUTION_LOG.md`, `CONTROL/18_ARTIFACT_REGISTRY.md`, `CONTROL/25_NEXT_ACTION_QUEUE.md`, `CONTROL/27_CHECKPOINT_LOG.md`, and this RunLog.
+- Tests run: PASS. Phase check passed; forbidden Stage 04 implementation paths are absent; high-confidence secret scan had no matches; `git diff --check` produced only normal Windows line-ending warnings; artifact/checkpoint row IDs are unique.
+- GitHub status: PR #11 current reviewed head has CI PASS and Codex CR-04-001/002; remediation pending commit/push.
+- GPT Pro status: Stage 04 plan review pending behind Gate 6.
+- Artifacts created: A-0406 and CP-0284.
+- Blockers: B-0076 external recheck pending.
+- Next action: commit and push remediation.
