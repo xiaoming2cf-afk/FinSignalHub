@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 03 CR-03-043 remediation local checks passed; ready to push |
-| Current phase status | Stage 03 connector implementation passed local tests, PR #10 current-head CI/Codex, and GPT Pro final implementation review for head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`. Evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` received CR-03-042; remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37` passed CI, then Codex returned CR-03-043 because old-style dotted arXiv ids such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` were rejected. Local remediation extends old-style id parsing, adds regression coverage, and passed final local checks. |
+| Current stage | Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks; commit/push pending |
+| Current phase status | Stage 03 connector implementation passed local tests, PR #10 current-head CI/Codex, and GPT Pro final implementation review for head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`. Evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` received CR-03-042; remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37` passed CI, then Codex returned CR-03-043 because old-style dotted arXiv ids such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` were rejected. Remediation head `adb41c36e66a25ddfa943950b7e08a685906560e` extends old-style id parsing, adds regression coverage, passed local checks, passed PR #10 CI, received current-head Codex no-major evidence, and received GPT Pro CR-03-043 re-review PASS. |
 | Active branch | `stage/03-source-connectors-closeout-refresh` |
 | Latest PR | Replacement Stage 03 PR #10: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10. Superseded PR #9: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9 |
-| Latest CI status | PASS for CR-03-042 remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26698546949/job/78687067126 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26698547549/job/78687068584. CR-03-043 remediation head pending until pushed. |
-| Latest Codex review status | BLOCKED by CR-03-043 on head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329560001. Local remediation pending final checks, commit, push, live CI, and current-head Codex. |
-| Latest GPT Pro review status | CONDITIONAL PASS for CR-03-043 review saved in `reviews/stage_03/GPT_PRO_CR_03_043_RESPONSE.md`; final implementation PASS remains historical for head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`. GPT Pro blocks merge and Stage 04 planning until CR-03-043 is fixed and re-reviewed. |
-| Active goal id | G-0006 implementation goal accepted; CR-03-043 remediation active |
-| Next required action | Commit and push the CR-03-043 remediation, sync PR #10 body, verify live PR #10 CI, request current-head Codex no-major, then submit GPT Pro re-review before Stage 04 planning. |
-| Blocker status | B-0075 open locally until the CR-03-043 remediation head passes live PR #10 CI, current-head Codex, and GPT Pro re-review. B-0074 is resolved/superseded. B-0027/B-0048 remain capability limitations only, not blockers to the already captured GPT Pro final PASS. |
-| Last updated time | 2026-05-30T20:48:19-05:00 |
+| Latest CI status | PASS for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700384838/job/78692127001 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700385624/job/78692129155. |
+| Latest Codex review status | PASS / no-major for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#pullrequestreview-4396255733 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329584630. |
+| Latest GPT Pro review status | PASS for CR-03-043 re-review saved in `reviews/stage_03/GPT_PRO_CR_03_043_REREVIEW_RESPONSE.md`; GPT Pro answered that CR-03-043 is resolved, PR #10 may merge, and Stage 04 planning-only is allowed next. |
+| Active goal id | G-0006 implementation goal accepted; final evidence closeout update in progress |
+| Next required action | Commit and push this governance-only GPT Pro response/action-item evidence, sync PR #10 body, verify live PR #10 CI/Codex for the resulting head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean. |
+| Blocker status | B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; governance-only evidence commit still requires live PR #10 CI/Codex after push before merge. B-0027/B-0048 remain capability limitations only. |
+| Last updated time | 2026-05-30T21:23:26-05:00 |
 
-Current detected stage is: Stage 03 CR-03-043 remediation local checks passed and ready to push.
+Current detected stage is: Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks and is ready to commit/push.
 
-Current detected blocker status is: CR-03-043 / B-0075 blocks Stage 03 merge and Stage 04 planning until the remediation head has live PR #10 CI/Codex and GPT Pro re-review acceptance.
+Current detected blocker status is: CR-03-043 / B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; a governance-only evidence commit must still receive live PR #10 CI/Codex before merge.
 
-Next valid action is: commit and push CR-03-043 remediation, sync PR #10 body, refresh CI/Codex for the live head, then use GPT Pro re-review before drafting Stage 04 planning-only artifacts.
+Next valid action is: commit and push GPT Pro re-review evidence, sync PR #10 body, refresh CI/Codex for the live head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean.

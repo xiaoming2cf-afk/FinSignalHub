@@ -62,7 +62,7 @@ After PR creation, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro plan review remains a hard gate before any Stage 03 implementation.
+GPT Pro final implementation review and CR-03-043 re-review are complete for reviewed code heads. This governance-only evidence update must pass live PR #10 CI and current-head Codex after push before merge. Stage 04 planning-only is authorized after clean closeout; Stage 04 implementation remains unauthorized.
 
 ## Current Gate Status
 
@@ -76,6 +76,6 @@ GPT Pro plan review remains a hard gate before any Stage 03 implementation.
 - GPT Pro final implementation review: PASS. Response is saved in `reviews/stage_03/GPT_PRO_FINAL_REVIEW_RESPONSE.md`; action items are saved in `reviews/stage_03/GPT_PRO_FINAL_ACTION_ITEMS.md`.
 - CR-03-041: resolved for implementation head. Extra fixture arguments are sanitized under `safe_arguments.extra`; canonical `provider`, `query_ref`, `fixture`, `fixture_id`, and `source_identity` fields remain authoritative.
 - CR-03-042: resolved in pushed head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37`; CI passed, then Codex advanced to CR-03-043.
-- CR-03-043: locally remediated after Codex found old-style dotted arXiv archive classes rejected. Connector tests now cover bare, versioned, abs URL, and PDF URL forms for `physics.ins-det/0301001` and `physics.atom-ph/9901001`.
+- CR-03-043: resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`. Connector tests cover bare, versioned, abs URL, and PDF URL forms for `physics.ins-det/0301001` and `physics.atom-ph/9901001`; PR #10 CI passed; Codex no-major evidence exists; GPT Pro re-review returned PASS and allowed PR #10 to merge after current CI/Codex evidence.
 - Stage 04: GPT Pro authorized planning only. Stage 04 implementation is not authorized.
-- Closeout note: this CR-03-043 remediation commit must pass live PR #10 CI, current-head Codex, and GPT Pro re-review before merge or Stage 04 planning PR work. Do not create another self-referential evidence commit solely to record that verification unless a reviewer requires a content correction.
+- Closeout note: this GPT Pro response-saving evidence update is governance-only. If pushed, the resulting PR head must pass live PR #10 CI and current-head Codex before merge. Stage 04 planning-only is authorized after clean Stage 03 closeout; Stage 04 implementation remains unauthorized.

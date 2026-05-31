@@ -9,7 +9,7 @@ PR created.
 - Replacement closeout PR URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10
 - Replacement closeout branch: `stage/03-source-connectors-closeout-refresh`
 - Active closeout PR head must be checked with `gh pr view 10 --json headRefOid,statusCheckRollup,reviews,comments` before any closeout gate decision.
-- Latest implementation evidence: PR #10 CR-03-042 remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37` passed governance CI, then Codex returned CR-03-043 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329560001 because old-style dotted arXiv archive classes such as `physics.ins-det/0301001` were rejected. Local CR-03-043 remediation extends old-style id parsing and adds regression coverage; the remediation head still requires push, live PR #10 CI, current-head Codex, and GPT Pro re-review before Stage 03 merge or Stage 04 planning.
+- Latest implementation evidence: PR #10 CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e` passed governance CI at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700384838/job/78692127001 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700385624/job/78692129155, received current-head Codex no-major evidence at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#pullrequestreview-4396255733 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329584630, and received GPT Pro re-review PASS. This governance-only evidence update still needs live PR #10 CI/Codex after push before merge.
 
 ## Required Branch
 
@@ -61,6 +61,7 @@ Closeout head `14145ffb0b2c4fa6f94530f39efb779edbf3e84c` passed CI on both PR #9
 - PR #10 goal-draft head `8f10f95` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693919817/job/78675014690 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26693921040/job/78675017595
 - PR #10 pre-implementation head `494c91a` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26696080191/job/78680735275 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26696081006/job/78680737159
 - PR #10 implementation head `0198fd9` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26696920416/job/78682912977 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26696919601/job/78682910903
+- PR #10 CR-03-043 remediation head `adb41c36` CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700384838/job/78692127001 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700385624/job/78692129155
 
 ## Codex Review
 
@@ -209,4 +210,4 @@ If this closeout evidence update changes PR #10's head, verify live-head CI PASS
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26698547549/job/78687068584
 - Finding: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329560001
 - GPT Pro response: `reviews/stage_03/GPT_PRO_CR_03_043_RESPONSE.md`
-- Status: locally remediated by accepting old-style dotted archive classes such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` in bare, versioned, abs URL, and PDF URL forms. The remediation head must be pushed, PR body synced, CI passed, current-head Codex cleared, and GPT Pro re-reviewed before merge or Stage 04 planning PR work.
+- Status: resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`. The remediation accepts old-style dotted archive classes such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` in bare, versioned, abs URL, and PDF URL forms. CI passed, current-head Codex no-major evidence exists, and GPT Pro re-review PASS is saved. The governance-only evidence closeout commit must still be pushed, PR body synced, and live CI/Codex checked before merge.
