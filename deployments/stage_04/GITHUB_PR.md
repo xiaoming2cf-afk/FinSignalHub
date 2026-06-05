@@ -99,6 +99,11 @@ PASS for CR-04-016/017/018 remediation head `12a9a9e870005d6ae7d3279fa0e1ec93847
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030481771/job/79781297336
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030483670/job/79781302587
 
+PASS for CR-04-019 remediation head `c90dc2b0096ea35232685104d0df61b565bd108d`, followed by Codex CR-04-020:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27031454088/job/79784574043
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27031456592/job/79784581193
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -179,7 +184,11 @@ Reviewed head `12a9a9e870005d6ae7d3279fa0e1ec938478e931` passed CI and returned 
 
 - CR-04-019: `CHECKLISTS/STAGE_04_CHECKLIST.md` still named superseded CR-04-015 as the active GitHub Gate 6 blocker after CR-04-016/017/018 advanced the active blocker set at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364391715.
 
-This deployment evidence file and companion governance records now treat CR-04-019 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+Reviewed head `c90dc2b0096ea35232685104d0df61b565bd108d` passed CI and returned P2 CR-04-020:
+
+- CR-04-020: `CONTROL/20_BLOCKER_LOG.md` still reported B-0082 as `open / local remediation in progress` after A-0445/CP-0318 recorded local checks passed at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364498923.
+
+This deployment evidence file and companion governance records now treat CR-04-020 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
 ## GPT Pro
 
