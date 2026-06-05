@@ -13,8 +13,8 @@
 | --- | --- | --- | --- |
 | GP-04-GOAL-001 | Save GPT Pro response | done locally | `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` |
 | GP-04-GOAL-002 | Save GPT Pro action items | done locally | this file |
-| GP-04-GOAL-003 | Update implementation-goal draft acceptance to PASS | in progress | `reviews/stage_04/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md` |
-| GP-04-GOAL-004 | Update current-state, action queue, checkpoint log, RunLog, RunLog summary, and artifact registry | in progress | `CONTROL/24`, `CONTROL/25`, `CONTROL/27`, `RUNLOG/`, `CONTROL/18` |
+| GP-04-GOAL-003 | Update implementation-goal draft acceptance to PASS | done locally | `reviews/stage_04/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md` |
+| GP-04-GOAL-004 | Update current-state, action queue, checkpoint log, RunLog, RunLog summary, and artifact registry | done locally | `CONTROL/24`, `CONTROL/25`, `CONTROL/27`, `RUNLOG/`, `CONTROL/18` |
 | GP-04-GOAL-005 | Confirm no new commit appeared after reviewed CI/Codex evidence before starting implementation | pending after evidence-sync push | Saving this evidence changes the head, so live CI/Codex must be refreshed before implementation |
 | GP-04-GOAL-006 | Start implementation only through the accepted `/goal` | pending | Implementation code has not started |
 

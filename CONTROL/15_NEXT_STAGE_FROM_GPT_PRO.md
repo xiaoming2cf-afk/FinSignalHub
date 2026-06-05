@@ -318,7 +318,7 @@ Allowed future implementation goal paths:
 - `apps/api/finsignalhub_api/extraction/relations.py`
 - `apps/api/finsignalhub_api/extraction/quote_span.py`
 - `apps/api/finsignalhub_api/extraction/provenance.py`
-- `apps/api/finsignalhub_api/extraction/mock_llm_adapter.py`
+- `apps/api/finsignalhub_api/extraction/mock_llm.py`
 - `apps/api/finsignalhub_api/extraction/worker.py`
 - `apps/api/tests/test_stage04_extraction.py`
 - `apps/api/tests/fixtures/stage04_extraction/`

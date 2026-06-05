@@ -207,3 +207,14 @@ CR-04-026 is resolved for reviewed implementation-goal head `e6cb1052572d84f1c0f
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 
 This response-saving evidence update creates a new head. Before Stage 04 implementation starts, request current-head Codex review again and require live PR #11 CI PASS plus unresolved review threads = 0.
+
+Evidence-sync head `b1e9e400aef97fdfb083abe5e5c4a0c5f6060e3b` passed live PR #11 CI, then Codex returned CR-04-027:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27041345021/job/79817832341
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27041346417/job/79817837017
+- CR-04-027:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365538105
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365538109
+
+Local remediation synchronizes the next-stage instruction file to the accepted `mock_llm.py` filename and marks completed local closeout action rows done locally. No extraction implementation files are created. The remediation head must pass live PR #11 CI/Codex before implementation starts.
