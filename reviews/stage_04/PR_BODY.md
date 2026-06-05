@@ -1,63 +1,62 @@
-# Stage 04: Evidence Extraction Planning
+# Stage 04: Evidence Extraction Implementation
 
 ## Goal
 
-Plan an evidence extraction skeleton for FinSignalHub Research Mode. This is planning only and does not create extraction implementation code.
+Implement the approved Stage 04 mock-only evidence extraction skeleton for FinSignalHub Research Mode.
+
+The implementation converts Stage 03 normalized `DocumentCreate` inputs plus Stage 04-owned fixture text into provenance-preserving evidence candidate payloads. It does not persist evidence, compute graph state, compute research deltas, export repro packs, expose MCP business tools, build UI behavior, call real providers, call external model services, or require secrets.
 
 ## Scope
 
 Included:
 
-- Stage 04 plan, tasks, checklist, review packet, PR body, acceptance placeholder, deployment placeholder, architecture doc, command doc, and subagent log README.
-- Future extraction candidate schema boundaries.
-- Future relation type enum boundaries.
-- Quote-span validation and no-quote rationale plan.
-- Provenance validation plan.
-- Mock LLM extraction adapter plan with no external calls.
-- Future extraction worker skeleton plan.
-- Mock-only test plan.
-- GitHub, Codex, and GPT Pro plan review gates.
+- Candidate schemas for evidence text, quote spans, no-quote rationale, relation labels, confidence, provenance, tool-call lineage, and candidate-only output.
+- Bounded Stage 04 relation enum.
+- Exact quote-span validation against fixture document text.
+- No-quote rationale validation for metadata-only inputs.
+- Provenance validation between normalized document payloads and candidates.
+- Deterministic mock model output from fixtures only.
+- Worker skeleton that validates candidate payloads and does not persist them.
+- Mock-only Stage 04 tests and fixtures.
+- Stage 04 architecture docs, command docs, subagent logs, review artifacts, deployment evidence, and control logs.
 
 Not included:
 
-- extraction implementation package;
-- Stage 04 tests or fixtures;
-- production extraction;
-- external LLM calls;
-- claim graph, Research Delta, or Repro Pack logic;
-- MCP business tools;
-- UI/dashboard behavior;
-- chatbot, generic RAG, stock prediction, investment advice, Risk Mode, or Replay Engine.
+- Database migrations or persisted domain model changes.
+- Connector behavior changes or live provider calls.
+- External model calls, provider SDKs, paid services, credentials, or secrets.
+- Claim graph, Research Delta, Repro Pack, MCP business tools, UI/dashboard behavior, chatbot, generic RAG, stock prediction, investment advice, Risk Mode, Replay Engine, auth, or billing.
 
-## Checks
+## Local Checks
 
-Checks to run before PR:
-
-- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`
-- no `apps/api/finsignalhub_api/extraction/`
-- no `apps/api/tests/test_stage04_extraction.py`
-- no `apps/api/tests/fixtures/stage04_extraction/`
-- forbidden-scope scan
-- high-confidence secret scan
-- `git diff --check`
+- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py` -> 12 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 36 passed.
+- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 88 passed.
+- PASS: `python -m compileall apps/api/finsignalhub_api`.
+- PASS: `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
+- PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
+- PASS: runtime forbidden-scope scan returned no matches.
+- PASS: `git diff --check` had only normal Windows line-ending warnings.
 
 ## Review
 
-After PR creation, request:
+After pushing the implementation head, request:
 
 ```text
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro review remains a hard gate before any Stage 04 implementation can start.
+GPT Pro final implementation review remains a hard gate after live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
 ## Current Gate Status
 
 - Stage 03: merged at `13ee0a0bc497578b235662ea60c9aa225c62e53f` and tagged `stage-03-source-connectors`.
-- Stage 04 planning branch: `stage/04-evidence-extraction`.
-- Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
+- Stage 04 branch: `stage/04-evidence-extraction`.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
-- CI: reviewed implementation-goal head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` passed both governance checks. This response-saving evidence-sync head must also pass live PR #11 current-head checks after push; Gate 6 is determined by live PR #11 state, not a stale fixed hash copied into this file.
-- Codex review: reviewed implementation-goal head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837. All review threads were resolved before GPT Pro implementation-goal review: unresolved = 0.
-- GPT Pro review: PASS for Stage 04 planning, closeout confirmation, final closeout recheck, and implementation-goal draft. Implementation-goal response/action items are saved in `GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` and `GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`.
-- Stage 04 implementation: not started; blocked until this evidence-sync head passes live CI, current-head Codex, and unresolved review threads = 0, then it must start only under the accepted `/goal`.
+- Pre-implementation gate head: `2a6378cf12953e3f376bd29a3cf208c7f2b01d8a`.
+- Pre-implementation CI: PASS.
+- Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
+- GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
+- Implementation local status: PASS.
+- Implementation GitHub/Codex status: BLOCKED/PENDING until this implementation head is pushed, CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+- GPT Pro final implementation status: BLOCKED/PENDING until the final packet is submitted after the live GitHub/Codex gate.

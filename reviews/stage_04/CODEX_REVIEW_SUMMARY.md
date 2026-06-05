@@ -218,3 +218,30 @@ Evidence-sync head `b1e9e400aef97fdfb083abe5e5c4a0c5f6060e3b` passed live PR #11
   - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365538109
 
 Local remediation synchronizes the next-stage instruction file to the accepted `mock_llm.py` filename and marks completed local closeout action rows done locally. No extraction implementation files are created. The remediation head must pass live PR #11 CI/Codex before implementation starts.
+
+## CR-04-027 Resolution And Implementation Start
+
+CR-04-027 is resolved for pre-implementation head `2a6378cf12953e3f376bd29a3cf208c7f2b01d8a`.
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27041893580/job/79819579026
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27041895351/job/79819584174
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603
+
+Local Stage 04 implementation started under the GPT Pro-accepted `/goal` after that clean gate. Local implementation added the approved extraction package, Stage 04 tests/fixtures, docs, subagent logs, and final review packet.
+
+Local checks passed:
+
+- `python -m pytest apps/api/tests/test_stage04_extraction.py` -> 12 passed.
+- `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 36 passed.
+- `python -m pytest apps/api/tests -q --maxfail=1` -> 88 passed.
+- `python -m compileall apps/api/finsignalhub_api` -> PASS.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` -> PASS.
+- High-confidence secret scan -> no matches.
+- Runtime forbidden-scope scan -> no matches.
+- `git diff --check` -> only normal Windows line-ending warnings.
+
+CR-04-028 was found by a GitHub review-thread check after local implementation began: `CONTROL/24_CURRENT_STAGE_STATE.md` still said CR-04-027 remediation must pass local checks even though A-0472/CP-0341 recorded those checks passed. Local remediation updates `CONTROL/24_CURRENT_STAGE_STATE.md` so the next action is push, CI, current-head Codex, unresolved-thread verification, and GPT Pro final implementation review.
+
+Required next action: push the implementation head, wait for PR #11 CI, request current-head Codex, verify unresolved review threads = 0, and then submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_PACKET.md` to GPT Pro.

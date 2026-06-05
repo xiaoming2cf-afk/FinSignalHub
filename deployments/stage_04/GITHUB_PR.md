@@ -263,3 +263,27 @@ Use `gh pr view 11 --json headRefOid,statusCheckRollup,reviews,comments` and `gh
 - URL: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
 - Initial pushed head before this PR evidence update: `ef5b8fccebfa0c313cc6f3a38abac7ba34b68758`
 - Required next step: continue from the live PR #11 state. If this remediation is unpushed, commit/push it and sync the live PR body; if already pushed, wait for CI and request current-head Codex review.
+
+## Implementation Deployment Status
+
+Pre-implementation head `2a6378cf12953e3f376bd29a3cf208c7f2b01d8a` passed live PR #11 CI and received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603. Local implementation then started under the GPT Pro-accepted Stage 04 `/goal`.
+
+Local implementation checks passed:
+
+- `python -m pytest apps/api/tests/test_stage04_extraction.py` -> 12 passed.
+- `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 36 passed.
+- `python -m pytest apps/api/tests -q --maxfail=1` -> 88 passed.
+- `python -m compileall apps/api/finsignalhub_api` -> PASS.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` -> PASS.
+- High-confidence secret scan -> no matches.
+- Runtime forbidden-scope scan -> no matches.
+- `git diff --check` -> only normal Windows line-ending warnings.
+
+Gate 6 is BLOCKED/PENDING until the pushed implementation head has:
+
+- live PR #11 CI PASS;
+- current-head Codex no-major;
+- unresolved review threads = 0;
+- PR body synced from `reviews/stage_04/PR_BODY.md`.
+
+After Gate 6 passes, submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_PACKET.md` to GPT Pro for final implementation review.

@@ -168,3 +168,26 @@ G-0007 current addendum at 2026-06-05T15:19:07-05:00: Stage 04 planning closeout
 | Codex review status | PASS for reviewed head `e6cb105`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837; evidence-sync head needs current-head review after push |
 | GPT Pro status | PASS for implementation-goal draft; response saved at `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` |
 | Next stage source | GPT Pro accepted the Stage 04 implementation `/goal`; implementation can start only after the evidence-sync head passes live CI/Codex and unresolved review threads = 0 |
+
+G-0008 current addendum at 2026-06-05T17:11:27-05:00: implementation-goal draft review is PASS and handed off to G-0009. Pre-implementation head `2a6378cf12953e3f376bd29a3cf208c7f2b01d8a` passed CI and Codex no-major, so local implementation started under the accepted goal. G-0008 is no longer the active implementation goal.
+
+## G-0009 Stage 04 Evidence Extraction Implementation
+
+| Field | Value |
+| --- | --- |
+| Goal ID | G-0009 |
+| Stage | 04 |
+| Title | Stage 04 evidence extraction implementation |
+| Prompt text | Implement the GPT Pro-accepted Stage 04 mock-only evidence extraction skeleton: candidate schemas, relation enum, quote/no-quote validation, provenance validation, deterministic mock model, worker skeleton, tests, docs, subagent logs, review packet, and gate evidence only. |
+| Status | active / local checks PASS / external GitHub-Codex-GPT gates pending |
+| Branch/worktree | `stage/04-evidence-extraction` |
+| Started at | 2026-06-05T17:11:27-05:00 |
+| Updated at | 2026-06-05T17:11:27-05:00 |
+| Done-when | Done only when implementation files exist, local checks pass, PR #11 implementation head has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro final implementation review PASS or accepted CONDITIONAL PASS with critical items resolved, phase-gate-auditor PASS, and GPT Pro Stage 05 instructions saved. |
+| Current checkpoint | Local implementation files and tests exist; local checks passed; B-0092 keeps final acceptance blocked until push, live CI, current-head Codex, unresolved review-thread check, and GPT Pro final review. |
+| Skills used | finsignal-product-governor, phase-gate-auditor, codex-log-keeper, subagent-coordinator, acceptance-evidence-collector, gpt-pro-review-preparer, github-stage-deployer, github-review-resolver |
+| Subagents used | Chandrasekhar, Epicurus, Tesla read-only explorers; implementation-lane logs written for extraction-schema-agent, relation-enum-agent, quote-span-agent, provenance-agent, mock-llm-adapter-agent, worker-skeleton-agent, test-agent, docs-log-agent, and scope-review-agent |
+| PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
+| Codex review status | PASS for pre-implementation head `2a6378c`; implementation head pending push and current-head review |
+| GPT Pro status | PASS for implementation-goal draft; final implementation review pending |
+| Next stage source | pending GPT Pro final implementation response; Stage 05 not authorized |
