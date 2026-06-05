@@ -54,7 +54,9 @@ Planning files allowed now:
 - `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`
 - `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`
 - `reviews/stage_04/SUBAGENT_SUMMARY.md`
+- `reviews/stage_04/README.md`
 - `deployments/stage_04/GITHUB_PR.md`
+- `deployments/stage_04/README.md`
 - `docs/architecture/stage_04_evidence_extraction.md`
 - `docs/codex/stage_04_commands.md`
 - `logs/subagents/stage_04/README.md`
@@ -103,7 +105,7 @@ Each subagent must write `logs/subagents/stage_04/<agent_name>.md`, must not mod
 
 Planning steps:
 
-1. Create Stage 04 plan, tasks, checklist, review packet, PR body, acceptance placeholder, deployment placeholder, architecture doc, command doc, and subagent log README.
+1. Create Stage 04 plan, tasks, checklist, review packet, PR body, acceptance placeholder, deployment placeholder, architecture doc, command doc, stage directory purpose READMEs, and subagent log README.
 2. Update control logs and RunLog to show Stage 03 merged/tagged and Stage 04 planning active.
 3. Run planning-only checks: phase check, no extraction implementation path check, no Stage 04 test/fixture path check, forbidden-scope scan, secret scan, and `git diff --check`.
 4. Commit, push, open PR, request `@codex review`, wait for CI, and resolve critical findings.
