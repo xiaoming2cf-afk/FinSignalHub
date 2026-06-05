@@ -237,7 +237,21 @@ CR-04-023 is resolved for reviewed remediation head `3864181e1dfcbdf522884e7f78e
 
 ## GPT Pro
 
-PASS for Stage 04 planning, closeout confirmation, and final closeout recheck. GPT Pro plan response is saved in `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; plan action items are saved in `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`; closeout confirmation is saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`; closeout action items are saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`; final closeout recheck response/action items are saved in `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md` and `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`. Stage 04 implementation remains unauthorized.
+PASS for Stage 04 planning, closeout confirmation, final closeout recheck, and implementation-goal draft. GPT Pro plan response is saved in `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; plan action items are saved in `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`; closeout confirmation is saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`; closeout action items are saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`; final closeout recheck response/action items are saved in `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md` and `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`; implementation-goal response/action items are saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` and `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`. Stage 04 implementation is not started and remains blocked until the evidence-sync head passes live PR #11 CI/Codex/review-thread gates.
+
+## Implementation-Goal Gate
+
+Reviewed implementation-goal head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` passed:
+
+- CI:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038966793/job/79809986368
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038969629/job/79809995519
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837
+- Review threads: unresolved = 0.
+- GPT Pro implementation-goal review: PASS.
+
+The current local response-saving evidence update changes the branch head after this reviewed gate. The new head must pass PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before implementation starts.
 
 ## Current Head Rule
 

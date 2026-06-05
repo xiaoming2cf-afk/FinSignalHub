@@ -49,7 +49,7 @@ After PR creation, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro plan review remains a hard gate before any Stage 04 implementation goal can be drafted.
+GPT Pro review remains a hard gate before any Stage 04 implementation can start.
 
 ## Current Gate Status
 
@@ -57,7 +57,7 @@ GPT Pro plan review remains a hard gate before any Stage 04 implementation goal 
 - Stage 04 planning branch: `stage/04-evidence-extraction`.
 - Local planning checks: PASS for `phase_check.py --stage 04`, forbidden extraction path checks, high-confidence secret scan, `git diff --check`, and registry ID uniqueness.
 - PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
-- CI: reviewed head `3864181e1dfcbdf522884e7f78e4cb0815b96966` passed both governance checks. This evidence-sync head must also pass live PR #11 current-head checks after push; Gate 6 is determined by live PR #11 state, not a stale fixed hash copied into this file.
-- Codex review: reviewed head `3864181e1dfcbdf522884e7f78e4cb0815b96966` received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634750469 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634798507. All review threads were resolved before GPT Pro final closeout recheck: unresolved = 0, unresolved outdated = 0, unresolved current = 0.
-- GPT Pro review: PASS for Stage 04 planning, closeout confirmation, and final closeout recheck. Final response/action items are saved in `GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md` and `GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`, with implementation still unauthorized.
-- Stage 04 implementation: not authorized.
+- CI: reviewed implementation-goal head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` passed both governance checks. This response-saving evidence-sync head must also pass live PR #11 current-head checks after push; Gate 6 is determined by live PR #11 state, not a stale fixed hash copied into this file.
+- Codex review: reviewed implementation-goal head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837. All review threads were resolved before GPT Pro implementation-goal review: unresolved = 0.
+- GPT Pro review: PASS for Stage 04 planning, closeout confirmation, final closeout recheck, and implementation-goal draft. Implementation-goal response/action items are saved in `GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` and `GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`.
+- Stage 04 implementation: not started; blocked until this evidence-sync head passes live CI, current-head Codex, and unresolved review threads = 0, then it must start only under the accepted `/goal`.

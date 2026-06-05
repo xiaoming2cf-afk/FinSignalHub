@@ -4,62 +4,83 @@
 
 Status: PASS for draft scope.
 
-Evidence: this file, `PLANS/STAGE_04_IMPLEMENTATION_GOAL.md`, and `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` define a future implementation goal only. No extraction implementation files are created by this draft.
+Evidence: `PLANS/STAGE_04_IMPLEMENTATION_GOAL.md`, `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md`, and GPT Pro response `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
+
+The accepted goal authorizes a later mock-only Stage 04 evidence extraction skeleton. It does not itself create extraction implementation files.
 
 ## Functionality
 
 Status: PASS for goal definition.
 
-Evidence: the draft requires future schemas, quote-span validation, no-quote rationale, relation enum validation, provenance validation, deterministic mock LLM adapter, worker skeleton, and mock-only tests.
+Evidence: GPT Pro accepted the required future scope: schemas, relation enum, quote-span validation, no-quote rationale validation, provenance validation, deterministic mock LLM adapter, worker skeleton, and mock-only tests.
 
 ## Tests
 
-Status: PENDING for draft-head external checks.
+Status: PASS for reviewed draft head; pending for future implementation.
 
-Evidence: local checks must pass before this draft is pushed. Future implementation tests are specified but not run because implementation is not authorized yet.
+Evidence: reviewed head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` had CI PASS, current-head Codex no-major, and unresolved review threads = 0 before GPT Pro submission. The accepted future implementation goal requires pytest, no-network enforcement, forbidden-scope scans, secret scan, compileall, `phase_check.py --stage 04`, `git diff --check`, CI, Codex, and final GPT Pro review.
 
 ## Docs
 
 Status: PASS for draft docs.
 
-Evidence: draft goal and GPT Pro packet include product boundaries, allowed files, forbidden files, subagents, commands, risks, and stop conditions.
+Evidence: goal draft, GPT Pro packet, and GPT Pro response include product boundaries, allowed files, forbidden files, subagents, commands, risks, stop conditions, and exact done-when requirements.
 
 ## Logs
 
-Status: PENDING until this draft is committed.
+Status: PASS locally after evidence files are saved; live gate pending after commit.
 
-Evidence: control logs, artifact registry, checkpoint log, RunLog, and PR evidence must be updated with this draft.
+Evidence: response/action items are saved, and companion control/RunLog updates are part of this evidence-sync patch. The resulting head must still pass live PR #11 CI/Codex before implementation starts.
 
 ## GitHub
 
-Status: LIVE EXTERNAL GATE.
+Status: PASS for reviewed head; LIVE EXTERNAL GATE for the evidence-sync head.
 
-Evidence: this file cannot self-certify GitHub PASS. The latest PR #11 head must have CI PASS, current-head Codex no-major, and unresolved review threads = 0 before GPT Pro goal review can be treated as ready.
+Evidence for reviewed head:
+
+- PR: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11
+- Head: `e6cb1052572d84f1c0f0fa7041e210e72d64d104`
+- CI:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038966793/job/79809986368
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038969629/job/79809995519
+- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837
+- Review threads: unresolved = 0
+
+Saving this GPT Pro response creates a new evidence-sync head. That new head must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before implementation starts.
 
 ## GPT Pro
 
-Status: PENDING.
+Status: PASS.
 
-Evidence: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` must be submitted to the specified GPT Pro page. GPT Pro must answer PASS, CONDITIONAL PASS, or FAIL for the implementation goal draft.
+Evidence:
+
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`
+
+GPT Pro returned `VERDICT: PASS` for the implementation-goal draft and accepted the exact future `/goal` text.
 
 ## Product Governance
 
-Status: PASS for draft alignment.
+Status: PASS.
 
-Evidence: the goal maps future work to Research Mode evidence-stream extraction and forbids chatbot, generic RAG, reports, stock prediction, investment advice, dashboard, leaderboard, Risk Mode, and Replay Engine drift.
+Evidence: GPT Pro confirmed no drift into claim graph, Research Delta, Repro Pack, MCP business tools, dashboard, chatbot/RAG, stock prediction, investment advice, Risk Mode, or Replay Engine.
 
 ## Security
 
 Status: PASS for draft constraints.
 
-Evidence: the draft forbids secrets, credentials, real LLM calls, live network calls, paid services, private documents, auth, and billing.
+Evidence: the accepted goal forbids secrets, credentials, real LLM calls, live network calls, paid services, private documents, auth, billing, and unreviewed Stage 02 or Stage 03 behavior changes.
 
 ## Next Stage
 
-Status: BLOCKED/PENDING.
+Status: BLOCKED/PENDING for implementation start.
 
-Evidence: implementation cannot start until this draft receives CI PASS, current-head Codex no-major, unresolved review threads = 0, and GPT Pro PASS or accepted CONDITIONAL PASS.
+Evidence: implementation may begin only after this evidence-sync head passes live PR #11 CI/Codex and then starts under the accepted `/goal`. Stage 05 is not authorized except future planning after final Stage 04 implementation PASS.
 
 ## Final Result
 
-Draft acceptance is PENDING external GitHub and GPT Pro gates. The next valid action is to run local checks, commit/push these draft artifacts, obtain current-head CI/Codex, submit the goal packet to GPT Pro, and wait for GPT Pro approval before implementation.
+Implementation-goal draft result: PASS.
+
+Implementation status: NOT STARTED.
+
+Current hard gate after this evidence-sync patch: live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 for the new head created by saving GPT Pro evidence.

@@ -12,10 +12,10 @@ Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5
 
 Stage 02 is complete, tagged, and merged. PR #8 is at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 and merged into `main` at `c5124e166eee4a563a0642a4dcd3fd2db128d615` after current-head CI/Codex and GPT Pro gates. The tag `stage-02-domain-models` points at the merge commit. GPT Pro authorized Stage 03 planning only. Stage 03 implementation is not authorized. Foreground visual recovery was suspended after the user requested background operation; standalone background Computer Use is not exposed in the current tool surface and is recorded as B-0027.
 
-Current stage: Stage 04 implementation-goal draft review is active on branch `stage/04-evidence-extraction`; implementation is not authorized. Stage 03 is complete, tagged, and merged. PR #11 head `b954aa391f9013342e4092c5500f0ece5b2c25ba` passed CI, Codex no-major, and unresolved review threads = 0 after CR-04-024 remediation. Draft files `PLANS/STAGE_04_IMPLEMENTATION_GOAL.md`, `reviews/stage_04/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md`, and `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` now exist locally and must pass local checks, live CI/Codex, and GPT Pro goal review before implementation may start.
+Current stage: Stage 04 implementation-goal draft review is active on branch `stage/04-evidence-extraction`; implementation is not started. Stage 03 is complete, tagged, and merged. PR #11 head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` passed CI, Codex no-major, and unresolved review threads = 0 after CR-04-026 remediation. GPT Pro returned PASS for the Stage 04 implementation-goal draft and accepted the exact future `/goal`. The response/action-item evidence is now being saved locally; this creates a new evidence-sync head that must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before implementation can start.
 
 ## Next expected milestones
 
-1. Run local checks for the implementation-goal draft, commit/push, wait for PR #11 CI, and request current-head Codex.
-2. Submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` to GPT Pro only after the draft head has CI PASS, Codex no-major, and unresolved review threads = 0.
-3. Do not create extraction implementation files until GPT Pro accepts the separate implementation goal.
+1. Run local checks for the GPT Pro PASS evidence-sync update, commit/push, wait for PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
+2. Start Stage 04 implementation only under the accepted `/goal` once the evidence-sync head is clean.
+3. Keep Stage 04 implementation limited to mock-only evidence extraction skeleton files and required logs/tests; do not create Stage 05 claim graph, Research Delta, Repro Pack, MCP business-tool, UI/dashboard, chatbot/RAG, stock/investment, Risk Mode, or Replay Engine behavior.

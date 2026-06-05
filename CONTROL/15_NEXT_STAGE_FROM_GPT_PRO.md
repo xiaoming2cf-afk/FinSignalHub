@@ -384,6 +384,59 @@ Forbidden until the separate implementation goal is accepted:
 
 Stop if any future Stage 04 implementation draft or work requires a real LLM API key, external network access, claim graph work, Research Delta work, Repro Pack output, MCP business tools, UI/dashboard behavior, auth/billing, stock/investment behavior, chatbot/RAG behavior, Risk Mode, Replay Engine, unresolved CI/Codex gate, or unreviewed Stage 03 connector modification.
 
+## Stage 04 Implementation Goal Accepted By GPT Pro
+
+Timestamp: 2026-06-05T16:18:46-05:00
+
+Source files:
+
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_ACTION_ITEMS.md`
+- `reviews/stage_04/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md`
+
+GPT Pro reviewed PR #11 head `e6cb1052572d84f1c0f0fa7041e210e72d64d104`, CI PASS links, Codex no-major evidence, unresolved review threads = 0, and `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md`, then returned:
+
+```text
+VERDICT: PASS.
+The Stage 04 implementation-goal draft is complete enough to start a later Stage 04 implementation run, provided a separate /goal starts implementation, current-head CI/Codex evidence remains valid, and no new commit resets the gate.
+```
+
+Accepted next `/goal`:
+
+```text
+/goal
+
+Implement Stage 04: Evidence Extraction Skeleton.
+
+Use the approved Stage 04 implementation-goal draft and GPT Pro implementation-goal review response.
+
+Product identity:
+FinSignalHub is Research Mode-first, MCP-first, and evidence-stream oriented. Stage 04 is evidence extraction skeleton only.
+
+Objective:
+Implement a mock-only evidence extraction skeleton that can transform Stage 03 normalized Document records into provenance-preserving EvidenceItem candidate payloads. This stage must not perform production extraction, external LLM calls, claim graph computation, Research Delta computation, Repro Pack generation, MCP business-tool exposure, UI/dashboard behavior, chatbot/RAG behavior, stock prediction, investment advice, Risk Mode, or Replay Engine.
+
+Allowed files:
+- apps/api/finsignalhub_api/extraction/__init__.py
+- apps/api/finsignalhub_api/extraction/schemas.py
+- apps/api/finsignalhub_api/extraction/relations.py
+- apps/api/finsignalhub_api/extraction/provenance.py
+- apps/api/finsignalhub_api/extraction/quote_span.py
+- apps/api/finsignalhub_api/extraction/mock_llm.py
+- apps/api/finsignalhub_api/extraction/worker.py
+- apps/api/tests/test_stage04_extraction.py
+- apps/api/tests/fixtures/stage04_extraction/README.md
+- apps/api/tests/fixtures/stage04_extraction/*.json
+- docs/architecture/stage_04_evidence_extraction.md
+- docs/codex/stage_04_commands.md
+- logs/subagents/stage_04/*.md
+- reviews/stage_04/
+- deployments/stage_04/
+- required CONTROL/, RUNLOG/, TASKS/, CHECKLISTS/, and CHANGELOG records
+```
+
+Implementation may start only after this response-saving evidence head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
+
 ## Stage 04 Final Closeout Recheck PASS And Implementation-Goal Draft Instruction From GPT Pro
 
 Timestamp: 2026-06-05T14:41:54-05:00

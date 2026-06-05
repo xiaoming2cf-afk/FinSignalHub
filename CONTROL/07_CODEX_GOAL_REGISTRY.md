@@ -156,15 +156,15 @@ G-0007 current addendum at 2026-06-05T15:19:07-05:00: Stage 04 planning closeout
 | Stage | 04 |
 | Title | Stage 04 implementation-goal draft review |
 | Prompt text | Draft the separate Stage 04 implementation `/goal` artifacts authorized by GPT Pro final closeout; do not implement extraction code, tests, fixtures, mock LLM adapter, worker, runtime schemas, or any business behavior. |
-| Status | draft active / implementation not authorized |
+| Status | GPT Pro PASS captured / evidence-sync live gate pending / implementation not started |
 | Branch/worktree | `stage/04-evidence-extraction` |
 | Started at | 2026-06-05T15:19:07-05:00 |
-| Updated at | 2026-06-05T15:21:50-05:00 |
+| Updated at | 2026-06-05T16:24:13-05:00 |
 | Done-when | Done when implementation-goal draft artifacts exist, local checks pass, PR #11 goal-draft head has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro reviews the goal packet, and GPT Pro returns PASS or accepted CONDITIONAL PASS. |
-| Current checkpoint | Draft artifacts created and local checks passed at A-0462/CP-0332: `phase_check.py --stage 04`, goal-draft file existence checks, forbidden implementation path checks, secret scan, `git diff --check`, and registry ID uniqueness. External CI/Codex/GPT Pro gates are pending. |
+| Current checkpoint | PR #11 head `e6cb1052572d84f1c0f0fa7041e210e72d64d104` passed CI, received current-head Codex no-major, had unresolved review threads = 0, and GPT Pro returned PASS for the implementation-goal draft. Response/action items are being saved in A-0467/A-0468; the new evidence-sync head must pass live CI/Codex before implementation starts. |
 | Skills used | stage-next-goal-synthesizer, gpt-pro-review-preparer, finsignal-product-governor, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector, github-stage-deployer, github-review-resolver, browser-gpt-pro-reviewer |
 | Subagents used | none; implementation subagents remain forbidden until GPT Pro accepts the goal |
 | PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
-| Codex review status | pending for goal-draft head |
-| GPT Pro status | pending implementation-goal review |
-| Next stage source | GPT Pro final closeout recheck authorized only goal drafting; implementation requires GPT Pro goal approval |
+| Codex review status | PASS for reviewed head `e6cb105`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635387837; evidence-sync head needs current-head review after push |
+| GPT Pro status | PASS for implementation-goal draft; response saved at `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md` |
+| Next stage source | GPT Pro accepted the Stage 04 implementation `/goal`; implementation can start only after the evidence-sync head passes live CI/Codex and unresolved review threads = 0 |
