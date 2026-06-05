@@ -82,6 +82,7 @@ If GPT Pro accepts this goal, the next implementation run may create:
 - `apps/api/tests/test_stage04_extraction.py`
 - `apps/api/tests/fixtures/stage04_extraction/README.md`
 - `apps/api/tests/fixtures/stage04_extraction/*.json`
+- `logs/subagents/stage_04/*.md`
 - Stage 04 docs, logs, PR, review, and control evidence files.
 
 ## Still Forbidden Until Goal Acceptance
