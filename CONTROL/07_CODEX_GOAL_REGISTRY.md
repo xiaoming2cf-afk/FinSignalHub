@@ -179,15 +179,17 @@ G-0008 current addendum at 2026-06-05T17:11:27-05:00: implementation-goal draft 
 | Stage | 04 |
 | Title | Stage 04 evidence extraction implementation |
 | Prompt text | Implement the GPT Pro-accepted Stage 04 mock-only evidence extraction skeleton: candidate schemas, relation enum, quote/no-quote validation, provenance validation, deterministic mock model, worker skeleton, tests, docs, subagent logs, review packet, and gate evidence only. |
-| Status | active / local checks PASS / external GitHub-Codex-GPT gates pending |
+| Status | active / CR-04-029 remediation local checks PASS / external GitHub-Codex-GPT gates pending |
 | Branch/worktree | `stage/04-evidence-extraction` |
 | Started at | 2026-06-05T17:11:27-05:00 |
-| Updated at | 2026-06-05T17:11:27-05:00 |
+| Updated at | 2026-06-05T17:27:16-05:00 |
 | Done-when | Done only when implementation files exist, local checks pass, PR #11 implementation head has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro final implementation review PASS or accepted CONDITIONAL PASS with critical items resolved, phase-gate-auditor PASS, and GPT Pro Stage 05 instructions saved. |
-| Current checkpoint | Local implementation files and tests exist; local checks passed; B-0092 keeps final acceptance blocked until push, live CI, current-head Codex, unresolved review-thread check, and GPT Pro final review. |
+| Current checkpoint | Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` passed PR #11 CI but Codex opened CR-04-029 because whitespace-only `no_quote_reason` values were accepted. Local remediation strips and rejects blank rationale values, adds regression coverage, and passes local checks. B-0093 keeps final acceptance blocked until remediation push, live CI, current-head Codex no-major, unresolved review-thread check, and GPT Pro final review. |
 | Skills used | finsignal-product-governor, phase-gate-auditor, codex-log-keeper, subagent-coordinator, acceptance-evidence-collector, gpt-pro-review-preparer, github-stage-deployer, github-review-resolver |
 | Subagents used | Chandrasekhar, Epicurus, Tesla read-only explorers; implementation-lane logs written for extraction-schema-agent, relation-enum-agent, quote-span-agent, provenance-agent, mock-llm-adapter-agent, worker-skeleton-agent, test-agent, docs-log-agent, and scope-review-agent |
 | PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
-| Codex review status | PASS for pre-implementation head `2a6378c`; implementation head pending push and current-head review |
+| Codex review status | CR-04-029 open for pushed implementation head `f964503`; local remediation pending push and current-head review |
 | GPT Pro status | PASS for implementation-goal draft; final implementation review pending |
 | Next stage source | pending GPT Pro final implementation response; Stage 05 not authorized |
+
+G-0009 current addendum at 2026-06-05T17:27:16-05:00: PR #11 pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` passed both governance CI jobs, but Codex opened CR-04-029 because whitespace-only `no_quote_reason` values were accepted for no-quote evidence candidates. Local remediation trims `no_quote_reason`, rejects blank values, and adds `test_no_quote_candidate_rejects_blank_rationale`. Local checks passed: 13 Stage 04 tests, 37 relevant tests, 89 full API tests, API compileall, phase_check 04, high-confidence credential scan, runtime forbidden-scope scan, and `git diff --check`. Next checkpoint is commit/push CR-04-029 remediation, sync PR #11 body, wait for CI, request current-head Codex, verify unresolved review threads = 0, then submit final GPT Pro implementation review.

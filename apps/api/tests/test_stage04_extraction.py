@@ -112,6 +112,22 @@ def test_no_quote_candidate_requires_rationale() -> None:
         )
 
 
+def test_no_quote_candidate_rejects_blank_rationale() -> None:
+    request = _request_from_fixture("normalized_document_metadata_only.json")
+
+    with pytest.raises(ValidationError):
+        EvidenceCandidate.from_document(
+            document=request.document,
+            candidate_id="evcand-blank-rationale",
+            evidence_text=request.document.title,
+            relation_type=ExtractionRelationType.BACKGROUND,
+            confidence=0.25,
+            tool_call_lineage=request.tool_call_lineage,
+            no_quote_reason="   ",
+            transformation_notes="Stage 04 validation fixture.",
+        )
+
+
 def test_relation_type_is_bounded_to_stage04_enum() -> None:
     request = _request_from_fixture("normalized_document_with_text.json")
 
@@ -229,4 +245,3 @@ def test_stage04_runtime_avoids_stage05_plus_scope_terms() -> None:
     )
 
     assert not any(term in haystack for term in forbidden_terms)
-

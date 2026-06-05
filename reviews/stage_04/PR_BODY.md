@@ -29,9 +29,9 @@ Not included:
 
 ## Local Checks
 
-- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py` -> 12 passed.
-- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 36 passed.
-- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 88 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
+- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
 - PASS: `python -m compileall apps/api/finsignalhub_api`.
 - PASS: `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
 - PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
@@ -58,5 +58,5 @@ GPT Pro final implementation review remains a hard gate after live PR #11 CI, cu
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: BLOCKED/PENDING until this implementation head is pushed, CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+- Implementation GitHub/Codex status: BLOCKED by CR-04-029 until the local blank `no_quote_reason` remediation is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0. Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` has CI PASS but Codex found the whitespace-only rationale issue.
 - GPT Pro final implementation status: BLOCKED/PENDING until the final packet is submitted after the live GitHub/Codex gate.

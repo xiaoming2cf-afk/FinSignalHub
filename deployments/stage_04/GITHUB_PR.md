@@ -287,3 +287,29 @@ Gate 6 is BLOCKED/PENDING until the pushed implementation head has:
 - PR body synced from `reviews/stage_04/PR_BODY.md`.
 
 After Gate 6 passes, submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_PACKET.md` to GPT Pro for final implementation review.
+
+## CR-04-029 Blank No-Quote Rationale Remediation
+
+Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` passed PR #11 CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043194924/job/79823614935
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043196946/job/79823620272
+
+Codex then opened CR-04-029:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365704957
+
+The finding is valid: whitespace-only `no_quote_reason` values were accepted for no-quote evidence candidates. Local remediation trims `no_quote_reason`, rejects blank values, and adds `test_no_quote_candidate_rejects_blank_rationale`.
+
+Local verification after remediation:
+
+- `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
+- `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
+- `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
+- `python -m compileall apps/api/finsignalhub_api` -> PASS.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` -> PASS.
+- High-confidence credential scan -> no matches.
+- Runtime forbidden-scope scan -> no matches.
+- `git diff --check` -> only normal Windows line-ending warnings.
+
+Gate 6 remains blocked until this remediation head is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

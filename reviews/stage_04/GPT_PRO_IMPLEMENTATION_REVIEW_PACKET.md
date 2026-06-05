@@ -27,9 +27,9 @@ Local implementation added:
 
 ## Local Test Results
 
-- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py` -> 12 passed.
-- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 36 passed.
-- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 88 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
+- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
 - PASS: `python -m compileall apps/api/finsignalhub_api`.
 - PASS: `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
 - PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
@@ -45,7 +45,16 @@ Pre-implementation gate head `2a6378cf12953e3f376bd29a3cf208c7f2b01d8a` had PR #
 - CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27041895351/job/79819584174
 - Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603
 
-The implementation head is local at packet creation time. This packet must be refreshed with the pushed implementation commit, live CI links, current-head Codex response, and unresolved thread count before final GPT Pro PASS can close the stage.
+Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` has PR #11 CI PASS:
+
+- CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043194924/job/79823614935
+- CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043196946/job/79823620272
+
+Codex then opened CR-04-029 because whitespace-only `no_quote_reason` values were accepted for no-quote candidates:
+
+- CR-04-029: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365704957
+
+Local remediation now strips `no_quote_reason`, rejects blank values, and adds `test_no_quote_candidate_rejects_blank_rationale`. This packet must be refreshed again with the pushed remediation commit, live CI links, current-head Codex response, and unresolved thread count before final GPT Pro PASS can close the stage.
 
 ## Requested GPT Pro Judgment
 
@@ -58,4 +67,3 @@ Please answer:
 5. If PASS or accepted CONDITIONAL PASS after critical items are resolved, what exact Stage 05 plan/goal requirements should Codex draft next?
 
 Required verdict format: `PASS`, `CONDITIONAL PASS`, or `FAIL`.
-

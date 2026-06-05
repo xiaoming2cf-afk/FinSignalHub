@@ -79,6 +79,10 @@ class EvidenceCandidate(BaseModel):
 
     @model_validator(mode="after")
     def require_quote_or_reason(self) -> "EvidenceCandidate":
+        if self.no_quote_reason is not None:
+            self.no_quote_reason = self.no_quote_reason.strip()
+            if not self.no_quote_reason:
+                raise ValueError("no_quote_reason must not be blank")
         if self.quoted_evidence_span is None and not self.no_quote_reason:
             raise ValueError("quoted_evidence_span or no_quote_reason is required")
         if self.quoted_evidence_span is not None and self.no_quote_reason:
@@ -183,4 +187,3 @@ class ExtractionResult(BaseModel):
             if candidate.document_ref != self.document_ref:
                 raise ValueError("candidate document_ref must match result document_ref")
         return self
-

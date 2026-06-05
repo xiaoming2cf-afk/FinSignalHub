@@ -245,3 +245,34 @@ Local checks passed:
 CR-04-028 was found by a GitHub review-thread check after local implementation began: `CONTROL/24_CURRENT_STAGE_STATE.md` still said CR-04-027 remediation must pass local checks even though A-0472/CP-0341 recorded those checks passed. Local remediation updates `CONTROL/24_CURRENT_STAGE_STATE.md` so the next action is push, CI, current-head Codex, unresolved-thread verification, and GPT Pro final implementation review.
 
 Required next action: push the implementation head, wait for PR #11 CI, request current-head Codex, verify unresolved review threads = 0, and then submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_PACKET.md` to GPT Pro.
+
+## CR-04-029 Blank No-Quote Rationale Validation
+
+Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` passed live PR #11 CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043194924/job/79823614935
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27043196946/job/79823620272
+
+Codex then opened CR-04-029:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365704957
+
+Finding summary: whitespace-only `no_quote_reason` values were accepted for no-quote evidence candidates, weakening the Stage 04 provenance requirement that evidence without a quoted span must carry an explicit rationale.
+
+Local remediation:
+
+- `EvidenceCandidate.require_quote_or_reason()` now strips `no_quote_reason` and rejects blank values.
+- `test_no_quote_candidate_rejects_blank_rationale` covers whitespace-only rationale input.
+
+Local verification after remediation:
+
+- `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
+- `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
+- `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
+- `python -m compileall apps/api/finsignalhub_api` -> PASS.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` -> PASS.
+- High-confidence credential scan -> no matches.
+- Runtime forbidden-scope scan -> no matches.
+- `git diff --check` -> only normal Windows line-ending warnings.
+
+Required next action: push the CR-04-029 remediation head, sync PR body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0 before GPT Pro final implementation review.
