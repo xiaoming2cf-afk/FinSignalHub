@@ -145,3 +145,26 @@ G-0007 current addendum at 2026-06-05T14:07:32-05:00: status is GPT Pro planning
 G-0007 current addendum at 2026-06-05T14:14:43-05:00: CR-04-023 local checks passed. `phase_check.py --stage 04`, forbidden extraction package/test/fixture absence checks, high-confidence secret scan excluding placeholder values, `git diff --check`, artifact/checkpoint ID uniqueness, and stale completed-step wording scan passed. Current-state route now uses live PR #11 state rather than a fixed completed commit/push step. Next checkpoint is PR body sync, push if the branch is ahead, CI, and current-head Codex. No extraction implementation files are authorized.
 
 G-0007 current addendum at 2026-06-05T14:41:54-05:00: GPT Pro final closeout recheck returned PASS for reviewed head `3864181e1dfcbdf522884e7f78e4cb0815b96966`. PR #11 had CI PASS, Codex no-major, unresolved review threads = 0, and stale README P2 verified as already satisfied. Stage 04 planning closeout is accepted after this evidence-sync head passes live PR #11 CI/Codex. The next allowed work is drafting Stage 04 implementation `/goal` artifacts only; no extraction implementation files are authorized.
+
+G-0007 current addendum at 2026-06-05T15:19:07-05:00: Stage 04 planning closeout has handed off to G-0008 implementation-goal draft review. PR #11 head `b954aa391f9013342e4092c5500f0ece5b2c25ba` passed CI, current-head Codex no-major, and unresolved review threads = 0 after CR-04-024 remediation. Stage 04 implementation remains unauthorized until G-0008 passes local checks, live PR #11 CI/Codex, unresolved-thread checks, and GPT Pro goal review.
+
+## G-0008 Stage 04 Implementation-Goal Draft Review
+
+| Field | Value |
+| --- | --- |
+| Goal ID | G-0008 |
+| Stage | 04 |
+| Title | Stage 04 implementation-goal draft review |
+| Prompt text | Draft the separate Stage 04 implementation `/goal` artifacts authorized by GPT Pro final closeout; do not implement extraction code, tests, fixtures, mock LLM adapter, worker, runtime schemas, or any business behavior. |
+| Status | draft active / implementation not authorized |
+| Branch/worktree | `stage/04-evidence-extraction` |
+| Started at | 2026-06-05T15:19:07-05:00 |
+| Updated at | 2026-06-05T15:21:50-05:00 |
+| Done-when | Done when implementation-goal draft artifacts exist, local checks pass, PR #11 goal-draft head has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro reviews the goal packet, and GPT Pro returns PASS or accepted CONDITIONAL PASS. |
+| Current checkpoint | Draft artifacts created and local checks passed at A-0462/CP-0332: `phase_check.py --stage 04`, goal-draft file existence checks, forbidden implementation path checks, secret scan, `git diff --check`, and registry ID uniqueness. External CI/Codex/GPT Pro gates are pending. |
+| Skills used | stage-next-goal-synthesizer, gpt-pro-review-preparer, finsignal-product-governor, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector, github-stage-deployer, github-review-resolver, browser-gpt-pro-reviewer |
+| Subagents used | none; implementation subagents remain forbidden until GPT Pro accepts the goal |
+| PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
+| Codex review status | pending for goal-draft head |
+| GPT Pro status | pending implementation-goal review |
+| Next stage source | GPT Pro final closeout recheck authorized only goal drafting; implementation requires GPT Pro goal approval |

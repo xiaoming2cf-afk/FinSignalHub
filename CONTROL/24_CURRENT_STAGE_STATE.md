@@ -34,20 +34,20 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 04 planning closeout PASS; implementation not authorized |
-| Current phase status | Stage 03 is closed, merged, and tagged. Stage 04 PR #11 contains planning and closeout artifacts only. GPT Pro final closeout recheck returned PASS and confirmed the reviewed PR #11 GitHub gate passes for head `3864181e1dfcbdf522884e7f78e4cb0815b96966`. The current evidence-sync head must still pass live PR #11 CI and current-head Codex after push before implementation-goal drafting begins. |
+| Current stage | Stage 04 implementation-goal draft created; implementation not authorized |
+| Current phase status | Stage 03 is closed, merged, and tagged. Stage 04 planning content and GPT Pro final closeout are accepted. PR #11 head `b954aa391f9013342e4092c5500f0ece5b2c25ba` passed CI, Codex no-major, and unresolved review threads = 0 after CR-04-024 remediation. Stage 04 implementation-goal draft artifacts now exist locally and must pass local checks, live PR #11 CI, current-head Codex, unresolved-thread count, and GPT Pro goal review before implementation may start. |
 | Active branch | `stage/04-evidence-extraction` |
 | Latest PR | Stage 04 PR #11: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
-| Latest CI status | Reviewed head `3864181e1dfcbdf522884e7f78e4cb0815b96966` passed both governance checks. For any later evidence-sync head, use live `gh pr checks 11` output as Gate 6 source of truth. |
-| Latest Codex review status | Reviewed head `3864181e1dfcbdf522884e7f78e4cb0815b96966` received Codex no-major comments at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634750469 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634798507. All review threads were resolved before GPT Pro final recheck: unresolved = 0, unresolved outdated = 0, unresolved current = 0. |
-| Latest GPT Pro review status | PASS. Final closeout recheck response is saved in `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md`; action items are saved in `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`. |
-| Active goal id | G-0007 Stage 04 evidence extraction planning |
-| Next required action | Commit and push final closeout recheck evidence, sync PR body, wait for live PR #11 CI, request current-head Codex. If that head is clean, draft Stage 04 implementation `/goal` artifacts only. |
-| Blocker status | No content blocker remains for Stage 04 planning closeout. B-0086 / CR-04-023 is resolved for the reviewed remediation head by live PR #11 evidence and GPT Pro final PASS; any later evidence-sync head still must pass live CI/Codex before goal drafting. |
+| Latest CI status | Head `b954aa391f9013342e4092c5500f0ece5b2c25ba` passed both governance checks: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27037676738/job/79805686417 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27037679122/job/79805693174. For the goal-draft head, use live `gh pr checks 11` output as Gate 6 source of truth. |
+| Latest Codex review status | Head `b954aa391f9013342e4092c5500f0ece5b2c25ba` received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635164432 and unresolved review threads were resolved to 0. The goal-draft head still needs current-head Codex after push. |
+| Latest GPT Pro review status | PASS for Stage 04 planning closeout. Implementation-goal packet is drafted at `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` and still needs GPT Pro review. |
+| Active goal id | G-0008 Stage 04 implementation-goal draft review |
+| Next required action | Run local checks for the implementation-goal draft, commit/push, sync PR body if changed, wait for live PR #11 CI, request current-head Codex, verify unresolved review threads = 0, then submit `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md` to GPT Pro. |
+| Blocker status | No planning content blocker remains. Implementation remains blocked until the implementation-goal draft passes live PR #11 CI, current-head Codex, unresolved-thread count, and GPT Pro goal review. |
 | Last updated time | Dynamic source of truth: use the latest Stage 04 row in `CONTROL/27_CHECKPOINT_LOG.md`. Fixed timestamp rows are intentionally not used here as Gate 6 evidence because append-only evidence can follow without changing this state file. |
 
-Current detected stage is: Stage 04 planning closeout PASS on branch `stage/04-evidence-extraction`; implementation is not authorized.
+Current detected stage is: Stage 04 implementation-goal draft review on branch `stage/04-evidence-extraction`; implementation is not authorized.
 
-Current detected blocker status is: no Stage 04 planning content blocker remains. Live PR #11 current-head CI/Codex remains the required external gate for this evidence-sync head.
+Current detected blocker status is: no Stage 04 planning content blocker remains. The implementation-goal draft is blocked behind live PR #11 CI/Codex and GPT Pro goal review.
 
-Next valid action is: push this final GPT Pro closeout recheck evidence, run live PR #11 CI/Codex, then draft a separate Stage 04 implementation `/goal` artifact set only if the live head is clean.
+Next valid action is: run local checks, commit/push the implementation-goal draft, obtain live CI/Codex/unresolved-thread evidence, then submit the goal packet to GPT Pro.
