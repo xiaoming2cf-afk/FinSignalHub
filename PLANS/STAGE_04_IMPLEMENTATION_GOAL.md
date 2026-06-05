@@ -67,6 +67,7 @@ Only after GPT Pro accepts this implementation goal:
 - `apps/api/tests/fixtures/stage04_extraction/*.json`
 - `docs/architecture/stage_04_evidence_extraction.md`
 - `docs/codex/stage_04_commands.md`
+- `logs/subagents/stage_04/*.md`
 - `reviews/stage_04/*`
 - `deployments/stage_04/*`
 - Required `CONTROL/*`, `RUNLOG/*`, `TASKS/STAGE_04_TASKS.md`, and `CHECKLISTS/STAGE_04_CHECKLIST.md` evidence updates.

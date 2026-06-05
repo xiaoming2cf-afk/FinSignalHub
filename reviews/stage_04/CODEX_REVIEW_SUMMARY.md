@@ -168,6 +168,16 @@ Evidence-sync head `35b85d6f8a3e4d8bdca3ecc998e257189bf384af` passed live PR #11
 
 Local remediation changes the checklist and acceptance result so GitHub Gate 6 is a live external gate instead of a self-certified PASS from any prior head. The remediation head must pass live PR #11 CI/Codex and unresolved-thread checks before implementation-goal drafting.
 
+Implementation-goal draft head `504e3f03db1c4dddf20f2009e1318c6faf81a9ec` passed live PR #11 CI, then Codex returned CR-04-025:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038213699/job/79807470887
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27038215953/job/79807478954
+- CR-04-025:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365190956
+
+Local remediation adds `logs/subagents/stage_04/*.md` to the future implementation allowed-file boundary because the same goal requires future subagent output logs. No implementation files are created.
+
 Any later status-only evidence commit must still request current-head review again:
 
 ```text
