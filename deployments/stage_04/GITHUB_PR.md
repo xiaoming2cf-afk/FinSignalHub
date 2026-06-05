@@ -199,7 +199,18 @@ Reviewed head `ace7b1e8d07bde873c491cbe005e6d2b342a6673` passed CI and returned 
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27032356181/job/79787613232
 - CR-04-021: `CONTROL/24_CURRENT_STAGE_STATE.md` still reported CR-04-020 local remediation in progress after CP-0320/B-0083 recorded local checks passed at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364597040.
 
-This deployment evidence file and companion governance records now treat CR-04-021 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+This deployment evidence file and companion governance records treat CR-04-021 as historical resolved evidence because the remediation head advanced to CR-04-022. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+
+## CR-04-022 Acceptance-Result Log Evidence Drift
+
+Reviewed head `e6ad6b979ddb443dad360110d2e83cd92535c65f` passed CI and returned P2 CR-04-022:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27033265763/job/79790712343
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27033268497/job/79790720084
+- CR-04-022: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still pointed the Logs gate evidence at superseded CR-04-019 after the active blocker had advanced to CR-04-021/B-0084 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364694345.
+
+This deployment evidence file and companion governance records now treat CR-04-022 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
 ## GPT Pro
 
