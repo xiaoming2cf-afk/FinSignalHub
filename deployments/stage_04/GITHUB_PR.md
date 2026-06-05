@@ -104,7 +104,19 @@ PASS for CR-04-019 remediation head `c90dc2b0096ea35232685104d0df61b565bd108d`, 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27031454088/job/79784574043
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27031456592/job/79784581193
 
-Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
+Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11`, current-head Codex review output, and PR review-thread resolution status; do not create another evidence-only commit only to update this sentence after CI changes.
+
+PASS for reviewed final closeout recheck head `3864181e1dfcbdf522884e7f78e4cb0815b96966`:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27035184443/job/79797258577
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27035187350/job/79797267725
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634750469
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634798507
+- PR review threads resolved before GPT Pro final recheck: unresolved = 0, unresolved outdated = 0, unresolved current = 0.
+- Stale README P2 verified as already satisfied:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634827824
 
 ## Codex Review
 
@@ -221,11 +233,11 @@ Reviewed head `926b24fc59d5bfc7eba11f3f352c72ad6dcde632` passed CI and returned 
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27034300253/job/79794268579
 - CR-04-023: `CONTROL/24_CURRENT_STAGE_STATE.md` still made `commit/push CR-04-022 remediation` the next required action even though the reviewed head had already been committed and pushed at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364786215.
 
-This deployment evidence file and companion governance records now treat CR-04-023 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+CR-04-023 is resolved for reviewed remediation head `3864181e1dfcbdf522884e7f78e4cb0815b96966` by live CI, Codex no-major, review-thread resolution, and GPT Pro final closeout recheck PASS. This evidence-sync head still must pass live PR #11 CI and current-head Codex after push before Stage 04 implementation-goal drafting.
 
 ## GPT Pro
 
-PASS for Stage 04 planning and closeout confirmation. GPT Pro plan response is saved in `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; plan action items are saved in `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`; closeout confirmation is saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`; closeout action items are saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`. Stage 04 implementation remains unauthorized.
+PASS for Stage 04 planning, closeout confirmation, and final closeout recheck. GPT Pro plan response is saved in `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; plan action items are saved in `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`; closeout confirmation is saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`; closeout action items are saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`; final closeout recheck response/action items are saved in `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md` and `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`. Stage 04 implementation remains unauthorized.
 
 ## Current Head Rule
 

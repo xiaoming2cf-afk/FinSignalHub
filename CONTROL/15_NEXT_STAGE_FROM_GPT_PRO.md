@@ -383,3 +383,68 @@ Forbidden until the separate implementation goal is accepted:
 - Unreviewed Stage 03 connector changes.
 
 Stop if any future Stage 04 implementation draft or work requires a real LLM API key, external network access, claim graph work, Research Delta work, Repro Pack output, MCP business tools, UI/dashboard behavior, auth/billing, stock/investment behavior, chatbot/RAG behavior, Risk Mode, Replay Engine, unresolved CI/Codex gate, or unreviewed Stage 03 connector modification.
+
+## Stage 04 Final Closeout Recheck PASS And Implementation-Goal Draft Instruction From GPT Pro
+
+Timestamp: 2026-06-05T14:41:54-05:00
+
+Source files:
+
+- `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_FINAL_CLOSEOUT_RECHECK_ACTION_ITEMS.md`
+
+GPT Pro reviewed PR #11, Stage 04 closeout head `3864181e1dfcbdf522884e7f78e4cb0815b96966`, CI PASS links, Codex no-major links, unresolved review-thread count of 0, and the stale README P2 verification comment, then returned:
+
+```text
+VERDICT: PASS.
+Is Stage 04 planning closeout complete now? yes.
+Does current PR #11 GitHub gate now pass given CI PASS, Codex no-major, and unresolved review threads = 0? yes.
+No blocking must-fix remains.
+Drafting a separate Stage 04 implementation /goal is allowed.
+Stage 04 implementation itself remains separate and not authorized.
+```
+
+Next authorized work: after the final response/action-item evidence-sync head is pushed and passes live PR #11 CI plus current-head Codex no-major, draft Stage 04 implementation `/goal` artifacts only.
+
+Required implementation-goal draft files:
+
+- `PLANS/STAGE_04_IMPLEMENTATION_GOAL.md`
+- `reviews/stage_04/IMPLEMENTATION_GOAL_DRAFT_ACCEPTANCE.md`
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_PACKET.md`
+
+The implementation-goal draft must define allowed files, forbidden files, subagents, tests, risks, stop conditions, CI/Codex/GPT Pro gates, and explicit implementation boundaries.
+
+Allowed future implementation scope for the draft:
+
+- Extraction schemas.
+- Relation enum.
+- Quote-span validation.
+- No-quote rationale validation.
+- Provenance validation.
+- Deterministic mock LLM adapter.
+- Extraction worker skeleton.
+- Mock-only tests.
+
+Still forbidden until the separate implementation goal is accepted:
+
+- `apps/api/finsignalhub_api/extraction/`
+- `apps/api/tests/test_stage04_extraction.py`
+- `apps/api/tests/fixtures/stage04_extraction/`
+- Runtime extraction schemas.
+- Mock LLM adapter code.
+- Worker code.
+- Real LLM calls.
+- External network calls.
+- Production extraction.
+- Claim graph computation.
+- Research Delta computation.
+- Repro Pack logic.
+- MCP business tools.
+- UI/dashboard behavior.
+- Chatbot/RAG behavior.
+- Stock prediction.
+- Investment advice.
+- Risk Mode.
+- Replay Engine.
+- Auth.
+- Billing.
