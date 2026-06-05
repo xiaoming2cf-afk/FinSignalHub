@@ -190,6 +190,17 @@ Reviewed head `c90dc2b0096ea35232685104d0df61b565bd108d` passed CI and returned 
 
 This deployment evidence file and companion governance records now treat CR-04-020 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
+## CR-04-021 Current-State Status Drift
+
+Reviewed head `ace7b1e8d07bde873c491cbe005e6d2b342a6673` passed CI and returned P2 CR-04-021:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27032354631/job/79787608217
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27032356181/job/79787613232
+- CR-04-021: `CONTROL/24_CURRENT_STAGE_STATE.md` still reported CR-04-020 local remediation in progress after CP-0320/B-0083 recorded local checks passed at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364597040.
+
+This deployment evidence file and companion governance records now treat CR-04-021 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+
 ## GPT Pro
 
 PASS for Stage 04 planning and closeout confirmation. GPT Pro plan response is saved in `reviews/stage_04/GPT_PRO_PLAN_REVIEW_RESPONSE.md`; plan action items are saved in `reviews/stage_04/GPT_PRO_PLAN_ACTION_ITEMS.md`; closeout confirmation is saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_RESPONSE.md`; closeout action items are saved in `reviews/stage_04/GPT_PRO_CLOSEOUT_CONFIRMATION_ACTION_ITEMS.md`. Stage 04 implementation remains unauthorized.

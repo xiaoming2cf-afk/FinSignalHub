@@ -25,6 +25,7 @@ Known reviewed heads:
 - `652aa87264ace91da4ce3ac689d7e75f1e3b2664`: CR-04-016/017/018 after CR-04-015 remediation.
 - `12a9a9e870005d6ae7d3279fa0e1ec938478e931`: CR-04-019 after CR-04-016/017/018 remediation.
 - `c90dc2b0096ea35232685104d0df61b565bd108d`: CR-04-020 after CR-04-019 remediation.
+- `ace7b1e8d07bde873c491cbe005e6d2b342a6673`: CR-04-021 after CR-04-020 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -46,6 +47,7 @@ Known reviewed heads:
 - CR-04-018 / P2: `CONTROL/20_BLOCKER_LOG.md` left B-0079 open after CR-04-014 had already been superseded by B-0080 and then B-0081. Remediation: mark B-0079 and B-0080 superseded/resolved for their own findings and open B-0081 as the current blocker.
 - CR-04-019 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` still named superseded CR-04-015 as the active GitHub Gate 6 blocker after the rest of the Stage 04 closeout evidence advanced to CR-04-016/017/018 and current head `12a9a9e...`. Remediation: update the checklist GitHub row and companion status evidence to make CR-04-019 the active blocker until the remediation head passes live CI and current-head Codex.
 - CR-04-020 / P2: `CONTROL/20_BLOCKER_LOG.md` still reported B-0082 as `open / local remediation in progress` after A-0445 and CP-0318 recorded local checks passed for CR-04-019. Remediation: mark B-0082 superseded by B-0083, track CR-04-020 as the active external blocker, and after local checks mark the blocker as locally remediated with external recheck pending.
+- CR-04-021 / P2: `CONTROL/24_CURRENT_STAGE_STATE.md` still said CR-04-020 local remediation was in progress after CP-0320/B-0083 recorded local checks passed. Remediation: update current-stage state to CR-04-021/B-0084 and keep CR-04-020 as historical resolved evidence until the new head passes live CI/Codex.
 
 ## Required Action
 
@@ -114,7 +116,14 @@ CR-04-019 remediation head `c90dc2b0096ea35232685104d0df61b565bd108d` passed liv
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27031456592/job/79784581193
 - CR-04-020: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364498923
 
-This CR-04-020 remediation is local in the blocker log and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
+CR-04-020 remediation head `ace7b1e8d07bde873c491cbe005e6d2b342a6673` passed live PR #11 CI, then Codex returned CR-04-021:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27032354631/job/79787608217
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27032356181/job/79787613232
+- CR-04-021: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364597040
+
+This CR-04-021 remediation is local in the current-stage state and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
 
 Any later status-only evidence commit must still request current-head review again:
 
