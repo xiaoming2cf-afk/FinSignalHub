@@ -27,6 +27,7 @@ Known reviewed heads:
 - `c90dc2b0096ea35232685104d0df61b565bd108d`: CR-04-020 after CR-04-019 remediation.
 - `ace7b1e8d07bde873c491cbe005e6d2b342a6673`: CR-04-021 after CR-04-020 remediation.
 - `e6ad6b979ddb443dad360110d2e83cd92535c65f`: CR-04-022 after CR-04-021 remediation.
+- `926b24fc59d5bfc7eba11f3f352c72ad6dcde632`: CR-04-023 after CR-04-022 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -50,6 +51,7 @@ Known reviewed heads:
 - CR-04-020 / P2: `CONTROL/20_BLOCKER_LOG.md` still reported B-0082 as `open / local remediation in progress` after A-0445 and CP-0318 recorded local checks passed for CR-04-019. Remediation: mark B-0082 superseded by B-0083, track CR-04-020 as the active external blocker, and after local checks mark the blocker as locally remediated with external recheck pending.
 - CR-04-021 / P2: `CONTROL/24_CURRENT_STAGE_STATE.md` still said CR-04-020 local remediation was in progress after CP-0320/B-0083 recorded local checks passed. Remediation: update current-stage state to CR-04-021/B-0084 and keep CR-04-020 as historical resolved evidence until the new head passes live CI/Codex.
 - CR-04-022 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still pointed the Logs gate evidence at superseded CR-04-019 after the GitHub gate and blocker log had advanced the active blocker to CR-04-021/B-0084. Remediation: make the Logs gate cite `CONTROL/18_ARTIFACT_REGISTRY.md` and `CONTROL/27_CHECKPOINT_LOG.md` as dynamic latest log evidence without naming an obsolete CR, and track B-0085 until the remediation head passes live CI/Codex.
+- CR-04-023 / P2: `CONTROL/24_CURRENT_STAGE_STATE.md` still made `commit/push CR-04-022 remediation` the next required action after reviewed head `926b24f` had already been committed and pushed. Remediation: use live PR #11 routing so unpushed edits run checks and push, while pushed heads wait for CI/Codex instead of repeating completed local steps.
 
 ## Required Action
 
@@ -132,7 +134,14 @@ CR-04-021 remediation head `e6ad6b979ddb443dad360110d2e83cd92535c65f` passed liv
   - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27033268497/job/79790720084
 - CR-04-022: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364694345
 
-This CR-04-022 remediation is local in the acceptance result and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
+CR-04-022 remediation head `926b24fc59d5bfc7eba11f3f352c72ad6dcde632` passed live PR #11 CI, then Codex returned CR-04-023:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27034298374/job/79794262428
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27034300253/job/79794268579
+- CR-04-023: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364786215
+
+This CR-04-023 remediation is local in the current-stage state and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
 
 Any later status-only evidence commit must still request current-head review again:
 
