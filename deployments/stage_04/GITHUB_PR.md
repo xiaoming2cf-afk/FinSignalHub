@@ -94,6 +94,11 @@ PASS for CR-04-014 remediation head `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7`, 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708099738/job/78713116982
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26708100683/job/78713119531
 
+PASS for CR-04-016/017/018 remediation head `12a9a9e870005d6ae7d3279fa0e1ec938478e931`, followed by Codex CR-04-019:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030481771/job/79781297336
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030483670/job/79781302587
+
 Gate 6 is determined by live PR #11 current-head evidence after this deployment source is pushed. Use `gh pr checks 11` and current-head Codex review output; do not create another evidence-only commit only to update this sentence after CI changes.
 
 ## Codex Review
@@ -170,7 +175,11 @@ Reviewed head `652aa87264ace91da4ce3ac689d7e75f1e3b2664` passed CI and returned 
 - CR-04-017: `CONTROL/07_CODEX_GOAL_REGISTRY.md` still routed G-0007 through obsolete CR-04-014 wording at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329979011.
 - CR-04-018: `CONTROL/20_BLOCKER_LOG.md` left B-0079 open after it was superseded at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329979013.
 
-This deployment evidence file and companion governance records now treat CR-04-016/017/018 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
+Reviewed head `12a9a9e870005d6ae7d3279fa0e1ec938478e931` passed CI and returned P2 CR-04-019:
+
+- CR-04-019: `CHECKLISTS/STAGE_04_CHECKLIST.md` still named superseded CR-04-015 as the active GitHub Gate 6 blocker after CR-04-016/017/018 advanced the active blocker set at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364391715.
+
+This deployment evidence file and companion governance records now treat CR-04-019 as the active local remediation. The next live PR #11 head must pass CI and current-head Codex before merge or implementation-goal drafting.
 
 ## GPT Pro
 

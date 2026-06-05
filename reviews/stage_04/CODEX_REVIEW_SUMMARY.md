@@ -23,6 +23,7 @@ Known reviewed heads:
 - `ce570d66f14bfb859b45258ae2195ae604bd78f1`: CR-04-014 after GPT Pro closeout confirmation evidence was saved.
 - `dfbaa5f9efafc1d00662d012ee0d208afc1e2ad7`: CR-04-015 after CR-04-014 remediation.
 - `652aa87264ace91da4ce3ac689d7e75f1e3b2664`: CR-04-016/017/018 after CR-04-015 remediation.
+- `12a9a9e870005d6ae7d3279fa0e1ec938478e931`: CR-04-019 after CR-04-016/017/018 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -42,6 +43,7 @@ Known reviewed heads:
 - CR-04-016 / P2: `PLANS/STAGE_04_PLAN.md` did not explicitly list the existing `reviews/stage_04/README.md` and `deployments/stage_04/README.md` purpose files as Stage 04 delivery evidence, so Codex could still treat the directory README requirement as incomplete. Remediation: add both README files to the plan's allowed-file list and implementation step.
 - CR-04-017 / P2: `CONTROL/07_CODEX_GOAL_REGISTRY.md` still reported G-0007 as blocked by CR-04-014 after later evidence advanced through CR-04-015 and current head `652aa87...`. Remediation: update G-0007's main row and addendum to make CR-04-016/017/018 the current blocker set.
 - CR-04-018 / P2: `CONTROL/20_BLOCKER_LOG.md` left B-0079 open after CR-04-014 had already been superseded by B-0080 and then B-0081. Remediation: mark B-0079 and B-0080 superseded/resolved for their own findings and open B-0081 as the current blocker.
+- CR-04-019 / P2: `CHECKLISTS/STAGE_04_CHECKLIST.md` still named superseded CR-04-015 as the active GitHub Gate 6 blocker after the rest of the Stage 04 closeout evidence advanced to CR-04-016/017/018 and current head `12a9a9e...`. Remediation: update the checklist GitHub row and companion status evidence to make CR-04-019 the active blocker until the remediation head passes live CI and current-head Codex.
 
 ## Required Action
 
@@ -96,7 +98,14 @@ CR-04-015 remediation head `652aa87264ace91da4ce3ac689d7e75f1e3b2664` passed liv
 - CR-04-017: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329979011
 - CR-04-018: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3329979013
 
-This CR-04-016/017/018 remediation is local in the Stage 04 plan, goal registry, blocker log, and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
+CR-04-016/017/018 remediation head `12a9a9e870005d6ae7d3279fa0e1ec938478e931` passed live PR #11 CI, then Codex returned CR-04-019:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030481771/job/79781297336
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27030483670/job/79781302587
+- CR-04-019: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3364391715
+
+This CR-04-019 remediation is local in the Stage 04 checklist and companion governance records. The next pushed head must pass live PR #11 CI and current-head Codex before merge or Stage 04 implementation-goal drafting.
 
 Any later status-only evidence commit must still request current-head review again:
 
