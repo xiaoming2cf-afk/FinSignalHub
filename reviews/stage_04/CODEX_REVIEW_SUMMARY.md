@@ -156,6 +156,18 @@ CR-04-023 is resolved for reviewed remediation head `3864181e1dfcbdf522884e7f78e
 
 This evidence-sync head must still pass live PR #11 CI and current-head Codex after push before Stage 04 implementation-goal drafting.
 
+Evidence-sync head `35b85d6f8a3e4d8bdca3ecc998e257189bf384af` passed live PR #11 CI and Codex returned no-major, but a current unresolved review thread opened CR-04-024:
+
+- CI PASS:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27037008746/job/79803437868
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27037010941/job/79803445432
+- Codex no-major:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635066312
+- CR-04-024:
+  - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365080569
+
+Local remediation changes the checklist and acceptance result so GitHub Gate 6 is a live external gate instead of a self-certified PASS from any prior head. The remediation head must pass live PR #11 CI/Codex and unresolved-thread checks before implementation-goal drafting.
+
 Any later status-only evidence commit must still request current-head review again:
 
 ```text

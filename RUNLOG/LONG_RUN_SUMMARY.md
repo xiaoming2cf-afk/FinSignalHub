@@ -12,10 +12,10 @@ Stage 01 is complete, tagged, and merged. Final evidence commit `ce9bd7c008e1ec5
 
 Stage 02 is complete, tagged, and merged. PR #8 is at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/8 and merged into `main` at `c5124e166eee4a563a0642a4dcd3fd2db128d615` after current-head CI/Codex and GPT Pro gates. The tag `stage-02-domain-models` points at the merge commit. GPT Pro authorized Stage 03 planning only. Stage 03 implementation is not authorized. Foreground visual recovery was suspended after the user requested background operation; standalone background Computer Use is not exposed in the current tool surface and is recorded as B-0027.
 
-Current stage: Stage 04 planning closeout has GPT Pro final recheck PASS on branch `stage/04-evidence-extraction`; implementation is not authorized. Stage 03 is complete, tagged, and merged. PR #11 reviewed closeout head `3864181e1dfcbdf522884e7f78e4cb0815b96966` passed both governance CI jobs, received Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634750469 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4634798507, had unresolved review-thread counts of 0, and GPT Pro returned final closeout recheck PASS. Local checks for this response/action-item evidence-sync head passed at `2026-06-05T14:55:03-05:00`. The evidence-sync head must still pass live PR #11 CI and current-head Codex after push before implementation-goal drafting. Stage 04 implementation remains unauthorized.
+Current stage: Stage 04 planning content and GPT Pro final closeout have PASS evidence on branch `stage/04-evidence-extraction`; implementation is not authorized. Stage 03 is complete, tagged, and merged. PR #11 head `35b85d6f8a3e4d8bdca3ecc998e257189bf384af` passed CI and Codex no-major, but current review thread CR-04-024 found the checklist self-certified GitHub Gate 6 PASS from prior head `3864181...`. B-0087 is active until the remediation head passes live PR #11 CI, current-head Codex, and unresolved-thread count = 0. Stage 04 implementation remains unauthorized.
 
 ## Next expected milestones
 
-1. Commit/push the GPT Pro final closeout recheck evidence-sync head, sync the PR body, wait for PR #11 CI, and request current-head Codex.
-2. If the live PR #11 evidence-sync head receives CI PASS and Codex no-major, draft a separate Stage 04 implementation `/goal` only.
+1. Run local checks for CR-04-024 remediation, commit/push, sync the PR body, wait for PR #11 CI, and request current-head Codex.
+2. If the live PR #11 remediation head receives CI PASS, Codex no-major, and unresolved review threads = 0, draft a separate Stage 04 implementation `/goal` only.
 3. Do not create extraction implementation files until that separate goal is accepted.
