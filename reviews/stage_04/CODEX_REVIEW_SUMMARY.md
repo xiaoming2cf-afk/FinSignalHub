@@ -290,3 +290,28 @@ CR-04-029 is resolved for reviewed implementation head `79ec29a42b9119dbaf5edd1c
 - GPT Pro final implementation review: `VERDICT: PASS`, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`.
 
 The response/action-item save in this patch creates a new evidence-sync head. Before Stage 04 release, merge, tag, or Stage 05 planning handoff, request current-head Codex review again and require live PR #11 CI PASS plus unresolved review threads = 0.
+
+## CR-04-030/031 Final Evidence-Sync Drift
+
+PR #11 response-saving head `50df1296c16a269cad77cf4b98c69810f431f1bc` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27048317256/job/79838719559
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27048316133/job/79838716401
+
+Codex then opened two current-head findings:
+
+- CR-04-030: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366194449
+- CR-04-031: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366194453
+
+Finding summary:
+
+- CR-04-030 found that Stage 05 planning boundaries omitted the required `reviews/stage_05/CODEX_REVIEW_SUMMARY.md` artifact even though every stage must summarize Codex review findings.
+- CR-04-031 found Cycle 0288 still said tests were pending even though CP-0348/B-0094 recorded local checks passed.
+
+Local remediation in this patch:
+
+- Adds `reviews/stage_05/CODEX_REVIEW_SUMMARY.md` to the Stage 05 planning file boundary in both the GPT Pro action-item extraction and `CONTROL/15_NEXT_STAGE_FROM_GPT_PRO.md`.
+- Corrects Cycle 0288 test status to the passed CP-0348/B-0094 evidence.
+- Opens B-0095 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
+
+Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.

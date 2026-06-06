@@ -43,6 +43,7 @@ Allowed Stage 05 planning files:
 - `docs/architecture/stage_05_claim_graph_delta.md`
 - `docs/codex/stage_05_commands.md`
 - `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_05/CODEX_REVIEW_SUMMARY.md`
 - `reviews/stage_05/PR_BODY.md`
 - `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md`
 - `deployments/stage_05/GITHUB_PR.md`
