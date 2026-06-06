@@ -6,7 +6,22 @@ Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-h
 
 ## Current Finding
 
-Current finding B-0105 / CR-04-043: PR #11 head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` passed CI and old review threads were resolved, but Codex opened a P2 finding:
+Current finding B-0106 / CR-04-044: PR #11 head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac` passed CI, but Codex opened a P2 finding:
+
+- CR-04-044 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367912795: the final `RUNLOG/LONG_RUN_CURRENT.md` `Next action` omitted the clean-local-head-not-on-PR branch, so a RunLog-driven operator could skip pushing/syncing a clean but unpushed head and wait on stale evidence for the previous PR head.
+
+Local remediation in this patch:
+
+- Updated the final `RUNLOG/LONG_RUN_CURRENT.md` route so it preserves all three states: dirty worktree means checks plus one commit; clean local head not on PR means push/sync the existing head; PR head equals local HEAD means use live CI, current-head Codex, and unresolved-thread evidence directly.
+- Updated `CONTROL/24_CURRENT_STAGE_STATE.md`, B-0106, A-04-040, A-0504/A-0505, CP-0367/CP-0368, and companion Stage 04 evidence to make CR-04-044 the current hard gate.
+- Ran B-0106 local verification at CP-0368: Stage 04 tests 15/15, phase_check 04, high-confidence secret scan, primary ID uniqueness, final route search, and `git diff --check` passed with only normal Windows line-ending warnings.
+- Stage 05 implementation remains unauthorized.
+
+Required next action: follow the same state-dependent route. If local edits remain, create one checked remediation commit and push it; if the remediation head is already clean but not on PR #11, push/sync it without another commit; if PR #11 already points to the local HEAD, use live PR #11 CI, current-head Codex, and unresolved-thread evidence directly. Stage 05 implementation remains unauthorized.
+
+## Previous Finding
+
+Historical finding B-0105 / CR-04-043: PR #11 head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` passed CI and old review threads were resolved, but Codex opened a P2 finding:
 
 - CR-04-043 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367875896: the bottom `Next valid action` in `CONTROL/24_CURRENT_STAGE_STATE.md` still said to commit/push because local edits existed, which is wrong once the remediation commit is clean or already pushed.
 
@@ -16,9 +31,7 @@ Local remediation in this patch:
 - Opened B-0105 and superseded B-0104.
 - Ran B-0105 local verification at CP-0366: Stage 04 tests 15/15, phase_check 04, high-confidence credential scan, primary ID uniqueness, targeted route-loop search, and `git diff --check` passed.
 
-Required next action: follow the state-dependent route. If local edits remain, create one checked remediation commit and push it; if the remediation head is already clean/pushed, use live PR #11 CI, current-head Codex, and unresolved-thread evidence directly. Stage 05 implementation remains unauthorized.
-
-## Previous Finding
+Required next action for the previous B-0105 path: superseded by B-0106 after Codex reviewed head `cb95156`.
 
 Historical finding B-0104 / CR-04-042: PR #11 head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI, received Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4443334991, and made CR-04-040/041 outdated, but Codex opened a P2 finding:
 
@@ -74,7 +87,7 @@ Required next action for the previous CR-04-039 path: superseded by B-0103 after
 
 ## Findings
 
-Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0105, the CR-04-043 clean-head route remediation gate.
+Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0106, the CR-04-044 final RunLog route remediation gate.
 
 Known reviewed heads:
 

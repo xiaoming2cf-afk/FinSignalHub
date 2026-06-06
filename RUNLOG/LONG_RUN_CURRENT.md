@@ -5466,4 +5466,40 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - GPT Pro status: PASS for current-head reviewed Stage 04 implementation; Stage 05 planning only authorized.
 - Artifacts created: A-0503 and CP-0366.
 - Blockers: B-0105 open / local checks passed / external gate pending.
-- Next action: commit/push B-0105 if local edits remain, sync PR #11 body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
+- Next action: use the full state-dependent route: if local edits remain, run checks, create one remediation commit, push it, and sync PR #11 body; if the worktree is clean and local HEAD is not on PR #11, push/sync that existing head without another commit; if PR #11 already points to local HEAD, skip commits and use live CI, current-head Codex, and unresolved-thread evidence directly.
+
+## Cycle 0304
+
+- Timestamp: 2026-06-06T12:11:04-05:00
+- Files read: PR #11 current head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac`, live CI links, Codex current-head CR-04-044 thread `3367912795`, `RUNLOG/LONG_RUN_CURRENT.md`, `CONTROL/24_CURRENT_STAGE_STATE.md`, and Stage 04 acceptance/checklist/dashboard/PR/deployment/control evidence.
+- Current detected stage is: Stage 04 current-head GPT Pro PASS captured; B-0105 was pushed as head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac`, CI passed, and Codex opened CR-04-044 on the final RunLog route wording.
+- Current detected blocker status is: B-0106 open because the last RunLog `Next action` omitted the clean-local-head-not-on-PR branch, which could make a future operator wait on stale PR evidence for the previous head instead of pushing the already committed head.
+- Next valid action is: patch the final RunLog route so it preserves all three branches, then run local checks and follow state-dependent GitHub routing. If local edits remain, create one checked remediation commit and push; if local HEAD is clean but not on PR #11, push/sync the existing head; if PR #11 already points to local HEAD, use live CI, current-head Codex, and unresolved-thread evidence directly.
+- Skills used: github-review-resolver, phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector, github-stage-deployer.
+- Subagents used: none; this is targeted governance route remediation.
+- Commands/tools run: GitHub CLI PR status and GraphQL review-thread inspection.
+- Files changed: pending B-0106 governance route remediation in RunLog, current-state, blocker/action/artifact/checkpoint, review, acceptance, dashboard, PR, and deployment evidence.
+- Tests run: pending for B-0106.
+- GitHub status: PR #11 head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac` has CI PASS, but Codex opened CR-04-044 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367912795 and unresolved review threads are not zero until this finding is resolved or made outdated by a pushed fix.
+- GPT Pro status: PASS for current-head reviewed Stage 04 implementation; Stage 05 planning only authorized after live Gate 6 refresh.
+- Artifacts created: A-0504 and CP-0367 drafted.
+- Blockers: B-0106 open / local remediation drafted / local checks pending.
+- Next action: run local checks, then use the full state-dependent route: if local edits remain, create one checked remediation commit and push it; if the worktree is clean and local HEAD is not on PR #11, push/sync that existing head without another commit; if PR #11 already points to local HEAD, skip commits and use live CI, current-head Codex, and unresolved-thread evidence directly.
+
+## Cycle 0305
+
+- Timestamp: 2026-06-06T12:18:21-05:00
+- Files read: B-0106 remediation files, local check outputs, Stage 04 acceptance/checklist/dashboard/PR/deployment/control evidence, and RunLog summary.
+- Current detected stage is: Stage 04 current-head GPT Pro PASS captured; B-0106 local checks passed and external Gate 6 is pending after push.
+- Current detected blocker status is: B-0106 open because live PR #11 must still verify the remediation head with CI, current-head Codex no-major, and unresolved review threads = 0.
+- Next valid action is: follow state-dependent routing. If local edits remain, create one checked remediation commit and push; if local HEAD is clean and not on PR #11, push/sync the existing head; if PR #11 already points to local HEAD, use live CI, current-head Codex, and unresolved-thread evidence directly.
+- Skills used: phase-gate-auditor, codex-log-keeper, acceptance-evidence-collector, github-stage-deployer.
+- Subagents used: none; this is targeted CR-04-044 route remediation verification.
+- Commands/tools run: Stage 04 pytest; phase_check 04; primary ID uniqueness; high-confidence secret scan; final RunLog route search; `git diff --check`.
+- Files changed: `RUNLOG/LONG_RUN_CURRENT.md`, `CONTROL/24_CURRENT_STAGE_STATE.md`, `CONTROL/20`, `CONTROL/25`, `CONTROL/18`, `CONTROL/27`, `CONTROL/04`, `CONTROL/07`, Stage 04 checklist, dashboard, PR body, deployment, Codex summary, acceptance result, and RunLog summary.
+- Tests run: PASS at 2026-06-06T12:18:21-05:00: Stage 04 tests passed 15/15, phase_check 04 passed, primary artifact/checkpoint/blocker IDs are unique, high-confidence secret scan had no matches, final RunLog tail includes the clean-local-head-not-on-PR and PR-head-equals-local-HEAD branches, and `git diff --check` had only normal Windows line-ending warnings.
+- GitHub status: PR #11 head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac` CI PASS but Codex CR-04-044 open; B-0106 remediation has local checks PASS and is not yet pushed.
+- GPT Pro status: PASS for current-head reviewed Stage 04 implementation; Stage 05 planning only authorized after live Gate 6 refresh.
+- Artifacts created: A-0505 and CP-0368.
+- Blockers: B-0106 open / local checks passed / external gate pending.
+- Next action: follow the full state-dependent route: if local edits remain, create one checked remediation commit and push it; if the worktree is clean and local HEAD is not on PR #11, push/sync that existing head without another commit; if PR #11 already points to local HEAD, skip commits and use live CI, current-head Codex, and unresolved-thread evidence directly.
