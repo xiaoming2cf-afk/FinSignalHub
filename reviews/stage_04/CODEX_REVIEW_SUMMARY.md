@@ -314,7 +314,7 @@ Local remediation in this patch:
 - Corrects Cycle 0288 test status to the passed CP-0348/B-0094 evidence.
 - Opens B-0095 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
-Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: historical, superseded by the later CR-04-032, CR-04-033, and CR-04-034 gate chain. Use the latest blocker row, currently B-0098.
 
 ## CR-04-033 Superseded Blocker Status Drift
 
@@ -340,7 +340,37 @@ Local remediation in this patch:
 - Opens B-0097 as the single current hard gate for the CR-04-033 remediation.
 - Updates Stage 04 current-state, dashboard, acceptance, checklist, PR body, RunLog, artifact, checkpoint, and goal-registry evidence to point to B-0097.
 
-Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: superseded by CR-04-034 after remediation head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` was pushed, passed CI, and Codex found stale completed-step routing in `CONTROL/24_CURRENT_STAGE_STATE.md`.
+
+## CR-04-034 Current-State Completed-Step Route
+
+PR #11 remediation head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051162520/job/79846904841
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051163538/job/79846908385
+
+Codex opened CR-04-034:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366544958
+
+Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` still told the next operator to commit and push the CR-04-033 blocker-status patch even though that patch was already committed, pushed, and reviewed as PR #11 head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5`.
+
+Local remediation in this patch:
+
+- Supersedes B-0097 with B-0098 as the single current Stage 04 hard gate.
+- Replaces fixed completed-step wording in `CONTROL/24_CURRENT_STAGE_STATE.md` with conditional live PR routing.
+- Updates Stage 04 dashboard, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
+- Keeps Stage 05 implementation unauthorized.
+
+Local verification:
+
+- `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` passed.
+- `python -m pytest apps\api\tests\test_stage04_extraction.py -q` passed 13/13.
+- High-confidence credential scan had no matches.
+- Artifact, checkpoint, and blocker row IDs are unique.
+- `git diff --check` had only normal Windows line-ending warnings.
+
+Required next action: push this remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
 ## CR-04-032 RunLog Cycle Targeting
 
@@ -361,4 +391,4 @@ Local remediation in this patch:
 - Updates Cycle 0288 to the CP-0348/B-0094 passed-check evidence.
 - Opens B-0096 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
-Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: historical, superseded by CR-04-033 and CR-04-034. Use the latest blocker row, currently B-0098.

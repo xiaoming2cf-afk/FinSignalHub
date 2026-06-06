@@ -336,4 +336,17 @@ PR #11 head `72c5669cd315bcbe3855de0df10177ccbceb5b02` passed live CI:
 
 Codex returned current-head no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4636911774, but review-thread inspection opened CR-04-033 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366309884 because B-0094 and B-0095 still appeared open after B-0096 became current.
 
-This patch marks B-0094 and B-0095 superseded, marks B-0096 superseded by B-0097, and records B-0097 as the single current Stage 04 hard gate. Gate 6 remains blocked until this remediation head is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+This patch marks B-0094 and B-0095 superseded, marks B-0096 superseded by B-0097, and records B-0097 as the single Stage 04 hard gate for that head. The pushed CR-04-033 remediation head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` passed PR #11 CI, but Codex opened CR-04-034 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed the next operator to an already-completed commit/push step.
+
+## CR-04-034 Current-State Route Remediation
+
+PR #11 head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051162520/job/79846904841
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051163538/job/79846908385
+
+Codex opened CR-04-034:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366544958
+
+This remediation replaces fixed completed-step wording with conditional live PR routing. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
