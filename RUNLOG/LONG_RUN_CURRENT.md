@@ -5327,8 +5327,8 @@ Append-only current run log for FinSignalHub autonomous sessions.
 ## Cycle 0296
 
 - Timestamp: 2026-06-05T23:59:41-05:00
-- Files read: current-head Codex review for `cde2335cb59f9903b2576c40c3ef8800750512b8`, clean-head route thread `3366680304`, `CONTROL/24_CURRENT_STAGE_STATE.md`, latest RunLog, Stage 04 review/control files.
-- Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `cde2335cb59f9903b2576c40c3ef8800750512b8` passed CI and received current-head Codex review, but Codex opened a clean-head route follow-up because the latest current-state source still said to `commit/push` when the reviewed head was already committed and clean.
+- Files read: current-head Codex review for `bdc875c9105cba3feed8ca1c65926ea8cee623c4`, clean-head route thread `3366700488`, `CONTROL/24_CURRENT_STAGE_STATE.md`, latest RunLog, Stage 04 review/control files.
+- Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `bdc875c9105cba3feed8ca1c65926ea8cee623c4` passed CI and received current-head Codex review, but Codex opened a clean-head route follow-up because the latest current-state source still pointed operators at the superseded acceptance-result consistency head.
 - Current detected blocker status is: B-0100 remains the only current Stage 04 hard gate. This follow-up changes route wording only and does not open B-0101.
 - Next valid action is: run local checks for this route-wording patch, then publish or verify the clean-head route head. Commit once only if local edits exist; once clean and pushed, sync PR body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
 - Skills used: github-review-resolver, codex-log-keeper, phase-gate-auditor, acceptance-evidence-collector, github-stage-deployer.
@@ -5336,7 +5336,7 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Commands/tools run: GitHub GraphQL review-thread query; local file search; targeted governance patch.
 - Files changed: `CONTROL/24_CURRENT_STAGE_STATE.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `CONTROL/18`, `CONTROL/27`, `CONTROL/04`, `CONTROL/07`, and RunLog files.
 - Tests run: PASS at 2026-06-05T23:59:41-05:00: `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` -> pass; `python -m pytest apps\api\tests\test_stage04_extraction.py -q` -> 13 passed; route-regression search for latest current-state wording -> no current-state hit; `git diff --check` -> only normal Windows line-ending warnings.
-- GitHub status: PR #11 head `cde2335cb59f9903b2576c40c3ef8800750512b8` has CI PASS and current-head Codex review, but active review threads remain until this route-wording fix is pushed and reviewed.
+- GitHub status: PR #11 head `bdc875c9105cba3feed8ca1c65926ea8cee623c4` has CI PASS and current-head Codex review, but active review threads remain until this route-wording fix is pushed and reviewed.
 - GPT Pro status: PASS for reviewed Stage 04 implementation head; Stage 05 planning only authorized after current-head live gates pass.
 - Artifacts created: A-0491 and CP-0356.
 - Blockers: B-0100 local checks passed; external gate pending after push.
