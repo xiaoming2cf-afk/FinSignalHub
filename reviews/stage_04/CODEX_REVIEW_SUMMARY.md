@@ -9,7 +9,8 @@ Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-h
 Current finding B-0106 / CR-04-044: PR #11 head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac` passed CI, but Codex opened a P2 finding:
 
 - CR-04-044 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367912795: the final `RUNLOG/LONG_RUN_CURRENT.md` `Next action` omitted the clean-local-head-not-on-PR branch, so a RunLog-driven operator could skip pushing/syncing a clean but unpushed head and wait on stale evidence for the previous PR head.
-- CR-04-045 follow-up at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367938285: after the first B-0106 patch, the active B-0106 blocker row still said to create a commit because local edits remain, which could again make a clean-but-unpushed head create another evidence-only commit instead of being pushed/synced.
+- CR-04-045 follow-up at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367938285: after the first B-0106 patch, the active B-0106 blocker row still used dirty-worktree-only wording, which could again make a clean-but-unpushed head create another evidence-only commit instead of being pushed/synced.
+- CR-04-046/047 follow-up at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367958079 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367958080: after the B-0106 blocker-row follow-up, the acceptance result and PR body still treated `cb95156a...` / CR-04-044 / CP-0368 as the current Gate 6 evidence instead of the newer B-0106 live-head route.
 
 Local remediation in this patch:
 
@@ -17,6 +18,7 @@ Local remediation in this patch:
 - Updated `CONTROL/24_CURRENT_STAGE_STATE.md`, B-0106, A-04-040, A-0504/A-0505, CP-0367/CP-0368, and companion Stage 04 evidence to make CR-04-044 the current hard gate.
 - Ran B-0106 local verification at CP-0368: Stage 04 tests 15/15, phase_check 04, high-confidence secret scan, primary ID uniqueness, final route search, and `git diff --check` passed with only normal Windows line-ending warnings.
 - Updated the B-0106 blocker/action evidence for CR-04-045 so the blocker row, checkpoint, goal addendum, deployment note, and acceptance evidence all use the full state-dependent route. Follow-up checks passed at CP-0369: phase_check 04, primary ID uniqueness, targeted single-route search, and `git diff --check`.
+- Updated acceptance result, PR body, dashboard, checklist, current-state, and blocker evidence for CR-04-046/047 so final Gate 6 uses the live PR #11 head after the latest B-0106 evidence-sync patch rather than fixed historical heads. Follow-up checks passed at CP-0370: phase_check 04, primary ID uniqueness, targeted fixed-head current-gate search, and `git diff --check`.
 - Stage 05 implementation remains unauthorized.
 
 Required next action: follow the same state-dependent route. If local edits remain, create one checked remediation commit and push it; if the remediation head is already clean but not on PR #11, push/sync it without another commit; if PR #11 already points to the local HEAD, use live PR #11 CI, current-head Codex, and unresolved-thread evidence directly. Stage 05 implementation remains unauthorized.
