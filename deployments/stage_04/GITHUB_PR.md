@@ -448,3 +448,20 @@ Codex opened:
 - CR-04-041: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797873
 
 This remediation removes internal gate bookkeeping from `CHANGELOG.md` and updates `CONTROL/24_CURRENT_STAGE_STATE.md` so the next action is the remaining live Gate 6 refresh rather than completed local checks. Local checks passed at CP-0361. B-0103 remains blocked until this remediation head passes live CI, current-head Codex no-major, and unresolved review threads = 0.
+
+## CR-04-042 Pushed-Head Route Wording Gate
+
+PR #11 B-0103 remediation head `3fcc0581daf0d297472effa866a33cb977a9416d` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27067545239/job/79890923978
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27067546381/job/79890927026
+
+Codex reviewed the head:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4443334991
+
+Codex opened:
+
+- CR-04-042: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367832062
+
+This remediation changes `CONTROL/24_CURRENT_STAGE_STATE.md` to conditional live PR routing so pushed clean heads use live CI/Codex/thread evidence directly instead of creating another evidence-only commit. Local checks passed at CP-0363 and final evidence sync checks passed at CP-0364. B-0104 remains blocked until this remediation head is pushed and passes live CI, current-head Codex no-major, and unresolved review threads = 0.

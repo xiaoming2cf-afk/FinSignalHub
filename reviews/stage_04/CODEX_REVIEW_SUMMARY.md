@@ -6,7 +6,21 @@ Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-h
 
 ## Current Finding
 
-Current finding B-0103 / CR-04-040/041: PR #11 head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened two P2 findings:
+Current finding B-0104 / CR-04-042: PR #11 head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI, received Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4443334991, and made CR-04-040/041 outdated, but Codex opened a P2 finding:
+
+- CR-04-042 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367832062: `CONTROL/24_CURRENT_STAGE_STATE.md` still routed the already-pushed B-0103 remediation head through another unconditional commit/push step.
+
+Local remediation in this patch:
+
+- Updated `CONTROL/24_CURRENT_STAGE_STATE.md` to conditional live PR routing: commit/push only when local edits exist; once clean at the PR head, use live CI, current-head Codex, and unresolved-thread evidence directly.
+- Opened B-0104 and superseded B-0103.
+- Ran B-0104 local verification at CP-0363 and final evidence sync checks at CP-0364: Stage 04 tests 15/15, phase_check 04, high-confidence credential scan, ID uniqueness, targeted stale-current-gate search, and `git diff --check` passed.
+
+Required next action: commit/push the B-0104 route remediation once because local edits exist and CP-0363/CP-0364 local checks passed, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0. Stage 05 implementation remains unauthorized.
+
+## Previous Finding
+
+Historical finding B-0103 / CR-04-040/041: PR #11 head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened two P2 findings:
 
 - CR-04-040 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797871: `CHANGELOG.md` recorded internal gate bookkeeping, which violates the user-visible-only changelog rule.
 - CR-04-041 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797873: `CONTROL/24_CURRENT_STAGE_STATE.md` still said final merge/tag waits on local checks even though CP-0359 and B-0102 already recorded local checks passed.
@@ -18,9 +32,9 @@ Local remediation in this patch:
 - Opened B-0103 and superseded B-0102.
 - Ran B-0103 local verification at CP-0361: Stage 04 tests 15/15, phase_check 04, high-confidence credential scan, ID uniqueness, and `git diff --check` passed.
 
-Required next action: commit and push the CR-04-040/041 remediation once, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0. Stage 05 implementation remains unauthorized.
+Required next action for the previous B-0103 path: superseded by B-0104 after Codex reviewed head `3fcc058`.
 
-## Previous Finding
+## Earlier Finding
 
 Historical trigger: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI and received current-head Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872, but Codex opened https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417 because locator-only `QuoteSpanCandidate` values could accept arbitrary `quoted_evidence_span.text` without matching `document_text`.
 
@@ -47,7 +61,7 @@ Required next action for the previous CR-04-039 path: superseded by B-0103 after
 
 ## Findings
 
-Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0103, the CR-04-040/041 remediation gate.
+Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0104, the CR-04-042 route-loop remediation gate.
 
 Known reviewed heads:
 

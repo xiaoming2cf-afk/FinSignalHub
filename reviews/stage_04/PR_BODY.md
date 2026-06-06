@@ -39,6 +39,7 @@ Not included:
 - PASS: `git diff --check` had only normal Windows line-ending warnings.
 - PASS for B-0102 evidence-sync: Stage 04 tests 15/15, compileall, phase check, high-confidence credential scan, artifact/checkpoint/blocker ID uniqueness, and `git diff --check`.
 - PASS for B-0103 CR-04-040/041 remediation: Stage 04 tests 15/15, phase check, high-confidence credential scan, artifact/checkpoint/blocker ID uniqueness, and `git diff --check`.
+- PASS for B-0104 CR-04-042 route remediation: Stage 04 tests 15/15, phase check, high-confidence credential scan, artifact/checkpoint/blocker ID uniqueness, targeted stale-current-gate search, and `git diff --check`.
 
 ## Review
 
@@ -50,7 +51,9 @@ After pushing the implementation head, request:
 
 GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Later governance-only CR-04-030 through CR-04-038 findings are historical. CR-04-039 locator-only quote validation was remediated, pushed, passed live CI/Codex/thread gates as PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`, and GPT Pro returned current-head PASS.
 
-Current follow-up B-0103: PR #11 evidence-sync head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened CR-04-040/041 because `CHANGELOG.md` contained internal gate bookkeeping and `CONTROL/24_CURRENT_STAGE_STATE.md` still routed next work through completed local checks. This patch removes the changelog entry, updates current-state routing, and passed CP-0361 local checks. The remediation head must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+Previous follow-up B-0103: PR #11 evidence-sync head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened CR-04-040/041 because `CHANGELOG.md` contained internal gate bookkeeping and `CONTROL/24_CURRENT_STAGE_STATE.md` still routed next work through completed local checks. That patch removed the changelog entry, updated current-state routing, passed CP-0361 local checks, was pushed as head `3fcc0581daf0d297472effa866a33cb977a9416d`, passed CI, and was superseded by B-0104 after Codex opened CR-04-042.
+
+Current follow-up B-0104: PR #11 B-0103 remediation head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI and made CR-04-040/041 outdated, but Codex opened CR-04-042 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed an already-pushed head through another unconditional commit/push step. This patch changes the current-state route to conditional live PR routing: commit/push only if local edits exist; once clean at the PR head, use live CI, current-head Codex, and unresolved-thread status directly. Local checks passed at CP-0363 and final evidence sync checks passed at CP-0364; the remediation now needs live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 after push.
 
 ## Current Gate Status
 
@@ -62,6 +65,6 @@ Current follow-up B-0103: PR #11 evidence-sync head `00e28d697ac292ac000b91e3839
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: BLOCKED by B-0103. Head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened CR-04-040/041. The B-0103 remediation passed local checks and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+- Implementation GitHub/Codex status: BLOCKED by B-0104. Head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI, but Codex opened CR-04-042. The B-0104 remediation passed local checks at CP-0363 and final evidence sync checks at CP-0364, and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 after push before merge/tag.
 - GPT Pro final implementation status: PASS for reviewed head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`. Current-head response: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.
