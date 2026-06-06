@@ -55,6 +55,8 @@ Previous follow-up B-0103: PR #11 evidence-sync head `00e28d697ac292ac000b91e383
 
 Current follow-up B-0104: PR #11 B-0103 remediation head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI and made CR-04-040/041 outdated, but Codex opened CR-04-042 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed an already-pushed head through another unconditional commit/push step. This patch changes the current-state route to conditional live PR routing: commit/push only if local edits exist; once clean at the PR head, use live CI, current-head Codex, and unresolved-thread status directly. Local checks passed at CP-0363 and final evidence sync checks passed at CP-0364; the remediation now needs live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 after push.
 
+Current follow-up B-0105: PR #11 B-0104 remediation head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` passed CI and old unresolved review threads were resolved, but Codex opened CR-04-043 because the bottom `CONTROL/24_CURRENT_STAGE_STATE.md` route still assumed local edits existed after commit/push. This patch changes that route to a clean/dirty/head state machine and passed CP-0366 local checks. It must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+
 ## Current Gate Status
 
 - Stage 03: merged at `13ee0a0bc497578b235662ea60c9aa225c62e53f` and tagged `stage-03-source-connectors`.
@@ -65,6 +67,6 @@ Current follow-up B-0104: PR #11 B-0103 remediation head `3fcc0581daf0d297472eff
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: BLOCKED by B-0104. Head `3fcc0581daf0d297472effa866a33cb977a9416d` passed CI, but Codex opened CR-04-042. The B-0104 remediation passed local checks at CP-0363 and final evidence sync checks at CP-0364, and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 after push before merge/tag.
+- Implementation GitHub/Codex status: BLOCKED by B-0105. Head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` passed CI and old unresolved review threads were resolved, but Codex opened CR-04-043. The B-0105 remediation passed local checks at CP-0366 and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 - GPT Pro final implementation status: PASS for reviewed head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`. Current-head response: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.

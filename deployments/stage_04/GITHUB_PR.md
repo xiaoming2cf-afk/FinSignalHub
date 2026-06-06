@@ -464,4 +464,17 @@ Codex opened:
 
 - CR-04-042: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367832062
 
-This remediation changes `CONTROL/24_CURRENT_STAGE_STATE.md` to conditional live PR routing so pushed clean heads use live CI/Codex/thread evidence directly instead of creating another evidence-only commit. Local checks passed at CP-0363 and final evidence sync checks passed at CP-0364. B-0104 remains blocked until this remediation head is pushed and passes live CI, current-head Codex no-major, and unresolved review threads = 0.
+This remediation changed `CONTROL/24_CURRENT_STAGE_STATE.md` to conditional live PR routing so pushed clean heads use live CI/Codex/thread evidence directly instead of creating another evidence-only commit. Local checks passed at CP-0363 and final evidence sync checks passed at CP-0364. The B-0104 head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` was pushed, passed live CI, and old unresolved threads were resolved before Codex opened CR-04-043. B-0104 is superseded by B-0105.
+
+## CR-04-043 Clean-Head Route Wording Gate
+
+PR #11 B-0104 remediation head `7f5507f076ad7dd2970b7e39d1208c62c42b10f3` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27068073150/job/79892334581
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27068074372/job/79892337623
+
+Old unresolved review threads were resolved, but Codex opened:
+
+- CR-04-043: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367875896
+
+This remediation changes the bottom `CONTROL/24_CURRENT_STAGE_STATE.md` route to a clean/dirty/head state machine. Local checks passed at CP-0366. B-0105 remains blocked until this remediation is pushed if local edits exist, passes live CI, receives current-head Codex no-major, and reaches unresolved review threads = 0.
