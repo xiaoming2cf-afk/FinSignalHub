@@ -6,7 +6,21 @@ Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-h
 
 ## Current Finding
 
-Current evidence-sync gate B-0102: CR-04-039 was accepted for PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`, which had CI PASS, current-head Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366792105, unresolved review threads = 0, and GPT Pro current-head PASS. This file now records the response-saving evidence patch; that new head needs a fresh current-head Codex review after push.
+Current finding B-0103 / CR-04-040/041: PR #11 head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed CI, but Codex opened two P2 findings:
+
+- CR-04-040 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797871: `CHANGELOG.md` recorded internal gate bookkeeping, which violates the user-visible-only changelog rule.
+- CR-04-041 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797873: `CONTROL/24_CURRENT_STAGE_STATE.md` still said final merge/tag waits on local checks even though CP-0359 and B-0102 already recorded local checks passed.
+
+Local remediation in this patch:
+
+- Removed the internal Stage 04 gate bookkeeping entry from `CHANGELOG.md`.
+- Updated `CONTROL/24_CURRENT_STAGE_STATE.md` so next work routes to the remaining live Gate 6 refresh, not another local verification cycle.
+- Opened B-0103 and superseded B-0102.
+- Ran B-0103 local verification at CP-0361: Stage 04 tests 15/15, phase_check 04, high-confidence credential scan, ID uniqueness, and `git diff --check` passed.
+
+Required next action: commit and push the CR-04-040/041 remediation once, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0. Stage 05 implementation remains unauthorized.
+
+## Previous Finding
 
 Historical trigger: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI and received current-head Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872, but Codex opened https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417 because locator-only `QuoteSpanCandidate` values could accept arbitrary `quoted_evidence_span.text` without matching `document_text`.
 
@@ -29,11 +43,11 @@ Local verification:
 - `CONTROL/18`, `CONTROL/20`, and `CONTROL/27` row IDs are unique.
 - `git diff --check` had only normal Windows line-ending warnings.
 
-Required next action: run local checks for the current-head GPT Pro response-saving patch, commit and push once, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0. Stage 05 implementation remains unauthorized.
+Required next action for the previous CR-04-039 path: superseded by B-0103 after Codex reviewed response-saving head `00e28d6`.
 
 ## Findings
 
-Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0102, the response-saving evidence-sync live gate for the next pushed PR #11 head.
+Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0103, the CR-04-040/041 remediation gate.
 
 Known reviewed heads:
 

@@ -434,3 +434,17 @@ GPT Pro returned current-head Stage 04 PASS and authorized Stage 05 planning onl
 - `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`
 
 This evidence-sync patch creates a new PR #11 head. B-0102 / Gate 6 remains blocked until that new head passes live CI, current-head Codex no-major, and unresolved review threads = 0.
+
+## CR-04-040/041 Final Evidence-Sync Docs Gate
+
+PR #11 evidence-sync head `00e28d697ac292ac000b91e3839f1d8cd5367a93` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27067029778/job/79889573336
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27067030768/job/79889575917
+
+Codex opened:
+
+- CR-04-040: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797871
+- CR-04-041: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367797873
+
+This remediation removes internal gate bookkeeping from `CHANGELOG.md` and updates `CONTROL/24_CURRENT_STAGE_STATE.md` so the next action is the remaining live Gate 6 refresh rather than completed local checks. Local checks passed at CP-0361. B-0103 remains blocked until this remediation head passes live CI, current-head Codex no-major, and unresolved review threads = 0.
