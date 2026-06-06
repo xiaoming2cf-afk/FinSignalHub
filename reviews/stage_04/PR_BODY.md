@@ -12,7 +12,7 @@ Included:
 
 - Candidate schemas for evidence text, quote spans, no-quote rationale, relation labels, confidence, provenance, tool-call lineage, and candidate-only output.
 - Bounded Stage 04 relation enum.
-- Exact quote-span validation against fixture document text.
+- Exact quote-span validation against fixture document text, including locator-only spans that must still match source text.
 - No-quote rationale validation for metadata-only inputs.
 - Provenance validation between normalized document payloads and candidates.
 - Deterministic mock model output from fixtures only.
@@ -29,9 +29,9 @@ Not included:
 
 ## Local Checks
 
-- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
-- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
-- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 15 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 39 passed.
+- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 91 passed.
 - PASS: `python -m compileall apps/api/finsignalhub_api`.
 - PASS: `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
 - PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
@@ -46,9 +46,9 @@ After pushing the implementation head, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Head `0a8b8306c52a7147114efcf98dffa2dd9baa87fb` passed live CI and received current-head Codex review after CR-04-035 remediation, but CR-04-036 found stale current-head labeling in `CONTROL/19_STAGE_DASHBOARD.md`. This remediation patch passed local checks and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Later governance-only CR-04-030 through CR-04-038 findings are historical and superseded by the current B-0101 / CR-04-039 locator-only quote validation gate.
 
-Current B-0100 follow-up: head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed CI and received current-head Codex review, but Codex found residual B-0099/CR-04-035 current-gate wording in `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`. This patch keeps B-0100 as the only current Stage 04 hard gate and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+Current B-0101 follow-up: head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed CI and received current-head Codex review, but Codex found locator-only quote spans could accept arbitrary `quoted_evidence_span.text` without matching `document_text`. This patch makes locator-only quote text require source-text presence, adds direct and worker-level regression tests, and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 
 ## Current Gate Status
 
@@ -60,6 +60,6 @@ Current B-0100 follow-up: head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed CI and received current-head Codex review, but Codex found acceptance-result B-0100 consistency follow-ups; this remediation patch passed local checks and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed CI and received current-head Codex review, but Codex found CR-04-039 locator-only quote validation; this remediation patch passed local checks and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 - GPT Pro final implementation status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Full response: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.

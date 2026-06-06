@@ -97,6 +97,55 @@ def test_quote_span_validation_accepts_exact_offsets() -> None:
     )
 
 
+def test_quote_span_validation_accepts_locator_text_present_in_document() -> None:
+    validate_quote_span(
+        "alpha beta gamma",
+        QuoteSpanCandidate(text="beta", locator="section-1"),
+    )
+
+
+def test_worker_rejects_locator_only_quote_text_absent_from_document(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    request = _request_from_fixture("normalized_document_with_text.json")
+    fabricated_span = QuoteSpanCandidate(
+        text="This fabricated quote does not appear in the source text.",
+        locator=request.document.locator,
+    )
+
+    def fake_extract(self, *, document, document_text, tool_call_lineage, tool_call_id):  # noqa: ANN001, ANN202
+        return [
+            EvidenceCandidate.from_document(
+                document=document,
+                candidate_id="evcand-fabricated-locator-only",
+                evidence_text=fabricated_span.text,
+                relation_type=ExtractionRelationType.OBSERVATION,
+                confidence=0.5,
+                tool_call_lineage=tool_call_lineage,
+                quoted_evidence_span=fabricated_span,
+                tool_call_id=tool_call_id,
+                transformation_notes=(
+                    "Stage 04 regression fixture for locator-only quote span validation."
+                ),
+            )
+        ]
+
+    monkeypatch.setattr(
+        "finsignalhub_api.extraction.worker.DeterministicMockExtractor.extract",
+        fake_extract,
+    )
+
+    with pytest.raises(EvidenceExtractionValidationError) as error:
+        run_mock_extraction(request)
+
+    assert error.value.deterministic_error() == {
+        "error": "evidence_candidate_validation_error",
+        "code": "quote_span_mismatch",
+        "field_name": "quoted_evidence_span.text",
+        "message": "quote span text is not present in document text",
+    }
+
+
 def test_no_quote_candidate_requires_rationale() -> None:
     request = _request_from_fixture("normalized_document_metadata_only.json")
 

@@ -397,4 +397,21 @@ Codex opened two acceptance-result consistency follow-ups:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366640068
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366642831
 
-This remediation keeps B-0100 as the only current Stage 04 hard gate and removes residual B-0099/CR-04-035 current-gate wording from `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+This historical remediation kept B-0100 as the hard gate for the acceptance-result consistency follow-up and removed residual B-0099/CR-04-035 current-gate wording from `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`. It is superseded by B-0101 / CR-04-039.
+
+## CR-04-039 Locator-Only Quote Validation Remediation
+
+PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053632417/job/79853644310
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053633363/job/79853646659
+
+Codex review for that head:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872
+
+Codex opened CR-04-039:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417
+
+This remediation makes locator-only quote spans require `quoted_evidence_span.text` to be present in `document_text` and adds direct plus worker-level regression coverage. Gate 6 remains blocked until this remediation head is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

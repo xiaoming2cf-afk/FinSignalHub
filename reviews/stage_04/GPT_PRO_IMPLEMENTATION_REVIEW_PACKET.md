@@ -25,11 +25,13 @@ Local implementation added:
 - `apps/api/tests/fixtures/stage04_extraction/`
 - Stage 04 docs, subagent logs, review artifacts, deployment evidence, and control logs.
 
+Current remediation addendum: CR-04-039 makes locator-only quote spans require `quoted_evidence_span.text` to be present in `document_text`, so page/section/locator metadata cannot carry fabricated quote text when source text is available.
+
 ## Local Test Results
 
-- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 13 passed.
-- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 37 passed.
-- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 89 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage04_extraction.py -q` -> 15 passed.
+- PASS: `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` -> 39 passed.
+- PASS: `python -m pytest apps/api/tests -q --maxfail=1` -> 91 passed.
 - PASS: `python -m compileall apps/api/finsignalhub_api`.
 - PASS: `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04`.
 - PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
@@ -54,7 +56,19 @@ Codex then opened CR-04-029 because whitespace-only `no_quote_reason` values wer
 
 - CR-04-029: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3365704957
 
-Local remediation now strips `no_quote_reason`, rejects blank values, and adds `test_no_quote_candidate_rejects_blank_rationale`. This packet must be refreshed again with the pushed remediation commit, live CI links, current-head Codex response, and unresolved thread count before final GPT Pro PASS can close the stage.
+Local remediation stripped `no_quote_reason`, rejected blank values, added `test_no_quote_candidate_rejects_blank_rationale`, passed PR #11 CI and Codex, and received GPT Pro final implementation PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`.
+
+Subsequent evidence-sync/governance remediations were reviewed through current head `621ed6c029bdef3663f19faf85b6f58f8375d1b9`, which passed CI:
+
+- CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053632417/job/79853644310
+- CI: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053633363/job/79853646659
+- Codex review: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872
+
+Codex opened CR-04-039:
+
+- CR-04-039: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417
+
+Local remediation now validates locator-only quote text against `document_text`, adds `test_quote_span_validation_accepts_locator_text_present_in_document`, and adds `test_worker_rejects_locator_only_quote_text_absent_from_document`. This packet must be submitted again to GPT Pro only after the CR-04-039 remediation head is pushed, PR #11 CI passes, current-head Codex returns no-major, and unresolved review threads = 0.
 
 ## Requested GPT Pro Judgment
 
@@ -76,7 +90,7 @@ Response file: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`
 
 Action items file: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`
 
-Verdict: PASS for reviewed PR #11 head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`.
+Verdict: PASS for reviewed PR #11 head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; B-0101 / CR-04-039 remediation requires a fresh live GitHub/Codex gate and GPT Pro confirmation before Stage 04 merge/tag.
 
 Important closeout rule from GPT Pro: this response/action-item save is evidence-only. If it creates a new commit, rerun CI and current-head Codex before merge/tag.
 

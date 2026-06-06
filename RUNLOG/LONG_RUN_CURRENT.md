@@ -5293,7 +5293,7 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Timestamp: 2026-06-05T23:20:46-05:00
 - Files read: PR #11 live state, current-head Codex review for `0a8b8306c52a7147114efcf98dffa2dd9baa87fb`, CR-04-036 review thread, `CONTROL/19_STAGE_DASHBOARD.md`, Stage 04 acceptance/checklist/current-state/dashboard/PR body/deployment/blocker/action/control files, and RunLog summary.
 - Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `0a8b8306c52a7147114efcf98dffa2dd9baa87fb` passed CI and current-head Codex review, but Codex opened CR-04-036 on stale current-head label wording.
-- Current detected blocker status is: B-0100 open because `CONTROL/19_STAGE_DASHBOARD.md` still said CI was `PASS for current head ee1fe37` while the actual reviewed PR head for CR-04-035 remediation was `0a8b830`.
+- Current detected blocker status at that historical cycle was: B-0100 was open because `CONTROL/19_STAGE_DASHBOARD.md` still said CI was `PASS for current head ee1fe37` while the actual reviewed PR head for CR-04-035 remediation was `0a8b830`. This is now superseded by B-0101 / CR-04-039.
 - Next valid action is: commit and push this CR-04-036 current-head label fix, sync PR #11 body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
 - Skills used: github-review-resolver, codex-log-keeper, phase-gate-auditor, acceptance-evidence-collector, github-stage-deployer.
 - Subagents used: none; this is a targeted governance evidence fix.
@@ -5311,7 +5311,7 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Timestamp: 2026-06-05T23:41:50-05:00
 - Files read: current-head Codex review for `0debb906245041eda1ff09c38a6d8b1b12c9fa8d`, acceptance-result follow-up threads `3366640068` and `3366642831`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, Stage 04 checklist/current-state/PR body/deployment/blocker/action/control files, and RunLog summary.
 - Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed CI and received current-head Codex review, but Codex opened acceptance-result consistency follow-ups because `STAGE_ACCEPTANCE_RESULT.md` still mixed B-0100 with superseded B-0099/CR-04-035 current-gate wording.
-- Current detected blocker status is: B-0100 remains the only current Stage 04 hard gate. No B-0101 was opened because the Codex finding specifically requires the acceptance result to stay on B-0100 only.
+- Current detected blocker status at that historical cycle was: B-0100 remained the only Stage 04 hard gate for the acceptance-result consistency follow-up. This is now superseded by B-0101 / CR-04-039.
 - Next valid action is: publish or verify this B-0100 acceptance-result consistency fix. If local edits exist, commit once and push; if the head is already clean and pushed, skip another evidence-only commit, sync PR #11 body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
 - Skills used: github-review-resolver, codex-log-keeper, phase-gate-auditor, acceptance-evidence-collector, github-stage-deployer.
 - Subagents used: none; this is a targeted governance evidence fix.
@@ -5329,7 +5329,7 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Timestamp: 2026-06-05T23:59:41-05:00
 - Files read: current-head Codex review for `bdc875c9105cba3feed8ca1c65926ea8cee623c4`, clean-head route thread `3366700488`, `CONTROL/24_CURRENT_STAGE_STATE.md`, latest RunLog, Stage 04 review/control files.
 - Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `bdc875c9105cba3feed8ca1c65926ea8cee623c4` passed CI and received current-head Codex review, but Codex opened a clean-head route follow-up because the latest current-state source still pointed operators at the superseded acceptance-result consistency head.
-- Current detected blocker status is: B-0100 remains the only current Stage 04 hard gate. This follow-up changes route wording only and does not open B-0101.
+- Current detected blocker status at that historical cycle was: B-0100 remained the Stage 04 hard gate for the clean-head route follow-up. This is now superseded by B-0101 / CR-04-039.
 - Next valid action is: run local checks for this route-wording patch, then publish or verify the clean-head route head. Commit once only if local edits exist; once clean and pushed, sync PR body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
 - Skills used: github-review-resolver, codex-log-keeper, phase-gate-auditor, acceptance-evidence-collector, github-stage-deployer.
 - Subagents used: none; this is a targeted governance evidence fix.
@@ -5341,3 +5341,21 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0491 and CP-0356.
 - Blockers: B-0100 local checks passed; external gate pending after push.
 - Next action: publish or verify clean-head route remediation. Commit once only if local edits exist; once clean and pushed, sync PR body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.
+
+## Cycle 0297
+
+- Timestamp: 2026-06-06T00:41:50-05:00
+- Files read: current-head Codex review for `621ed6c029bdef3663f19faf85b6f58f8375d1b9`, locator-only quote validation thread `3366737417`, Stage 04 extraction validator/tests/docs, Stage 04 review/control files, and RunLog summary.
+- Current detected stage is: Stage 04 implementation final GPT Pro PASS is captured for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; remediation head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed CI and received current-head Codex review, but Codex opened CR-04-039 because locator-only quote spans could accept fabricated `quoted_evidence_span.text` without matching `document_text`.
+- Current detected blocker status is: B-0101 is now the only current Stage 04 hard gate. B-0100 is historical/superseded because the latest current-head review moved the blocker from governance route wording to runtime quote-span validation.
+- Next valid action is: commit and push the CR-04-039 remediation head, sync PR #11 body, wait for live PR #11 CI, request current-head Codex review, and verify unresolved review threads = 0.
+- Skills used: github-review-resolver, finsignal-product-governor, codex-log-keeper, phase-gate-auditor, acceptance-evidence-collector, github-stage-deployer.
+- Subagents used: none; this is a targeted main-integrator remediation within the approved Stage 04 extraction boundary.
+- Commands/tools run: `git status --short --branch`; GitHub GraphQL review-thread query; local file search/reads; `python -m pytest apps\api\tests\test_stage04_extraction.py -q`; `python -m pytest apps\api\tests\test_stage02_forbidden_scope.py apps\api\tests\test_stage03_connectors.py apps\api\tests\test_stage04_extraction.py -q`; `python -m pytest apps\api\tests -q --maxfail=1`; `python -m compileall apps\api\finsignalhub_api`; `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04`; high-confidence secret scan; runtime forbidden-scope scan; artifact/checkpoint/blocker ID uniqueness; `git diff --check`.
+- Files changed: `apps/api/finsignalhub_api/extraction/quote_span.py`, `apps/api/tests/test_stage04_extraction.py`, `docs/architecture/stage_04_evidence_extraction.md`, `reviews/stage_04/CODEX_REVIEW_SUMMARY.md`, `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`, `reviews/stage_04/PR_BODY.md`, `deployments/stage_04/GITHUB_PR.md`, `CHECKLISTS/STAGE_04_CHECKLIST.md`, `CONTROL/18`, `CONTROL/19`, `CONTROL/20`, `CONTROL/24`, `CONTROL/25`, `CONTROL/27`, `CONTROL/04`, `CONTROL/07`, and RunLog files.
+- Tests run: PASS at 2026-06-06T00:41:50-05:00: Stage 04 tests 15/15; relevant regression group 39/39; full API tests 91/91; compileall; phase_check 04; high-confidence secret scan no matches; runtime forbidden-scope scan no matches; artifact/checkpoint/blocker IDs unique; `git diff --check` had only normal Windows line-ending warnings.
+- GitHub status: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` has CI PASS and current-head Codex review, but unresolved CR-04-039 remains until this remediation is pushed and reviewed.
+- GPT Pro status: PASS for reviewed Stage 04 implementation head; Stage 05 planning only authorized after current-head live gates pass.
+- Artifacts created: A-0492 and CP-0357.
+- Blockers: B-0101 local checks passed; external gate pending after push.
+- Next action: commit/push CR-04-039 remediation, sync PR body, wait for live PR #11 CI, request current-head Codex, and verify unresolved review threads = 0.

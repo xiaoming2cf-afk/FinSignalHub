@@ -4,7 +4,34 @@
 
 Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-head evidence must come from that PR's head, not from Stage 03 PR #10.
 
+## Current Finding
+
+CR-04-039 / P2: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI and received current-head Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872, but Codex opened https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417 because locator-only `QuoteSpanCandidate` values could accept arbitrary `quoted_evidence_span.text` without matching `document_text`.
+
+Local remediation in this patch:
+
+- `validate_quote_span` now requires locator-only quote text to be present in `document_text` whenever source text is available.
+- Added direct acceptance coverage for locator-only quote text that appears in the document.
+- Added worker-level regression coverage proving `run_mock_extraction` rejects fabricated locator-only quote text.
+- Kept Stage 04 scope candidate-only and mock-only: no database, MCP tool, connector, UI, claim graph, Research Delta, Repro Pack, provider call, or external model behavior was added.
+
+Local verification:
+
+- `python -m pytest apps/api/tests/test_stage04_extraction.py -q` passed 15/15.
+- `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` passed 39/39.
+- `python -m pytest apps/api/tests -q --maxfail=1` passed 91/91.
+- `python -m compileall apps/api/finsignalhub_api` passed.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` passed.
+- High-confidence secret scan on changed Stage 04 paths had no matches.
+- Runtime forbidden-scope scan on `apps/api/finsignalhub_api/extraction` had no matches.
+- `CONTROL/18`, `CONTROL/20`, and `CONTROL/27` row IDs are unique.
+- `git diff --check` had only normal Windows line-ending warnings.
+
+Required next action: commit and push the CR-04-039 remediation head, sync PR #11 body, wait for live CI, request current-head Codex, verify unresolved review threads = 0, and only then proceed to GPT Pro final confirmation. Stage 05 implementation remains unauthorized.
+
 ## Findings
+
+Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0101 / CR-04-039.
 
 Known reviewed heads:
 
@@ -28,6 +55,7 @@ Known reviewed heads:
 - `ace7b1e8d07bde873c491cbe005e6d2b342a6673`: CR-04-021 after CR-04-020 remediation.
 - `e6ad6b979ddb443dad360110d2e83cd92535c65f`: CR-04-022 after CR-04-021 remediation.
 - `926b24fc59d5bfc7eba11f3f352c72ad6dcde632`: CR-04-023 after CR-04-022 remediation.
+- `621ed6c029bdef3663f19faf85b6f58f8375d1b9`: CR-04-039 locator-only quote text validation after CR-04-038 remediation.
 
 - CR-04-001 / P2: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` still said logs were updated only through A-0401 / CP-0279 and still treated the PR as pending after PR #11 and later checkpoints existed. Remediation: refresh the acceptance artifact to reference PR #11 and the active blocker state until the remediation head passes CI/Codex.
 - CR-04-002 / P2: `reviews/stage_04/` and `deployments/stage_04/` lacked purpose READMEs, violating the repo documentation rule. Remediation: add `reviews/stage_04/README.md` and `deployments/stage_04/README.md` with planning-only purpose and boundaries.
@@ -314,7 +342,7 @@ Local remediation in this patch:
 - Corrects Cycle 0288 test status to the passed CP-0348/B-0094 evidence.
 - Opens B-0095 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
-Required next action: historical, superseded by the later CR-04-032, CR-04-033, and CR-04-034 gate chain. Use the latest blocker row, currently B-0098.
+Required next action: historical, superseded by the later CR-04-032, CR-04-033, CR-04-034, and CR-04-039 gate chain. Use the latest blocker row, currently B-0101.
 
 ## CR-04-033 Superseded Blocker Status Drift
 
@@ -357,7 +385,7 @@ Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` still told the next operato
 
 Local remediation in this patch:
 
-- Supersedes B-0097 with B-0098 as the single current Stage 04 hard gate.
+- Superseded B-0097 with B-0098 for that historical head.
 - Replaces fixed completed-step wording in `CONTROL/24_CURRENT_STAGE_STATE.md` with conditional live PR routing.
 - Updates Stage 04 dashboard, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
 - Keeps Stage 05 implementation unauthorized.
@@ -387,8 +415,8 @@ Finding summary: `CONTROL/19_STAGE_DASHBOARD.md` made B-0098/CR-04-034 the activ
 
 Local remediation in this patch:
 
-- Marks B-0098 historical/superseded and opens B-0099 as the single current hard gate.
-- Aligns Stage 04 and Stage 05 dashboard rows to B-0099/CR-04-035.
+- Marked B-0098 historical/superseded and opened B-0099 for that historical head.
+- Aligned Stage 04 and Stage 05 dashboard rows to B-0099/CR-04-035 for that historical head.
 - Updates Stage 04 current-state, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
 - Keeps Stage 05 implementation unauthorized.
 
@@ -417,7 +445,7 @@ Finding summary: `CONTROL/19_STAGE_DASHBOARD.md` said CI was `PASS for current h
 
 Local remediation in this patch:
 
-- Marks B-0099 historical/superseded and opens B-0100 as the single current hard gate.
+- Marked B-0099 historical/superseded and opened B-0100 for that historical head.
 - Updates Stage 04 and Stage 05 dashboard rows to avoid labeling prior head `ee1fe37` as current.
 - Updates Stage 04 current-state, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
 - Keeps Stage 05 implementation unauthorized.
@@ -449,8 +477,8 @@ Finding summary: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` updated the GitHu
 
 Local remediation in this patch:
 
-- Keeps B-0100 as the only current hard gate instead of opening another gate ID.
-- Replaces acceptance-result status, tests, next-stage, and final-result wording so the handoff waits only on B-0100.
+- Kept B-0100 as the hard gate for that historical follow-up instead of opening another gate ID.
+- Replaced acceptance-result status, tests, next-stage, and final-result wording so that historical handoff waited only on B-0100.
 - Updates companion checklist/current-state/blocker evidence.
 - Keeps Stage 05 implementation unauthorized.
 
@@ -461,7 +489,7 @@ Local verification:
 - Targeted stale handoff search had no matches.
 - `git diff --check` had only normal Windows line-ending warnings.
 
-Required next action: publish or verify this B-0100 consistency remediation head. If local edits exist, commit once and push; if the head is already clean and pushed, skip another evidence-only commit, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: historical, superseded by CR-04-038 and then by the current CR-04-039 gate.
 
 ## CR-04-038 Clean-Head Routing Follow-Up
 
@@ -476,7 +504,7 @@ Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` and the latest RunLog route
 
 Local remediation in this patch:
 
-- Keeps B-0100 as the current hard gate.
+- Kept B-0100 as the hard gate for that historical route follow-up.
 - Replaces unconditional `commit/push` next-action wording with live PR routing: commit once only when local edits exist; once the head is clean and pushed, skip another evidence-only commit and proceed to PR body sync, CI, current-head Codex review, and unresolved-thread verification.
 - Keeps Stage 05 implementation unauthorized.
 
@@ -508,4 +536,4 @@ Local remediation in this patch:
 - Updates Cycle 0288 to the CP-0348/B-0094 passed-check evidence.
 - Opens B-0096 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
-Required next action: historical, superseded by CR-04-033 and CR-04-034. Use the latest blocker row, currently B-0098.
+Required next action: historical, superseded by CR-04-033, CR-04-034, and the current CR-04-039 gate. Use the latest blocker row, currently B-0101.

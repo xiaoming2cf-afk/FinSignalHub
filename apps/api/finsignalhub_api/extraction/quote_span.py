@@ -8,6 +8,12 @@ from finsignalhub_api.extraction.schemas import (
 
 def validate_quote_span(document_text: str, quote_span: QuoteSpanCandidate) -> None:
     if quote_span.start is None and quote_span.end is None:
+        if quote_span.text not in document_text:
+            raise EvidenceExtractionValidationError(
+                "quote_span_mismatch",
+                "quoted_evidence_span.text",
+                "quote span text is not present in document text",
+            )
         return
 
     if quote_span.start is None or quote_span.end is None:
@@ -31,4 +37,3 @@ def validate_quote_span(document_text: str, quote_span: QuoteSpanCandidate) -> N
             "quoted_evidence_span.text",
             "quote span text does not match document text",
         )
-

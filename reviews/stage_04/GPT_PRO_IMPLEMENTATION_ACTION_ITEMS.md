@@ -14,11 +14,12 @@ GPT Pro verdict: **PASS**
 | Save extracted action items | done locally | This file records the required closeout and Stage 05 planning instructions. |
 | Preserve reviewed-head evidence | done locally | GPT Pro accepted PR #11 head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`, current-head CI PASS, Codex no-major, unresolved threads = 0, and local verification results. |
 | Rerun external gates for the response-saving head | pending after push | If this evidence save creates a new commit, PR #11 must again show CI PASS, current-head Codex no-major, and unresolved review threads = 0 before merge/tag. |
+| Resolve CR-04-039 locator-only quote validation | pending external gate | Local remediation validates locator-only quote text against `document_text` and passes local checks, but Stage 04 cannot merge/tag until the remediation head passes PR #11 CI, current-head Codex no-major, unresolved review threads = 0, and GPT Pro confirmation. |
 | Track GitHub Actions runtime warning | deferred | GPT Pro noted the Node.js 20 Actions deprecation warning; Stage 05 planning must include a CI runtime review before later stages rely on the current workflow runtime. |
 
 ## Stage 04 Final Acceptance Interpretation
 
-Stage 04 implementation is accepted for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`.
+Stage 04 implementation is accepted for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. The current head is blocked by B-0101 / CR-04-039 until the quote validation remediation passes live PR #11 CI/Codex/thread gates and GPT Pro confirmation.
 
 This file is part of a new evidence-sync patch. The patch must pass the same live external gate after push. Do not merge or tag from stale reviewed-head evidence if this file changes the PR head.
 

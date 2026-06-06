@@ -39,7 +39,7 @@ These labels are candidate labels only. They do not create `ClaimEvidenceEdge` r
 
 ## Quote Span Validation
 
-When source text is available, every candidate includes an exact quote span that can be checked against the normalized document text fixture. Stage 04 rejects spans that cannot be matched.
+When source text is available, every quoted candidate must match the normalized document text fixture. Offset-backed spans must match the exact `start:end` text, and locator-only spans must still have `quoted_evidence_span.text` present in `document_text`; Stage 04 rejects fabricated quote text even when page, section, or locator metadata is present.
 
 When source text is unavailable, the candidate carries a no-quote rationale that explains the source limitation, such as metadata-only input or unavailable full text. No-quote candidates are lower confidence and cannot support later graph work without validation.
 
