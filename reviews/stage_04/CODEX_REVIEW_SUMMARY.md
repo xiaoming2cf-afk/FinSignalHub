@@ -315,3 +315,24 @@ Local remediation in this patch:
 - Opens B-0095 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
 Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+
+## CR-04-032 RunLog Cycle Targeting
+
+PR #11 remediation head `09b3616c8ff7071d9130e2fa47bc409cea0ef3f1` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27048850115/job/79840278849
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27048851052/job/79840281188
+
+Codex then opened CR-04-032:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366265216
+
+Finding summary: the previous local remediation put CP-0348/B-0094 passed-check wording into Cycle 0280, while the actual CR-04-031 target was Cycle 0288. Cycle 0288 still said tests were pending.
+
+Local remediation in this patch:
+
+- Restores Cycle 0280 to its original pending-after-patch wording.
+- Updates Cycle 0288 to the CP-0348/B-0094 passed-check evidence.
+- Opens B-0096 so Stage 04 release/merge/tag and Stage 05 planning handoff remain blocked until the remediation head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
+
+Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
