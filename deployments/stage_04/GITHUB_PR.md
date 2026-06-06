@@ -350,3 +350,16 @@ Codex opened CR-04-034:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366544958
 
 This remediation replaces fixed completed-step wording with conditional live PR routing. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+
+## CR-04-035 Stage 05 Dashboard Handoff Remediation
+
+PR #11 head `ee1fe37e349ccd17fba80dab9e719a129862b77c` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051677421/job/79848355741
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051678283/job/79848357791
+
+Codex opened CR-04-035:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366570672
+
+This remediation aligns the Stage 04 and Stage 05 dashboard rows so Stage 05 planning can only start after the current B-0099/CR-04-035 gate passes. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

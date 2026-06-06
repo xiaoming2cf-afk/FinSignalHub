@@ -370,7 +370,37 @@ Local verification:
 - Artifact, checkpoint, and blocker row IDs are unique.
 - `git diff --check` had only normal Windows line-ending warnings.
 
-Required next action: push this remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: historical, superseded by CR-04-035 after remediation head `ee1fe37e349ccd17fba80dab9e719a129862b77c` passed CI and current-head Codex review but Codex found stale Stage 05 dashboard handoff wording in `CONTROL/19_STAGE_DASHBOARD.md`.
+
+## CR-04-035 Stage 05 Dashboard Handoff Drift
+
+PR #11 remediation head `ee1fe37e349ccd17fba80dab9e719a129862b77c` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051677421/job/79848355741
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27051678283/job/79848357791
+
+Codex opened CR-04-035:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366570672
+
+Finding summary: `CONTROL/19_STAGE_DASHBOARD.md` made B-0098/CR-04-034 the active Stage 04 gate, but the Stage 05 row immediately below still said planning was authorized after superseded B-0097/CR-04-033. That could route Stage 05 planning from stale evidence instead of the current Stage 04 gate.
+
+Local remediation in this patch:
+
+- Marks B-0098 historical/superseded and opens B-0099 as the single current hard gate.
+- Aligns Stage 04 and Stage 05 dashboard rows to B-0099/CR-04-035.
+- Updates Stage 04 current-state, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
+- Keeps Stage 05 implementation unauthorized.
+
+Local verification:
+
+- `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` passed.
+- `python -m pytest apps\api\tests\test_stage04_extraction.py -q` passed 13/13.
+- High-confidence credential scan had no matches.
+- Artifact, checkpoint, and blocker row IDs are unique.
+- `git diff --check` had only normal Windows line-ending warnings.
+
+Required next action: run local checks, commit/push this remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
 ## CR-04-032 RunLog Cycle Targeting
 

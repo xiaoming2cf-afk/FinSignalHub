@@ -46,7 +46,7 @@ After pushing the implementation head, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` passed live CI after CR-04-033 remediation, but CR-04-034 found stale completed-step routing in `CONTROL/24_CURRENT_STAGE_STATE.md`. This remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Head `ee1fe37e349ccd17fba80dab9e719a129862b77c` passed live CI and received current-head Codex review after CR-04-034 remediation, but CR-04-035 found stale Stage 05 dashboard handoff wording in `CONTROL/19_STAGE_DASHBOARD.md`. This remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 
 ## Current Gate Status
 
@@ -58,6 +58,6 @@ GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `1d5739d0734fd9f86bff51849b2bd1c8234c22a5` passed CI but CR-04-034 found stale completed-step routing in `CONTROL/24_CURRENT_STAGE_STATE.md`; this remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `ee1fe37e349ccd17fba80dab9e719a129862b77c` passed CI and received current-head Codex review but CR-04-035 found stale Stage 05 dashboard handoff wording; this remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 - GPT Pro final implementation status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Full response: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.
