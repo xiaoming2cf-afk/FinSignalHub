@@ -380,3 +380,21 @@ Codex opened CR-04-036:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366611897
 
 This remediation removes the misleading `PASS for current head ee1fe37` dashboard wording and records B-0100/CR-04-036 as the only current Stage 04 hard gate. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+
+## CR-04-037 Acceptance Result B-0100 Consistency Follow-Up
+
+PR #11 head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052592554/job/79850878996
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052593443/job/79850881148
+
+Codex review for that head:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441660538
+
+Codex opened two acceptance-result consistency follow-ups:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366640068
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366642831
+
+This remediation keeps B-0100 as the only current Stage 04 hard gate and removes residual B-0099/CR-04-035 current-gate wording from `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md`. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

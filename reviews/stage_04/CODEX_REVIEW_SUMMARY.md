@@ -432,6 +432,37 @@ Local verification:
 
 Required next action: run local checks, commit/push this remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
+## CR-04-037 Acceptance Result B-0100 Consistency Follow-Up
+
+PR #11 remediation head `0debb906245041eda1ff09c38a6d8b1b12c9fa8d` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052592554/job/79850878996
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052593443/job/79850881148
+
+Codex reviewed that head and opened acceptance-result consistency follow-ups:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441660538
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366640068
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366642831
+
+Finding summary: `reviews/stage_04/STAGE_ACCEPTANCE_RESULT.md` updated the GitHub gate to B-0100, but the same file still used `CR-04-035 LOCAL CHECKS`, `PLANNING ONLY AFTER B-0099 GATE`, and a final-result route through the CR-04-035 remediation head. That mixed two current gates in the Stage 04/Stage 05 handoff source.
+
+Local remediation in this patch:
+
+- Keeps B-0100 as the only current hard gate instead of opening another gate ID.
+- Replaces acceptance-result status, tests, next-stage, and final-result wording so the handoff waits only on B-0100.
+- Updates companion checklist/current-state/blocker evidence.
+- Keeps Stage 05 implementation unauthorized.
+
+Local verification:
+
+- `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` passed.
+- `python -m pytest apps\api\tests\test_stage04_extraction.py -q` passed 13/13.
+- Targeted stale handoff search had no matches.
+- `git diff --check` had only normal Windows line-ending warnings.
+
+Required next action: commit/push this B-0100 consistency remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+
 ## CR-04-032 RunLog Cycle Targeting
 
 PR #11 remediation head `09b3616c8ff7071d9130e2fa47bc409cea0ef3f1` passed live CI:
