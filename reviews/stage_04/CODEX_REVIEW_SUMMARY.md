@@ -461,7 +461,33 @@ Local verification:
 - Targeted stale handoff search had no matches.
 - `git diff --check` had only normal Windows line-ending warnings.
 
-Required next action: commit/push this B-0100 consistency remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+Required next action: publish or verify this B-0100 consistency remediation head. If local edits exist, commit once and push; if the head is already clean and pushed, skip another evidence-only commit, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+
+## CR-04-038 Clean-Head Routing Follow-Up
+
+PR #11 remediation head `cde2335cb59f9903b2576c40c3ef8800750512b8` passed live CI and received current-head Codex review:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052949565/job/79851823596
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052950397/job/79851825633
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441725384
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366680304
+
+Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` and the latest RunLog route still told the next operator to `commit/push` the B-0100 consistency fix even though current head `cde2335` already contained that fix and the worktree was clean.
+
+Local remediation in this patch:
+
+- Keeps B-0100 as the current hard gate.
+- Replaces unconditional `commit/push` next-action wording with live PR routing: commit once only when local edits exist; once the head is clean and pushed, skip another evidence-only commit and proceed to PR body sync, CI, current-head Codex review, and unresolved-thread verification.
+- Keeps Stage 05 implementation unauthorized.
+
+Local verification:
+
+- `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` passed.
+- `python -m pytest apps\api\tests\test_stage04_extraction.py -q` passed 13/13.
+- Route-regression search confirmed the latest current-state route no longer uses unconditional commit/push wording.
+- `git diff --check` had only normal Windows line-ending warnings.
+
+Required next action: publish or verify this clean-head routing remediation. Commit once only if local edits exist; after the head is clean and pushed, sync PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
 ## CR-04-032 RunLog Cycle Targeting
 

@@ -16,7 +16,7 @@ Current stage: Stage 04 implementation is active on branch `stage/04-evidence-ex
 
 ## Next expected milestones
 
-1. Commit and push the B-0100 acceptance-result consistency fix, then sync PR #11 body.
+1. Publish or verify the B-0100 acceptance-result consistency fix: commit once only if local edits exist, otherwise skip another evidence-only commit; then sync PR #11 body.
 2. Require PR #11 CI PASS, current-head Codex no-major, and unresolved review threads = 0 before merge/tag or Stage 05 planning handoff.
 3. If the evidence-sync external gate passes, merge/tag Stage 04 according to the release protocol without creating another evidence-only commit solely to restate live CI/Codex status.
 4. Start Stage 05 planning only. Stage 05 implementation remains unauthorized until a Stage 05 plan is reviewed, a separate implementation goal is drafted, and the user approves that goal.
