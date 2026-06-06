@@ -6,7 +6,9 @@ Use PR #11 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11. Current-h
 
 ## Current Finding
 
-CR-04-039 / P2: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI and received current-head Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872, but Codex opened https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417 because locator-only `QuoteSpanCandidate` values could accept arbitrary `quoted_evidence_span.text` without matching `document_text`.
+Current evidence-sync gate B-0102: CR-04-039 was accepted for PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`, which had CI PASS, current-head Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366792105, unresolved review threads = 0, and GPT Pro current-head PASS. This file now records the response-saving evidence patch; that new head needs a fresh current-head Codex review after push.
+
+Historical trigger: PR #11 head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed live CI and received current-head Codex review at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441807872, but Codex opened https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366737417 because locator-only `QuoteSpanCandidate` values could accept arbitrary `quoted_evidence_span.text` without matching `document_text`.
 
 Local remediation in this patch:
 
@@ -27,11 +29,11 @@ Local verification:
 - `CONTROL/18`, `CONTROL/20`, and `CONTROL/27` row IDs are unique.
 - `git diff --check` had only normal Windows line-ending warnings.
 
-Required next action: commit and push the CR-04-039 remediation head, sync PR #11 body, wait for live CI, request current-head Codex, verify unresolved review threads = 0, and only then proceed to GPT Pro final confirmation. Stage 05 implementation remains unauthorized.
+Required next action: run local checks for the current-head GPT Pro response-saving patch, commit and push once, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0. Stage 05 implementation remains unauthorized.
 
 ## Findings
 
-Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0101 / CR-04-039.
+Historical sections below preserve the finding chronology. Any phrase that described a gate as current at that historical head is superseded by the `Current Finding` section above. The active Stage 04 hard gate is B-0102, the response-saving evidence-sync live gate for the next pushed PR #11 head.
 
 Known reviewed heads:
 

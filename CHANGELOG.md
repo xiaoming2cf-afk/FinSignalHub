@@ -19,3 +19,4 @@
 - Hardened Stage 03 connector tool-call provenance so extra fixture arguments cannot overwrite canonical provider, query, fixture, or source identity fields.
 - Completed Stage 03 source connector closeout, merged and tagged `stage-03-source-connectors`, and started Stage 04 evidence extraction planning without implementation code.
 - Added Stage 04 mock-only evidence extraction runtime and tightened quote-span validation so locator-only quote text must still match source document text; final live GitHub/Codex/GPT Pro closeout remains pending.
+- Captured Stage 04 current-head GPT Pro PASS for PR #11 and opened B-0102 for the response-saving evidence-sync live gate before merge/tag or Stage 05 planning.

@@ -587,3 +587,93 @@ Create a reviewable Stage 05 planning package for a future mock-only, non-persis
 - Fabricated method/dataset metadata.
 - Loss of Stage 04 provenance.
 - Literature matrix/card work drifting into report generation.
+
+## Stage 04 Current-Head Final PASS And Updated Stage 05 Planning Instruction
+
+Timestamp: 2026-06-06T10:47:06-05:00
+
+Source files:
+
+- `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`
+
+GPT Pro reviewed PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`, CI PASS evidence, current-head Codex no-major evidence, unresolved review threads = 0, and CR-04-039 remediation, then returned:
+
+```text
+Stage 04 current head: PASS.
+Merge/tag Stage 04: allowed after live gate refresh if the response-saving evidence commit creates a new head.
+Next allowed action: Stage 05 planning only.
+Stage 05 implementation: not authorized.
+```
+
+Current blocker before Stage 05 planning handoff:
+
+- B-0102: this response/action save creates a new PR #11 head.
+- The new head must pass CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag or Stage 05 planning starts.
+
+## Updated Stage 05 Planning Requirements
+
+Stage 05 name:
+
+```text
+Stage 05: Claim Graph and Research Delta Planning
+```
+
+Stage 05 objective:
+
+Plan the Claim Graph and Research Delta implementation boundaries. The plan must define how Stage 02 domain models and Stage 04 evidence candidates connect into future claim graph, claim-evidence relation logic, research delta calculation, project-boundary validation, relation-state updates, mock-only tests, docs, logs, and gates.
+
+Allowed Stage 05 planning files:
+
+- `PLANS/STAGE_05_PLAN.md`
+- `TASKS/STAGE_05_TASKS.md`
+- `CHECKLISTS/STAGE_05_CHECKLIST.md`
+- `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_05/CODEX_REVIEW_SUMMARY.md`
+- `reviews/stage_05/PR_BODY.md`
+- `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md`
+- `deployments/stage_05/GITHUB_PR.md`
+- `docs/architecture/stage_05_claim_graph_research_delta.md`
+- `docs/codex/stage_05_commands.md`
+- `logs/subagents/stage_05/`
+- Required `CONTROL/`, `RUNLOG/`, and `CHANGELOG.md` updates.
+
+Future Stage 05 implementation files may be planned but not created during planning:
+
+- `apps/api/finsignalhub_api/claim_graph/`
+- `apps/api/finsignalhub_api/claim_graph/schemas.py`
+- `apps/api/finsignalhub_api/claim_graph/relations.py`
+- `apps/api/finsignalhub_api/claim_graph/service.py`
+- `apps/api/finsignalhub_api/claim_graph/validators.py`
+- `apps/api/finsignalhub_api/research_delta/`
+- `apps/api/finsignalhub_api/research_delta/schemas.py`
+- `apps/api/finsignalhub_api/research_delta/service.py`
+- `apps/api/finsignalhub_api/research_delta/rules.py`
+- `apps/api/tests/test_stage05_claim_graph.py`
+- `apps/api/tests/test_stage05_research_delta.py`
+- `apps/api/tests/fixtures/stage05_claim_graph/`
+
+Forbidden during Stage 05 planning:
+
+- MCP business tools.
+- Repro Pack export logic.
+- Frontend UI behavior or dashboard behavior.
+- Chatbot behavior or generic RAG.
+- Stock prediction, investment advice, Risk Mode, or Replay Engine.
+- Auth, billing, live external API calls, real LLM calls, new connectors, or production extraction pipeline.
+- New database domain model redesign.
+- Destructive Stage 02 schema changes.
+- Destructive Stage 03 connector changes.
+- Destructive Stage 04 extraction changes.
+
+Required Stage 05 planning subagents:
+
+- `claim-graph-architecture-agent`
+- `relation-rule-agent`
+- `research-delta-agent`
+- `project-boundary-validator-agent`
+- `test-plan-agent`
+- `docs-log-agent`
+- `scope-review-agent`
+
+Stage 05 plan must cover Claim Graph planning, Research Delta planning, same-project guards, provenance requirements, relation rationale, delta baseline/current time, mock-only tests, forbidden-scope scan, secret scan, `phase_check.py --stage 05`, compileall, `git diff --check`, CI PASS, current-head Codex no-major, unresolved review threads = 0, and final GPT Pro review for the later implementation stage.

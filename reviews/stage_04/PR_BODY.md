@@ -37,6 +37,7 @@ Not included:
 - PASS: high-confidence secret scan on changed Stage 04 paths returned no matches.
 - PASS: runtime forbidden-scope scan returned no matches.
 - PASS: `git diff --check` had only normal Windows line-ending warnings.
+- PASS for B-0102 evidence-sync: Stage 04 tests 15/15, compileall, phase check, high-confidence credential scan, artifact/checkpoint/blocker ID uniqueness, and `git diff --check`.
 
 ## Review
 
@@ -46,9 +47,9 @@ After pushing the implementation head, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Later governance-only CR-04-030 through CR-04-038 findings are historical and superseded by the current B-0101 / CR-04-039 locator-only quote validation gate.
+GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Later governance-only CR-04-030 through CR-04-038 findings are historical. CR-04-039 locator-only quote validation was remediated, pushed, passed live CI/Codex/thread gates as PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`, and GPT Pro returned current-head PASS.
 
-Current B-0101 follow-up: head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed CI and received current-head Codex review, but Codex found locator-only quote spans could accept arbitrary `quoted_evidence_span.text` without matching `document_text`. This patch makes locator-only quote text require source-text presence, adds direct and worker-level regression tests, and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+Current follow-up B-0102: saving `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md` and `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md` creates a new evidence-sync head. That head must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 
 ## Current Gate Status
 
@@ -60,6 +61,6 @@ Current B-0101 follow-up: head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `621ed6c029bdef3663f19faf85b6f58f8375d1b9` passed CI and received current-head Codex review, but Codex found CR-04-039 locator-only quote validation; this remediation patch passed local checks and must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
-- GPT Pro final implementation status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Full response: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`.
+- Implementation GitHub/Codex status: PASS for reviewed head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro current-head final review. This response-saving evidence head must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+- GPT Pro final implementation status: PASS for reviewed head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df`. Current-head response: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.
