@@ -470,9 +470,9 @@ PR #11 remediation head `bdc875c9105cba3feed8ca1c65926ea8cee623c4` passed live C
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053296221/job/79852719171
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27053296982/job/79852721122
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441742830
-- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366680304
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366700488
 
-Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` and the latest RunLog route still told the next operator to `commit/push` the B-0100 consistency fix even though current head `cde2335` already contained that fix and the worktree was clean.
+Finding summary: `CONTROL/24_CURRENT_STAGE_STATE.md` and the latest RunLog route still pointed operators at the prior B-0100 acceptance-result consistency head even though current head `bdc875c` had already moved the gate to the clean-head route follow-up.
 
 Local remediation in this patch:
 
