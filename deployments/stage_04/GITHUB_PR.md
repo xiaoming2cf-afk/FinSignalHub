@@ -363,3 +363,20 @@ Codex opened CR-04-035:
 - https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366570672
 
 This remediation aligns the Stage 04 and Stage 05 dashboard rows so Stage 05 planning can only start after the current B-0099/CR-04-035 gate passes. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+
+## CR-04-036 Current-Head Label Remediation
+
+PR #11 head `0a8b8306c52a7147114efcf98dffa2dd9baa87fb` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052075549/job/79849463641
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052076431/job/79849465941
+
+Codex review for that head:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#pullrequestreview-4441608707
+
+Codex opened CR-04-036:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366611897
+
+This remediation removes the misleading `PASS for current head ee1fe37` dashboard wording and records B-0100/CR-04-036 as the only current Stage 04 hard gate. Gate 6 remains blocked until the remediation head is pushed or verified as the current PR head, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

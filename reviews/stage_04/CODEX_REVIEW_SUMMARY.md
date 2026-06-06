@@ -400,6 +400,36 @@ Local verification:
 - Artifact, checkpoint, and blocker row IDs are unique.
 - `git diff --check` had only normal Windows line-ending warnings.
 
+Required next action: historical, superseded by CR-04-036 after remediation head `0a8b8306c52a7147114efcf98dffa2dd9baa87fb` passed CI and current-head Codex review but Codex found stale current-head labeling in `CONTROL/19_STAGE_DASHBOARD.md`.
+
+## CR-04-036 Current-Head Label Drift
+
+PR #11 remediation head `0a8b8306c52a7147114efcf98dffa2dd9baa87fb` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052075549/job/79849463641
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27052076431/job/79849465941
+
+Codex opened CR-04-036:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366611897
+
+Finding summary: `CONTROL/19_STAGE_DASHBOARD.md` said CI was `PASS for current head ee1fe37` while the actual reviewed PR head for CR-04-035 remediation was `0a8b830`. That could route readers to treat prior-head CI/Codex evidence as current-head evidence.
+
+Local remediation in this patch:
+
+- Marks B-0099 historical/superseded and opens B-0100 as the single current hard gate.
+- Updates Stage 04 and Stage 05 dashboard rows to avoid labeling prior head `ee1fe37` as current.
+- Updates Stage 04 current-state, acceptance, checklist, PR body, deployment evidence, action queue, RunLog, artifact, checkpoint, execution log, and goal registry.
+- Keeps Stage 05 implementation unauthorized.
+
+Local verification:
+
+- `python finsignalhub-codex-plugin\scripts\phase_check.py --stage 04` passed.
+- `python -m pytest apps\api\tests\test_stage04_extraction.py -q` passed 13/13.
+- High-confidence credential scan had no matches.
+- Artifact, checkpoint, and blocker row IDs are unique.
+- `git diff --check` had only normal Windows line-ending warnings.
+
 Required next action: run local checks, commit/push this remediation head, sync PR #11 body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
 ## CR-04-032 RunLog Cycle Targeting
