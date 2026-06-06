@@ -1,8 +1,8 @@
 # Stage 04 Acceptance Result
 
-Stage 04 status: **IMPLEMENTATION CR-04-029 REMEDIATION LOCAL CHECKS PASS / GITHUB AND GPT PRO FINAL GATES PENDING**.
+Stage 04 status: **IMPLEMENTATION GPT PRO PASS CAPTURED FOR HEAD `79ec29a`; EVIDENCE-SYNC EXTERNAL GATE PENDING**.
 
-This acceptance result covers the current local Stage 04 mock-only implementation worktree after CR-04-029 remediation. It does not mark Stage 04 complete. The stage remains blocked until the remediation head is pushed to PR #11, live CI passes, current-head Codex returns no major issues, unresolved review threads are zero, and GPT Pro final implementation review returns PASS or accepted CONDITIONAL PASS with critical items resolved.
+This acceptance result covers the Stage 04 mock-only implementation reviewed by GPT Pro at PR #11 head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. GPT Pro returned `PASS`. Because saving the final response and action items creates a new evidence-sync patch, Stage 04 release/merge/tag remains blocked until that new PR #11 head receives live CI PASS, current-head Codex no-major, and unresolved review threads = 0.
 
 ## Gate Table
 
@@ -13,14 +13,14 @@ This acceptance result covers the current local Stage 04 mock-only implementatio
 | Tests | PASS locally | `python -m pytest apps/api/tests/test_stage04_extraction.py -q` passed 13 tests; `python -m pytest apps/api/tests/test_stage02_forbidden_scope.py apps/api/tests/test_stage03_connectors.py apps/api/tests/test_stage04_extraction.py -q` passed 37 tests; `python -m pytest apps/api/tests -q --maxfail=1` passed 89 tests; `python -m compileall apps/api/finsignalhub_api` passed; `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 04` passed; `git diff --check` had only normal Windows line-ending warnings; high-confidence secret scan had no matches; runtime Stage 05+ scope scan had no matches. |
 | Docs | PASS locally | `docs/architecture/stage_04_evidence_extraction.md` and `docs/codex/stage_04_commands.md` now describe the implemented mock-only candidate boundary and checks. |
 | Logs | PASS locally | Subagent lane logs, `reviews/stage_04/SUBAGENT_SUMMARY.md`, `CONTROL/04`, `CONTROL/07`, `CONTROL/18`, `CONTROL/20`, `CONTROL/24`, `CONTROL/25`, `CONTROL/27`, and RunLog records are updated for local implementation. |
-| GitHub | BLOCKED/PENDING | Pushed implementation head `f964503646bac5b5efbb52d97f4d434e79763f7b` passed live PR #11 CI, but Codex opened CR-04-029 because blank whitespace-only `no_quote_reason` values were accepted. Local remediation trims and rejects blank rationales and adds regression coverage. Gate 6 can pass only after this remediation head is pushed to PR #11, live CI passes, current-head Codex returns no major issues, and unresolved review threads = 0. |
-| GPT Pro | BLOCKED/PENDING | Implementation-goal draft PASS is saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`. Final implementation review has not been submitted yet and must use `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_PACKET.md` after the live GitHub gate is clean. |
+| GitHub | PASS for reviewed head; pending for evidence-sync head | PR #11 head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368` passed both governance CI jobs, received current-head Codex no-major, and had unresolved review threads = 0 before GPT Pro review. This evidence-sync patch must pass the same live Gate 6 after push before merge/tag. |
+| GPT Pro | PASS for reviewed head | GPT Pro final implementation review returned `VERDICT: PASS`, accepted CR-04-029 remediation, found no blocking must-fix items, and authorized Stage 05 planning only. Response saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`; action items saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`. |
 | Product governance | PASS locally | The implementation maps to Research Mode evidence-stream value: candidate evidence payloads, quote/no-quote provenance, relation labels, confidence, transformation notes, and tool-call lineage. |
 | Security | PASS locally | No secrets, provider credentials, paid-service dependencies, real model calls, or live network calls were added. Tests include import guards and socket-disabled execution. |
-| Next stage | BLOCKED | Stage 05 cannot start until Stage 04 implementation has live GitHub/Codex evidence, GPT Pro final PASS, phase-gate-auditor PASS, and GPT Pro next-stage instruction. |
+| Next stage | PLANNING ONLY AFTER EVIDENCE-SYNC GATE | GPT Pro authorized Stage 05 planning only. Stage 05 implementation is not authorized. Stage 05 planning may begin only after this response-saving head passes live PR #11 CI/Codex/thread gates or the pending external gate is explicitly resolved in PR evidence. |
 
 ## Final Result
 
-BLOCKED/PENDING for final Stage 04 acceptance.
+PASS for reviewed Stage 04 implementation head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`; BLOCKED/PENDING for release/merge/tag until the response-saving evidence-sync head passes live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0.
 
-Local implementation checks passed after CR-04-029 remediation, but hard external gates are still pending. The next valid action is to commit and push the remediation head, wait for PR #11 CI, request current-head Codex review, verify unresolved review threads = 0, then submit the final implementation packet to GPT Pro through the specified Chrome/GPT Pro route.
+Local governance checks for this evidence-sync patch passed. The next valid action is to commit and push it, sync the PR body, wait for PR #11 CI, request current-head Codex review, and verify unresolved review threads = 0. Do not start Stage 05 implementation; Stage 05 is planning-only.

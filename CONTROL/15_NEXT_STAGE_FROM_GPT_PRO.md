@@ -501,3 +501,88 @@ Still forbidden until the separate implementation goal is accepted:
 - Replay Engine.
 - Auth.
 - Billing.
+
+## Stage 04 Final Implementation PASS And Stage 05 Planning Instruction From GPT Pro
+
+Timestamp: 2026-06-05T18:18:39-05:00
+
+Source files:
+
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`
+
+GPT Pro reviewed PR #11 implementation head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`, CI PASS evidence, Codex current-head no-major evidence, unresolved review threads = 0, CR-04-029 remediation, local verification results, and the Stage 04 implementation review packet, then returned:
+
+```text
+VERDICT: PASS.
+Stage 04 implementation final acceptance allowed for reviewed head 79ec29a.
+No blocking must-fix items remain.
+Final response/action-item save is evidence-only; if it creates a new commit, rerun CI and current-head Codex before merge/tag.
+Next authorized action: Stage 05 planning only.
+Stage 05 implementation may not start until the Stage 05 plan is reviewed, a separate Stage 05 implementation goal is drafted, and the user approves that goal.
+```
+
+## Next Stage ID
+
+Stage 05 planning: Claim Graph and Research Delta.
+
+## Next Stage Goal
+
+Create a reviewable Stage 05 planning package for a future mock-only, non-persistent, deterministic claim graph and research delta skeleton. Planning may define boundaries, files, tests, subagents, risks, and acceptance evidence. It must not create claim graph implementation code, Stage 05 test code, persistence, UI, MCP business tools, or business logic.
+
+## Required Stage 05 Planning Files
+
+- `PLANS/STAGE_05_PLAN.md`
+- `TASKS/STAGE_05_TASKS.md`
+- `CHECKLISTS/STAGE_05_CHECKLIST.md`
+- `docs/architecture/stage_05_claim_graph_delta.md`
+- `docs/codex/stage_05_commands.md`
+- `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_05/PR_BODY.md`
+- `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md`
+- `deployments/stage_05/GITHUB_PR.md`
+- `logs/subagents/stage_05/README.md`
+- Required `CONTROL/`, `RUNLOG/`, and `CHANGELOG.md` updates.
+
+## Future Implementation Objects To Plan, Not Execute
+
+- `ResearchClaimCreate`
+- `ClaimEvidenceEdgeCreate`
+- `ResearchDeltaCreate`
+- `LiteratureMatrixRowCreate`
+- `MethodCardCreate`
+- `DatasetCardCreate`
+
+## Stage 05 Planning Constraints
+
+- Stage 05 planning only; implementation is not authorized.
+- Outputs must remain candidate-level and mock-only until later approval.
+- No persistence, migrations, database writes, routers, frontend/UI behavior, dashboard behavior, MCP business tools, external LLM calls, live network calls, API keys, provider clients, Repro Pack export, Risk Mode, Replay Engine, chatbot/RAG behavior, stock prediction, investment advice, auth, billing, or unreviewed changes to Stage 03 connectors or Stage 04 extraction behavior.
+- Preserve Stage 04 provenance fields: source, quote/no-quote rationale, document reference, candidate id, tool lineage, and deterministic fixture trace.
+
+## Required Stage 05 Tests To Plan
+
+- Deterministic claim candidate generation.
+- Bounded edge relation types.
+- Evidence-to-claim provenance preservation.
+- No claim edge without evidence reference.
+- No delta without old/new evidence snapshots.
+- Literature matrix row payload validation.
+- Method card and dataset card payload validation.
+- Duplicate/cycle handling.
+- Unsupported-claim rejection.
+- No prediction/recommendation wording in research deltas.
+- No network/provider imports.
+- Deterministic fixture output.
+- Full regression coverage across Stage 02 through Stage 05.
+
+## Stage 05 Main Risks
+
+- Scope explosion.
+- Premature graph persistence.
+- Treating candidate edges as verified truth.
+- Unsupported research judgments.
+- Research Delta becoming prediction, investment advice, risk scoring, or trading signal.
+- Fabricated method/dataset metadata.
+- Loss of Stage 04 provenance.
+- Literature matrix/card work drifting into report generation.
