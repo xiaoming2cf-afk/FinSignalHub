@@ -59,6 +59,8 @@ Current follow-up B-0105: PR #11 B-0104 remediation head `7f5507f076ad7dd2970b7e
 
 Current follow-up B-0106: PR #11 B-0105 remediation head `cb95156a73bac96c7dd2c3e4a0634355b2b059ac` passed CI, but Codex opened CR-04-044 because the final `RUNLOG/LONG_RUN_CURRENT.md` `Next action` omitted the clean-local-head-not-on-PR branch. This patch restores the final RunLog route to the same three-branch state machine: dirty worktree -> checks plus one commit; clean local head not on PR -> push/sync existing head; PR head equals local HEAD -> live CI/Codex/thread evidence only. Local checks passed at CP-0368.
 
+Current follow-up under B-0106: PR #11 head `31070376ccfcf9a2dc610673ed15b760bc113eba` passed CI, but Codex opened CR-04-045 because the B-0106 blocker row still used single dirty-worktree wording. This patch changes the blocker/action evidence to the same full state-dependent route. CP-0369 checks passed.
+
 ## Current Gate Status
 
 - Stage 03: merged at `13ee0a0bc497578b235662ea60c9aa225c62e53f` and tagged `stage-03-source-connectors`.

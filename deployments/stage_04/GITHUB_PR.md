@@ -490,4 +490,6 @@ Codex opened:
 
 - CR-04-044: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367912795
 
-This remediation restores the final `RUNLOG/LONG_RUN_CURRENT.md` `Next action` to the full state-dependent route: dirty worktree -> checks plus one commit; clean local head not on PR -> push/sync existing head; PR head equals local HEAD -> live CI/Codex/thread evidence only. Local checks passed at CP-0368. B-0106 remains blocked until the remediation is pushed because local edits exist, live CI passes, current-head Codex returns no-major, and unresolved review threads = 0.
+This remediation restores the final `RUNLOG/LONG_RUN_CURRENT.md` `Next action` to the full state-dependent route: dirty worktree -> checks plus one commit; clean local head not on PR -> push/sync existing head; PR head equals local HEAD -> live CI/Codex/thread evidence only. Local checks passed at CP-0368. B-0106 remains blocked until the state-dependent route is followed, live CI passes, current-head Codex returns no-major, and unresolved review threads = 0.
+
+Follow-up CR-04-045 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3367938285 found the B-0106 blocker row still used single dirty-worktree wording. The follow-up patch changes B-0106 blocker/action evidence to the full state-dependent route. CP-0369 checks passed: phase_check 04, primary ID uniqueness, targeted single-route search with no matches, and `git diff --check` with only normal Windows line-ending warnings.
