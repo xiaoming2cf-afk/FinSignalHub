@@ -316,6 +316,32 @@ Local remediation in this patch:
 
 Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
 
+## CR-04-033 Superseded Blocker Status Drift
+
+PR #11 remediation head `72c5669cd315bcbe3855de0df10177ccbceb5b02` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27049183426/job/79841256786
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27049184702/job/79841259975
+
+Codex returned a current-head no-major issue comment:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4636911774
+
+After CR-04-030, CR-04-031, and CR-04-032 review threads were resolved, Codex opened CR-04-033:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366309884
+
+Finding summary: `CONTROL/20_BLOCKER_LOG.md` still marked B-0094 and B-0095 as open after B-0096 became the current blocker. This made the blocker log show multiple active Stage 04 release/merge/tag blockers.
+
+Local remediation in this patch:
+
+- Marks B-0094 and B-0095 as superseded historical rows.
+- Marks B-0096 as superseded by B-0097 after the `72c5669` current-head gate produced CR-04-033.
+- Opens B-0097 as the single current hard gate for the CR-04-033 remediation.
+- Updates Stage 04 current-state, dashboard, acceptance, checklist, PR body, RunLog, artifact, checkpoint, and goal-registry evidence to point to B-0097.
+
+Required next action: run local checks, commit and push this remediation head, sync the PR body, wait for live CI, request current-head Codex, and verify unresolved review threads = 0.
+
 ## CR-04-032 RunLog Cycle Targeting
 
 PR #11 remediation head `09b3616c8ff7071d9130e2fa47bc409cea0ef3f1` passed live CI:

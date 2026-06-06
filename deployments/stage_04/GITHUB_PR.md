@@ -326,3 +326,14 @@ Local verification after remediation:
 - `git diff --check` -> only normal Windows line-ending warnings.
 
 Gate 6 remains blocked until this remediation head is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.
+
+## CR-04-033 Blocker Status Remediation
+
+PR #11 head `72c5669cd315bcbe3855de0df10177ccbceb5b02` passed live CI:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27049183426/job/79841256786
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27049184702/job/79841259975
+
+Codex returned current-head no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4636911774, but review-thread inspection opened CR-04-033 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#discussion_r3366309884 because B-0094 and B-0095 still appeared open after B-0096 became current.
+
+This patch marks B-0094 and B-0095 superseded, marks B-0096 superseded by B-0097, and records B-0097 as the single current Stage 04 hard gate. Gate 6 remains blocked until this remediation head is pushed, PR #11 CI passes, current-head Codex returns no major issues, and unresolved review threads = 0.

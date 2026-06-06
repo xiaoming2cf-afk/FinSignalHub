@@ -46,7 +46,7 @@ After pushing the implementation head, request:
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
 
-GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Head `09b3616c8ff7071d9130e2fa47bc409cea0ef3f1` passed live CI and current-head Codex review but opened CR-04-032. This remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Head `72c5669cd315bcbe3855de0df10177ccbceb5b02` passed live CI and current-head Codex no-major after CR-04-032 remediation, and CR-04-030/031/032 threads were resolved, but CR-04-033 found stale B-0094/B-0095 open blocker statuses. This remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 
 ## Current Gate Status
 
@@ -58,6 +58,6 @@ GPT Pro final implementation review returned PASS for reviewed head `79ec29a42b9
 - Pre-implementation Codex: no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11#issuecomment-4635836603.
 - GPT Pro implementation-goal review: PASS, saved in `reviews/stage_04/GPT_PRO_IMPLEMENTATION_GOAL_REVIEW_RESPONSE.md`.
 - Implementation local status: PASS.
-- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `09b3616c8ff7071d9130e2fa47bc409cea0ef3f1` passed CI and current-head Codex review but returned CR-04-032; this remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
+- Implementation GitHub/Codex status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`: PR #11 CI passed, Codex returned current-head no-major, and unresolved review threads were 0 before GPT Pro submission. Head `72c5669cd315bcbe3855de0df10177ccbceb5b02` passed CI and current-head Codex no-major, but CR-04-033 found stale superseded blocker statuses in `CONTROL/20_BLOCKER_LOG.md`; this remediation patch must pass live PR #11 CI, current-head Codex no-major, and unresolved review threads = 0 before merge/tag.
 - GPT Pro final implementation status: PASS for reviewed head `79ec29a42b9119dbaf5edd1c88b7fb4e52fe1368`. Full response: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_REVIEW_RESPONSE.md`; action items: `reviews/stage_04/GPT_PRO_IMPLEMENTATION_ACTION_ITEMS.md`.
 - Next-stage status: GPT Pro authorized Stage 05 planning only. Stage 05 implementation remains blocked until a separate Stage 05 plan review and implementation-goal approval.
