@@ -24,7 +24,9 @@ Review comment:
 
 ## Findings
 
-No findings recorded yet.
+| Finding | Source | Status | Resolution |
+| --- | --- | --- | --- |
+| CR-05-001: command doc omitted required local gate checks | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368772276 | local remediation drafted | `docs/codex/stage_05_commands.md` now lists final phase check, compileall, secret scan, forbidden-scope scan, and row-ID uniqueness checks. |
 
 ## Current-Head Rule
 
