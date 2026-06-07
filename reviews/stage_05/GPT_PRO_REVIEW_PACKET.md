@@ -62,21 +62,18 @@ The PR body source is `reviews/stage_05/PR_BODY.md`.
 
 Current GitHub gate state:
 
-PR head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-015/016:
+PR head `7423b95b24067966d347ed32559cf8c20cfa43d2` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-017:
 
-`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324`
-
-`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325`
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776`
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088228550/job/79946771328
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088227632/job/79946768846
-- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324
-- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325
-- Unresolved non-outdated review threads: not zero until CR-05-015/016 are remediated and resolved
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088633536/job/79947909686
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088632922/job/79947907937
+- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776
+- Unresolved non-outdated review threads: not zero until CR-05-017 is remediated and resolved
 
-GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-015/016 are remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved non-outdated review threads = 0, and the payment/renewal prompt is resolved.
+GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-017 is remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved non-outdated review threads = 0, and the payment/renewal prompt is resolved.
 
 Codex review requests used:
 
@@ -96,7 +93,8 @@ Codex review requests used:
 - CR-05-012 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368965518`
 - Current-head request after CR-05-012 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641909138`
 - CR-05-013/014 resolved/superseded blockers: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595`
-- CR-05-015/016 current blockers: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325`
+- CR-05-015/016 resolved/superseded blockers: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325`
+- CR-05-017 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776`
 
 Required Codex prompt:
 
@@ -118,7 +116,8 @@ Known Codex findings before this packet refresh:
 - CR-05-011: The blocker-evidence commit reset Gate 6, but deployment evidence still named the older `387b5c0...` head as current. Remediated in reviewed head `b5c0ccc1954ed452667f80570c63c68bf7aabdef`; superseded by CR-05-012.
 - CR-05-012: The payment-prompt blocker cited a screenshot that was ignored by `.gitignore`; superseded by CR-05-013 because unredacted screenshots must not be committed.
 - CR-05-013/014: The tracked screenshot exposed private browser context, and Gate 6 records still described the previous missing-screenshot blocker. Amended head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` removed the screenshot from tracking/history and used textual blocker evidence, but Codex then advanced the gate to CR-05-015/016.
-- CR-05-015/016: Current GitHub Gate 6 blockers. B-0107 through B-0115 must be closed as historical, B-0120 must be superseded, and `CHECKLISTS/STAGE_05_CHECKLIST.md` must point to the B-0121 current route before the next head can seek CI/Codex clearance.
+- CR-05-015/016: B-0107 through B-0115 were closed as historical, B-0120 was superseded, and `CHECKLISTS/STAGE_05_CHECKLIST.md` was pointed to the B-0121 route. These are now historical, not the active Gate 6 pointer.
+- CR-05-017: Current GitHub Gate 6 blocker. Historical finding rows must not label superseded findings as active/current; the top Current Status section must be the only current Gate 6 pointer before the next head can seek CI/Codex clearance.
 
 ## Stage 05 Planning Questions For GPT Pro
 

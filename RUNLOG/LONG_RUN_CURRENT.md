@@ -5979,3 +5979,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-015/016 cleanup locally
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, active blocker-route scan, git diff --check, and git diff --cached --check passed; no Stage 05 runtime files were created
 - Next action: Commit and push CR-05-015/016 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0338
+
+- Timestamp: 2026-06-07T09:33:11+00:00
+- Stage: 05
+- Action: Drafted CR-05-017 historical-current wording cleanup
+- Result: PR #12 head 7423b95b24067966d347ed32559cf8c20cfa43d2 passed CI and received current-head Codex review, but Codex opened CR-05-017 because a historical summary row still described CR-05-011 as the active Gate 6 blocker; local remediation removes active/current wording from historical rows and keeps the top Current Status section as the only current pointer
+- Next action: Run Stage 05 checks, commit and push one CR-05-017 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0339
+
+- Timestamp: 2026-06-07T09:40:00+00:00
+- Stage: 05
+- Action: Verified CR-05-017 cleanup locally
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, historical-current wording scan, git diff --check, and git diff --cached --check passed; no Stage 05 runtime files were created
+- Next action: Commit and push CR-05-017 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
