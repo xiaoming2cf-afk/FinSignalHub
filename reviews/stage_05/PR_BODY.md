@@ -36,7 +36,7 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Docs: planning docs created
 - Logs: updated through A-0510/CP-0372
 - GitHub: PR #12 open; most recent checked remediation head `32f306c9db6553cc89076dab8a52299946eb12d6` had CI PASS, and any later packet-refresh head must pass CI again before GPT Pro review
-- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560; CR-05-001/002/003 are locally remediated and CR-05-004 summary refresh is in progress
+- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641539890; CR-05-001/002/003/004 are locally remediated or resolved and CR-05-005 state-dependent route remediation is in progress
 - GPT Pro review: pending
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected

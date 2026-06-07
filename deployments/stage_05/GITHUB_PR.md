@@ -10,7 +10,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this summary refresh was `2b485e70615900969738bb3b6bf192470dbd43cf`; CI passed for that head, and Codex opened CR-05-004 on stale Codex summary head wording. Any later summary-refresh head must pass CI/Codex again.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this route refresh was `51d2d0a739c62d8b7524a16db2e739da86239c26`; CI passed for that head, and Codex opened CR-05-005 on stale current-state routing. Any later route-refresh head must pass CI/Codex again.
 
 ## Required Title
 
@@ -28,7 +28,7 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `2b485e70615900969738bb3b6bf192470dbd43cf` passed both Stage Governance CI jobs. The next summary-refresh head must pass CI again before GPT Pro plan review.
+Most recent checked head `51d2d0a739c62d8b7524a16db2e739da86239c26` passed both Stage Governance CI jobs. The next route-refresh head must pass CI again before GPT Pro plan review.
 
 ## Codex Review Status
 
@@ -44,12 +44,17 @@ Current-head retry comment after CR-05-003 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560`
 
+Current-head retry comment after CR-05-004 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641539890`
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
 - CR-05-002 current-state PR gate drift: locally remediated.
 - CR-05-003 GPT Pro packet stale PR status: locally remediated.
-- CR-05-004 Codex summary stale head: this summary refresh remediates it.
+- CR-05-004 Codex summary stale head: locally remediated and thread resolved.
+- CR-05-005 current-state route loop: this route refresh remediates it.
 
 ## GPT Pro Status
 

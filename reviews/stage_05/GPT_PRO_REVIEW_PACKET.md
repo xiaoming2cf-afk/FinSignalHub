@@ -60,13 +60,14 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Most recent checked PR head before this summary refresh was `2b485e70615900969738bb3b6bf192470dbd43cf`; CI passed for that head and Codex opened CR-05-004 because the Codex summary still recorded `aaf3e53...` as the current pre-sync head. This summary refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+Most recent checked PR head before this route refresh was `51d2d0a739c62d8b7524a16db2e739da86239c26`; CI passed for that head and Codex opened CR-05-005 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed a clean checked head back into another local-check-and-commit cycle. This route refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
 
 Codex review requests used:
 
 - Required full request: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668`
 - Current-head minimal request after CR-05-001/002 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641495922`
 - Current-head minimal request after CR-05-003 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560`
+- Current-head minimal request after CR-05-004 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641539890`
 
 Required Codex prompt:
 
@@ -80,6 +81,7 @@ Known Codex findings before this packet refresh:
 - CR-05-002: current-stage state still said PR pending creation. Local remediation now points to PR #12.
 - CR-05-003: GPT Pro packet still said PR pending creation. Local remediation refreshed the packet.
 - CR-05-004: Codex review summary still recorded a stale `aaf3e53...` pre-sync head. This summary refresh remediates it.
+- CR-05-005: current-state route still told a clean checked head to rerun checks and create another commit. This route refresh remediates it.
 
 ## Stage 05 Planning Questions For GPT Pro
 
