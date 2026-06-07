@@ -62,18 +62,21 @@ The PR body source is `reviews/stage_05/PR_BODY.md`.
 
 Current GitHub gate state:
 
-PR head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-011:
+Temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d0` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-013/014:
 
-`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274`
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592`
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595`
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086015819/job/79940526745
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086016838/job/79940529344
-- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274
-- Unresolved review threads: not zero until CR-05-011 is remediated and resolved
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086950332/job/79943168603
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086949441/job/79943166154
+- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592
+- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595
+- Unresolved non-outdated review threads: not zero until CR-05-013/014 are remediated and resolved
 
-GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-011 is remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved review threads = 0, and the payment/renewal prompt is resolved.
+GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-013/014 are remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved non-outdated review threads = 0, and the payment/renewal prompt is resolved.
 
 Codex review requests used:
 
@@ -89,6 +92,10 @@ Codex review requests used:
 - Current-head Codex no-major after CR-05-010 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
 - Current-head request after blocker-evidence commit: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641788055`
 - CR-05-011 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274`
+- Current-head requests after CR-05-011 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641841690` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641864183`
+- CR-05-012 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368965518`
+- Current-head request after CR-05-012 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641909138`
+- CR-05-013/014 current blockers: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595`
 
 Required Codex prompt:
 
@@ -107,7 +114,9 @@ Known Codex findings before this packet refresh:
 - CR-05-008: Codex summary had conflicting reviewed-head references. Local remediation fixed it.
 - CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation. Local remediation preserved `qualifies`.
 - CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. Remediated for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` by gating all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration.
-- CR-05-011: The blocker-evidence commit reset Gate 6, but deployment evidence still named the older `387b5c0...` head as current. Local remediation is being drafted and the next PR head must receive fresh Gate 6 evidence.
+- CR-05-011: The blocker-evidence commit reset Gate 6, but deployment evidence still named the older `387b5c0...` head as current. Remediated in reviewed head `b5c0ccc1954ed452667f80570c63c68bf7aabdef`; superseded by CR-05-012.
+- CR-05-012: The payment-prompt blocker cited a screenshot that was ignored by `.gitignore`; superseded by CR-05-013 because unredacted screenshots must not be committed.
+- CR-05-013/014: The tracked screenshot exposed private browser context, and Gate 6 records still described the previous missing-screenshot blocker. Local remediation removes the screenshot from tracking/history, uses textual blocker evidence, and the next amended PR head must receive fresh Gate 6 evidence.
 
 ## Stage 05 Planning Questions For GPT Pro
 

@@ -6,7 +6,7 @@ Stage 05 Claim Graph and Research Delta planning.
 
 ## Target
 
-`https://chatgpt.com/g/g-p-6a035355560081918d4a66ef7c70a14e/c/6a131602-2de0-83ea-8b92-09691d87ad89`
+User-supplied ChatGPT GPT Pro project conversation URL. The exact conversation URL is redacted from this committed blocker evidence because the browser stop happened inside a logged-in ChatGPT context.
 
 ## Time
 
@@ -18,11 +18,14 @@ Chrome opened the specified GPT Pro page, but the visible ChatGPT page showed a 
 
 ## Evidence
 
-Local screenshot:
+Textual blocker evidence only:
 
-`artifacts/screenshots/gpt_stage05_page_loaded.png`
+- Chrome displayed a Pro subscription renewal/payment-related prompt before packet submission.
+- No review packet was submitted.
+- No GPT Pro response, action items, or final acceptance were captured.
+- No screenshot is tracked because the temporary screenshot exposed logged-in browser context, address-bar conversation state, and other private browser UI.
 
-The screenshot is local evidence only and must not be treated as GPT Pro review response evidence.
+This note documents the blocker and must not be treated as GPT Pro review response evidence.
 
 ## Result
 

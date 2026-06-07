@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Gate 6 is blocked by CR-05-011. PR #12 exists and blocker-evidence head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` passed CI, but Codex opened a P1 because `deployments/stage_05/GITHUB_PR.md` still marked older head `387b5c0...` as current.
+Gate 6 is blocked by CR-05-013/014. PR #12 exists and temporary remediation head `fd2456629f3c86fd128ee686325201b9f17ae8d0` passed CI and received Codex review, but Codex opened a P1 because the tracked screenshot exposed logged-in ChatGPT browser context and a P2 because Gate 6 records still routed work to the prior missing-screenshot blocker.
 
 PR URL:
 
@@ -10,14 +10,15 @@ PR URL:
 
 Current blocker head:
 
-`a8cc33ff786f158cf7a979c21f66f71c9d35399b`
+`fd2456629f3c86fd128ee686325201b9f17ae8d0` (temporary head to be amended)
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086015819/job/79940526745
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086016838/job/79940529344
-- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274
-- Unresolved review threads: not zero; CR-05-011 remains open
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086950332/job/79943168603
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086949441/job/79943166154
+- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592
+- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595
+- Unresolved non-outdated review threads: not zero; CR-05-013/014 remain open until the amended privacy-safe head passes live gates
 
 Review comment:
 
@@ -55,6 +56,12 @@ Current-head blocker-evidence retry:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641788055`
 
+Current-head CR-05-011 remediation requests:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641841690`
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641864183`
+
 ## Required Review Prompt
 
 ```text
@@ -75,7 +82,10 @@ Current-head blocker-evidence retry:
 | CR-05-008: Codex summary row named a different reviewed head than current status | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368832295 | resolved / superseded by CR-05-009 current gate | The CR-05-004 historical row now defers to the `Current Status` section for the latest reviewed head so the summary has one current-head source of truth. |
 | CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368844561 | resolved / superseded by CR-05-010 current gate | The Stage 05 plan and architecture docs preserve the Stage 02 `qualifies` relation. Limitation-style evidence maps to `qualifies` plus rationale unless a later GPT Pro-approved migration explicitly introduces a compatible `limits` value. |
 | CR-05-010: non-enum relation semantics lacked migration gate | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368871712 | resolved for reviewed head `387b5c0816d7acbb388dca4a705734fd7d8623c2`; superseded by CR-05-011 live gate | The Stage 05 architecture now says only existing Stage 02 enum values may be persisted. Method, dataset, uncertainty, and supersession semantics must be rationale, metadata, card-reference annotations, or future GPT Pro-approved migration values. This is historical evidence; the active Gate 6 blocker is CR-05-011 for the later blocker-evidence head. |
-| CR-05-011: Gate 6 evidence stale after blocker-evidence commit | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274 | local remediation drafted | `deployments/stage_05/GITHUB_PR.md` must not claim older head `387b5c0...` is current after the `a8cc33f...` blocker-evidence commit reset Gate 6. Local remediation switches the deployment evidence to a state-dependent current-head route and records CR-05-011 as the active gate until the next head receives CI PASS, current-head Codex clearance, and unresolved review threads = 0. |
+| CR-05-011: Gate 6 evidence stale after blocker-evidence commit | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274 | remediated in reviewed head `b5c0ccc1954ed452667f80570c63c68bf7aabdef`; superseded by CR-05-012 current gate | `deployments/stage_05/GITHUB_PR.md` no longer claims older head `387b5c0...` is current after the `a8cc33f...` blocker-evidence commit reset Gate 6. The remaining CR-05-011 thread is outdated and does not itself represent a current non-outdated finding. |
+| CR-05-012: GPT Pro payment-prompt screenshot was not tracked | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368965518 | superseded by CR-05-013 privacy gate | The attempted screenshot-tracking remediation is no longer acceptable because the screenshot contained logged-in browser context. The blocker now uses textual evidence only. |
+| CR-05-013: tracked GPT Pro screenshot exposed private browser context | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995592 | local remediation drafted | Remove the screenshot from tracking and from the PR branch history, redact the blocker target from the committed note, and use textual blocker evidence only. |
+| CR-05-014: Gate 6 status still described the prior missing-screenshot blocker | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595 | local remediation drafted | Refresh active Gate 6 records to CR-05-013/014 and require the amended privacy-safe head to pass live CI, current-head Codex, and unresolved non-outdated review-thread checks. |
 
 ## Current-Head Rule
 
