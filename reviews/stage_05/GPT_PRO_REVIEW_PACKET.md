@@ -60,18 +60,20 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Current PR head:
+Current GitHub gate state:
 
-`387b5c0816d7acbb388dca4a705734fd7d8623c2`
+PR head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-011:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274`
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
-- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376
-- Unresolved review threads: 0 by GitHub GraphQL read-only check
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086015819/job/79940526745
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086016838/job/79940529344
+- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274
+- Unresolved review threads: not zero until CR-05-011 is remediated and resolved
 
-GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. When that prompt is resolved, review this packet as the Stage 05 planning gate packet for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2`.
+GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-011 is remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved review threads = 0, and the payment/renewal prompt is resolved.
 
 Codex review requests used:
 
@@ -85,6 +87,8 @@ Codex review requests used:
 - Current-head full request after CR-05-009 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788`
 - Current-head minimal request after CR-05-010 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641700224`
 - Current-head Codex no-major after CR-05-010 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
+- Current-head request after blocker-evidence commit: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641788055`
+- CR-05-011 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274`
 
 Required Codex prompt:
 
@@ -102,7 +106,8 @@ Known Codex findings before this packet refresh:
 - CR-05-006/007: acceptance next-stage source and PR body gate evidence were stale. This acceptance-source refresh remediates them.
 - CR-05-008: Codex summary had conflicting reviewed-head references. Local remediation fixed it.
 - CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation. Local remediation preserved `qualifies`.
-- CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. Remediated for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` by gating all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration. CI PASS, Codex no-major, and unresolved review threads = 0 are recorded above.
+- CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. Remediated for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` by gating all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration.
+- CR-05-011: The blocker-evidence commit reset Gate 6, but deployment evidence still named the older `387b5c0...` head as current. Local remediation is being drafted and the next PR head must receive fresh Gate 6 evidence.
 
 ## Stage 05 Planning Questions For GPT Pro
 

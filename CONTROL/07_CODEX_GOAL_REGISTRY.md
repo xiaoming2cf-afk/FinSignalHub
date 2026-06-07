@@ -250,16 +250,16 @@ G-0009 terminal addendum at 2026-06-06T23:31:03-05:00: status is PASS / merged /
 | Stage | 05 |
 | Title | Stage 05 Claim Graph and Research Delta planning |
 | Prompt text | Create Stage 05 planning artifacts for future Claim Graph and Research Delta boundaries, subagent logs, review packet, PR body, acceptance evidence, and control logs only. Do not create Stage 05 runtime code, tests, fixtures, MCP tools, Repro Pack export, UI/dashboard behavior, chatbot/RAG behavior, stock prediction, investment advice, Risk Mode, or Replay Engine behavior. |
-| Status | active / GPT Pro Gate 7 blocked |
+| Status | active / GitHub Gate 6 and GPT Pro Gate 7 blocked |
 | Branch/worktree | `stage/05-claim-graph-delta` |
 | Started at | 2026-06-06T23:31:03-05:00 |
-| Updated at | 2026-06-07T02:02:53-05:00 |
+| Updated at | 2026-06-07T02:35:12-05:00 |
 | Done-when | Done only when Stage 05 planning files exist, local planning checks pass, Stage 05 PR has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro plan review returns PASS or accepted CONDITIONAL PASS, and implementation remains blocked until a separate `/goal`. |
-| Current checkpoint | Stage 05 planning PR #12 exists. PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has CI PASS, current-head Codex no-major, and unresolved review threads = 0. GPT Pro Gate 7 is blocked because Chrome showed a Pro subscription renewal/payment prompt before packet submission. |
+| Current checkpoint | Stage 05 planning PR #12 exists. PR head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` has CI PASS, but Codex opened CR-05-011 because deployment evidence still named older head `387b5c0...` as current after the blocker-evidence commit reset Gate 6. GPT Pro Gate 7 remains blocked by the payment/renewal prompt. |
 | Skills used | finsignal-product-governor, stage-next-goal-synthesizer, gpt-pro-review-preparer, codex-log-keeper, phase-gate-auditor, subagent-coordinator, acceptance-evidence-collector, github-stage-deployer, github-review-resolver |
 | Subagents used | Ptolemy and Planck read-only explorers; planning role logs created for claim-graph-architecture-agent, relation-rule-agent, research-delta-agent, project-boundary-validator-agent, test-plan-agent, docs-log-agent, and scope-review-agent |
 | PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12 |
-| Codex review status | PASS / no-major for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2`; unresolved review threads = 0 |
+| Codex review status | BLOCKED by CR-05-011 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274 |
 | GPT Pro status | BLOCKED by B-0117 payment/renewal prompt; no packet submitted and no response captured |
 | Next stage source | Stage 04 GPT Pro terminal live-head closeout action items; Stage 05 implementation source pending future GPT Pro plan PASS |
 
@@ -274,3 +274,7 @@ G-0010 current addendum at 2026-06-07T01:45:04-05:00: CR-05-010 local checks pas
 G-0010 current addendum at 2026-06-07T02:02:53-05:00: PR #12 head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has live Gate 6 evidence: both governance CI jobs passed, Codex returned no major issues at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376, and unresolved review threads = 0. Chrome opened the specified GPT Pro page, but the visible page showed a Pro subscription renewal/payment-related prompt. Browser policy required stopping before paste/submit, so no Stage 05 review packet was submitted and no GPT Pro response was captured. GPT Pro Gate 7 is BLOCKED by B-0117, and Stage 05 implementation remains unauthorized.
 
 G-0010 current addendum at 2026-06-07T02:02:53-05:00: GPT Pro blocker evidence local checks passed. `phase_check.py --stage 05 --final`, `python -m compileall apps/api/finsignalhub_api`, forbidden Stage 05 runtime/test/fixture path absence checks, bounded high-confidence secret scan, and `git diff --check` passed. The first broad hidden-file secret scan timed out and was replaced by a bounded scan. This evidence remains local; if committed before GPT Pro becomes available, PR #12 Gate 6 must be refreshed for the new head. Stage 05 implementation remains unauthorized.
+
+G-0010 current addendum at 2026-06-07T02:35:12-05:00: blocker-evidence commit `a8cc33ff786f158cf7a979c21f66f71c9d35399b` was pushed and both governance CI jobs passed, but Codex opened P1 CR-05-011 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274 because `deployments/stage_05/GITHUB_PR.md` still named older head `387b5c0...` as current. Local remediation is being drafted to make Gate 6 evidence state-dependent and to route the next head through fresh CI/Codex/thread evidence. GPT Pro Gate 7 remains blocked by B-0117, and Stage 05 implementation remains unauthorized.
+
+G-0010 current addendum at 2026-06-07T02:35:12-05:00: CR-05-011 local checks passed. Stage 05 final phase check, compileall, forbidden Stage 05 runtime/test/fixture path absence checks, artifact/checkpoint/blocker row-ID uniqueness, bounded high-confidence secret scan, and `git diff --check` passed with only normal Windows line-ending warnings. Next checkpoint is one remediation commit/push, PR #12 CI, current-head Codex clearance, and unresolved review threads = 0. GPT Pro Gate 7 remains blocked by B-0117.

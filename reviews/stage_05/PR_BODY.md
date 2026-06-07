@@ -34,9 +34,9 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Functionality: planning only
 - Tests: local planning checks PASS
 - Docs: planning docs created
-- Logs: updated through A-0531/CP-0392/B-0117 after the GPT Pro browser stop; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
-- GitHub: PR #12 open; current head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
-- Codex review: current head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376 and unresolved review threads = 0
+- Logs: updated through A-0533/CP-0394/B-0118 after CR-05-011 remediation drafting; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
+- GitHub: PR #12 open; blocker-evidence head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086015819/job/79940526745 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086016838/job/79940529344, but this head does not pass Gate 6 because Codex opened CR-05-011
+- Codex review: CR-05-011 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274; the next remediation head must receive current-head Codex clearance and unresolved review threads = 0
 - GPT Pro review: BLOCKED by B-0117 because Chrome displayed a Pro subscription renewal/payment prompt before packet submission; no response or action items captured
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected

@@ -5915,3 +5915,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified local blocker evidence after GPT Pro payment prompt
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, bounded high-confidence secret scan, and git diff --check passed; the first broad hidden scan timed out and was replaced
 - Next action: User resolves GPT Pro payment prompt, then resubmit Stage 05 planning packet; if committing local blocker evidence first, refresh PR #12 Gate 6 for the new head
+
+## Cycle 0330
+
+- Timestamp: 2026-06-07T07:40:08.704181+00:00
+- Stage: 05
+- Action: Drafted CR-05-011 stale Gate 6 evidence remediation
+- Result: Codex opened P1 because blocker-evidence head a8cc33ff786f158cf7a979c21f66f71c9d35399b still named older head 387b5c0 as current in deployment evidence; local governance records now route next head through fresh CI/Codex/thread evidence
+- Next action: Run Stage 05 checks, commit and push one CR-05-011 remediation head, wait for CI, request current-head Codex, resolve thread, verify unresolved threads equals zero
+
+## Cycle 0331
+
+- Timestamp: 2026-06-07T07:42:13.117205+00:00
+- Stage: 05
+- Action: Verified CR-05-011 remediation locally
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded high-confidence secret scan, and git diff --check passed
+- Next action: Commit and push one CR-05-011 remediation head, wait for CI, request current-head Codex, resolve thread, verify unresolved threads equals zero

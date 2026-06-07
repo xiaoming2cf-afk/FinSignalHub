@@ -2,22 +2,22 @@
 
 ## Current Status
 
-Gate 6 PASS for the current PR head. PR #12 exists, both governance CI jobs passed, Codex returned no major issues, and unresolved review threads are 0.
+Gate 6 is blocked by CR-05-011. PR #12 exists and blocker-evidence head `a8cc33ff786f158cf7a979c21f66f71c9d35399b` passed CI, but Codex opened a P1 because `deployments/stage_05/GITHUB_PR.md` still marked older head `387b5c0...` as current.
 
 PR URL:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12`
 
-Current reviewed head:
+Current blocker head:
 
-`387b5c0816d7acbb388dca4a705734fd7d8623c2`
+`a8cc33ff786f158cf7a979c21f66f71c9d35399b`
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
-- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376
-- Unresolved review threads: 0 by GitHub GraphQL read-only check
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086015819/job/79940526745
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086016838/job/79940529344
+- Codex P1: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274
+- Unresolved review threads: not zero; CR-05-011 remains open
 
 Review comment:
 
@@ -51,6 +51,10 @@ Current-head no-major response:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
 
+Current-head blocker-evidence retry:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641788055`
+
 ## Required Review Prompt
 
 ```text
@@ -70,7 +74,8 @@ Current-head no-major response:
 | CR-05-007: PR body gate evidence cited stale logs/head | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368819134 | resolved / superseded by later current-head reviews | That remediation updated the PR body to the then-current acceptance-source refresh route; the current source of truth is the CR-05-009 relation-compatibility route above. |
 | CR-05-008: Codex summary row named a different reviewed head than current status | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368832295 | resolved / superseded by CR-05-009 current gate | The CR-05-004 historical row now defers to the `Current Status` section for the latest reviewed head so the summary has one current-head source of truth. |
 | CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368844561 | resolved / superseded by CR-05-010 current gate | The Stage 05 plan and architecture docs preserve the Stage 02 `qualifies` relation. Limitation-style evidence maps to `qualifies` plus rationale unless a later GPT Pro-approved migration explicitly introduces a compatible `limits` value. |
-| CR-05-010: non-enum relation semantics lacked migration gate | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368871712 | resolved for current PR head | The Stage 05 architecture now says only existing Stage 02 enum values may be persisted. Method, dataset, uncertainty, and supersession semantics must be rationale, metadata, card-reference annotations, or future GPT Pro-approved migration values. Current PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has CI PASS, Codex no-major, and unresolved review threads = 0. |
+| CR-05-010: non-enum relation semantics lacked migration gate | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368871712 | resolved for reviewed head `387b5c0816d7acbb388dca4a705734fd7d8623c2`; superseded by CR-05-011 live gate | The Stage 05 architecture now says only existing Stage 02 enum values may be persisted. Method, dataset, uncertainty, and supersession semantics must be rationale, metadata, card-reference annotations, or future GPT Pro-approved migration values. This is historical evidence; the active Gate 6 blocker is CR-05-011 for the later blocker-evidence head. |
+| CR-05-011: Gate 6 evidence stale after blocker-evidence commit | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368936274 | local remediation drafted | `deployments/stage_05/GITHUB_PR.md` must not claim older head `387b5c0...` is current after the `a8cc33f...` blocker-evidence commit reset Gate 6. Local remediation switches the deployment evidence to a state-dependent current-head route and records CR-05-011 as the active gate until the next head receives CI PASS, current-head Codex clearance, and unresolved review threads = 0. |
 
 ## Current-Head Rule
 
