@@ -60,12 +60,13 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Most recent checked PR head before this packet refresh was `32f306c9db6553cc89076dab8a52299946eb12d6`; CI passed for that head and Codex opened CR-05-003 because this packet still had stale PR-pending wording. This packet refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+Most recent checked PR head before this summary refresh was `2b485e70615900969738bb3b6bf192470dbd43cf`; CI passed for that head and Codex opened CR-05-004 because the Codex summary still recorded `aaf3e53...` as the current pre-sync head. This summary refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
 
 Codex review requests used:
 
 - Required full request: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668`
 - Current-head minimal request after CR-05-001/002 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641495922`
+- Current-head minimal request after CR-05-003 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560`
 
 Required Codex prompt:
 
@@ -77,7 +78,8 @@ Known Codex findings before this packet refresh:
 
 - CR-05-001: command doc omitted required gate checks. Local remediation added the missing commands.
 - CR-05-002: current-stage state still said PR pending creation. Local remediation now points to PR #12.
-- CR-05-003: GPT Pro packet still said PR pending creation. This packet refresh remediates it.
+- CR-05-003: GPT Pro packet still said PR pending creation. Local remediation refreshed the packet.
+- CR-05-004: Codex review summary still recorded a stale `aaf3e53...` pre-sync head. This summary refresh remediates it.
 
 ## Stage 05 Planning Questions For GPT Pro
 

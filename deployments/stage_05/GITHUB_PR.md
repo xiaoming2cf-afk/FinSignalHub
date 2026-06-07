@@ -10,7 +10,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this packet refresh was `32f306c9db6553cc89076dab8a52299946eb12d6`; CI passed for that head, and Codex opened CR-05-003 on stale GPT Pro packet wording. Any later packet-refresh head must pass CI/Codex again.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this summary refresh was `2b485e70615900969738bb3b6bf192470dbd43cf`; CI passed for that head, and Codex opened CR-05-004 on stale Codex summary head wording. Any later summary-refresh head must pass CI/Codex again.
 
 ## Required Title
 
@@ -28,7 +28,7 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `32f306c9db6553cc89076dab8a52299946eb12d6` passed both Stage Governance CI jobs. The next packet-refresh head must pass CI again before GPT Pro plan review.
+Most recent checked head `2b485e70615900969738bb3b6bf192470dbd43cf` passed both Stage Governance CI jobs. The next summary-refresh head must pass CI again before GPT Pro plan review.
 
 ## Codex Review Status
 
@@ -40,11 +40,16 @@ Current-head retry comment after CR-05-001/002 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641495922`
 
+Current-head retry comment after CR-05-003 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560`
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
 - CR-05-002 current-state PR gate drift: locally remediated.
-- CR-05-003 GPT Pro packet stale PR status: this packet refresh remediates it.
+- CR-05-003 GPT Pro packet stale PR status: locally remediated.
+- CR-05-004 Codex summary stale head: this summary refresh remediates it.
 
 ## GPT Pro Status
 
