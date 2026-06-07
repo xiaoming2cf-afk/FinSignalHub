@@ -239,3 +239,26 @@ G-0009 current addendum at 2026-06-06T12:18:21-05:00: B-0106 local checks passed
 G-0009 current addendum at 2026-06-06T12:30:41-05:00: CR-04-045 follow-up under B-0106 local checks passed. PR #11 head `31070376ccfcf9a2dc610673ed15b760bc113eba` passed CI but Codex found the active B-0106 blocker row still used dirty-worktree-only wording. The B-0106 row, checkpoint, deployment, and acceptance evidence now use the full state-dependent route. `phase_check.py --stage 04`, primary ID uniqueness, targeted single-route search, and `git diff --check` passed. Next checkpoint remains state-dependent GitHub routing. Stage 05 implementation remains unauthorized.
 
 G-0009 current addendum at 2026-06-06T12:41:39-05:00: CR-04-046/047 live-head gate evidence sync checks passed. PR #11 head `c42be2ce86d84d8a4eea095fe25b7cd4f912e2f5` passed CI but Codex found acceptance and PR body current-gate evidence still pointed to prior `cb95156a...`/CR-04-044/CP-0368 evidence. Acceptance, PR body, dashboard, checklist, current-state, blocker, and RunLog summary now route final Gate 6 to the live PR #11 head after the latest B-0106 evidence-sync patch. `phase_check.py --stage 04`, primary ID uniqueness, targeted fixed-head current-gate search, and `git diff --check` passed. Stage 05 implementation remains unauthorized.
+
+G-0009 terminal addendum at 2026-06-06T23:31:03-05:00: status is PASS / merged / tagged. PR #11 reviewed head `2500438b0ef53c5f8cfb5c581d43e6311aeb72c1` passed CI, received current-head Codex no-major, had unresolved review threads = 0, and GPT Pro returned terminal live-head closeout PASS. PR #11 was squash-merged into `main` at `b2240858d65528d7949493f3eb98404bb4533a08`, and tag `stage-04-evidence-extraction` was pushed. Stage 05 planning only is authorized. G-0009 is closed.
+
+## G-0010 Stage 05 Claim Graph and Research Delta Planning
+
+| Field | Value |
+| --- | --- |
+| Goal ID | G-0010 |
+| Stage | 05 |
+| Title | Stage 05 Claim Graph and Research Delta planning |
+| Prompt text | Create Stage 05 planning artifacts for future Claim Graph and Research Delta boundaries, subagent logs, review packet, PR body, acceptance evidence, and control logs only. Do not create Stage 05 runtime code, tests, fixtures, MCP tools, Repro Pack export, UI/dashboard behavior, chatbot/RAG behavior, stock prediction, investment advice, Risk Mode, or Replay Engine behavior. |
+| Status | active / planning artifacts in progress |
+| Branch/worktree | `stage/05-claim-graph-delta` |
+| Started at | 2026-06-06T23:31:03-05:00 |
+| Updated at | 2026-06-06T23:31:03-05:00 |
+| Done-when | Done only when Stage 05 planning files exist, local planning checks pass, Stage 05 PR has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro plan review returns PASS or accepted CONDITIONAL PASS, and implementation remains blocked until a separate `/goal`. |
+| Current checkpoint | Stage 04 is merged/tagged. Stage 05 planning artifacts and terminal Stage 04 GPT Pro closeout evidence are being created locally. |
+| Skills used | finsignal-product-governor, stage-next-goal-synthesizer, gpt-pro-review-preparer, codex-log-keeper, phase-gate-auditor, subagent-coordinator, acceptance-evidence-collector, github-stage-deployer, github-review-resolver |
+| Subagents used | Ptolemy and Planck read-only explorers; planning role logs created for claim-graph-architecture-agent, relation-rule-agent, research-delta-agent, project-boundary-validator-agent, test-plan-agent, docs-log-agent, and scope-review-agent |
+| PR URL | pending |
+| Codex review status | pending |
+| GPT Pro status | pending Stage 05 plan review |
+| Next stage source | Stage 04 GPT Pro terminal live-head closeout action items; Stage 05 implementation source pending future GPT Pro plan PASS |
