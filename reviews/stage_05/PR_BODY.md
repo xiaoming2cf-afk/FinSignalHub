@@ -34,9 +34,9 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Functionality: planning only
 - Tests: local planning checks PASS
 - Docs: planning docs created
-- Logs: updated through A-0546/CP-0407/B-0124 after CR-05-019 local verification; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
-- GitHub: PR #12 open; latest observed head `c14f53e2dcc2b2589019b92dfb19d216795007c6` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572876/job/79950506453 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572035/job/79950504463, but this head does not pass Gate 6 because Codex opened CR-05-019
-- Codex review: CR-05-019 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699; this remediation changes current-state routing to a clean/dirty/live-head state machine, and the next head must receive current-head Codex clearance and unresolved non-outdated review threads = 0
+- Logs: CONTROL, RUNLOG, artifact, checkpoint, blocker, and acceptance records document Stage 05 planning evidence and historical Codex findings; live Gate 6 status must be checked from GitHub at review time
+- GitHub: PR #12 is open; Gate 6 passes only when the live PR head has all required CI jobs PASS, current-head Codex no-major or accepted follow-up, and unresolved non-outdated review threads = 0
+- Codex review: historical CR rows in this PR body are not current gate evidence. Use the latest PR head, latest Codex response for that head, and the review-thread API before GPT Pro submission.
 - GPT Pro review: BLOCKED by B-0117 because Chrome displayed a Pro subscription renewal/payment prompt before packet submission; no response or action items captured
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected

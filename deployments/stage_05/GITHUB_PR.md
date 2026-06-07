@@ -12,7 +12,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for live PR head checks.
 
-Current Gate 6 state: blocked pending live-head clearance. The latest external Codex review found CR-05-019 on PR head `c14f53e2dcc2b2589019b92dfb19d216795007c6` because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed the next operator to commit/push the already-committed CR-05-018 cleanup. Local remediation changes the current-state next action to a clean/dirty/live-head state machine: after push, GitHub Gate 6 can pass only when the live PR head has CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0.
+Current Gate 6 state: blocked until live PR #12 evidence is clean. Static commit hashes and CR rows below are historical snapshots only. Gate 6 can pass only when the live PR head has CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0.
 
 ## Required Title
 
@@ -30,12 +30,12 @@ Current Gate 6 state: blocked pending live-head clearance. The latest external C
 
 ## CI Status
 
-Latest observed PR head `c14f53e2dcc2b2589019b92dfb19d216795007c6` passed both Stage Governance CI jobs before CR-05-019:
+Historical CI snapshot before the live-head route cleanup:
 
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572876/job/79950506453
 - https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572035/job/79950504463
 
-This CI evidence is not sufficient by itself because Codex opened CR-05-019 on the same head. Any remediation push creates a new live head that must be checked again.
+Historical CI evidence is not sufficient by itself. Always query PR #12 live head and status checks before using this file as Gate 6 evidence.
 
 ## Codex Review Status
 
@@ -131,7 +131,7 @@ Current current-state route-loop review:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699`
 
-Unresolved non-outdated review threads: not zero; CR-05-019 remains open until this remediation is pushed and the next head receives live CI, current-head Codex clearance, and thread clearance.
+Unresolved non-outdated review threads: must be queried live through the GitHub review-thread API. Historical thread notes below are not current Gate 6 clearance.
 
 Known findings before this packet refresh:
 
@@ -152,7 +152,7 @@ Known findings before this packet refresh:
 - CR-05-016 checklist pointed at superseded relation-compatibility route: resolved/superseded by CR-05-017 after head `7423b95b24067966d347ed32559cf8c20cfa43d2` refreshed `CHECKLISTS/STAGE_05_CHECKLIST.md`.
 - CR-05-017 historical row still named an older active Gate 6 blocker: remediated for pushed head `fd8f3f7cc3c114fc0975d8311d720a1f784d2488`; superseded by CR-05-018.
 - CR-05-018 acceptance result pointed Gate 6 at prior head: remediated for pushed head `c14f53e2dcc2b2589019b92dfb19d216795007c6`; superseded by CR-05-019.
-- CR-05-019 current-state next action repeated completed commit step: current local remediation replaces the next action with a clean/dirty/live-head state machine and requires fresh PR #12 CI/Codex/thread clearance after push.
+- CR-05-019 current-state next action repeated completed commit step: historical blocker; the required route is now a clean/dirty/live-head state machine and live PR #12 CI/Codex/thread clearance.
 
 ## GPT Pro Status
 

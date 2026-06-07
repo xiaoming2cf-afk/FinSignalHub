@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Gate 6 is blocked pending live-head clearance. PR #12 exists and the latest external Codex review found CR-05-019 on PR head `c14f53e2dcc2b2589019b92dfb19d216795007c6` because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed the next operator to commit/push the already-committed CR-05-018 cleanup instead of checking live CI/Codex/thread evidence. This local remediation changes the current-state next action to a clean/dirty/live-head state machine.
+Gate 6 is determined only by live PR #12 evidence. This file records Codex review history, but no static row in this file is itself current-head clearance.
 
 PR URL:
 
@@ -10,14 +10,14 @@ PR URL:
 
 Live-head source:
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,latestReviews,comments` and the GitHub review-thread API for the actual PR head. Committed hashes in historical rows are evidence snapshots, not current Gate 6 status.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,latestReviews,comments` and the GitHub review-thread API for the actual PR head. Committed hashes and CR rows in historical sections are evidence snapshots, not current Gate 6 status.
 
-Current Gate 6 evidence:
+Required Gate 6 evidence:
 
-- Latest observed CI PASS for `c14f53e2dcc2b2589019b92dfb19d216795007c6`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572876/job/79950506453
-- Latest observed CI PASS for `c14f53e2dcc2b2589019b92dfb19d216795007c6`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572035/job/79950504463
-- Codex P2 CR-05-019: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699
-- Unresolved non-outdated review threads: not zero; CR-05-019 remains open until the next remediation head passes live CI, current-head Codex clearance, and thread clearance
+- live PR #12 head OID
+- all required CI jobs PASS for that head
+- current-head Codex no-major or accepted follow-up for that head
+- unresolved non-outdated review threads = 0
 
 Review comment:
 
@@ -109,7 +109,9 @@ Current-head Codex CR-05-019 review:
 | CR-05-016: Stage 05 checklist pointed at a superseded relation-compatibility route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325 | resolved / superseded by later current-head reviews | `CHECKLISTS/STAGE_05_CHECKLIST.md` was refreshed for the reviewed head. |
 | CR-05-017: historical row still named CR-05-011 as active Gate 6 blocker | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776 | resolved for pushed head / superseded by CR-05-018 | Historical rows no longer label superseded findings as active/current; the next Codex review found the acceptance result still carried prior-head Gate 6 wording. |
 | CR-05-018: acceptance result pointed Gate 6 at prior head | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369112819 | resolved for pushed head / superseded by CR-05-019 | `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md` now records Gate 6 as blocked pending live-head clearance, not blocked by a prior-head CR. The next Codex review found the current-state next action still routed to a completed commit/push step. |
-| CR-05-019: current-state next action repeated completed commit step | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699 | local remediation drafted | `CONTROL/24_CURRENT_STAGE_STATE.md` now uses a clean/dirty/live-head state machine: local edits require one checked commit, local HEAD not on PR requires push/sync, and PR head equal to local HEAD requires live CI/Codex/thread verification without another status commit. |
+| CR-05-019: current-state next action repeated completed commit step | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699 | remediated in live-head route wording | `CONTROL/24_CURRENT_STAGE_STATE.md` uses a clean/dirty/live-head state machine: local edits require one checked commit, local HEAD not on PR requires push/sync, and PR head equal to local HEAD requires live CI/Codex/thread verification without another status commit. |
+| CR-05-020: clean-head route still implied another status commit | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369164230 | remediated in live-head route wording | `CONTROL/24_CURRENT_STAGE_STATE.md` now says that when PR #12 already points to local HEAD, the operator must not create another status commit and must verify live CI/Codex/thread evidence directly. |
+| CR-05-021: checklist stale current remediation pointer | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369173456 | remediated in live-head route wording | `CHECKLISTS/STAGE_05_CHECKLIST.md` no longer names a superseded CR as current. It routes Gate 6 through live PR #12 head, current-head Codex, and unresolved non-outdated review-thread evidence. |
 
 ## Current-Head Rule
 

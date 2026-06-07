@@ -62,18 +62,16 @@ The PR body source is `reviews/stage_05/PR_BODY.md`.
 
 Current GitHub gate state:
 
-Latest observed PR head `c14f53e2dcc2b2589019b92dfb19d216795007c6` passed CI but does not satisfy GitHub Gate 6 because Codex opened CR-05-019:
+Gate 6 is evaluated from live PR #12 evidence at the time this packet is submitted, not from fixed historical commit or CR pointers in this file. Before GPT Pro review, attach the current PR head, current CI results, latest current-head Codex result, and unresolved non-outdated review-thread count.
 
-`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699`
+Required live Gate 6 evidence:
 
-Current Gate 6 evidence:
+- live PR #12 head OID
+- all required CI jobs PASS for that head
+- current-head Codex no-major or accepted follow-up for that head
+- unresolved non-outdated review threads = 0
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572876/job/79950506453
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089572035/job/79950504463
-- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699
-- Unresolved non-outdated review threads: not zero until CR-05-019 is remediated and the next live PR head has CI/Codex/thread clearance
-
-GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until CR-05-019 is remediated, the next PR head passes CI, Codex returns current-head clearance, unresolved non-outdated review threads = 0, and the payment/renewal prompt is resolved.
+GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. This packet must not be submitted as PASS-ready until live Gate 6 evidence is clean and the payment/renewal prompt is resolved.
 
 Codex review requests used:
 
@@ -96,7 +94,7 @@ Codex review requests used:
 - CR-05-015/016 resolved/superseded blockers: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324` and `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325`
 - CR-05-017 resolved/superseded blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776`
 - CR-05-018 resolved/superseded blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369112819`
-- CR-05-019 current blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699`
+- CR-05-019 historical blocker: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699`
 
 Required Codex prompt:
 
@@ -121,7 +119,7 @@ Known Codex findings before this packet refresh:
 - CR-05-015/016: B-0107 through B-0115 were closed as historical, B-0120 was superseded, and `CHECKLISTS/STAGE_05_CHECKLIST.md` was pointed to the B-0121 route. These are now historical, not the active Gate 6 pointer.
 - CR-05-017: Remediated historical wording blocker; superseded by CR-05-018 after the next Codex review.
 - CR-05-018: Remediated acceptance-result live-head blocker; superseded by CR-05-019 after the next Codex review.
-- CR-05-019: Current GitHub Gate 6 blocker. Current-stage next action must not route to a completed commit/push step when local HEAD already equals PR head; it must use live CI/Codex/thread evidence directly.
+- CR-05-019: Historical current-state blocker. The accepted route is now live-head based: when local HEAD already equals PR head, do not create a status commit; verify live CI, current-head Codex, and unresolved non-outdated review threads directly.
 
 ## Stage 05 Planning Questions For GPT Pro
 

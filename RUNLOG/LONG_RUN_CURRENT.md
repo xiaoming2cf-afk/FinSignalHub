@@ -6027,3 +6027,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-019 cleanup locally
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, stale current-blocker scan, and git diff --check passed; no Stage 05 runtime files were created
 - Next action: Commit and push CR-05-019 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0344
+
+- Timestamp: 2026-06-07T10:42:24+00:00
+- Stage: 05
+- Action: Drafted CR-05-021 live Gate 6 route cleanup
+- Result: PR #12 head e159189619fc783c20a325b1aff093fba9c92c1a passed CI and received current-head Codex review, but Codex opened CR-05-021 because `CHECKLISTS/STAGE_05_CHECKLIST.md` still pointed tests at the old CR-05-015/016 remediation. The cleanup removes fixed current CR/commit pointers from current gate files and routes Gate 6 through live PR #12 head, CI, current-head Codex, and unresolved non-outdated review-thread evidence.
+- Next action: Run Stage 05 planning checks and follow the state machine. If local edits remain, create one scoped commit; once the PR head equals local HEAD, use live Gate 6 evidence directly and retry GPT Pro only if the payment prompt is resolved.
+
+## Cycle 0345
+
+- Timestamp: 2026-06-07T10:54:47+00:00
+- Stage: 05
+- Action: Verified CR-05-021 live Gate 6 route cleanup locally
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, bounded secret scan after fixing a PowerShell quoting error, stale current-pointer scan, and git diff --check passed; no Stage 05 runtime files were created.
+- Next action: Follow the state machine. If local edits remain, create one scoped commit and push it; after push, require live PR #12 CI, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. Stage 05 implementation remains unauthorized.

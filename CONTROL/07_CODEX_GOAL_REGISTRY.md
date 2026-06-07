@@ -253,13 +253,13 @@ G-0009 terminal addendum at 2026-06-06T23:31:03-05:00: status is PASS / merged /
 | Status | active / GitHub Gate 6 and GPT Pro Gate 7 blocked |
 | Branch/worktree | `stage/05-claim-graph-delta` |
 | Started at | 2026-06-06T23:31:03-05:00 |
-| Updated at | 2026-06-07T03:20:00-05:00 |
+| Updated at | 2026-06-07T05:42:24-05:00 |
 | Done-when | Done only when Stage 05 planning files exist, local planning checks pass, Stage 05 PR has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro plan review returns PASS or accepted CONDITIONAL PASS, and implementation remains blocked until a separate `/goal`. |
-| Current checkpoint | Stage 05 planning PR #12 exists. Latest observed head `c14f53e2dcc2b2589019b92dfb19d216795007c6` has CI PASS, but Codex opened CR-05-019 because current-state routing still pointed to a completed commit/push step instead of live-head checks. GPT Pro Gate 7 remains blocked by the payment/renewal prompt. |
+| Current checkpoint | Stage 05 planning PR #12 exists. GitHub Gate 6 is evaluated from live PR #12 head evidence only: CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0. Static CR rows and commit hashes are historical snapshots. GPT Pro Gate 7 remains blocked by the payment/renewal prompt. |
 | Skills used | finsignal-product-governor, stage-next-goal-synthesizer, gpt-pro-review-preparer, codex-log-keeper, phase-gate-auditor, subagent-coordinator, acceptance-evidence-collector, github-stage-deployer, github-review-resolver |
 | Subagents used | Ptolemy and Planck read-only explorers; planning role logs created for claim-graph-architecture-agent, relation-rule-agent, research-delta-agent, project-boundary-validator-agent, test-plan-agent, docs-log-agent, and scope-review-agent |
 | PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12 |
-| Codex review status | BLOCKED by CR-05-019 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369143699 |
+| Codex review status | BLOCKED until live PR #12 head has current-head Codex clearance and unresolved non-outdated review threads = 0 |
 | GPT Pro status | BLOCKED by B-0117 payment/renewal prompt; no packet submitted and no response captured |
 | Next stage source | Stage 04 GPT Pro terminal live-head closeout action items; Stage 05 implementation source pending future GPT Pro plan PASS |
 
@@ -300,3 +300,5 @@ G-0010 current addendum at 2026-06-07T05:08:38-05:00: CR-05-018 local checks pas
 G-0010 current addendum at 2026-06-07T05:16:44-05:00: CR-05-019 current-state route cleanup drafted. PR #12 head `c14f53e2dcc2b2589019b92dfb19d216795007c6` passed CI and received current-head Codex review, but Codex opened CR-05-019 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed the next operator to commit/push the already-committed CR-05-018 cleanup. Local remediation changes the next action to a clean/dirty/live-head state machine. Stage 05 implementation remains unauthorized.
 
 G-0010 current addendum at 2026-06-07T05:24:54-05:00: CR-05-019 local checks passed. `phase_check.py --stage 05 --final`, `python -m compileall apps/api/finsignalhub_api`, forbidden Stage 05 runtime/test/fixture path absence checks, row-ID uniqueness, bounded secret scan, stale current-blocker scan, and `git diff --check` passed. Next checkpoint is commit/push, PR #12 CI, current-head Codex clearance, unresolved non-outdated review threads = 0, and only then retry GPT Pro if the payment/renewal prompt is resolved. Stage 05 implementation remains unauthorized.
+
+G-0010 current addendum at 2026-06-07T05:42:24-05:00: CR-05-021 checklist stale-pointer cleanup drafted. The live GitHub review-thread API showed CR-05-020 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369164230 and CR-05-021 at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369173456. Current Stage 05 gate files now route GitHub Gate 6 through live PR #12 head evidence instead of fixed CR or commit pointers. Stage 05 implementation remains unauthorized.
