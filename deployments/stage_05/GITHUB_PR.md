@@ -6,7 +6,11 @@
 
 ## PR
 
-Pending creation.
+https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
+
+## Current Head
+
+`aaf3e53f06cbef6711fc1673c8a6999f562c086b` before this evidence-sync update. Any later pushed evidence-sync head must pass CI/Codex again.
 
 ## Required Title
 
@@ -24,11 +28,13 @@ Pending creation.
 
 ## CI Status
 
-Pending until PR creation. Local planning checks passed before push.
+Pending. Two Stage Governance CI jobs started for PR #12 head `aaf3e53f06cbef6711fc1673c8a6999f562c086b`.
 
 ## Codex Review Status
 
-Pending.
+Pending. Required review comment posted at:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668`
 
 ## GPT Pro Status
 

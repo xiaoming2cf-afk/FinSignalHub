@@ -2,7 +2,19 @@
 
 ## Current Status
 
-Pending. No Stage 05 PR review has run yet.
+Pending. PR #12 exists and the required Codex review comment has been posted.
+
+PR URL:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12`
+
+Current pre-sync head:
+
+`aaf3e53f06cbef6711fc1673c8a6999f562c086b`
+
+Review comment:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668`
 
 ## Required Review Prompt
 

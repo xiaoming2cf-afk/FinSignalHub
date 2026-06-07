@@ -35,8 +35,8 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Tests: local planning checks PASS
 - Docs: planning docs created
 - Logs: updated through A-0510/CP-0372
-- GitHub: PR pending
-- Codex review: pending
+- GitHub: PR #12 open; CI pending
+- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668
 - GPT Pro review: pending
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected
