@@ -2,22 +2,22 @@
 
 ## Current Status
 
-Gate 6 is blocked by CR-05-017. PR #12 exists and remediation head `7423b95b24067966d347ed32559cf8c20cfa43d2` passed CI and received current-head Codex review, but Codex opened one P2 finding because a historical row still described CR-05-011 as the active Gate 6 blocker.
+Gate 6 is blocked pending live-head clearance. PR #12 exists and the latest external Codex review found CR-05-018 on PR head `fd8f3f7cc3c114fc0975d8311d720a1f784d2488` because `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md` still pointed GitHub Gate 6 at the prior CR-05-017 head. This local remediation changes acceptance evidence to a live-head rule so future gate checks use the current PR head from GitHub rather than a stale committed hash.
 
 PR URL:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12`
 
-Current blocker head:
+Live-head source:
 
-`7423b95b24067966d347ed32559cf8c20cfa43d2` (current head reviewed by Codex)
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,latestReviews,comments` and the GitHub review-thread API for the actual PR head. Committed hashes in historical rows are evidence snapshots, not current Gate 6 status.
 
 Current Gate 6 evidence:
 
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088633536/job/79947909686
-- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088632922/job/79947907937
-- Codex P2: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776
-- Unresolved non-outdated review threads: not zero; CR-05-017 remains open until the next remediation head passes live gates
+- Latest observed CI PASS for `fd8f3f7cc3c114fc0975d8311d720a1f784d2488`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089106605/job/79949207849
+- Latest observed CI PASS for `fd8f3f7cc3c114fc0975d8311d720a1f784d2488`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089105816/job/79949205702
+- Codex P2 CR-05-018: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369112819
+- Unresolved non-outdated review threads: not zero; CR-05-018 remains open until the next remediation head passes live CI, current-head Codex clearance, and thread clearance
 
 Review comment:
 
@@ -73,6 +73,10 @@ Current-head Codex CR-05-017 review:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#pullrequestreview-4444786065`
 
+Current-head Codex CR-05-018 review:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#pullrequestreview-4444818222`
+
 ## Required Review Prompt
 
 ```text
@@ -99,7 +103,8 @@ Current-head Codex CR-05-017 review:
 | CR-05-014: Gate 6 status still described the prior missing-screenshot blocker | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595 | resolved / superseded by later current-head reviews | The amended head refreshed Gate 6 records for its reviewed head and received current-head Codex review. The old thread is outdated/resolved. |
 | CR-05-015: superseded Stage 05 blocker rows still appeared open | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324 | resolved / superseded by later current-head reviews | B-0107 through B-0115 were closed as historical for the reviewed head. |
 | CR-05-016: Stage 05 checklist pointed at a superseded relation-compatibility route | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325 | resolved / superseded by later current-head reviews | `CHECKLISTS/STAGE_05_CHECKLIST.md` was refreshed for the reviewed head. |
-| CR-05-017: historical row still named CR-05-011 as active Gate 6 blocker | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776 | local remediation drafted | Remove active/current wording from historical rows and keep the current Gate 6 pointer only in the top `Current Status` section. |
+| CR-05-017: historical row still named CR-05-011 as active Gate 6 blocker | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776 | resolved for pushed head / superseded by CR-05-018 | Historical rows no longer label superseded findings as active/current; the next Codex review found the acceptance result still carried prior-head Gate 6 wording. |
+| CR-05-018: acceptance result pointed Gate 6 at prior head | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369112819 | local remediation drafted | `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md` now records Gate 6 as blocked pending live-head clearance, not blocked by a prior-head CR. After push, use live CI/Codex/thread evidence for the PR head before any GPT Pro submission. |
 
 ## Current-Head Rule
 

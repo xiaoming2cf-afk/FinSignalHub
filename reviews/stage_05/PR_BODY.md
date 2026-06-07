@@ -34,9 +34,9 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Functionality: planning only
 - Tests: local planning checks PASS
 - Docs: planning docs created
-- Logs: updated through A-0542/CP-0403/B-0122 after CR-05-017 local verification; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
-- GitHub: PR #12 open; head `7423b95b24067966d347ed32559cf8c20cfa43d2` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088633536/job/79947909686 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088632922/job/79947907937, but this head does not pass Gate 6 because Codex opened CR-05-017
-- Codex review: CR-05-017 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369090776; this remediation removes active/current wording from historical finding rows, and the next head must receive current-head Codex clearance and unresolved non-outdated review threads = 0
+- Logs: updated through A-0544/CP-0405/B-0123 after CR-05-018 local verification; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
+- GitHub: PR #12 open; latest observed head `fd8f3f7cc3c114fc0975d8311d720a1f784d2488` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089106605/job/79949207849 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27089105816/job/79949205702, but this head does not pass Gate 6 because Codex opened CR-05-018
+- Codex review: CR-05-018 is open at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369112819; this remediation removes prior-head-specific acceptance wording, and the next head must receive current-head Codex clearance and unresolved non-outdated review threads = 0
 - GPT Pro review: BLOCKED by B-0117 because Chrome displayed a Pro subscription renewal/payment prompt before packet submission; no response or action items captured
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected

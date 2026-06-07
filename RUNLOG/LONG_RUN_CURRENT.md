@@ -5995,3 +5995,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-017 cleanup locally
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, historical-current wording scan, git diff --check, and git diff --cached --check passed; no Stage 05 runtime files were created
 - Next action: Commit and push CR-05-017 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0340
+
+- Timestamp: 2026-06-07T09:55:43+00:00
+- Stage: 05
+- Action: Drafted CR-05-018 acceptance-result live-head wording cleanup
+- Result: PR #12 head fd8f3f7cc3c114fc0975d8311d720a1f784d2488 passed CI and received current-head Codex review, but Codex opened CR-05-018 because Stage 05 acceptance evidence still pointed Gate 6 at prior-head CR-05-017; local remediation changes Gate 6 records to require live PR head CI/Codex/thread clearance
+- Next action: Run Stage 05 checks, commit and push one CR-05-018 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0341
+
+- Timestamp: 2026-06-07T10:08:38+00:00
+- Stage: 05
+- Action: Verified CR-05-018 cleanup locally
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, stale Gate 6 wording scan, and git diff --check passed; no Stage 05 runtime files were created
+- Next action: Commit and push CR-05-018 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
