@@ -10,7 +10,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this relation-compatibility refresh was `2335001ef87771aba1bd62edf7e5dc946ad45185`; CI passed for that head, and Codex opened CR-05-009 because Stage 05 planning needed to preserve the existing `qualifies` relation. Local checks for this refresh passed at A-0528/CP-0389. Any later relation-compatibility refresh head must pass CI/Codex again.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this non-enum relation migration-gate refresh was `ea7878f9eebdddd26c2a5ea181cd684c5bc10775`; CI passed for that head, and Codex opened CR-05-010 because non-enum relation semantics needed a migration gate. Local checks for this refresh passed at A-0530/CP-0391. Any later migration-gate refresh head must pass CI/Codex again.
 
 ## Required Title
 
@@ -28,7 +28,7 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `2335001ef87771aba1bd62edf7e5dc946ad45185` passed both Stage Governance CI jobs. Local checks for the relation-compatibility refresh passed at A-0528/CP-0389. The next relation-compatibility refresh head must pass CI again before GPT Pro plan review.
+Most recent checked head `ea7878f9eebdddd26c2a5ea181cd684c5bc10775` passed both Stage Governance CI jobs. Local checks for the non-enum relation migration-gate refresh passed at A-0530/CP-0391. The next migration-gate refresh head must pass CI again before GPT Pro plan review.
 
 ## Codex Review Status
 
@@ -60,6 +60,10 @@ Current-head retry comment after CR-05-008 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833`
 
+Current-head full request after CR-05-009 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788`
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
@@ -69,7 +73,8 @@ Known findings before this packet refresh:
 - CR-05-005 current-state route loop: locally remediated and thread resolved.
 - CR-05-006/007 acceptance-source and PR-body evidence drift: locally remediated and threads resolved.
 - CR-05-008 Codex summary internal head mismatch: locally remediated.
-- CR-05-009 relation compatibility: this refresh preserves existing `qualifies` semantics, requires any future `limits` value to use a GPT Pro-approved compatibility or migration rule, and has local checks passed at A-0528/CP-0389.
+- CR-05-009 relation compatibility: locally remediated and superseded by CR-05-010.
+- CR-05-010 non-enum relation migration gate: this refresh makes method, dataset, uncertainty, and supersession semantics metadata/rationale/card-reference concepts unless a future GPT Pro-approved enum migration adds compatible relation values; local checks passed at A-0530/CP-0391.
 
 ## GPT Pro Status
 

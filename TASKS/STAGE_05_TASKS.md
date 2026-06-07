@@ -65,7 +65,7 @@ Planning tasks:
 2. Write Stage 05 plan, tasks, checklist, PR body, GPT Pro review packet, acceptance placeholder, deployment placeholder, architecture doc, command doc, and subagent logs.
 3. Define future Claim Graph module boundaries without creating runtime code.
 4. Define future Research Delta semantics without creating runtime code.
-5. Define relation rationale, provenance, same-project guards, `qualifies` compatibility, and forbidden relation states.
+5. Define relation rationale, provenance, same-project guards, `qualifies` compatibility, metadata mapping for non-enum relation semantics, and forbidden relation states.
 6. Define file authority for each future subagent.
 7. Update control logs, artifact registry, dashboard, current state, action queue, and RunLog.
 8. Run planning-only checks.
@@ -92,6 +92,7 @@ Future implementation tests:
 - cross-project relation rejection
 - relation enum validation
 - `qualifies` compatibility for limitation-style evidence
+- metadata mapping or rejection for non-enum method, dataset, uncertainty, and supersession semantics
 - relation rationale required
 - relation provenance required
 - claim graph neighborhood output

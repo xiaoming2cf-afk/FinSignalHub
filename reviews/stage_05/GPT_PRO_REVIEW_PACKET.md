@@ -60,7 +60,7 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Most recent checked PR head before this relation-compatibility refresh was `2335001ef87771aba1bd62edf7e5dc946ad45185`; CI passed for that head and Codex opened CR-05-009 because the Stage 05 architecture plan listed `limits` while the existing Stage 02 `EdgeRelationType` already accepts `qualifies`. Local checks for the relation-compatibility refresh passed at A-0528/CP-0389. This refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+Most recent checked PR head before this non-enum relation migration-gate refresh was `ea7878f9eebdddd26c2a5ea181cd684c5bc10775`; CI passed for that head and Codex opened CR-05-010 because method, dataset, uncertainty, and supersession semantics still appeared in a relation-type list without a GPT Pro-approved enum migration gate. Local checks for this refresh passed at A-0530/CP-0391. This refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
 
 Codex review requests used:
 
@@ -71,6 +71,7 @@ Codex review requests used:
 - Current-head minimal request after CR-05-005 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641564414`
 - Current-head minimal request after CR-05-006/007 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136`
 - Current-head minimal request after CR-05-008 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833`
+- Current-head full request after CR-05-009 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788`
 
 Required Codex prompt:
 
@@ -87,7 +88,8 @@ Known Codex findings before this packet refresh:
 - CR-05-005: current-state route still told a clean checked head to rerun checks and create another commit. This route refresh remediates it.
 - CR-05-006/007: acceptance next-stage source and PR body gate evidence were stale. This acceptance-source refresh remediates them.
 - CR-05-008: Codex summary had conflicting reviewed-head references. Local remediation fixed it.
-- CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation. This relation-compatibility refresh preserves `qualifies` and maps limitation-style evidence to `qualifies` plus rationale unless a later GPT Pro-approved migration introduces a compatible `limits` value. Local checks passed at A-0528/CP-0389.
+- CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation. Local remediation preserved `qualifies`.
+- CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. This refresh gates all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration. Local checks passed at A-0530/CP-0391.
 
 ## Stage 05 Planning Questions For GPT Pro
 

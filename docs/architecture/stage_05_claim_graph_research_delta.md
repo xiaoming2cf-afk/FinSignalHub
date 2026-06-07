@@ -18,16 +18,13 @@ Future relation planning depends on:
 
 ## Relation Rules
 
-Future relation types must be bounded and explainable:
+Future persisted relation types must begin with the Stage 02 accepted
+`EdgeRelationType` values only:
 
 - `supports`
 - `contradicts`
 - `qualifies`
-- `uses_method`
-- `uses_dataset`
 - `background`
-- `uncertain`
-- `supersedes`
 
 Stage 05 implementation planning must preserve the Stage 02 accepted
 `EdgeRelationType` values (`supports`, `contradicts`, `qualifies`, and
@@ -35,6 +32,13 @@ Stage 05 implementation planning must preserve the Stage 02 accepted
 Limitation-style evidence must be represented through the existing `qualifies`
 relation plus rationale text. A future `limits` value may be introduced only with
 a compatibility or migration rule that keeps existing `qualifies` edges valid.
+
+Future semantic categories such as method use, dataset use, uncertainty, and
+supersession are not valid persisted `EdgeRelationType` values in Stage 05 unless
+a later GPT Pro-approved migration explicitly adds them. Until then, they must be
+represented through the existing relation type, relation rationale, structured
+edge metadata, or card-specific references while keeping the stored relation type
+compatible with the Stage 02 enum.
 
 Every relation must carry:
 

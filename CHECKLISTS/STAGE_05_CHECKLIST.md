@@ -3,7 +3,7 @@
 | Gate | Required evidence | Status |
 | --- | --- | --- |
 | Scope | Stage 05 planning files only; no runtime Claim Graph, Research Delta, MCP business tool, Repro Pack, UI/dashboard, chatbot/RAG, stock/investment, Risk Mode, Replay Engine, auth, billing, external provider, or real LLM behavior | PASS locally |
-| Functionality | Planning defines future Claim Graph architecture, relation rules including existing `qualifies` compatibility, same-project guards, Research Delta semantics, and mock-only test plan without implementation | PASS locally |
+| Functionality | Planning defines future Claim Graph architecture, relation rules that preserve all existing Stage 02 enum values and gate non-enum semantics behind metadata or future migration, same-project guards, Research Delta semantics, and mock-only test plan without implementation | PASS locally |
 | Tests | `phase_check.py --stage 05`, `phase_check.py --stage 05 --final`, forbidden implementation path absence, forbidden-scope scan, secret scan, compileall, row-ID uniqueness, and `git diff --check` | PASS locally; current PR #12 relation-compatibility head still needs CI after push |
 | Docs | Stage 05 plan, tasks, architecture doc, command doc, review/deployment READMEs, and subagent logs exist | PASS locally |
 | Logs | CONTROL and RUNLOG entries updated for Stage 04 complete and Stage 05 planning active | PASS locally |
