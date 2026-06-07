@@ -34,9 +34,9 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Functionality: planning only
 - Tests: local planning checks PASS
 - Docs: planning docs created
-- Logs: updated through A-0522/CP-0383 before this acceptance-source refresh; the latest CONTROL/18 and CONTROL/27 rows are the source of truth after any later gate-evidence commit
-- GitHub: PR #12 open; most recent checked remediation head `d27bbd7e7216f1298114b9af8d870a1ee9451a75` had CI PASS, and this summary-consistency refresh head must pass CI again before GPT Pro review
-- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136; CR-05-001/002/003/004/005/006/007 are locally remediated or resolved and CR-05-008 summary-consistency refresh is in progress
+- Logs: updated through A-0528/CP-0389 after the relation-compatibility refresh; the latest CONTROL/18 and CONTROL/27 rows are the source of truth after any later gate-evidence commit
+- GitHub: PR #12 open; most recent checked remediation head `2335001ef87771aba1bd62edf7e5dc946ad45185` had CI PASS, and this relation-compatibility refresh head must pass CI again before GPT Pro review
+- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833; CR-05-001 through CR-05-008 are locally remediated or resolved and CR-05-009 local checks passed; external gate pending after push
 - GPT Pro review: pending
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected

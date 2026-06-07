@@ -22,12 +22,19 @@ Future relation types must be bounded and explainable:
 
 - `supports`
 - `contradicts`
-- `limits`
+- `qualifies`
 - `uses_method`
 - `uses_dataset`
 - `background`
 - `uncertain`
 - `supersedes`
+
+Stage 05 implementation planning must preserve the Stage 02 accepted
+`EdgeRelationType` values (`supports`, `contradicts`, `qualifies`, and
+`background`) unless a later GPT Pro-approved migration explicitly changes them.
+Limitation-style evidence must be represented through the existing `qualifies`
+relation plus rationale text. A future `limits` value may be introduced only with
+a compatibility or migration rule that keeps existing `qualifies` edges valid.
 
 Every relation must carry:
 

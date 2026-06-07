@@ -41,7 +41,8 @@ Product alignment verdict for this planning work: PASS if it remains plan-only a
 Stage 05 planning scope:
 
 - Define future Claim Graph architecture boundaries around `ResearchProject`, `ResearchClaim`, Stage 04 evidence candidates, and future `ClaimEvidenceEdge` records.
-- Define relation type planning for support, contradiction, limitation, method, dataset, background, uncertainty, and superseded evidence without implementing graph persistence or traversal.
+- Define relation type planning for support, contradiction, qualification, method, dataset, background, uncertainty, and superseded evidence without implementing graph persistence or traversal.
+- Preserve the Stage 02 accepted `EdgeRelationType` values, especially `qualifies`; limitation-style semantics must map to `qualifies` plus rationale unless a later GPT Pro-approved migration explicitly adds a new relation value.
 - Define relation rationale and provenance requirements for every future edge.
 - Define same-project boundary guards so claims and evidence cannot be linked across projects.
 - Define Research Delta semantics for baseline/current snapshots, changed claims, added evidence, removed evidence, relation-state changes, and confidence/rationale changes.
@@ -166,6 +167,7 @@ Future implementation tests to plan:
 - same-project relation creation tests
 - cross-project relation rejection tests
 - relation enum validation tests
+- `qualifies` compatibility tests for limitation-style evidence
 - relation rationale required tests
 - relation provenance required tests
 - claim graph neighborhood output tests
@@ -209,6 +211,7 @@ Submit `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md` to the specified GPT Pro page
 - Research Delta drifts into report generation.
 - Delta computation drifts into risk scoring, trading signals, prediction, or investment advice.
 - Claim/evidence relations are treated as verified truth without provenance.
+- The plan replaces existing `qualifies` relation values with a new `limits` value without compatibility or migration rules.
 - Cross-project evidence leakage.
 - Relation rationale becomes optional or generic metadata.
 - Stage 04 candidate semantics are mutated instead of consumed.

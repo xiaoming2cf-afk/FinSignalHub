@@ -10,7 +10,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this summary-consistency refresh was `d27bbd7e7216f1298114b9af8d870a1ee9451a75`; CI passed for that head, and Codex opened CR-05-008 on inconsistent Codex summary head wording. Any later summary-consistency refresh head must pass CI/Codex again.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this relation-compatibility refresh was `2335001ef87771aba1bd62edf7e5dc946ad45185`; CI passed for that head, and Codex opened CR-05-009 because Stage 05 planning needed to preserve the existing `qualifies` relation. Local checks for this refresh passed at A-0528/CP-0389. Any later relation-compatibility refresh head must pass CI/Codex again.
 
 ## Required Title
 
@@ -28,7 +28,7 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `d27bbd7e7216f1298114b9af8d870a1ee9451a75` passed both Stage Governance CI jobs. The next summary-consistency refresh head must pass CI again before GPT Pro plan review.
+Most recent checked head `2335001ef87771aba1bd62edf7e5dc946ad45185` passed both Stage Governance CI jobs. Local checks for the relation-compatibility refresh passed at A-0528/CP-0389. The next relation-compatibility refresh head must pass CI again before GPT Pro plan review.
 
 ## Codex Review Status
 
@@ -56,6 +56,10 @@ Current-head retry comment after CR-05-006/007 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136`
 
+Current-head retry comment after CR-05-008 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833`
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
@@ -64,7 +68,8 @@ Known findings before this packet refresh:
 - CR-05-004 Codex summary stale head: locally remediated and thread resolved.
 - CR-05-005 current-state route loop: locally remediated and thread resolved.
 - CR-05-006/007 acceptance-source and PR-body evidence drift: locally remediated and threads resolved.
-- CR-05-008 Codex summary internal head mismatch: this summary-consistency refresh remediates it.
+- CR-05-008 Codex summary internal head mismatch: locally remediated.
+- CR-05-009 relation compatibility: this refresh preserves existing `qualifies` semantics, requires any future `limits` value to use a GPT Pro-approved compatibility or migration rule, and has local checks passed at A-0528/CP-0389.
 
 ## GPT Pro Status
 

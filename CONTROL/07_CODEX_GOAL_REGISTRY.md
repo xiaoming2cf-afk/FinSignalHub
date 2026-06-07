@@ -250,15 +250,19 @@ G-0009 terminal addendum at 2026-06-06T23:31:03-05:00: status is PASS / merged /
 | Stage | 05 |
 | Title | Stage 05 Claim Graph and Research Delta planning |
 | Prompt text | Create Stage 05 planning artifacts for future Claim Graph and Research Delta boundaries, subagent logs, review packet, PR body, acceptance evidence, and control logs only. Do not create Stage 05 runtime code, tests, fixtures, MCP tools, Repro Pack export, UI/dashboard behavior, chatbot/RAG behavior, stock prediction, investment advice, Risk Mode, or Replay Engine behavior. |
-| Status | active / planning artifacts in progress |
+| Status | active / PR #12 Gate 6 remediation in progress |
 | Branch/worktree | `stage/05-claim-graph-delta` |
 | Started at | 2026-06-06T23:31:03-05:00 |
-| Updated at | 2026-06-06T23:31:03-05:00 |
+| Updated at | 2026-06-07T01:13:40-05:00 |
 | Done-when | Done only when Stage 05 planning files exist, local planning checks pass, Stage 05 PR has CI PASS, current-head Codex no-major, unresolved review threads = 0, GPT Pro plan review returns PASS or accepted CONDITIONAL PASS, and implementation remains blocked until a separate `/goal`. |
-| Current checkpoint | Stage 04 is merged/tagged. Stage 05 planning artifacts and terminal Stage 04 GPT Pro closeout evidence are being created locally. |
+| Current checkpoint | Stage 05 planning PR #12 exists. Local planning artifacts exist and prior checks passed, but CR-05-009 relation-compatibility remediation must pass local checks, push, CI, current-head Codex, and unresolved review threads = 0 before GPT Pro plan review. |
 | Skills used | finsignal-product-governor, stage-next-goal-synthesizer, gpt-pro-review-preparer, codex-log-keeper, phase-gate-auditor, subagent-coordinator, acceptance-evidence-collector, github-stage-deployer, github-review-resolver |
 | Subagents used | Ptolemy and Planck read-only explorers; planning role logs created for claim-graph-architecture-agent, relation-rule-agent, research-delta-agent, project-boundary-validator-agent, test-plan-agent, docs-log-agent, and scope-review-agent |
-| PR URL | pending |
-| Codex review status | pending |
+| PR URL | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12 |
+| Codex review status | CR-05-009 local remediation drafted; current-head no-major pending after push |
 | GPT Pro status | pending Stage 05 plan review |
 | Next stage source | Stage 04 GPT Pro terminal live-head closeout action items; Stage 05 implementation source pending future GPT Pro plan PASS |
+
+G-0010 current addendum at 2026-06-07T01:13:40-05:00: status is active / CR-05-009 relation-compatibility remediation in progress / external gates pending. PR #12 head `2335001ef87771aba1bd62edf7e5dc946ad45185` passed CI but Codex opened CR-05-009 because the Stage 05 architecture plan listed `limits` without preserving the existing Stage 02 `qualifies` relation. Local remediation preserves `qualifies`, maps limitation-style evidence to `qualifies` plus rationale, and requires a GPT Pro-approved compatibility or migration rule before any future `limits` value can be introduced. Next checkpoint is local checks, commit/push, PR #12 CI, current-head Codex, unresolved review threads = 0, and then GPT Pro plan review. Stage 05 implementation remains unauthorized.
+
+G-0010 current addendum at 2026-06-07T01:23:08-05:00: CR-05-009 local checks passed. `phase_check.py --stage 05`, `phase_check.py --stage 05 --final`, `python -m compileall apps/api/finsignalhub_api`, forbidden Stage 05 runtime/test/fixture path absence checks, high-confidence secret scan, artifact/checkpoint/blocker row-ID uniqueness, and `git diff --check` passed with only normal Windows line-ending warnings. Next checkpoint is commit/push the relation-compatibility refresh, sync PR #12 body, wait for CI, request current-head Codex, verify unresolved review threads = 0, and only then submit the Stage 05 plan packet to GPT Pro. Stage 05 implementation remains unauthorized.
