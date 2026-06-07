@@ -12,7 +12,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for live PR head checks.
 
-Current Gate 6 state: temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d0` passed CI and received Codex review, but Codex opened CR-05-013/014 because the tracked screenshot exposed logged-in ChatGPT browser context and the Gate 6 records still described the prior missing-screenshot head. Local remediation removes the screenshot from tracking and from branch history, redacts the blocker evidence to a textual note, and routes the next amended PR head through fresh CI, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GitHub Gate 6 can pass.
+Current Gate 6 state: PR head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` passed CI and received current-head Codex review. Codex opened CR-05-015/016 because older Stage 05 blocker rows B-0107 through B-0115 still appeared open and the checklist still pointed at a superseded relation-compatibility route. Local remediation closes the superseded blocker rows, marks B-0120 as historical, points the checklist at B-0121, and routes the next PR head through fresh CI, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GitHub Gate 6 can pass.
 
 ## Required Title
 
@@ -30,12 +30,12 @@ Current Gate 6 state: temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d
 
 ## CI Status
 
-Temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d0` passed both Stage Governance CI jobs before CR-05-013/014:
+PR head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` passed both Stage Governance CI jobs before CR-05-015/016:
 
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086950332/job/79943168603
-- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27086949441/job/79943166154
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088228550/job/79946771328
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27088227632/job/79946768846
 
-This CI evidence is not sufficient by itself because Codex opened CR-05-013/014 on the same temporary head.
+This CI evidence is not sufficient by itself because Codex opened CR-05-015/016 on the same head.
 
 ## Codex Review Status
 
@@ -113,7 +113,13 @@ Current privacy and Gate 6 status reviews:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368995595`
 
-Unresolved non-outdated review threads: not zero; CR-05-013/014 remain open until this remediation is pushed and the next head receives current-head Codex clearance.
+Current blocker-log/checklist reviews:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069324`
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3369069325`
+
+Unresolved non-outdated review threads: not zero; CR-05-015/016 remain open until this remediation is pushed and the next head receives current-head Codex clearance.
 
 Known findings before this packet refresh:
 
@@ -128,8 +134,10 @@ Known findings before this packet refresh:
 - CR-05-010 non-enum relation migration gate: resolved for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2`; this refresh makes method, dataset, uncertainty, and supersession semantics metadata/rationale/card-reference concepts unless a future GPT Pro-approved enum migration adds compatible relation values.
 - CR-05-011 Gate 6 evidence stale after blocker-evidence commit: remediated in PR head `b5c0ccc1954ed452667f80570c63c68bf7aabdef`; an old unresolved thread remains outdated and must not be used as current-head clearance.
 - CR-05-012 missing screenshot evidence: superseded by CR-05-013 privacy finding; unredacted screenshots must not be committed.
-- CR-05-013 privacy leak in tracked screenshot: open for temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d0`; remove the screenshot from tracking/history and use only redacted textual blocker evidence.
-- CR-05-014 Gate 6 status drift after CR-05-012 remediation: open for temporary PR head `fd2456629f3c86fd128ee686325201b9f17ae8d0`; refresh current gate records so they do not route back to the already-remediated missing-screenshot finding.
+- CR-05-013 privacy leak in tracked screenshot: resolved/superseded by CR-05-015/016 after amended head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` removed the screenshot from branch history and used textual blocker evidence only.
+- CR-05-014 Gate 6 status drift after CR-05-012 remediation: resolved/superseded by CR-05-015/016 after amended head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb` refreshed Gate 6 records and received current-head Codex review.
+- CR-05-015 superseded blocker rows still open: open for PR head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb`; close B-0107 through B-0115 as historical and route current Gate 6 through B-0121.
+- CR-05-016 checklist pointed at superseded relation-compatibility route: open for PR head `04e328d4d39a8b1826f10c9d507f8fdbf9277eeb`; refresh `CHECKLISTS/STAGE_05_CHECKLIST.md` to the B-0121 route.
 
 ## GPT Pro Status
 

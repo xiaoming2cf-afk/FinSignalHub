@@ -5963,3 +5963,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-013/014 remediation locally
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded governance secret scan, sensitive screenshot reference scan, git diff --check, and git diff --cached --check passed; no Stage 05 runtime files were created
 - Next action: Amend the current remediation commit without the screenshot, force-push with lease, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0336
+
+- Timestamp: 2026-06-07T09:14:33+00:00
+- Stage: 05
+- Action: Drafted CR-05-015/016 blocker-log and checklist cleanup
+- Result: PR #12 head 04e328d4d39a8b1826f10c9d507f8fdbf9277eeb passed CI and received current-head Codex review, but Codex opened CR-05-015/016 because superseded blocker rows B-0107 through B-0115 still appeared open and the checklist pointed at a superseded relation-compatibility route; local remediation closes old blockers, creates B-0121, and refreshes the checklist and gate evidence
+- Next action: Run Stage 05 checks, commit and push one CR-05-015/016 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
+
+## Cycle 0337
+
+- Timestamp: 2026-06-07T09:20:00+00:00
+- Stage: 05
+- Action: Verified CR-05-015/016 cleanup locally
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, row ID uniqueness, bounded secret scan, active blocker-route scan, git diff --check, and git diff --cached --check passed; no Stage 05 runtime files were created
+- Next action: Commit and push CR-05-015/016 cleanup head, wait for CI, request current-head Codex, verify unresolved non-outdated threads equals zero, and retry GPT Pro only if the payment prompt is resolved
