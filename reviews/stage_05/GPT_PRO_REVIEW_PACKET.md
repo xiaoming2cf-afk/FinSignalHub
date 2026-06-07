@@ -60,7 +60,7 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Most recent checked PR head before this acceptance-source refresh was `e716ff14992aafb39136d840ed6037a4b05b4a42`; CI passed for that head and Codex opened CR-05-006/007 because next-stage authorization and PR body gate evidence were stale. This acceptance-source refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+Most recent checked PR head before this summary-consistency refresh was `d27bbd7e7216f1298114b9af8d870a1ee9451a75`; CI passed for that head and Codex opened CR-05-008 because the Codex summary had two conflicting reviewed-head references. This summary-consistency refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
 
 Codex review requests used:
 
@@ -69,6 +69,7 @@ Codex review requests used:
 - Current-head minimal request after CR-05-003 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641518560`
 - Current-head minimal request after CR-05-004 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641539890`
 - Current-head minimal request after CR-05-005 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641564414`
+- Current-head minimal request after CR-05-006/007 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136`
 
 Required Codex prompt:
 
@@ -84,6 +85,7 @@ Known Codex findings before this packet refresh:
 - CR-05-004: Codex review summary still recorded a stale `aaf3e53...` pre-sync head. This summary refresh remediates it.
 - CR-05-005: current-state route still told a clean checked head to rerun checks and create another commit. This route refresh remediates it.
 - CR-05-006/007: acceptance next-stage source and PR body gate evidence were stale. This acceptance-source refresh remediates them.
+- CR-05-008: Codex summary had conflicting reviewed-head references. This summary-consistency refresh remediates it.
 
 ## Stage 05 Planning Questions For GPT Pro
 

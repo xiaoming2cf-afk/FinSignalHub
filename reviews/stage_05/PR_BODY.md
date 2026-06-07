@@ -35,8 +35,8 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Tests: local planning checks PASS
 - Docs: planning docs created
 - Logs: updated through A-0522/CP-0383 before this acceptance-source refresh; the latest CONTROL/18 and CONTROL/27 rows are the source of truth after any later gate-evidence commit
-- GitHub: PR #12 open; most recent checked remediation head `e716ff14992aafb39136d840ed6037a4b05b4a42` had CI PASS, and this acceptance-source refresh head must pass CI again before GPT Pro review
-- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641564414; CR-05-001/002/003/004/005 are locally remediated or resolved and CR-05-006/007 acceptance-source refresh is in progress
+- GitHub: PR #12 open; most recent checked remediation head `d27bbd7e7216f1298114b9af8d870a1ee9451a75` had CI PASS, and this summary-consistency refresh head must pass CI again before GPT Pro review
+- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136; CR-05-001/002/003/004/005/006/007 are locally remediated or resolved and CR-05-008 summary-consistency refresh is in progress
 - GPT Pro review: pending
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected
