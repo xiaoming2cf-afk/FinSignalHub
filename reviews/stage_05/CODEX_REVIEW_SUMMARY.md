@@ -28,6 +28,7 @@ Review comment:
 | --- | --- | --- | --- |
 | CR-05-001: command doc omitted required local gate checks | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368772276 | local checks passed / external recheck pending | `docs/codex/stage_05_commands.md` now lists final phase check, compileall, secret scan, forbidden-scope scan, and row-ID uniqueness checks. |
 | CR-05-002: current-stage state still said PR pending creation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368774621 | local checks passed / external recheck pending | `CONTROL/24_CURRENT_STAGE_STATE.md` now points to PR #12, current remediation blockers, and the CI/Codex recheck route; combined local checks passed at A-0515/CP-0377. |
+| CR-05-003: GPT Pro packet still said PR pending creation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368791229 | local remediation drafted | `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md` now names PR #12, current Codex findings, required checks, and the packet-refresh live-gate requirement. |
 
 ## Current-Head Rule
 

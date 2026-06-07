@@ -41,9 +41,12 @@ This branch records Stage 04 terminal closeout evidence, updates governance stat
 ## Planned Checks
 
 - `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 05`
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 05 --final`
+- `python -m compileall apps/api/finsignalhub_api`
 - absence checks for Stage 05 runtime package, tests, and fixtures
 - high-confidence secret scan
 - forbidden-scope scan
+- artifact, blocker, and checkpoint row-ID uniqueness checks
 - `git diff --check`
 - GitHub CI PASS
 - current-head Codex no-major
@@ -51,11 +54,30 @@ This branch records Stage 04 terminal closeout evidence, updates governance stat
 
 ## GitHub And Codex Status
 
-Stage 05 PR is pending creation. The PR body source is `reviews/stage_05/PR_BODY.md`. After PR creation, Codex must review:
+Stage 05 PR #12 exists:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12`
+
+The PR body source is `reviews/stage_05/PR_BODY.md`.
+
+Most recent checked PR head before this packet refresh was `32f306c9db6553cc89076dab8a52299946eb12d6`; CI passed for that head and Codex opened CR-05-003 because this packet still had stale PR-pending wording. This packet refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+
+Codex review requests used:
+
+- Required full request: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668`
+- Current-head minimal request after CR-05-001/002 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641495922`
+
+Required Codex prompt:
 
 ```text
 @codex review for product alignment, missing tests, security regressions, architecture risks, missing provenance, missing docs, and phase acceptance problems
 ```
+
+Known Codex findings before this packet refresh:
+
+- CR-05-001: command doc omitted required gate checks. Local remediation added the missing commands.
+- CR-05-002: current-stage state still said PR pending creation. Local remediation now points to PR #12.
+- CR-05-003: GPT Pro packet still said PR pending creation. This packet refresh remediates it.
 
 ## Stage 05 Planning Questions For GPT Pro
 
