@@ -30,147 +30,150 @@ Update only after GPT Pro passes or conditionally passes a stage or plan gate an
 
 ## Current state
 
-Source stage: Stage 02 implementation final gate.
+Source stage: Stage 04 terminal live-head closeout gate.
 
 GPT Pro result: PASS.
 
-Important condition: Stage 03 is authorized for planning only. Stage 03 implementation is not authorized.
+Important condition: Stage 05 is authorized for planning only. Stage 05 implementation is not authorized.
 
 ## Next Stage ID
 
-Stage 03 planning: Source Connectors.
+Stage 05 planning: Claim Graph and Research Delta.
 
 ## Next Stage Goal
 
-Create `PLANS/STAGE_03_PLAN.md` for Research Mode source connector planning only.
+Create a reviewable Stage 05 planning package for future Claim Graph and Research Delta implementation boundaries only.
 
-The Stage 03 plan must define connector framework scope, file boundaries, subagents, normalized `Document` mapping, provenance fields, mocked test strategy, no-network test rule, CI checks, stop conditions, and a GPT Pro plan review packet.
+The Stage 05 plan must define how Stage 02 domain models and Stage 04 evidence candidates connect into future claim graph, claim-evidence relation logic, Research Delta calculation, same-project validation guards, relation-state updates, mock-only tests, docs, logs, and gates. It must not create runtime Claim Graph or Research Delta code.
 
 ## Allowed Planning Targets
 
-- OpenAlex connector.
-- Crossref connector.
-- Semantic Scholar connector.
-- arXiv connector.
-- User upload connector.
-- Connector base interface.
-- Normalized `Document` output.
-- Mocked tests.
-- Docs.
-- Logs.
-- GPT Pro plan review packet.
+- Claim Graph architecture planning.
+- Relation type, rationale, and provenance planning.
+- Same-project validation guard planning.
+- Research Delta baseline/current semantics planning.
+- Mock-only future test plan.
+- GitHub, Codex, and GPT Pro gate plan.
 
-## Required Stage 03 Planning Files
+## Required Stage 05 Planning Files
 
-- `PLANS/STAGE_03_PLAN.md`
-- `TASKS/STAGE_03_TASKS.md`
-- `CHECKLISTS/STAGE_03_CHECKLIST.md`
-- `reviews/stage_03/GPT_PRO_REVIEW_PACKET.md`
-- `reviews/stage_03/PR_BODY.md`
-- `reviews/stage_03/STAGE_ACCEPTANCE_RESULT.md`
-- `deployments/stage_03/GITHUB_PR.md`
-- `docs/architecture/stage_03_source_connectors.md`
-- `docs/codex/stage_03_commands.md`
-- `logs/subagents/stage_03/`
+- `PLANS/STAGE_05_PLAN.md`
+- `TASKS/STAGE_05_TASKS.md`
+- `CHECKLISTS/STAGE_05_CHECKLIST.md`
+- `reviews/stage_05/GPT_PRO_REVIEW_PACKET.md`
+- `reviews/stage_05/CODEX_REVIEW_SUMMARY.md`
+- `reviews/stage_05/PR_BODY.md`
+- `reviews/stage_05/STAGE_ACCEPTANCE_RESULT.md`
+- `deployments/stage_05/GITHUB_PR.md`
+- `docs/architecture/stage_05_claim_graph_research_delta.md`
+- `docs/codex/stage_05_commands.md`
+- `logs/subagents/stage_05/`
 - Required `CONTROL/` and `RUNLOG/` status updates.
 
 ## Required Subagents
 
-Stage 03 plan should declare:
+Stage 05 plan should declare:
 
-- `openalex-agent`
-- `crossref-agent`
-- `semantic-scholar-agent`
-- `arxiv-agent`
-- `user-upload-agent`
-- `connector-review-agent`
+- `claim-graph-architecture-agent`
+- `relation-rule-agent`
+- `research-delta-agent`
+- `project-boundary-validator-agent`
+- `test-plan-agent`
+- `docs-log-agent`
+- `scope-review-agent`
 
-Each subagent must have bounded file authority and must write logs under `logs/subagents/stage_03/`.
+Each subagent must have bounded file authority and must write logs under `logs/subagents/stage_05/`.
 
 ## Required Tests To Plan
 
-- `pytest apps/api/tests/test_stage03_connectors.py`
-- Mocked HTTP tests only.
-- No external network calls in normal tests.
-- Fixture-based OpenAlex sample response.
-- Fixture-based Crossref sample response.
-- Fixture-based Semantic Scholar sample response.
-- Fixture-based arXiv sample response.
-- User-upload sample fixture.
-- Normalized `Document` schema validation.
-- `publication_time` / `release_time` mapping tests.
-- `source_identity` mapping tests.
-- URL / DOI / external id mapping tests.
-- Rate-limit and retry behavior tests with mocks.
+- Deterministic claim candidate generation plan.
+- Bounded edge relation type plan.
+- Evidence-to-claim provenance preservation plan.
+- Same-project guard plan.
+- No claim edge without evidence reference.
+- No delta without old/new evidence snapshots.
+- Literature matrix, method card, and dataset card payload validation plan.
+- Duplicate/cycle handling plan.
+- Unsupported-claim rejection plan.
+- No prediction/recommendation wording in research deltas.
+- No network/provider import checks.
+- Deterministic fixture output plan.
+- Full regression planning across Stage 02 through Stage 05 boundaries.
 - Forbidden-scope scan.
-- Secret scan.
-- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 03`
+- High-confidence secret scan.
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 05`
+- `python finsignalhub-codex-plugin/scripts/phase_check.py --stage 05 --final`
+- `python -m compileall apps/api/finsignalhub_api`
 - `git diff --check`
 
-CI must not require real API keys.
+CI must not require real API keys, real LLM calls, live external calls, or Stage 05 runtime implementation during planning.
 
 ## Forbidden Scope
 
-Do not implement in Stage 03 planning or implementation:
+Do not implement during Stage 05 planning:
 
-- Evidence extraction.
-- LLM adapters.
-- Claim graph computation.
-- Research delta computation.
-- Repro Pack export logic.
+- Claim graph runtime code.
+- Research Delta runtime code.
+- Stage 05 tests or fixtures.
+- Persistence or migrations.
 - MCP business tools.
+- Repro Pack export logic.
+- Frontend UI or dashboard behavior.
+- Chatbot or generic RAG behavior.
+- Stock prediction or investment advice.
 - Risk Mode.
 - Replay Engine.
-- Stock prediction.
-- Investment advice.
-- Chatbot UI.
-- Generic RAG.
-- Dashboard behavior.
+- Auth or billing.
+- Live external calls.
+- Real LLM calls.
+- New connectors or production extraction expansion.
+- Destructive Stage 02/03/04 changes.
 
 ## Risks
 
-- External API dependency creep.
-- Connector work becoming ingestion or extraction workflow.
-- Connector output bypassing provenance requirements.
-- Stage 03 drifting into evidence extraction.
-- User upload becoming a full document parser.
+- Scope explosion into implementation.
+- Premature graph persistence.
+- Treating candidate relations as verified truth.
+- Research Delta drifting into prediction, investment advice, risk scoring, or trading signals.
+- Loss of Stage 04 provenance.
+- Literature matrix/card planning drifting into report generation.
 
 ## Stop Conditions
 
 Codex must stop and ask for user or GPT Pro guidance if:
 
-1. A connector requires paid API keys or private credentials.
-2. A source endpoint is inaccessible and no public fixture can be used.
-3. Implementation requires real network tests.
-4. Connector work requires evidence extraction.
-5. Connector work requires an LLM adapter.
-6. Connector work requires claim graph or research delta computation.
-7. Connector work requires MCP business tool exposure.
-8. Repository package layout requires destructive restructuring.
-9. Stage 03 plan cannot preserve Stage 02 model boundaries.
-10. External source terms create licensing ambiguity requiring user decision.
+1. Planning requires Stage 05 runtime code.
+2. Planning requires database migrations or persistence.
+3. Planning requires MCP business tools.
+4. Planning requires Repro Pack export logic.
+5. Planning requires frontend/UI/dashboard behavior.
+6. Planning requires real LLM calls, live external calls, API keys, or paid credentials.
+7. Planning requires stock prediction, investment advice, Risk Mode, or Replay Engine.
+8. Planning requires destructive Stage 02, Stage 03, or Stage 04 changes.
+9. Stage 05 plan cannot preserve Stage 04 provenance boundaries.
+10. GPT Pro or Codex gate evidence is missing.
 
 ## Raw GPT Pro Instruction Source
 
-Full final response is saved at:
+Full active handoff response is saved at:
 
-- `reviews/stage_02/GPT_PRO_REVIEW_RESPONSE.md`
-- `reviews/stage_02/GPT_PRO_FINAL_REVIEW_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_LIVE_HEAD_CLOSEOUT_RESPONSE.md`
+- `reviews/stage_04/GPT_PRO_LIVE_HEAD_CLOSEOUT_ACTION_ITEMS.md`
 
 ## Raw GPT Pro Instruction
 
 ```text
-Stage 02 implementation result: PASS.
-Stage 02 may be accepted now after saving this response/action items locally.
-ADR-0002 support-file exception: acceptable.
-Provenance modeling and validation: sufficient for Stage 02.
-Forbidden Stage 03+ behavior: none indicated.
-Live GitHub CI + Codex no-major evidence: sufficient despite committed historical pending wording.
-Stage 03: planning only, not implementation.
-Final verdict: PASS.
-
-Begin Stage 03 planning only.
-Do not implement Stage 03.
+Stage 04 final live-head closeout result: PASS.
+No code-level must-fix remains.
+Live GitHub evidence for head 2500438 is sufficient.
+Latest evidence-sync commits preserve product direction and do not alter runtime implementation.
+No forbidden Stage 05+ behavior was introduced.
+Stage 04 may be considered accepted based on live PR head 2500438.
+Do not push another evidence-only commit before merge.
+Merge PR #11 at current accepted head 2500438.
+Tag stage-04-evidence-extraction.
+Stage 05 may proceed to planning only.
+Stage 05 implementation is not authorized.
 ```
 
 ## Stage 03 Closeout Addendum From GPT Pro

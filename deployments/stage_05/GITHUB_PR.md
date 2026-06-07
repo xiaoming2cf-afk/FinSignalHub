@@ -10,7 +10,7 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this route refresh was `51d2d0a739c62d8b7524a16db2e739da86239c26`; CI passed for that head, and Codex opened CR-05-005 on stale current-state routing. Any later route-refresh head must pass CI/Codex again.
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this acceptance-source refresh was `e716ff14992aafb39136d840ed6037a4b05b4a42`; CI passed for that head, and Codex opened CR-05-006/007 on stale next-stage source and PR-body evidence. Any later acceptance-source refresh head must pass CI/Codex again.
 
 ## Required Title
 
@@ -28,7 +28,7 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `51d2d0a739c62d8b7524a16db2e739da86239c26` passed both Stage Governance CI jobs. The next route-refresh head must pass CI again before GPT Pro plan review.
+Most recent checked head `e716ff14992aafb39136d840ed6037a4b05b4a42` passed both Stage Governance CI jobs. The next acceptance-source refresh head must pass CI again before GPT Pro plan review.
 
 ## Codex Review Status
 
@@ -48,13 +48,18 @@ Current-head retry comment after CR-05-004 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641539890`
 
+Current-head retry comment after CR-05-005 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641564414`
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
 - CR-05-002 current-state PR gate drift: locally remediated.
 - CR-05-003 GPT Pro packet stale PR status: locally remediated.
 - CR-05-004 Codex summary stale head: locally remediated and thread resolved.
-- CR-05-005 current-state route loop: this route refresh remediates it.
+- CR-05-005 current-state route loop: locally remediated and thread resolved.
+- CR-05-006/007 acceptance-source and PR-body evidence drift: this acceptance-source refresh remediates it.
 
 ## GPT Pro Status
 
