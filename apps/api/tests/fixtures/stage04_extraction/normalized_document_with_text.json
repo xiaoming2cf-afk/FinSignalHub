@@ -1,0 +1,27 @@
+{
+  "stage03_provider": "arxiv",
+  "stage03_fixture": "stage03_connectors/arxiv_entry.json",
+  "source_id": "source-arxiv-fixture-001",
+  "document_id": "doc-arxiv-fixture-001",
+  "normalized_document": {
+    "project_id": "stage03-project",
+    "source_id": "source-arxiv-fixture-001",
+    "title": "Temporal Contamination in Financial Language Model Evaluation",
+    "normalized_document_ref": "arxiv:arxiv:2401.01234",
+    "source_identity": "arxiv:2401.01234",
+    "source_type": "preprint",
+    "retrieval_time": "2026-05-30T20:00:00Z",
+    "publication_time": "2024-01-15T00:00:00Z",
+    "url": "https://arxiv.org/abs/2401.01234",
+    "doi": null,
+    "locator": "2401.01234v2",
+    "transformation_notes": "Stage 03 normalized arXiv fixture; no full provider call was made.",
+    "validation_status": "pending"
+  },
+  "document_text": "Temporal contamination can inflate financial language model evaluation results. The fixture only supports Stage 04 candidate validation.",
+  "tool_call_id": "tool-call-stage04-arxiv-001",
+  "tool_call_lineage": [
+    "finsignalhub.stage03.arxiv.normalize"
+  ]
+}
+

@@ -28,26 +28,26 @@ Update at the start and end of every RunLog cycle, after PR creation, after CI c
 
 ## Example format
 
-`Stage 00.1 | active | branch stage/00-1-governance-cleanup | PR pending | next: create RunLog files`
+`Stage 04 | planning closeout PASS | branch stage/04-evidence-extraction | PR #11 | next: draft implementation goal only`
 
 ## Current state
 
 | Field | Value |
 | --- | --- |
-| Current stage | Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks; commit/push pending |
-| Current phase status | Stage 03 connector implementation passed local tests, PR #10 current-head CI/Codex, and GPT Pro final implementation review for head `039e3d087c84f6ec61a6107b6f55b628d8a79ee6`. Evidence-closeout head `bd33c4f1147c48dcf9573cee2c8546bbdfd5daf0` received CR-03-042; remediation head `dc6cea822cd7f35aee1fe2bd7116aa826ab3eb37` passed CI, then Codex returned CR-03-043 because old-style dotted arXiv ids such as `physics.ins-det/0301001` and `physics.atom-ph/9901001` were rejected. Remediation head `adb41c36e66a25ddfa943950b7e08a685906560e` extends old-style id parsing, adds regression coverage, passed local checks, passed PR #10 CI, received current-head Codex no-major evidence, and received GPT Pro CR-03-043 re-review PASS. |
-| Active branch | `stage/03-source-connectors-closeout-refresh` |
-| Latest PR | Replacement Stage 03 PR #10: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10. Superseded PR #9: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/9 |
-| Latest CI status | PASS for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700384838/job/78692127001 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/26700385624/job/78692129155. |
-| Latest Codex review status | PASS / no-major for CR-03-043 remediation head `adb41c36e66a25ddfa943950b7e08a685906560e`: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#pullrequestreview-4396255733 and https://github.com/xiaoming2cf-afk/FinSignalHub/pull/10#discussion_r3329584630. |
-| Latest GPT Pro review status | PASS for CR-03-043 re-review saved in `reviews/stage_03/GPT_PRO_CR_03_043_REREVIEW_RESPONSE.md`; GPT Pro answered that CR-03-043 is resolved, PR #10 may merge, and Stage 04 planning-only is allowed next. |
-| Active goal id | G-0006 implementation goal accepted; final evidence closeout update in progress |
-| Next required action | Commit and push this governance-only GPT Pro response/action-item evidence, sync PR #10 body, verify live PR #10 CI/Codex for the resulting head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean. |
-| Blocker status | B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; governance-only evidence commit still requires live PR #10 CI/Codex after push before merge. B-0027/B-0048 remain capability limitations only. |
-| Last updated time | 2026-05-30T21:23:26-05:00 |
+| Current stage | Stage 04 current-head GPT Pro PASS captured; B-0106 live Gate 6 pending |
+| Current phase status | Stage 03 is closed, merged, and tagged. Stage 04 planning content, GPT Pro final closeout, the Stage 04 implementation-goal draft, and Stage 04 mock-only implementation final review are accepted. PR #11 head `cd3c1cfeef0dc075f5fd35cfd4d6451c712e75df` passed live CI, received current-head Codex no-major, had unresolved review threads = 0, and GPT Pro returned Stage 04 `PASS` after CR-04-039 locator-only quote validation remediation. B-0106 is the active route-loop prevention follow-up. Prior B-0106 heads `cb95156a...` / CR-04-044 / CP-0368 and `31070376...` / CR-04-045 / CP-0369 are handled follow-ups, not final acceptance evidence after a newer evidence-sync patch. The final Gate 6 source of truth is the live PR #11 head after the latest B-0106 evidence-sync patch, with live CI PASS, current-head Codex no-major, and unresolved review threads = 0. |
+| Active branch | `stage/04-evidence-extraction` |
+| Latest PR | Stage 04 PR #11: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/11 |
+| Latest CI status | Use live PR #11 head after the latest B-0106 evidence-sync patch. Prior B-0106 CI for `cb95156a...` and `31070376...` is historical and cannot close the current live Gate 6 after a newer commit. |
+| Latest Codex review status | Use current-head Codex review for the live PR #11 head after the latest B-0106 evidence-sync patch. Prior CR-04-044 and CR-04-045 are handled follow-ups. Older CR-04-040/041/042/043 threads are resolved or outdated. |
+| Latest GPT Pro review status | PASS for Stage 04 current-head final review. Response saved at `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_REVIEW_RESPONSE.md`; action items saved at `reviews/stage_04/GPT_PRO_CURRENT_HEAD_FINAL_ACTION_ITEMS.md`. GPT Pro authorized Stage 05 planning only and explicitly did not authorize Stage 05 implementation. |
+| Active goal id | G-0009 Stage 04 evidence extraction implementation |
+| Next required action | Use state-dependent routing only. Local checks have passed for B-0106. If uncommitted local edits remain, create one remediation commit, push it, and sync the PR body. If the worktree is clean and local HEAD is not on PR #11, push/sync that existing head without another commit. If PR #11 already points to the local HEAD, skip commits and use live CI, current-head Codex, and unresolved-thread evidence directly. Do not start Stage 05 implementation. |
+| Blocker status | B-0106 open: live Gate 6 must be satisfied by the live PR #11 head after the latest evidence-sync patch. Prior CR-04-044/045 follow-ups are handled but do not close the final gate after a newer commit. B-0105 is superseded; B-0104 is superseded; B-0103 is superseded; B-0102 is superseded; B-0101 is accepted for reviewed head `cd3c1cf`; B-0094 through B-0100 are historical or superseded rows. |
+| Last updated time | Dynamic source of truth: use the latest Stage 04 row in `CONTROL/27_CHECKPOINT_LOG.md`. Fixed timestamp rows are intentionally not used here as Gate 6 evidence because append-only evidence can follow without changing this state file. |
 
-Current detected stage is: Stage 03 CR-03-043 GPT Pro re-review evidence closeout passed local checks and is ready to commit/push.
+Current detected stage is: Stage 04 current-head GPT Pro PASS captured on branch `stage/04-evidence-extraction`; B-0106 live Gate 6 is pending.
 
-Current detected blocker status is: CR-03-043 / B-0075 resolved for reviewed code head `adb41c36e66a25ddfa943950b7e08a685906560e`; a governance-only evidence commit must still receive live PR #10 CI/Codex before merge.
+Current detected blocker status is: B-0106 open for live PR #11 evidence. If there are local edits, create one checked commit; if the branch is clean but not pushed, push/sync the existing head; if local HEAD equals PR #11 head, use live PR #11 CI/Codex/thread evidence directly rather than making another status-only commit.
 
-Next valid action is: commit and push GPT Pro re-review evidence, sync PR #10 body, refresh CI/Codex for the live head, then merge Stage 03 and draft Stage 04 planning-only artifacts if clean.
+Next valid action is: follow the state-dependent route above. Stage 05 implementation remains unauthorized.

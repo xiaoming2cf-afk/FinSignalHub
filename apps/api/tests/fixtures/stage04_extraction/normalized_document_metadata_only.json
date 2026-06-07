@@ -1,0 +1,27 @@
+{
+  "stage03_provider": "user_upload",
+  "stage03_fixture": "stage03_connectors/user_upload_metadata.json",
+  "source_id": "source-user-upload-fixture-001",
+  "document_id": "doc-user-upload-fixture-001",
+  "normalized_document": {
+    "project_id": "stage03-project",
+    "source_id": "source-user-upload-fixture-001",
+    "title": "Temporal Contamination Study Metadata",
+    "normalized_document_ref": "user_upload:user-upload:b9e8f7c6d5a4",
+    "source_identity": "user-upload:b9e8f7c6d5a4",
+    "source_type": "user_upload_metadata",
+    "retrieval_time": "2026-05-30T20:00:00Z",
+    "publication_time": null,
+    "url": null,
+    "doi": "10.5281/zenodo.1234567",
+    "locator": "temporal-contamination-study-metadata.pdf",
+    "transformation_notes": "Stage 03 normalized user-upload metadata fixture; file parsing is intentionally absent.",
+    "validation_status": "pending"
+  },
+  "document_text": null,
+  "tool_call_id": "tool-call-stage04-upload-001",
+  "tool_call_lineage": [
+    "finsignalhub.stage03.user_upload.normalize"
+  ]
+}
+
