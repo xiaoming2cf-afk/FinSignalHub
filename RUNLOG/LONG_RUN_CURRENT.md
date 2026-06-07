@@ -5899,3 +5899,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Artifacts created: A-0530 and CP-0391.
 - Blockers: B-0116 local checks passed / external gate pending.
 - Next action: commit/push CR-05-010 migration-gate refresh head.
+
+## Cycle 0328
+
+- Timestamp: 2026-06-07T07:05:51.067593+00:00
+- Stage: 05
+- Action: Attempted Chrome GPT Pro Stage 05 planning review submission
+- Result: BLOCKED: Chrome target page displayed a Pro subscription renewal/payment prompt; no packet was submitted and no GPT Pro response was captured
+- Next action: User resolves the ChatGPT Pro payment prompt, then resubmit Stage 05 review packet with live PR #12 head 387b5c0816d7acbb388dca4a705734fd7d8623c2 evidence; Stage 05 implementation remains unauthorized
+
+## Cycle 0329
+
+- Timestamp: 2026-06-07T07:19:28.645966+00:00
+- Stage: 05
+- Action: Verified local blocker evidence after GPT Pro payment prompt
+- Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, bounded high-confidence secret scan, and git diff --check passed; the first broad hidden scan timed out and was replaced
+- Next action: User resolves GPT Pro payment prompt, then resubmit Stage 05 planning packet; if committing local blocker evidence first, refresh PR #12 Gate 6 for the new head

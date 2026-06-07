@@ -10,7 +10,9 @@ https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12
 
 ## Current Head
 
-Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR head. Most recent checked head before this non-enum relation migration-gate refresh was `ea7878f9eebdddd26c2a5ea181cd684c5bc10775`; CI passed for that head, and Codex opened CR-05-010 because non-enum relation semantics needed a migration gate. Local checks for this refresh passed at A-0530/CP-0391. Any later migration-gate refresh head must pass CI/Codex again.
+Current live PR head: `387b5c0816d7acbb388dca4a705734fd7d8623c2`.
+
+Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for future live PR head checks. Any later evidence commit must pass CI/Codex again before its GitHub gate can be treated as satisfied.
 
 ## Required Title
 
@@ -28,7 +30,10 @@ Use `gh pr view 12 --json headRefOid,statusCheckRollup,reviews` for the live PR 
 
 ## CI Status
 
-Most recent checked head `ea7878f9eebdddd26c2a5ea181cd684c5bc10775` passed both Stage Governance CI jobs. Local checks for the non-enum relation migration-gate refresh passed at A-0530/CP-0391. The next migration-gate refresh head must pass CI again before GPT Pro plan review.
+Current live PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` passed both Stage Governance CI jobs:
+
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192
+- https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
 
 ## Codex Review Status
 
@@ -64,6 +69,16 @@ Current-head full request after CR-05-009 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788`
 
+Current-head minimal request after CR-05-010 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641700224`
+
+Current-head Codex no-major response:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
+
+Unresolved review threads: 0 by GitHub GraphQL read-only check.
+
 Known findings before this packet refresh:
 
 - CR-05-001 command doc gate list: locally remediated.
@@ -74,11 +89,11 @@ Known findings before this packet refresh:
 - CR-05-006/007 acceptance-source and PR-body evidence drift: locally remediated and threads resolved.
 - CR-05-008 Codex summary internal head mismatch: locally remediated.
 - CR-05-009 relation compatibility: locally remediated and superseded by CR-05-010.
-- CR-05-010 non-enum relation migration gate: this refresh makes method, dataset, uncertainty, and supersession semantics metadata/rationale/card-reference concepts unless a future GPT Pro-approved enum migration adds compatible relation values; local checks passed at A-0530/CP-0391.
+- CR-05-010 non-enum relation migration gate: resolved for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2`; this refresh makes method, dataset, uncertainty, and supersession semantics metadata/rationale/card-reference concepts unless a future GPT Pro-approved enum migration adds compatible relation values.
 
 ## GPT Pro Status
 
-Pending. GPT Pro plan review must run only after current-head CI/Codex evidence is available or after a documented blocker.
+BLOCKED by B-0117. Chrome opened the target GPT Pro page, but the visible page showed a Pro subscription renewal/payment-related prompt. No packet was submitted and no GPT Pro response was captured.
 
 ## Local Check Evidence
 

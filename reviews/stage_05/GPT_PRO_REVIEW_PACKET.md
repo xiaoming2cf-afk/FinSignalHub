@@ -60,7 +60,18 @@ Stage 05 PR #12 exists:
 
 The PR body source is `reviews/stage_05/PR_BODY.md`.
 
-Most recent checked PR head before this non-enum relation migration-gate refresh was `ea7878f9eebdddd26c2a5ea181cd684c5bc10775`; CI passed for that head and Codex opened CR-05-010 because method, dataset, uncertainty, and supersession semantics still appeared in a relation-type list without a GPT Pro-approved enum migration gate. Local checks for this refresh passed at A-0530/CP-0391. This refresh must create a newer head that passes CI, receives current-head Codex no-major, and has unresolved review threads = 0 before GPT Pro should treat GitHub Gate 6 as satisfied.
+Current PR head:
+
+`387b5c0816d7acbb388dca4a705734fd7d8623c2`
+
+Current Gate 6 evidence:
+
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
+- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376
+- Unresolved review threads: 0 by GitHub GraphQL read-only check
+
+GPT Pro submission note: Chrome opened the target page at 2026-06-07T02:02:53-05:00, but the visible page showed a Pro subscription renewal/payment-related prompt. Codex stopped before packet submission. When that prompt is resolved, review this packet as the Stage 05 planning gate packet for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2`.
 
 Codex review requests used:
 
@@ -72,6 +83,8 @@ Codex review requests used:
 - Current-head minimal request after CR-05-006/007 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641588136`
 - Current-head minimal request after CR-05-008 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833`
 - Current-head full request after CR-05-009 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788`
+- Current-head minimal request after CR-05-010 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641700224`
+- Current-head Codex no-major after CR-05-010 remediation: `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
 
 Required Codex prompt:
 
@@ -89,7 +102,7 @@ Known Codex findings before this packet refresh:
 - CR-05-006/007: acceptance next-stage source and PR body gate evidence were stale. This acceptance-source refresh remediates them.
 - CR-05-008: Codex summary had conflicting reviewed-head references. Local remediation fixed it.
 - CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation. Local remediation preserved `qualifies`.
-- CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. This refresh gates all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration. Local checks passed at A-0530/CP-0391.
+- CR-05-010: Method, dataset, uncertainty, and supersession semantics still looked like persisted relation types. Remediated for PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` by gating all non-enum semantics behind rationale, metadata, card-reference annotations, or a future GPT Pro-approved enum migration. CI PASS, Codex no-major, and unresolved review threads = 0 are recorded above.
 
 ## Stage 05 Planning Questions For GPT Pro
 

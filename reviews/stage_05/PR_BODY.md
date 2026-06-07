@@ -34,10 +34,10 @@ This PR must not create Stage 05 runtime packages, tests, fixtures, database mig
 - Functionality: planning only
 - Tests: local planning checks PASS
 - Docs: planning docs created
-- Logs: updated through A-0530/CP-0391 after this non-enum relation migration-gate refresh; the latest CONTROL/18 and CONTROL/27 rows are the source of truth after any later gate-evidence commit
-- GitHub: PR #12 open; most recent checked remediation head `ea7878f9eebdddd26c2a5ea181cd684c5bc10775` had CI PASS, and this non-enum relation migration-gate refresh head must pass CI again before GPT Pro review
-- Codex review: requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641449668 and current-head retry requested at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641664788; CR-05-001 through CR-05-009 are locally remediated or resolved and CR-05-010 local checks passed; external gate pending after push
-- GPT Pro review: pending
+- Logs: updated through A-0531/CP-0392/B-0117 after the GPT Pro browser stop; the latest CONTROL/18, CONTROL/20, and CONTROL/27 rows are the source of truth
+- GitHub: PR #12 open; current head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has CI PASS at https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192 and https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
+- Codex review: current head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has Codex no-major at https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376 and unresolved review threads = 0
+- GPT Pro review: BLOCKED by B-0117 because Chrome displayed a Pro subscription renewal/payment prompt before packet submission; no response or action items captured
 - Product governance: Research Mode-first evidence-stream planning
 - Security: no secrets or provider calls expected
-- Next stage: blocked until GPT Pro plan review provides implementation requirements
+- Next stage: blocked until GPT Pro plan review provides implementation requirements; Stage 05 implementation remains unauthorized

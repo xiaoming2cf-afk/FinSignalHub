@@ -2,17 +2,22 @@
 
 ## Current Status
 
-In remediation. PR #12 exists and the required Codex review comments have been posted.
+Gate 6 PASS for the current PR head. PR #12 exists, both governance CI jobs passed, Codex returned no major issues, and unresolved review threads are 0.
 
 PR URL:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12`
 
-Last reviewed head before this non-enum relation migration-gate refresh:
+Current reviewed head:
 
-`ea7878f9eebdddd26c2a5ea181cd684c5bc10775`
+`387b5c0816d7acbb388dca4a705734fd7d8623c2`
 
-That head passed CI, and Codex opened CR-05-010 because the Stage 05 architecture plan still listed method, dataset, uncertainty, and supersession semantics in a relation-type list even though the existing Stage 02 `EdgeRelationType` enum accepts only `supports`, `contradicts`, `qualifies`, and `background`. Local checks for the non-enum relation migration-gate refresh passed at A-0530/CP-0391. The next pushed head containing this refresh must pass CI, receive current-head Codex no-major, and have unresolved review threads = 0 before Gate 6 can pass.
+Current Gate 6 evidence:
+
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085341944/job/79938639192
+- CI PASS: https://github.com/xiaoming2cf-afk/FinSignalHub/actions/runs/27085342780/job/79938641104
+- Codex no-major: https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376
+- Unresolved review threads: 0 by GitHub GraphQL read-only check
 
 Review comment:
 
@@ -38,6 +43,14 @@ Latest retry comment after CR-05-008 remediation:
 
 `https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641612833`
 
+Current-head retry comment after CR-05-010 remediation:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641700224`
+
+Current-head no-major response:
+
+`https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#issuecomment-4641706376`
+
 ## Required Review Prompt
 
 ```text
@@ -57,7 +70,7 @@ Latest retry comment after CR-05-008 remediation:
 | CR-05-007: PR body gate evidence cited stale logs/head | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368819134 | resolved / superseded by later current-head reviews | That remediation updated the PR body to the then-current acceptance-source refresh route; the current source of truth is the CR-05-009 relation-compatibility route above. |
 | CR-05-008: Codex summary row named a different reviewed head than current status | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368832295 | resolved / superseded by CR-05-009 current gate | The CR-05-004 historical row now defers to the `Current Status` section for the latest reviewed head so the summary has one current-head source of truth. |
 | CR-05-009: Stage 05 relation plan could drop existing `qualifies` relation | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368844561 | resolved / superseded by CR-05-010 current gate | The Stage 05 plan and architecture docs preserve the Stage 02 `qualifies` relation. Limitation-style evidence maps to `qualifies` plus rationale unless a later GPT Pro-approved migration explicitly introduces a compatible `limits` value. |
-| CR-05-010: non-enum relation semantics lacked migration gate | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368871712 | local checks passed; external gate pending | The Stage 05 architecture now says only existing Stage 02 enum values may be persisted. Method, dataset, uncertainty, and supersession semantics must be rationale, metadata, card-reference annotations, or future GPT Pro-approved migration values. Local checks passed at A-0530/CP-0391. |
+| CR-05-010: non-enum relation semantics lacked migration gate | https://github.com/xiaoming2cf-afk/FinSignalHub/pull/12#discussion_r3368871712 | resolved for current PR head | The Stage 05 architecture now says only existing Stage 02 enum values may be persisted. Method, dataset, uncertainty, and supersession semantics must be rationale, metadata, card-reference annotations, or future GPT Pro-approved migration values. Current PR head `387b5c0816d7acbb388dca4a705734fd7d8623c2` has CI PASS, Codex no-major, and unresolved review threads = 0. |
 
 ## Current-Head Rule
 
