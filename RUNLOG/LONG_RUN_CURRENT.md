@@ -6058,4 +6058,20 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Stage: 05
 - Action: Verified Computer Use recovery plugin locally
 - Result: PASS locally: phase_check final, compileall, skill-section check, plugin manifest check, forbidden Stage 05 runtime path absence check, placeholder-only secret scan, and git diff --check passed. Two earlier secret-scan commands failed from PowerShell quoting/regex issues and were replaced by the bounded placeholder-excluding scan. No Stage 05 runtime files were created.
-- Next action: Commit the checked governance addition once, push PR #12, require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. GPT Pro remains blocked by B-0117 until a safe callable route exists and no payment/login/permission prompt blocks the page.
+- Next action: Follow the state machine. If local edits exist, run checks and create one scoped commit; if local HEAD is clean but not on PR #12, push the existing checked head; if PR #12 already points to local HEAD, verify live CI, current-head Codex, and unresolved non-outdated review threads directly. GPT Pro remains blocked by B-0117 until a safe callable route exists and no payment/login/permission prompt blocks the page.
+
+## Cycle 0348
+
+- Timestamp: 2026-06-09T17:30:19+00:00
+- Stage: 05
+- Action: Drafted CR-05-022 route-loop remediation
+- Result: Current-head Codex review for `dc485ed18793562ba1325207ec5b720de1f15a19` opened P2 CR-05-022 because `CONTROL/24_CURRENT_STAGE_STATE.md` still routed an already-pushed current PR head to another status commit. Local remediation changes the next action back to the dirty/clean-not-on-PR/live-head state machine.
+- Next action: Run Stage 05 governance checks, create one scoped route-wording remediation commit because local edits now exist, push PR #12, require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry.
+
+## Cycle 0349
+
+- Timestamp: 2026-06-09T17:36:05+00:00
+- Stage: 05
+- Action: Verified CR-05-022 route-loop remediation locally
+- Result: PASS locally: phase_check final, placeholder-only secret scan, and git diff --check passed. No Stage 05 runtime files were created.
+- Next action: Commit and push one scoped CR-05-022 route-wording remediation, then require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry.
