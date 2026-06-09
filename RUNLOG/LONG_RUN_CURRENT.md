@@ -6075,3 +6075,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-022 route-loop remediation locally
 - Result: PASS locally: phase_check final, placeholder-only secret scan, and git diff --check passed. No Stage 05 runtime files were created.
 - Next action: Commit and push one scoped CR-05-022 route-wording remediation, then require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry.
+
+## Cycle 0350
+
+- Timestamp: 2026-06-09T17:46:47+00:00
+- Stage: 05
+- Action: Drafted CR-05-023 blocker-row route remediation
+- Result: PR #12 current head `540aba997c0890938c0d316771cc4d012b2f0b8b` passed CI and received current-head Codex review, but Codex opened P2 CR-05-023 because B-0126 still routed a clean pushed head to another remediation commit. Local remediation changes B-0126 to the same dirty/clean-not-on-PR/live-head state machine as `CONTROL/24_CURRENT_STAGE_STATE.md`.
+- Next action: Run local Stage 05 governance checks. If local edits remain afterward, create exactly one scoped blocker-row remediation commit; after push, require live CI, current-head Codex clearance, and unresolved non-outdated review threads = 0. If PR #12 already points to local HEAD, do not create another status commit and use live Gate 6 evidence directly before any GPT Pro retry.
+
+## Cycle 0351
+
+- Timestamp: 2026-06-09T17:50:36+00:00
+- Stage: 05
+- Action: Verified CR-05-023 blocker-row route remediation locally
+- Result: PASS locally: final phase check, compileall, forbidden Stage 05 runtime path absence, high-confidence `rg` secret scan, current B-0126/Cycle 0350 route scan, artifact/checkpoint row-ID uniqueness, and git diff --check passed. No Stage 05 runtime files were created.
+- Next action: Commit and push exactly one scoped CR-05-023 blocker-row remediation because local edits exist; after push, require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. If the pushed PR head already equals local HEAD during a future run, do not create another status commit.
