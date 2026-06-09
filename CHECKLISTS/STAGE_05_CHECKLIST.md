@@ -2,13 +2,15 @@
 
 | Gate | Required evidence | Status |
 | --- | --- | --- |
-| Scope | Claim graph and research delta only | planned |
-| Functionality | Graph, edges, deltas, matrix, cards | planned |
-| Tests | Graph and delta tests | planned |
-| Docs | Claim graph semantics | planned |
-| Logs | Stage logs current | planned |
-| GitHub | Branch, PR, CI, Codex review | planned |
-| GPT Pro | Packet, response, next-stage instruction | planned |
-| Product governance | No predictions or recommendations | planned |
-| Security | Evidence integrity | planned |
-| Next stage | GPT Pro Stage 06 instruction | planned |
+| Scope | Stage 05 planning files only; no runtime Claim Graph, Research Delta, MCP business tool, Repro Pack, UI/dashboard, chatbot/RAG, stock/investment, Risk Mode, Replay Engine, auth, billing, external provider, or real LLM behavior | PASS locally |
+| Functionality | Planning defines future Claim Graph architecture, relation rules that preserve all existing Stage 02 enum values and gate non-enum semantics behind metadata or future migration, same-project guards, Research Delta semantics, and mock-only test plan without implementation | PASS locally |
+| Tests | `phase_check.py --stage 05`, `phase_check.py --stage 05 --final`, forbidden implementation path absence, forbidden-scope scan, secret scan, compileall, row-ID uniqueness, and `git diff --check` | PASS locally; static CR rows are historical and do not determine the live GitHub gate |
+| Docs | Stage 05 plan, tasks, architecture doc, command doc, review/deployment READMEs, and subagent logs exist | PASS locally |
+| Logs | CONTROL and RUNLOG entries updated for Stage 04 complete and Stage 05 planning active | PASS locally |
+| GitHub | Branch, PR #12, live PR head CI, current-head Codex review, PR URL, and unresolved non-outdated review threads = 0 | BLOCKED until live PR #12 evidence satisfies all required checks; use `gh pr view 12 --json headRefOid,statusCheckRollup,latestReviews,comments` plus the review-thread API, not static historical CR rows |
+| GPT Pro | Review packet, response, action items, final result, next-stage instruction | BLOCKED until GitHub/Codex gate passes and GPT Pro review is submitted |
+| Product governance | Stage 05 remains Research Mode evidence-stream planning only | PASS locally |
+| Security | No secrets, no provider credentials, no real LLM calls, no live external calls | PASS locally |
+| Next stage | GPT Pro must approve Stage 05 planning and provide implementation-goal requirements before any implementation begins | BLOCKED until GPT Pro plan review |
+
+Current Stage 05 status: local planning checks passed on `stage/05-claim-graph-delta`. Gate 6 is determined by live PR #12 head evidence, not by any fixed CR pointer in this checklist. Stage 05 implementation remains unauthorized.

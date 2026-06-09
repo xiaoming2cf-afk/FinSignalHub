@@ -1,0 +1,8 @@
+{
+  "mcpServers": {},
+  "notes": [
+    "FinSignalHub does not define a Computer Use MCP server in this plugin draft.",
+    "Computer Use is treated as a Codex host capability that must be audited at runtime.",
+    "No browser or desktop automation server is configured here because Stage 05 is planning/governance only."
+  ]
+}

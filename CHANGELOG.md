@@ -18,4 +18,5 @@
 - Added Stage 03 fixture-only source connector primitives for OpenAlex, Crossref, Semantic Scholar, arXiv, and user-upload metadata normalization, with local checks passing and final GitHub/Codex/GPT Pro gates pending.
 - Hardened Stage 03 connector tool-call provenance so extra fixture arguments cannot overwrite canonical provider, query, fixture, or source identity fields.
 - Completed Stage 03 source connector closeout, merged and tagged `stage-03-source-connectors`, and started Stage 04 evidence extraction planning without implementation code.
-- Added Stage 04 mock-only evidence extraction runtime and tightened quote-span validation so locator-only quote text must still match source document text; final live GitHub/Codex/GPT Pro closeout remains pending.
+- Added Stage 04 mock-only evidence extraction runtime and tightened quote-span validation so locator-only quote text must still match source document text.
+- Completed Stage 04 evidence extraction acceptance with CI, Codex no-major, GPT Pro live-head PASS, merge, and tag; started Stage 05 Claim Graph and Research Delta planning without implementation code.
