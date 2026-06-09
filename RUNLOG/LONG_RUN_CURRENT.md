@@ -6043,3 +6043,19 @@ Append-only current run log for FinSignalHub autonomous sessions.
 - Action: Verified CR-05-021 live Gate 6 route cleanup locally
 - Result: PASS locally: phase_check final, compileall, forbidden Stage 05 path checks, bounded secret scan after fixing a PowerShell quoting error, stale current-pointer scan, and git diff --check passed; no Stage 05 runtime files were created.
 - Next action: Follow the state machine. If local edits remain, create one scoped commit and push it; after push, require live PR #12 CI, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. Stage 05 implementation remains unauthorized.
+
+## Cycle 0346
+
+- Timestamp: 2026-06-09T17:15:24+00:00
+- Stage: 05
+- Action: Drafted Computer Use recovery plugin and skill
+- Result: User requested a Computer Use plugin and skill so GPT Pro recovery has a safer non-repeating route. Added governance-only `computer-use-gpt-pro-reviewer` and `finsignalhub-computer-use-plugin` draft files. This does not expose a real Computer Use tool and does not create Stage 05 runtime files.
+- Next action: Run Stage 05 governance checks, commit once, push PR #12, require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. GPT Pro remains blocked by B-0117 until a safe callable route exists and no payment/login/permission prompt blocks the page.
+
+## Cycle 0347
+
+- Timestamp: 2026-06-09T17:17:51+00:00
+- Stage: 05
+- Action: Verified Computer Use recovery plugin locally
+- Result: PASS locally: phase_check final, compileall, skill-section check, plugin manifest check, forbidden Stage 05 runtime path absence check, placeholder-only secret scan, and git diff --check passed. Two earlier secret-scan commands failed from PowerShell quoting/regex issues and were replaced by the bounded placeholder-excluding scan. No Stage 05 runtime files were created.
+- Next action: Commit the checked governance addition once, push PR #12, require CI PASS, current-head Codex clearance, and unresolved non-outdated review threads = 0 before GPT Pro retry. GPT Pro remains blocked by B-0117 until a safe callable route exists and no payment/login/permission prompt blocks the page.

@@ -7,6 +7,7 @@
     "phase-gate-auditor",
     "gpt-pro-review-preparer",
     "browser-gpt-pro-reviewer",
+    "computer-use-gpt-pro-reviewer",
     "github-stage-deployer",
     "codex-log-keeper",
     "mcp-tool-builder",

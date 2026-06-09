@@ -27,10 +27,15 @@ Update when plugin structure, local installation status, external plugin usage, 
 
 ## Current state
 
-Local plugin: `finsignalhub-codex-plugin`.
+Local plugins:
+
+- `finsignalhub-codex-plugin`
+- `finsignalhub-computer-use-plugin`
 
 Status: draft, local-only, not published.
 
 Intended workflow: package FinSignalHub governance skills, review packet templates, phase acceptance templates, and later MCP-first operating guidance. Stage 00 does not define runtime MCP servers.
 
 Requested external plugins for Stage 00 audit/protocol context: Chrome, Browser, GitHub, OpenAI Developers, Codex Security, Render. Render is not used for deployment in Stage 00 because no hosting deployment is in scope.
+
+`finsignalhub-computer-use-plugin` is a Stage 05 governance-wrapper draft for safe GPT Pro review recovery. It records how to use Computer Use when the capability is actually exposed, but it does not install Computer Use, expose a desktop automation runtime, or provide a FinSignalHub MCP server. It exists to prevent blind foreground automation, private screenshot commits, and false GPT Pro gate completion.

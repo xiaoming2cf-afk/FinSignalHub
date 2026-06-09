@@ -1,0 +1,31 @@
+{
+  "name": "finsignalhub-computer-use-plugin",
+  "version": "0.0.1-stage-05-governance",
+  "description": "Local-only FinSignalHub governance plugin draft for safe Computer Use recovery during GPT Pro stage reviews.",
+  "skills": [
+    "computer-use-gpt-pro-reviewer",
+    "browser-gpt-pro-reviewer",
+    "gpt-pro-review-preparer",
+    "phase-gate-auditor",
+    "codex-log-keeper",
+    "acceptance-evidence-collector"
+  ],
+  "intended_workflow": [
+    "Use Chrome extension or background browser control first for GPT Pro reviews.",
+    "Switch to Computer Use only when a callable Computer Use tool is exposed and the user is not actively using the foreground browser.",
+    "Inspect page state before input and stop on login, MFA, captcha, permission, privacy, payment, subscription renewal, or secret prompts.",
+    "Submit only the active stage review packet plus live GitHub gate evidence.",
+    "Save GPT Pro response, action items, final gate result, and next-stage instructions before a stage can pass."
+  ],
+  "restrictions": [
+    "Local-only governance draft; not published.",
+    "Does not install, expose, or emulate Computer Use.",
+    "Must not enter passwords, verification codes, payment data, API keys, tokens, or secrets.",
+    "Must stop on login, MFA, captcha, permission, privacy, payment, subscription renewal, or unclear consent prompts.",
+    "Must not use foreground keyboard or mouse automation while the user is actively using Chrome.",
+    "Must not commit screenshots or page captures containing private browser context.",
+    "Must not implement FinSignalHub runtime product behavior."
+  ],
+  "publish_status": "local-only",
+  "runtime_capability": "governance-wrapper-only; does not install or expose Computer Use by itself"
+}
